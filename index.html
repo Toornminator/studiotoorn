@@ -196,7 +196,7 @@
     /* Particle canvas */
     #hero-canvas {
       position: absolute; inset: 0; z-index: 0;
-      opacity: 0.55;
+      opacity: 0.55; width: 100%; height: 100%;
     }
     /* Radial vignette */
     #hero::after {
@@ -220,6 +220,7 @@
     }
     .hw { display: inline-block; transform: translateY(115%); opacity: 0; }
     .hw.it { font-style: italic; color: var(--amber); }
+    .hero-h1 em { font-style: inherit; }
     .hero-sub { overflow: hidden; margin-bottom: 3rem; }
     .hero-sub-text {
       font-size: clamp(.85rem, 1.2vw, 1rem); font-weight: 300;
@@ -662,10 +663,10 @@
       </div>
       <h1 class="hero-h1">
         <span style="display:block;overflow:hidden"><span class="hw">We don't</span></span>
-        <span style="display:block;overflow:hidden"><span class="hw">build <span class="hw it" style="transform:none;opacity:1">websites.</span></span></span>
+        <span style="display:block;overflow:hidden"><span class="hw">build <em class="hw it">websites.</em></span></span>
         <span style="display:block;overflow:hidden"><span class="hw">We build</span></span>
         <span style="display:block;overflow:hidden"><span class="hw it">unforgettable</span></span>
-        <span style="display:block;overflow:hidden"><span class="hw">digital <span class="hw it" style="transform:none;opacity:1">experiences.</span></span></span>
+        <span style="display:block;overflow:hidden"><span class="hw">digital <em class="hw it">experiences.</em></span></span>
       </h1>
       <div class="hero-sub">
         <p class="hero-sub-text">From Michelin-starred kitchens to pixel-perfect screens — we bring obsessive craft and cutting-edge AI to every project we touch.</p>
@@ -1066,6 +1067,7 @@
   <script>
   'use strict';
   gsap.registerPlugin(ScrollTrigger);
+  document.body.classList.add('lk');
 
   /* ─── GRAIN ─── */
   (function(){
@@ -1151,14 +1153,7 @@
   tri.style.strokeDasharray = triLen;
   tri.style.strokeDashoffset = triLen;
 
-  const plTl = gsap.timeline({
-    delay: .3,
-    onComplete(){
-      document.body.classList.remove('lk');
-      document.getElementById('pl').style.display='none';
-      launchHero();
-    }
-  });
+  const plTl = gsap.timeline({ delay: .3 });
   plTl
     .to('#pl-logo', { opacity:1, duration:.4 })
     .to(tri, { strokeDashoffset:0, duration:1.2, ease:'power2.inOut' }, '<')
@@ -1167,7 +1162,13 @@
     .to('#pl-bw', { opacity:1, duration:.2 })
     .to('#pl-bar', { width:'100%', duration:1.0, ease:'power2.inOut' }, '<')
     .to('#pl-pct', { opacity:1, duration:.3 }, '<')
-    .to('#pl', { yPercent:-100, duration:1.1, ease:'power3.inOut', delay:.3, onComplete(){ this.targets()[0].remove(); } });
+    .to('#pl', { yPercent:-100, duration:1.1, ease:'power3.inOut', delay:.3,
+      onComplete(){
+        this.targets()[0].remove();
+        document.body.classList.remove('lk');
+        launchHero();
+      }
+    });
 
   /* ─── HERO ENTRANCE ─── */
   function launchHero(){
