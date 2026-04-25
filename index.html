@@ -3,28 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Studio Toorn — Premium digital experiences. Web design, AI automation, brand identity. Costa del Sol.">
 <title>Studio Toorn — Premium Digital Agency</title>
-
-<!-- General Meta -->
-<meta name="description" content="Studio Toorn is a premium digital agency based on Spain's Costa del Sol. We build unforgettable digital experiences through web design, AI automation, content strategy and brand identity.">
-
-<!-- Open Graph / Social Media Preview -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://studiotoorn.com">
-<meta property="og:title" content="Studio Toorn — Premium Digital Agency">
-<meta property="og:description" content="We don't build websites. We build unforgettable digital experiences. Web design, AI automation, content strategy and brand identity from the Costa del Sol.">
-<meta property="og:image" content="https://studiotoorn.com/images/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Studio Toorn — Premium Digital Agency">
-<meta name="twitter:description" content="We don't build websites. We build unforgettable digital experiences.">
-<meta name="twitter:image" content="https://studiotoorn.com/images/og-image.png">
-
-<link rel="icon" type="image/png" href="images/monogram preloader.png">
-<link rel="apple-touch-icon" href="images/monogram preloader.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +34,7 @@ tailwind.config = {
   --border: rgba(200,164,85,0.15);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto}
+html{scroll-behavior:auto} /* Lenis overrides */
 body{background:var(--bg);color:var(--cream);font-family:'Outfit',system-ui,sans-serif;cursor:none;overflow-x:hidden}
 body.locked{overflow:hidden}
 a,button{cursor:none}
@@ -72,31 +52,74 @@ img{display:block;max-width:100%}
 
 /* ── Progress bar ─────────────────────────────────────── */
 #prog{position:fixed;top:0;left:0;height:2px;width:100%;background:transparent;z-index:9998;transform-origin:left;pointer-events:none}
+#prog::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--amber),var(--amber2));transform:scaleX(0);transform-origin:left;transition:transform .05s linear}
 
-/* ── Custom Cursor — Spaceship ────────────────────────── */
-#cursor-ship{position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:filter .3s;will-change:transform,left,top}
-#cursor-ship svg{width:24px;height:24px;filter:drop-shadow(0 0 2px rgba(200,164,85,0.3));transition:transform .3s,filter .3s}
-#cursor-ship.hover svg{transform:scale(1.3);filter:drop-shadow(0 0 8px rgba(200,164,85,0.6))}
-#cursor-ship.hover svg path{fill:var(--amber2)}
-.cursor-particle{position:fixed;width:4px;height:4px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9996}
-@media(pointer:coarse){#cursor-ship{display:none}body,a,button{cursor:auto}}
+/* ── Cursor ───────────────────────────────────────────── */
+#cursor-dot{position:fixed;width:8px;height:8px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:opacity .3s}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,164,85,0.5);border-radius:50%;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:width .4s,height .4s,border-color .3s}
+#cursor-ring.hover{width:56px;height:56px;border-color:var(--amber)}
+@media(pointer:coarse){#cursor-dot,#cursor-ring{display:none}body,a,button{cursor:auto}}
 
 /* ── Preloader ────────────────────────────────────────── */
-#preloader{position:fixed;inset:0;background:var(--bg);z-index:9990;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.pl-center{position:relative;width:35vh;height:35vh;display:flex;align-items:center;justify-content:center}
-.pl-ring{position:absolute;inset:0;width:100%;height:100%}
-.pl-ring circle{fill:none;stroke:#c8a455;stroke-width:1;stroke-dasharray:565.5;stroke-dashoffset:565.5}
-.pl-monogram{position:relative;width:70%;height:70%;object-fit:contain;opacity:0;z-index:2;filter:drop-shadow(0 0 0px rgba(200,164,85,0));border-radius:4px}
-.pl-monogram.glow{filter:drop-shadow(0 0 40px rgba(200,164,85,0.4)) drop-shadow(0 0 80px rgba(200,164,85,0.2))}
-.pl-name{font-family:'Outfit',sans-serif;font-size:clamp(.8rem,1.5vw,1rem);font-weight:300;letter-spacing:.5em;text-transform:uppercase;color:var(--cream);display:flex;overflow:hidden;margin-top:2rem}
-.pl-char{display:inline-block;transform:translateY(100%);opacity:0}
+#preloader{position:fixed;inset:0;background:#000;z-index:9990;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column}
+/* Monogram — absolutely centered at exact viewport center */
+.pl-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(100px,14vmin,150px);aspect-ratio:1;z-index:6;opacity:1}
+.pl-logo img{width:100%;height:100%;object-fit:contain;display:block}
+/* Stage — name + tagline positioned just below the centered logo */
+.pl-stage{position:absolute;top:calc(50% + clamp(50px,7vmin,75px) + 10px);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:2;width:100%}
+.pl-name{font-family:'Playfair Display',serif;font-size:clamp(.95rem,2vw,1.45rem);font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--cream);display:flex;overflow:hidden;padding-left:.5em}
+.pl-char{display:inline-block;transform:translateY(110%);opacity:0}
+.pl-tagline{font-size:.56rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(240,235,224,.38);margin-top:.9rem;opacity:0}
+/* Progress ring */
+.pl-ring{position:absolute;top:50%;left:50%;width:min(64vmin,420px);height:min(64vmin,420px);transform:translate(-50%,-50%);pointer-events:none;z-index:1}
+.pl-ring svg{width:100%;height:100%;transform:rotate(-90deg);display:block;overflow:visible}
+.pl-ring-track{fill:none;stroke:rgba(200,164,85,.1);stroke-width:1}
+.pl-ring-fill{fill:none;stroke:url(#pl-grad);stroke-width:1.5;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(200,164,85,.5))}
+/* Glow behind logo */
+.pl-glow{position:absolute;top:50%;left:50%;width:min(50vmin,360px);height:min(50vmin,360px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(200,164,85,.2) 0%,rgba(200,164,85,.04) 50%,transparent 70%);filter:blur(20px);opacity:0;z-index:0;pointer-events:none}
+/* Outer spinning ring */
+.pl-ring-outer{position:absolute;top:50%;left:50%;width:calc(min(64vmin,420px) + 50px);height:calc(min(64vmin,420px) + 50px);border-radius:50%;border:1px dashed rgba(200,164,85,.15);transform:translate(-50%,-50%);opacity:0;animation:pl-spin 28s linear infinite;pointer-events:none;z-index:1}
+@keyframes pl-spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+/* Pulsing rings from center */
+.pl-pulse{position:absolute;top:50%;left:50%;width:80px;height:80px;border-radius:50%;border:1px solid rgba(200,164,85,.4);transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none;z-index:1}
+.pl-pulse.p1{animation:pl-expand 2.2s ease-out .0s infinite}
+.pl-pulse.p2{animation:pl-expand 2.2s ease-out .7s infinite}
+.pl-pulse.p3{animation:pl-expand 2.2s ease-out 1.4s infinite}
+@keyframes pl-expand{0%{transform:translate(-50%,-50%) scale(0);opacity:0}15%{opacity:.7}100%{transform:translate(-50%,-50%) scale(6);opacity:0}}
+/* Corner meta */
+.pl-meta{position:absolute;font-family:'Outfit',sans-serif;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(240,235,224,.35);opacity:0;z-index:2;display:flex;align-items:center;gap:.55rem}
+.pl-dot{width:4px;height:4px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);animation:pl-blink 1.4s ease-in-out infinite;flex-shrink:0}
+@keyframes pl-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.pl-tl{top:2rem;left:2rem}
+.pl-tr{top:2rem;right:2rem;font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-style:italic;font-weight:400;letter-spacing:0;color:var(--cream);line-height:1;gap:.1rem;align-items:flex-start}
+.pl-tr-pct{font-size:.32em;color:var(--amber);font-style:normal;font-family:'Outfit',sans-serif;letter-spacing:.15em;margin-top:.5em}
+.pl-bl{bottom:2rem;left:2rem}
+.pl-br{bottom:2rem;right:2rem}
+/* Progress rail */
+.pl-rail{position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(200,164,85,.12);z-index:2;opacity:0}
+.pl-rail-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,transparent,var(--amber),var(--amber2),var(--amber));box-shadow:0 0 12px rgba(200,164,85,.6)}
+/* Curtain exit — START off-screen, slide IN to cover */
+.pl-curtain{position:absolute;left:0;right:0;background:#000;z-index:5;pointer-events:none}
+.pl-curtain-top{top:0;height:50%;transform:translateY(-100%)}
+.pl-curtain-bot{bottom:0;height:50%;transform:translateY(100%)}
+@media(max-width:720px){
+  .pl-tl,.pl-bl{left:1.25rem}.pl-tr,.pl-br{right:1.25rem}
+  .pl-tr{font-size:2rem}
+  .pl-meta{font-size:.5rem}
+}
 
 /* ── Navbar ───────────────────────────────────────────── */
 #nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.75rem 3rem;transition:padding .4s,background .4s,border-color .4s;border-bottom:1px solid transparent}
 #nav.scrolled{padding:1rem 3rem;background:rgba(10,10,10,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--border)}
-.nav-logo{display:flex;align-items:center;gap:1rem;text-decoration:none}
-.nav-logo img{height:45px;width:auto}
-.nav-logo-text{font-family:'Outfit',sans-serif;font-size:15px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);transition:opacity .3s}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--cream);text-decoration:none;display:inline-flex;align-items:center;gap:.7rem}
+.nav-monogram{display:inline-block;width:28px;height:28px;background:var(--cream);flex-shrink:0;transition:transform .4s ease;
+  -webkit-mask-image:url('images/monogram%20preloader.png');
+  mask-image:url('images/monogram%20preloader.png');
+  -webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center;
+  -webkit-mask-mode:luminance;mask-mode:luminance}
+.nav-logo:hover .nav-monogram{transform:rotate(-8deg) scale(1.08)}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s;padding-bottom:2px}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--amber);transition:width .3s ease}
@@ -104,12 +127,13 @@ img{display:block;max-width:100%}
 .nav-links a:hover::after{width:100%}
 .btn-nav{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.6rem 1.4rem;border:1px solid var(--amber);color:var(--amber);background:transparent;transition:background .3s,color .3s;text-decoration:none}
 .btn-nav:hover{background:var(--amber);color:#0a0a0a}
+/* Hamburger */
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;width:28px}
 .hamburger span{display:block;height:1px;background:var(--cream);transition:transform .3s,opacity .3s;transform-origin:center;will-change:transform}
 .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-@media(max-width:900px){#nav{padding:1.25rem 1.5rem}.nav-links,.btn-nav{display:none}.hamburger{display:flex}.nav-logo-text{display:none}}
+@media(max-width:900px){#nav{padding:1.25rem 1.5rem}.nav-links,.btn-nav{display:none}.hamburger{display:flex}}
 @media(max-width:900px){#nav.scrolled{padding:.9rem 1.5rem}}
 
 /* ── Nav Overlay ──────────────────────────────────────── */
@@ -126,41 +150,41 @@ img{display:block;max-width:100%}
 .ov-links a:hover{color:var(--amber)}
 .ov-bottom{margin-top:3rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);opacity:0;transition:opacity .5s .4s}
 #nav-overlay.open .ov-bottom{opacity:1}
-.ov-social{margin-top:2rem;display:flex;align-items:center;justify-content:center;gap:20px;opacity:0;transition:opacity .5s .5s}
-#nav-overlay.open .ov-social{opacity:1}
-.ov-social a{color:rgba(240,235,224,0.4);transition:color .3s,transform .3s;display:inline-flex}
-.ov-social a:hover{color:#c8a455;transform:scale(1.1)}
 .ov-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--cream);font-size:1.5rem;line-height:1;opacity:.6;transition:opacity .2s}
 .ov-close:hover{opacity:1}
 
 /* ── Hero ─────────────────────────────────────────────── */
-#hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#0a0a0a}
-#matrix-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,10,10,.6) 0%,rgba(10,10,10,.92) 70%,rgba(10,10,10,.98) 100%);z-index:1}
-.hero-content{position:relative;z-index:2;padding:0 1.5rem;padding-bottom:120px;max-width:920px;margin:0 auto;text-align:left}
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+#hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.88),rgba(10,10,10,.93));z-index:1}
+.hero-content{position:relative;z-index:2;padding:0 1.5rem;max-width:1180px;margin:0 auto;text-align:center}
+#hero h1{text-align:center;margin-inline:auto}
 .hero-eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--amber);margin-bottom:1.75rem;opacity:0;transform:translateY(20px)}
-.hero-line{display:block;font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6.5vw,5.8rem);font-weight:400;line-height:1.12;opacity:0;transform:translateY(40px)}
+.hero-line{display:block;font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.2vw,4.8rem);font-weight:400;line-height:1.14;letter-spacing:-0.01em;opacity:0;transform:translateY(40px);text-wrap:balance}
+.hero-line + .hero-line{margin-top:.1em}
 .hero-line.gold em,.gold-word{background:linear-gradient(135deg,var(--amber),var(--amber2),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:grad-flow 4s linear infinite paused;font-style:normal}
 @keyframes grad-flow{to{background-position:200% center}}
-.hero-sub{font-size:clamp(.9rem,1.4vw,1.05rem);font-weight:300;color:var(--muted);max-width:580px;margin:2rem 0 0;line-height:1.75;opacity:0;transform:translateY(20px)}
-.hero-ctas{display:flex;gap:16px;justify-content:flex-start;align-items:center;flex-wrap:nowrap;margin-top:2.5rem;margin-bottom:0;opacity:0;transform:translateY(20px);position:relative;z-index:3}
+.hero-sub{font-size:clamp(.9rem,1.4vw,1.05rem);font-weight:300;color:var(--muted);max-width:580px;margin:2rem auto 0;line-height:1.75;opacity:0;transform:translateY(20px)}
+.hero-ctas{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;opacity:0;transform:translateY(20px)}
 .btn-outline-gold{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.25rem;border:1px solid var(--amber);color:var(--amber);background:transparent;text-decoration:none;transition:background .3s,color .3s;display:inline-block}
 .btn-outline-gold:hover{background:var(--amber);color:#0a0a0a}
 .btn-solid-gold{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.25rem;border:1px solid var(--amber);color:#0a0a0a;background:var(--amber);text-decoration:none;transition:background .3s;display:inline-block}
 .btn-solid-gold:hover{background:var(--amber2)}
+/* Hero side text */
 .hero-side{position:absolute;top:50%;writing-mode:vertical-rl;font-size:.56rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(240,235,224,.08);transform:translateY(-50%);z-index:2}
 .hero-side-l{left:2rem;transform:translateY(-50%) rotate(180deg)}
 .hero-side-r{right:2rem}
-.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+/* Scroll indicator */
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem}
 .scroll-ind span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(240,235,224,.25)}
 .chevron{width:18px;height:18px;border-right:1.5px solid rgba(200,164,85,.4);border-bottom:1.5px solid rgba(200,164,85,.4);transform:rotate(45deg);animation:chevron-bounce 1.8s ease-in-out infinite}
 @keyframes chevron-bounce{0%,100%{transform:rotate(45deg) translateY(0);opacity:.4}50%{transform:rotate(45deg) translateY(4px);opacity:.9}}
 
 /* ── Marquee ─────────────────────────────────────────── */
-.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;white-space:nowrap;position:relative}
-.marquee-inner{display:inline-flex;flex-wrap:nowrap;align-items:center;animation:marquee-run 40s linear infinite;white-space:nowrap;will-change:transform}
-.marquee-inner span{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,164,85,.3);padding:0 1.5rem;flex-shrink:0;white-space:nowrap}
-.marquee-inner span.dot{padding:0 .75rem;opacity:.4;font-size:.5rem}
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;white-space:nowrap}
+.marquee-inner{display:inline-flex;gap:0;animation:marquee-run 30s linear infinite}
+.marquee-inner span{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,164,85,.3);padding:0 2rem}
+.marquee-inner span.dot{padding:0;opacity:.4}
 @keyframes marquee-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── Section labels ───────────────────────────────────── */
@@ -169,42 +193,54 @@ img{display:block;max-width:100%}
 .sec-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:400;line-height:1.1}
 .sec-h2 em{font-style:italic;color:var(--amber)}
 
-/* ── Services Showcase ───────────────────────────────── */
-.svc-showcase{display:flex;gap:0;min-height:600px;position:relative}
-.svc-list{width:40%;display:flex;flex-direction:column;justify-content:center;padding-right:3rem;position:relative}
-.svc-list-item{padding:1.5rem 0 1.5rem 1.5rem;border-left:2px solid rgba(200,164,85,.1);cursor:pointer;transition:border-color .4s,opacity .4s;opacity:.4;position:relative}
-.svc-list-item:hover{opacity:.7}
-.svc-list-item.active{border-left-color:var(--amber);opacity:1}
-.svc-list-num{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--amber);margin-bottom:.25rem}
-.svc-list-title{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:400;color:var(--cream);line-height:1.3}
-.svc-visual{width:60%;position:relative;overflow:hidden;border-radius:4px}
-.svc-panel{position:absolute;inset:0;opacity:0;transition:opacity .5s ease;display:flex;flex-direction:column}
-.svc-panel.active{opacity:1;position:relative}
-.svc-panel-img{width:100%;height:380px;object-fit:cover;border-radius:4px 4px 0 0}
-.svc-panel-body{padding:2rem 0}
-.svc-panel-desc{font-size:.9rem;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:1.5rem}
-.svc-panel-stats{display:flex;gap:2rem;flex-wrap:wrap}
-.svc-panel-stat{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);padding:.5rem 1rem;border:1px solid rgba(200,164,85,.2);border-radius:2px}
-@media(max-width:900px){
-  .svc-showcase{flex-direction:column}
-  .svc-list{width:100%;padding-right:0;flex-direction:row;overflow-x:auto;gap:.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
-  .svc-list-item{border-left:none;border-bottom:2px solid rgba(200,164,85,.1);padding:1rem;min-width:160px;flex-shrink:0}
-  .svc-list-item.active{border-bottom-color:var(--amber)}
-  .svc-visual{width:100%}
-  .svc-panel{position:absolute;inset:0}
-  .svc-panel.active{position:relative}
-}
+/* ── Services cards ───────────────────────────────────── */
+.svc-card{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:none}
+.svc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+.svc-card:hover img{transform:scale(1.06)}
+.svc-overlay{position:absolute;inset:0;background:rgba(8,8,7,.82);transition:background .5s;z-index:1}
+.svc-card:hover .svc-overlay{background:rgba(8,8,7,.6)}
+.svc-card-content{position:absolute;inset:0;z-index:2;padding:1.75rem;display:flex;flex-direction:column;justify-content:flex-end}
+.svc-wm{position:absolute;top:.4rem;left:.5rem;font-family:'Playfair Display',serif;font-size:clamp(4rem,8vw,7rem);font-weight:400;color:transparent;-webkit-text-stroke:1px rgba(200,164,85,.25);line-height:1;z-index:2;user-select:none;pointer-events:none}
+.svc-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:.5rem}
+.svc-desc{font-size:.82rem;font-weight:300;color:rgba(240,235,224,.6);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s;opacity:0}
+.svc-card:hover .svc-desc{max-height:4rem;opacity:1}
 
-/* ── Portfolio Carousel ──────────────────────────────── */
-.portfolio-outer{overflow:hidden}
-.portfolio-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1);will-change:transform}
-.portfolio-slide{min-width:100%;padding:0 5%;box-sizing:border-box}
-.portfolio-nav{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2.5rem}
-.portfolio-prev,.portfolio-next{width:48px;height:48px;border:1px solid rgba(200,164,85,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;background:transparent;color:var(--muted);transition:all .3s;flex-shrink:0}
-.portfolio-prev:hover,.portfolio-next:hover{background:var(--amber);color:#0a0a0a;border-color:var(--amber)}
-.portfolio-dot{height:8px;width:8px;border-radius:4px;border:none;padding:0;background:rgba(255,255,255,0.2);transition:width .3s,background .3s}
-.portfolio-counter{font-size:.65rem;letter-spacing:.2em;color:var(--muted)}
-@media(max-width:768px){.portfolio-prev,.portfolio-next{width:40px;height:40px}}
+/* ── Portfolio items ──────────────────────────────────── */
+.proj-item{position:relative;overflow:hidden;display:block;text-decoration:none;cursor:none}
+.proj-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+.proj-item:hover img{transform:scale(1.05)}
+.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.92) 0%,rgba(8,8,7,.2) 55%,transparent 100%);z-index:1;transition:opacity .4s}
+.proj-item:hover .proj-overlay{opacity:.95}
+.proj-info{position:absolute;bottom:0;left:0;right:0;padding:1.75rem 2rem;z-index:2}
+.proj-cat{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem}
+.proj-name{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,2rem);font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:.3rem}
+.proj-desc-text{font-size:.78rem;color:rgba(240,235,224,.4);font-weight:300;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.proj-item:hover .proj-desc-text{opacity:1;transform:none}
+.proj-wm{position:absolute;bottom:-.1em;left:-.03em;font-family:'Playfair Display',serif;font-size:clamp(100px,18vw,260px);font-weight:400;color:transparent;-webkit-text-stroke:1px rgba(200,164,85,.1);pointer-events:none;z-index:1;user-select:none;line-height:.9}
+.proj-item:hover .proj-wm{-webkit-text-stroke-color:rgba(200,164,85,.2)}
+/* Explore button — shown on hover in both card types */
+.proj-explore{display:inline-flex;align-items:center;gap:.55rem;padding:.52rem 1.3rem;border:1px solid rgba(200,164,85,.45);border-radius:2px;color:var(--amber);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;opacity:0;transform:translateY(5px);transition:opacity .35s,transform .35s,background .3s,border-color .3s;margin-top:.7rem;width:fit-content;pointer-events:auto}
+.proj-item:hover .proj-explore,.proj-live:hover .proj-explore{opacity:1;transform:none}
+.proj-explore:hover{background:rgba(200,164,85,.1);border-color:var(--amber)}
+.proj-explore svg{transition:transform .3s}
+.proj-explore:hover svg{transform:translateX(3px)}
+/* ── Live preview cards ────────────────────────────────── */
+.proj-live{position:relative;margin-bottom:1.5rem}
+.proj-browser{background:#161616;border:1px solid rgba(255,255,255,.07);border-bottom:none;border-radius:8px 8px 0 0;padding:9px 16px;display:flex;align-items:center;gap:12px}
+.proj-browser-dots{display:flex;gap:5px;flex-shrink:0}
+.proj-browser-dots span{width:9px;height:9px;border-radius:50%}
+.proj-browser-dots span:nth-child(1){background:#ff5f57}.proj-browser-dots span:nth-child(2){background:#febc2e}.proj-browser-dots span:nth-child(3){background:#28c840}
+.proj-browser-addr-wrap{flex:1;max-width:340px;background:rgba(255,255,255,.05);border-radius:3px;padding:3px 10px;display:flex;align-items:center;gap:6px;margin:0 auto;overflow:hidden}
+.proj-browser-addr{font-size:.58rem;letter-spacing:.04em;color:rgba(255,255,255,.32);font-family:'Courier New',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.proj-live-vp{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,255,255,.06);border-top:none;border-radius:0 0 8px 8px}
+.proj-iframe-scaler{position:absolute;top:0;left:0;transform-origin:top left;pointer-events:none;width:1440px}
+.proj-iframe-scaler iframe{width:1440px;height:900px;border:none;display:block}
+.proj-live-vp .proj-overlay{opacity:0;z-index:2}
+.proj-live:hover .proj-live-vp .proj-overlay{opacity:1}
+.proj-live .proj-info{z-index:3}
+.proj-live .proj-wm{z-index:2}
+.proj-live .proj-desc-text{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.proj-live:hover .proj-desc-text{opacity:1;transform:none}
 
 /* ── About sticky ─────────────────────────────────────── */
 .about-photo-wrap{position:sticky;top:120px}
@@ -212,32 +248,13 @@ img{display:block;max-width:100%}
 .about-photo-frame::before{content:'';position:absolute;top:-1rem;left:-1rem;width:4rem;height:4rem;border-top:1px solid rgba(200,164,85,.4);border-left:1px solid rgba(200,164,85,.4);z-index:2}
 .about-photo-frame::after{content:'';position:absolute;bottom:-1rem;right:-1rem;width:4rem;height:4rem;border-bottom:1px solid rgba(200,164,85,.4);border-right:1px solid rgba(200,164,85,.4);z-index:2}
 .about-photo-frame img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
-@media(max-width:768px){
-  .about-photo-wrap{position:static !important}
-  .about-photo-frame img{max-height:400px;aspect-ratio:auto}
-  .about-photo-frame{margin-bottom:32px}
-}
 .ir-wrap{position:relative;overflow:hidden}
 .ir-cover{position:absolute;inset:0;background:var(--amber);transform-origin:left center;z-index:3}
 
 /* ── Process timeline ─────────────────────────────────── */
 .proc-wrap{position:relative;padding:2rem 0}
-.proc-line-bg{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(200,164,85,.15),rgba(200,164,85,.04));transform:translateX(-50%)}
-.proc-line-fill{position:absolute;left:50%;top:0;width:1px;height:0%;background:linear-gradient(to bottom,var(--amber),var(--amber2),transparent);transform:translateX(-50%);box-shadow:0 0 8px rgba(200,164,85,.3)}
-/* Rocket */
-.proc-rocket{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);z-index:10;pointer-events:none}
-.proc-rocket svg{width:40px;height:auto}
-.rocket-flame{animation:flame-flicker .15s ease-in-out infinite alternate}
-.rocket-flame-inner{animation:flame-flicker .1s ease-in-out infinite alternate-reverse}
-@keyframes flame-flicker{0%{opacity:.6;transform:scaleY(.8) scaleX(1)}100%{opacity:1;transform:scaleY(1.2) scaleX(.85)}}
-.rocket-flame,.rocket-flame-inner{transform-origin:center top}
-/* Landing pad */
-.proc-landing{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:1.5rem;opacity:0}
-.proc-landing-circle{width:80px;height:80px;border-radius:50%;border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;position:relative;transition:box-shadow .6s}
-.proc-landing-circle span{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:var(--amber)}
-.proc-landing-circle.glow{box-shadow:0 0 25px rgba(200,164,85,.5),0 0 50px rgba(200,164,85,.2);animation:pad-pulse 2s ease-in-out infinite}
-@keyframes pad-pulse{0%,100%{box-shadow:0 0 25px rgba(200,164,85,.5),0 0 50px rgba(200,164,85,.2)}50%{box-shadow:0 0 35px rgba(200,164,85,.7),0 0 70px rgba(200,164,85,.3)}}
-.proc-landing-text{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-top:1rem;opacity:0}
+.proc-line-bg{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(200,164,85,.12);transform:translateX(-50%)}
+.proc-line-fill{position:absolute;left:50%;top:0;width:1px;height:0%;background:linear-gradient(to bottom,var(--amber),var(--amber2));transform:translateX(-50%);box-shadow:0 0 8px rgba(200,164,85,.3)}
 .proc-step{display:grid;grid-template-columns:1fr 60px 1fr;min-height:160px;padding:3rem 0;position:relative}
 .proc-step-content{padding:0 2rem}
 .proc-step.left-step .proc-step-content{grid-column:1;text-align:right;padding-right:2.5rem}
@@ -253,10 +270,9 @@ img{display:block;max-width:100%}
 .proc-title{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:400;color:var(--cream);margin-bottom:.65rem;line-height:1.2}
 .proc-desc{font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.85;max-width:400px}
 .proc-step.right-step .proc-desc{margin-left:0}
+/* Mobile: single column */
 @media(max-width:768px){
   .proc-line-bg,.proc-line-fill{left:20px}
-  .proc-rocket{left:20px}
-  .proc-rocket svg{width:25px}
   .proc-step{grid-template-columns:40px 1fr;min-height:auto;padding:2rem 0}
   .proc-step.left-step .proc-step-content,
   .proc-step.right-step .proc-step-content{grid-column:2;text-align:left;padding-left:1.5rem;padding-right:0}
@@ -265,9 +281,6 @@ img{display:block;max-width:100%}
   .proc-step.left-step .proc-step-empty,
   .proc-step.right-step .proc-step-empty{display:none}
   .proc-desc{max-width:none}
-  .proc-landing{align-items:flex-start;padding-left:5px}
-  .proc-landing-circle{width:60px;height:60px}
-  .proc-landing-circle span{font-size:1.1rem}
 }
 
 /* ── Testimonials carousel ────────────────────────────── */
@@ -278,9 +291,9 @@ img{display:block;max-width:100%}
 .tcard-text{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.4rem);font-weight:400;color:var(--cream);line-height:1.75;max-width:800px;margin-bottom:2rem}
 .tcard-name{font-size:.82rem;font-weight:600;color:var(--amber)}
 .tcard-role{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
-.testi-dot{width:7px;height:7px;border-radius:50%;background:rgba(200,164,85,.25);transition:background .3s,transform .3s;border:none;padding:0}
+.testi-dot{width:7px;height:7px;border-radius:50%;background:rgba(200,164,85,.25);transition:background .3s,transform .3s;border:none}
 .testi-dot.active{background:var(--amber);transform:scale(1.4)}
-.testi-arr{width:46px;height:46px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;background:transparent;color:var(--muted);transition:border-color .3s,color .3s,background .3s;flex-shrink:0}
+.testi-arr{width:46px;height:46px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;background:transparent;color:var(--muted);transition:border-color .3s,color .3s,background .3s}
 .testi-arr:hover{border-color:var(--amber);color:var(--amber);background:rgba(200,164,85,.06)}
 
 /* ── Contact form ─────────────────────────────────────── */
@@ -295,16 +308,12 @@ img{display:block;max-width:100%}
 .form-textarea{resize:none;height:90px}
 .btn-submit{width:100%;background:var(--amber);color:#0a0a0a;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1.1rem;border:none;position:relative;overflow:hidden;transition:background .3s}
 .btn-submit:hover{background:var(--amber2)}
+/* WhatsApp pulse */
 .btn-wa{display:inline-flex;align-items:center;gap:.85rem;background:#25D366;color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1.1rem 2rem;text-decoration:none;position:relative;transition:transform .3s,box-shadow .3s}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.3)}
 .btn-wa::before{content:'';position:absolute;inset:-5px;border:1.5px solid rgba(37,211,102,.4);animation:wa-ring 2.5s ease-out infinite}
 .btn-wa:hover::before{animation:none;opacity:0}
 @keyframes wa-ring{0%{opacity:1;inset:-5px}80%,100%{opacity:0;inset:-18px}}
-
-/* ── Social icons ────────────────────────────────────── */
-.social-row{display:flex;align-items:center;gap:16px}
-.social-row a{color:rgba(240,235,224,0.4);transition:color .3s,transform .3s;display:inline-flex}
-.social-row a:hover{color:#c8a455;transform:scale(1.1)}
 
 /* ── Stats numbers ────────────────────────────────────── */
 .stat-num{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,4.5rem);font-weight:400;color:var(--amber);line-height:1}
@@ -329,25 +338,6 @@ img{display:block;max-width:100%}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .rv,.rv-l,.rv-r{opacity:1;transform:none}
 }
-
-/* ── Mobile responsive ───────────────────────────────── */
-@media(max-width:768px){
-  html,body{overflow-x:hidden}
-  /* Hero */
-  .hero-content{padding:0 5% !important;padding-bottom:120px !important}
-  .hero-content h1 .hero-line{font-size:clamp(1.8rem,8vw,3rem) !important}
-  .hero-ctas{flex-direction:column;width:100%;gap:12px !important}
-  .hero-ctas a{width:100%;text-align:center;padding:1rem 1.5rem !important;min-height:44px;display:flex;align-items:center;justify-content:center}
-  /* Services */
-  .svc-visual{order:-1}
-  .svc-panel-img{height:250px !important}
-  /* Portfolio: JS handles mobile fallback */
-  /* Contact */
-  #contact .grid>div{padding:0 !important}
-  /* Touch targets */
-  a,button{min-height:44px}
-  .portfolio-dot{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
-}
 </style>
 </head>
 
@@ -357,32 +347,67 @@ img{display:block;max-width:100%}
 <div id="noise" aria-hidden="true"></div>
 <!-- ── Progress ── -->
 <div id="prog" aria-hidden="true"></div>
-<!-- ── Cursor: Spaceship ── -->
-<div id="cursor-ship" aria-hidden="true">
-  <svg width="24" height="24" viewBox="0 0 24 24">
-    <path d="M12 2C12 2 4 8 4 15C4 15 8 14 12 20C16 14 20 15 20 15C20 8 12 2 12 2Z" fill="#c8a455"/>
-    <path d="M10 15L8 20L12 18L16 20L14 15" fill="#c8a455" opacity="0.6"/>
-    <circle cx="12" cy="10" r="2" fill="#0a0a0a"/>
-  </svg>
-</div>
+<!-- ── Cursor ── -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <!-- ════ PRELOADER ════ -->
 <div id="preloader">
-  <div class="pl-center" id="pl-center">
-    <svg class="pl-ring" viewBox="0 0 200 200" id="pl-ring-svg">
-      <circle cx="100" cy="100" r="90" id="pl-circle"/>
+
+  <!-- Ambient glow -->
+  <div class="pl-glow" id="pl-glow"></div>
+
+  <!-- Pulsing rings (pure CSS, visible from frame 1) -->
+  <div class="pl-pulse p1"></div>
+  <div class="pl-pulse p2"></div>
+  <div class="pl-pulse p3"></div>
+
+  <!-- Outer dashed ring -->
+  <div class="pl-ring-outer" id="pl-ring-outer"></div>
+
+  <!-- SVG progress ring -->
+  <div class="pl-ring">
+    <svg viewBox="0 0 200 200" aria-hidden="true">
+      <defs>
+        <linearGradient id="pl-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c8a455"/>
+          <stop offset="50%" stop-color="#e0bc78"/>
+          <stop offset="100%" stop-color="#c8a455"/>
+        </linearGradient>
+      </defs>
+      <circle class="pl-ring-track" cx="100" cy="100" r="96"/>
+      <circle class="pl-ring-fill" id="pl-ring-fill" cx="100" cy="100" r="96"/>
     </svg>
-    <img src="images/monogram preloader.png" alt="Studio Toorn" class="pl-monogram" id="pl-mono">
   </div>
-  <div class="pl-name" id="pl-name"></div>
+
+  <!-- Monogram — absolutely centered at exact viewport midpoint -->
+  <div class="pl-logo" id="pl-logo">
+    <img src="images/monogram%20preloader.png" alt="Studio Toorn">
+  </div>
+
+  <!-- Name + tagline — centered below the logo -->
+  <div class="pl-stage">
+    <div class="pl-name" id="pl-name"></div>
+    <p class="pl-tagline" id="pl-tag">Premium Digital Agency</p>
+  </div>
+
+  <!-- Corner meta -->
+  <div class="pl-meta pl-tl"><span class="pl-dot"></span>Loading</div>
+  <div class="pl-meta pl-tr" id="pl-pct"><span id="pl-pct-num">00</span><span class="pl-tr-pct">%</span></div>
+  <div class="pl-meta pl-bl">36.517°N · 4.885°W</div>
+  <div class="pl-meta pl-br">EST · MMXXIV</div>
+
+  <!-- Progress rail -->
+  <div class="pl-rail" id="pl-rail-wrap"><div class="pl-rail-fill" id="pl-bar"></div></div>
+
+  <!-- Curtain exit panels — start OFF-SCREEN -->
+  <div class="pl-curtain pl-curtain-top" id="pl-curtain-top"></div>
+  <div class="pl-curtain pl-curtain-bot" id="pl-curtain-bot"></div>
 </div>
 
 <!-- ════ NAV ════ -->
 <nav id="nav">
-  <a href="#" class="nav-logo" id="logo-link">
-    <img src="images/Studio Toorn Monogram Final 4.png" alt="Studio Toorn">
-    <span class="nav-logo-text">Studio Toorn</span>
-  </a>
+  <a href="#" class="nav-logo" id="logo-link"><span class="nav-monogram" aria-hidden="true"></span>Studio Toorn</a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#services" data-scramble>Services</a></li>
     <li><a href="#work" data-scramble>Work</a></li>
@@ -407,17 +432,14 @@ img{display:block;max-width:100%}
     <li><a href="#contact" class="ov-link">Contact</a></li>
   </ul>
   <div class="ov-bottom">info@studiotoorn.com · +31 6 14 41 21 02</div>
-  <div class="ov-social">
-    <a href="https://www.instagram.com/nicktoorn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-    <a href="https://www.linkedin.com/in/nick-toorn-973351195/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-    <a href="https://www.facebook.com/ntoorn/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-    <a href="https://www.youtube.com/@toornbuilds" target="_blank" rel="noopener" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-  </div>
 </div>
 
 <!-- ════ HERO ════ -->
 <section id="hero">
-  <canvas id="matrix-canvas"></canvas>
+  <video id="hero-video" autoplay muted loop playsinline
+    poster="images/nano-banana-2_Abstract_visualization_of_artificial_intelligence_and_data_flow_glowing_warm_amb-3.jpg">
+    <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <span class="hero-side hero-side-l" aria-hidden="true">STUDIO TOORN</span>
   <span class="hero-side hero-side-r" aria-hidden="true">EST. 2024</span>
@@ -469,71 +491,48 @@ img{display:block;max-width:100%}
       <p class="sec-eyebrow">What We Do</p>
       <h2 class="sec-h2">Services built to <em>perform</em></h2>
     </div>
-    <div class="svc-showcase rv d1" id="svc-showcase">
-      <div class="svc-list" id="svc-list">
-        <div class="svc-list-item active" data-svc="0">
-          <div class="svc-list-num">01</div>
-          <div class="svc-list-title">Web Design &amp; Development</div>
-        </div>
-        <div class="svc-list-item" data-svc="1">
-          <div class="svc-list-num">02</div>
-          <div class="svc-list-title">AI-Powered Automation</div>
-        </div>
-        <div class="svc-list-item" data-svc="2">
-          <div class="svc-list-num">03</div>
-          <div class="svc-list-title">Content Creation &amp; Strategy</div>
-        </div>
-        <div class="svc-list-item" data-svc="3">
-          <div class="svc-list-num">04</div>
-          <div class="svc-list-title">Brand Identity</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+      <div class="svc-card rv d1">
+        <img src="images/nano-banana-2_Dramatic_overhead_shot_of_a_sleek_ultrawide_monitor_displaying_a_beautiful_dark--2.jpg" alt="Web Design — Studio Toorn" loading="lazy">
+        <div class="svc-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-wm" aria-hidden="true">01</span>
+          <h3 class="svc-title">Web Design &amp; Development</h3>
+          <p class="svc-desc">Handcrafted websites that convert visitors into clients. Every pixel considered, every interaction intentional.</p>
         </div>
       </div>
-      <div class="svc-visual" id="svc-visual">
-        <div class="svc-panel active" data-panel="0">
-          <img class="svc-panel-img" src="images/nano-banana-2_Dramatic_overhead_shot_of_a_sleek_ultrawide_monitor_displaying_a_beautiful_dark--2.jpg" alt="Web Design" loading="lazy">
-          <div class="svc-panel-body">
-            <p class="svc-panel-desc">We craft digital experiences that captivate. Not templates. Not themes. Bespoke design engineered to convert visitors into clients.</p>
-            <div class="svc-panel-stats">
-              <span class="svc-panel-stat">98% client satisfaction</span>
-              <span class="svc-panel-stat">Average 3.2s load time</span>
-              <span class="svc-panel-stat">Mobile-first always</span>
-            </div>
-          </div>
-        </div>
-        <div class="svc-panel" data-panel="1">
-          <img class="svc-panel-img" src="images/nano-banana-2_Abstract_visualization_of_artificial_intelligence_and_data_flow_glowing_warm_amb-3.jpg" alt="AI Automation" loading="lazy">
-          <div class="svc-panel-body">
-            <p class="svc-panel-desc">From automated content pipelines to intelligent customer workflows. We build systems that scale your business while you focus on what matters.</p>
-            <div class="svc-panel-stats">
-              <span class="svc-panel-stat">20+ hrs/week saved</span>
-              <span class="svc-panel-stat">9 platforms automated</span>
-              <span class="svc-panel-stat">Real-time analytics</span>
-            </div>
-          </div>
-        </div>
-        <div class="svc-panel" data-panel="2">
-          <img class="svc-panel-img" src="images/nano-banana-2_Cinematic_flat_lay_of_a_content_creator_workspace_on_a_dark_marble_surface_high--2.jpg" alt="Content Creation" loading="lazy">
-          <div class="svc-panel-body">
-            <p class="svc-panel-desc">Strategy that drives traffic. Content that builds authority. From SEO-optimized articles to scroll-stopping social media campaigns.</p>
-            <div class="svc-panel-stats">
-              <span class="svc-panel-stat">500% organic growth</span>
-              <span class="svc-panel-stat">Multi-platform</span>
-              <span class="svc-panel-stat">SEO-first approach</span>
-            </div>
-          </div>
-        </div>
-        <div class="svc-panel" data-panel="3">
-          <img class="svc-panel-img" src="images/nano-banana-2_Elegant_minimal_branding_mockup_on_a_dark_textured_surface_premium_business_card-0.jpg" alt="Brand Identity" loading="lazy">
-          <div class="svc-panel-body">
-            <p class="svc-panel-desc">Your brand is more than a logo. It's every touchpoint, every interaction, every feeling. We build brands that people remember.</p>
-            <div class="svc-panel-stats">
-              <span class="svc-panel-stat">Complete guidelines</span>
-              <span class="svc-panel-stat">Digital + Print</span>
-              <span class="svc-panel-stat">Strategy-led</span>
-            </div>
-          </div>
+
+      <div class="svc-card rv d2">
+        <img src="images/nano-banana-2_Abstract_visualization_of_artificial_intelligence_and_data_flow_glowing_warm_amb-3.jpg" alt="AI Automation — Studio Toorn" loading="lazy">
+        <div class="svc-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-wm" aria-hidden="true">02</span>
+          <h3 class="svc-title">AI-Powered Automation</h3>
+          <p class="svc-desc">Intelligent workflows that scale your business while you sleep. From lead capture to client communication.</p>
         </div>
       </div>
+
+      <div class="svc-card rv d3">
+        <img src="images/nano-banana-2_Cinematic_flat_lay_of_a_content_creator_workspace_on_a_dark_marble_surface_high--2.jpg" alt="Content Creation — Studio Toorn" loading="lazy">
+        <div class="svc-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-wm" aria-hidden="true">03</span>
+          <h3 class="svc-title">Content Creation &amp; Strategy</h3>
+          <p class="svc-desc">Stories that resonate, strategies that dominate. From editorial photography to long-form SEO content.</p>
+        </div>
+      </div>
+
+      <div class="svc-card rv d4">
+        <img src="images/nano-banana-2_Elegant_minimal_branding_mockup_on_a_dark_textured_surface_premium_business_card-0.jpg" alt="Brand Identity — Studio Toorn" loading="lazy">
+        <div class="svc-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-wm" aria-hidden="true">04</span>
+          <h3 class="svc-title">Brand Identity</h3>
+          <p class="svc-desc">From concept to culture — we shape how the world sees you. Logo, visual language, brand guidelines.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -546,179 +545,165 @@ img{display:block;max-width:100%}
       <h2 class="sec-h2">Projects that <em>moved the needle</em></h2>
     </div>
 
-    <div class="rv d1">
-      <div class="portfolio-outer">
-        <div class="portfolio-track">
-
-          <!-- 1 Villa Serena -->
-          <div class="portfolio-slide" style="min-width:100%;padding:0 5%;">
-            <div style="max-width:1000px;margin:0 auto;">
-              <div style="background:#1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6);">
-                <div style="background:#1a1a1a;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;">
-                  <div style="display:flex;gap:8px;">
-                    <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                  </div>
-                  <span style="flex:1;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);">villaserenamijas.netlify.app</span>
-                  <button class="interact-btn" style="font-size:11px;padding:6px 14px;border:1px solid rgba(200,164,85,0.4);background:transparent;color:#c8a455;border-radius:20px;cursor:pointer;transition:all .3s;">Explore</button>
-                </div>
-                <div style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;background:#111;height:0;padding-bottom:56.25%;">
-                  <iframe src="https://villaserenamijas.netlify.app" loading="lazy" title="Villa Serena" scrolling="yes" style="position:absolute;top:0;left:0;width:177.78%;height:177.78%;transform:scale(0.5625);transform-origin:top left;border:none;pointer-events:none;"></iframe>
-                </div>
-              </div>
-              <div style="text-align:center;margin-top:32px;">
-                <span style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#c8a455;">PROPERTY LISTING</span>
-                <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:8px 0;color:#f0ebe0;">Villa Serena</h3>
-                <a href="https://villaserenamijas.netlify.app" target="_blank" rel="noopener" style="color:#c8a455;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color .3s;">Visit Site →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2 EnBoca Gastrobar -->
-          <div class="portfolio-slide" style="min-width:100%;padding:0 5%;">
-            <div style="max-width:1000px;margin:0 auto;">
-              <div style="background:#1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6);">
-                <div style="background:#1a1a1a;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;">
-                  <div style="display:flex;gap:8px;">
-                    <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                  </div>
-                  <span style="flex:1;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);">enbocagastrobar.netlify.app</span>
-                  <button class="interact-btn" style="font-size:11px;padding:6px 14px;border:1px solid rgba(200,164,85,0.4);background:transparent;color:#c8a455;border-radius:20px;cursor:pointer;transition:all .3s;">Explore</button>
-                </div>
-                <div style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;background:#111;height:0;padding-bottom:56.25%;">
-                  <iframe src="https://enbocagastrobar.netlify.app" loading="lazy" title="EnBoca Gastrobar" scrolling="yes" style="position:absolute;top:0;left:0;width:177.78%;height:177.78%;transform:scale(0.5625);transform-origin:top left;border:none;pointer-events:none;"></iframe>
-                </div>
-              </div>
-              <div style="text-align:center;margin-top:32px;">
-                <span style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#c8a455;">RESTAURANT</span>
-                <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:8px 0;color:#f0ebe0;">EnBoca Gastrobar</h3>
-                <a href="https://enbocagastrobar.netlify.app" target="_blank" rel="noopener" style="color:#c8a455;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color .3s;">Visit Site →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3 SilkFlorae -->
-          <div class="portfolio-slide" style="min-width:100%;padding:0 5%;">
-            <div style="max-width:1000px;margin:0 auto;">
-              <div style="background:#1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6);">
-                <div style="background:#1a1a1a;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;">
-                  <div style="display:flex;gap:8px;">
-                    <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                  </div>
-                  <span style="flex:1;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);">silkflorae.com</span>
-                  <button class="interact-btn" style="font-size:11px;padding:6px 14px;border:1px solid rgba(200,164,85,0.4);background:transparent;color:#c8a455;border-radius:20px;cursor:pointer;transition:all .3s;">Explore</button>
-                </div>
-                <div style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;background:#111;height:0;padding-bottom:56.25%;">
-                  <iframe src="https://silkflorae.com" loading="lazy" title="SilkFlorae" scrolling="yes" style="position:absolute;top:0;left:0;width:177.78%;height:177.78%;transform:scale(0.5625);transform-origin:top left;border:none;pointer-events:none;"></iframe>
-                </div>
-              </div>
-              <div style="text-align:center;margin-top:32px;">
-                <span style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#c8a455;">E-COMMERCE</span>
-                <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:8px 0;color:#f0ebe0;">SilkFlorae</h3>
-                <a href="https://silkflorae.com" target="_blank" rel="noopener" style="color:#c8a455;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color .3s;">Visit Site →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4 SwingUnity -->
-          <div class="portfolio-slide" style="min-width:100%;padding:0 5%;">
-            <div style="max-width:1000px;margin:0 auto;">
-              <div style="background:#1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6);">
-                <div style="background:#1a1a1a;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;">
-                  <div style="display:flex;gap:8px;">
-                    <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                  </div>
-                  <span style="flex:1;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);">swingunity.com</span>
-                  <button class="interact-btn" style="font-size:11px;padding:6px 14px;border:1px solid rgba(200,164,85,0.4);background:transparent;color:#c8a455;border-radius:20px;cursor:pointer;transition:all .3s;">Explore</button>
-                </div>
-                <div style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;background:#111;height:0;padding-bottom:56.25%;">
-                  <iframe src="https://swingunity.com" loading="lazy" title="SwingUnity" scrolling="yes" style="position:absolute;top:0;left:0;width:177.78%;height:177.78%;transform:scale(0.5625);transform-origin:top left;border:none;pointer-events:none;"></iframe>
-                </div>
-              </div>
-              <div style="text-align:center;margin-top:32px;">
-                <span style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#c8a455;">COMMUNITY PLATFORM</span>
-                <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:8px 0;color:#f0ebe0;">SwingUnity</h3>
-                <a href="https://swingunity.com" target="_blank" rel="noopener" style="color:#c8a455;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color .3s;">Visit Site →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5 Juridisch AI Adviseur -->
-          <div class="portfolio-slide" style="min-width:100%;padding:0 5%;">
-            <div style="max-width:1000px;margin:0 auto;">
-              <div style="background:#1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6);">
-                <div style="background:#1a1a1a;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;">
-                  <div style="display:flex;gap:8px;">
-                    <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                  </div>
-                  <span style="flex:1;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);">juridischaidviseur.nl</span>
-                  <button class="interact-btn" style="font-size:11px;padding:6px 14px;border:1px solid rgba(200,164,85,0.4);background:transparent;color:#c8a455;border-radius:20px;cursor:pointer;transition:all .3s;">Explore</button>
-                </div>
-                <div style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;background:#111;height:0;padding-bottom:56.25%;">
-                  <iframe src="https://juridischaidviseur.nl" loading="lazy" title="Juridisch AI Adviseur" scrolling="yes" style="position:absolute;top:0;left:0;width:177.78%;height:177.78%;transform:scale(0.5625);transform-origin:top left;border:none;pointer-events:none;"></iframe>
-                </div>
-              </div>
-              <div style="text-align:center;margin-top:32px;">
-                <span style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#c8a455;">LEGAL TECH</span>
-                <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:8px 0;color:#f0ebe0;">Juridisch AI Adviseur</h3>
-                <a href="https://juridischaidviseur.nl" target="_blank" rel="noopener" style="color:#c8a455;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color .3s;">Visit Site →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6 Cosmic Ceramics -->
-          <div class="portfolio-slide" style="min-width:100%;padding:0 5%;">
-            <div style="max-width:1000px;margin:0 auto;">
-              <div style="background:#1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6);">
-                <div style="background:#1a1a1a;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;">
-                  <div style="display:flex;gap:8px;">
-                    <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                    <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                  </div>
-                  <span style="flex:1;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);">cosmic-ceramics.com</span>
-                  <button class="interact-btn" style="font-size:11px;padding:6px 14px;border:1px solid rgba(200,164,85,0.4);background:transparent;color:#c8a455;border-radius:20px;cursor:pointer;transition:all .3s;">Explore</button>
-                </div>
-                <div style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;background:#111;height:0;padding-bottom:56.25%;">
-                  <iframe src="https://cosmic-ceramics.com" loading="lazy" title="Cosmic Ceramics" scrolling="yes" style="position:absolute;top:0;left:0;width:177.78%;height:177.78%;transform:scale(0.5625);transform-origin:top left;border:none;pointer-events:none;"></iframe>
-                </div>
-              </div>
-              <div style="text-align:center;margin-top:32px;">
-                <span style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#c8a455;">E-COMMERCE</span>
-                <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:8px 0;color:#f0ebe0;">Cosmic Ceramics</h3>
-                <a href="https://cosmic-ceramics.com" target="_blank" rel="noopener" style="color:#c8a455;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color .3s;">Visit Site →</a>
-              </div>
-            </div>
-          </div>
-
+    <!-- Project 1 — En Boca, left-wide flagship -->
+    <div class="proj-live rv mb-6" style="width:70%;margin-left:0">
+      <div class="proj-browser">
+        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
+        <div class="proj-browser-addr-wrap">
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
+          <span class="proj-browser-addr">enbocagastrobar.netlify.app</span>
         </div>
       </div>
-
-      <div class="portfolio-nav">
-        <button class="portfolio-prev" aria-label="Previous project">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 12H5m7-7l-7 7 7 7"/></svg>
-        </button>
-        <div style="display:flex;gap:8px;align-items:center;">
-          <button class="portfolio-dot" style="width:24px;background:#c8a455;" aria-label="Project 1"></button>
-          <button class="portfolio-dot" aria-label="Project 2"></button>
-          <button class="portfolio-dot" aria-label="Project 3"></button>
-          <button class="portfolio-dot" aria-label="Project 4"></button>
-          <button class="portfolio-dot" aria-label="Project 5"></button>
-          <button class="portfolio-dot" aria-label="Project 6"></button>
+      <div class="proj-live-vp">
+        <div class="proj-iframe-scaler">
+          <iframe src="https://enbocagastrobar.netlify.app/" scrolling="no" loading="lazy" title="En Boca Gastro Bar" tabindex="-1"></iframe>
         </div>
-        <button class="portfolio-next" aria-label="Next project">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14m-7-7l7 7-7 7"/></svg>
-        </button>
-        <span class="portfolio-counter">01 / 06</span>
+        <div class="proj-overlay"></div>
+        <span class="proj-wm" aria-hidden="true">01</span>
+        <div class="proj-info">
+          <p class="proj-cat">Restaurant · Brand Experience</p>
+          <h3 class="proj-name">En Boca</h3>
+          <p class="proj-desc-text">Mediterranean gastro bar in Benalmádena. Full brand identity and immersive landing page.</p>
+          <a href="https://enbocagastrobar.netlify.app/" target="_blank" rel="noopener" class="proj-explore">
+            <span>Explore</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 — Juridisch AI Adviseur, right-aligned -->
+    <div class="proj-live rv d1 mb-6" style="width:66%;margin-left:auto;margin-right:0">
+      <div class="proj-browser">
+        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
+        <div class="proj-browser-addr-wrap">
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
+          <span class="proj-browser-addr">juridischaidviseur.nl</span>
+        </div>
+      </div>
+      <div class="proj-live-vp">
+        <div class="proj-iframe-scaler">
+          <iframe src="https://www.juridischaidviseur.nl/" scrolling="no" loading="lazy" title="Juridisch AI Adviseur" tabindex="-1"></iframe>
+        </div>
+        <div class="proj-overlay"></div>
+        <span class="proj-wm" aria-hidden="true">02</span>
+        <div class="proj-info">
+          <p class="proj-cat">Legal Tech · AI Platform</p>
+          <h3 class="proj-name">Juridisch AI Adviseur</h3>
+          <p class="proj-desc-text">AI-powered legal advice platform. GPT-4 integration with custom trained Dutch legal data.</p>
+          <a href="https://www.juridischaidviseur.nl/" target="_blank" rel="noopener" class="proj-explore">
+            <span>Explore</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects 3+4 — SilkFlorae + Cosmic Ceramics, side by side -->
+    <div class="grid grid-cols-2 gap-5 rv d2 mb-6">
+      <div class="proj-live">
+        <div class="proj-browser">
+          <div class="proj-browser-dots"><span></span><span></span><span></span></div>
+          <div class="proj-browser-addr-wrap">
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
+            <span class="proj-browser-addr">silkflorae.com</span>
+          </div>
+        </div>
+        <div class="proj-live-vp">
+          <div class="proj-iframe-scaler">
+            <iframe src="https://www.silkflorae.com/" scrolling="no" loading="lazy" title="SilkFlorae" tabindex="-1"></iframe>
+          </div>
+          <div class="proj-overlay"></div>
+          <span class="proj-wm" aria-hidden="true">03</span>
+          <div class="proj-info">
+            <p class="proj-cat">E-Commerce · Luxury Fashion</p>
+            <h3 class="proj-name">SilkFlorae</h3>
+            <p class="proj-desc-text">Premium e-commerce for a luxury fashion brand. Conversion-focused design.</p>
+            <a href="https://www.silkflorae.com/" target="_blank" rel="noopener" class="proj-explore">
+              <span>Explore</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-live">
+        <div class="proj-browser">
+          <div class="proj-browser-dots"><span></span><span></span><span></span></div>
+          <div class="proj-browser-addr-wrap">
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
+            <span class="proj-browser-addr">cosmic-ceramics.com</span>
+          </div>
+        </div>
+        <div class="proj-live-vp">
+          <div class="proj-iframe-scaler">
+            <iframe src="https://www.cosmic-ceramics.com/" scrolling="no" loading="lazy" title="Cosmic Ceramics" tabindex="-1"></iframe>
+          </div>
+          <div class="proj-overlay"></div>
+          <span class="proj-wm" aria-hidden="true">04</span>
+          <div class="proj-info">
+            <p class="proj-cat">E-Commerce · Artisan</p>
+            <h3 class="proj-name">Cosmic Ceramics</h3>
+            <p class="proj-desc-text">Artisan ceramics e-commerce. Handcrafted aesthetic meets seamless online shopping.</p>
+            <a href="https://www.cosmic-ceramics.com/" target="_blank" rel="noopener" class="proj-explore">
+              <span>Explore</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 — SwingUnity, left-aligned -->
+    <div class="proj-live rv d3 mb-6" style="width:64%;margin-left:0">
+      <div class="proj-browser">
+        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
+        <div class="proj-browser-addr-wrap">
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
+          <span class="proj-browser-addr">swingunity.com</span>
+        </div>
+      </div>
+      <div class="proj-live-vp">
+        <div class="proj-iframe-scaler">
+          <iframe src="https://www.swingunity.com/" scrolling="no" loading="lazy" title="SwingUnity" tabindex="-1"></iframe>
+        </div>
+        <div class="proj-overlay"></div>
+        <span class="proj-wm" aria-hidden="true">05</span>
+        <div class="proj-info">
+          <p class="proj-cat">Community · Platform</p>
+          <h3 class="proj-name">SwingUnity</h3>
+          <p class="proj-desc-text">Online community platform with membership system and event management.</p>
+          <a href="https://www.swingunity.com/" target="_blank" rel="noopener" class="proj-explore">
+            <span>Explore</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6 — Mr Consulting, right-aligned -->
+    <div class="proj-live rv d4" style="width:64%;margin-left:auto;margin-right:0">
+      <div class="proj-browser">
+        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
+        <div class="proj-browser-addr-wrap">
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
+          <span class="proj-browser-addr">mrconsultingspain.com</span>
+        </div>
+      </div>
+      <div class="proj-live-vp">
+        <div class="proj-iframe-scaler">
+          <iframe src="https://mrconsultingspain.com/" scrolling="no" loading="lazy" title="Mr Consulting" tabindex="-1"></iframe>
+        </div>
+        <div class="proj-overlay"></div>
+        <span class="proj-wm" aria-hidden="true">06</span>
+        <div class="proj-info">
+          <p class="proj-cat">Business · Consulting</p>
+          <h3 class="proj-name">Mr Consulting</h3>
+          <p class="proj-desc-text">Premium consulting firm website. Authority-first design that converts visitors into clients.</p>
+          <a href="https://mrconsultingspain.com/" target="_blank" rel="noopener" class="proj-explore">
+            <span>Explore</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -728,14 +713,20 @@ img{display:block;max-width:100%}
 <section id="about" class="py-24 px-6 bg-[#0d0d0b]">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-20 items-start">
+
+      <!-- Photo: sticky on desktop -->
       <div class="about-photo-wrap rv-l">
         <div class="about-photo-frame">
           <div class="ir-wrap">
-            <img src="images/nicktoorn.png" alt="Nick Toorn — Studio Toorn" loading="lazy" class="w-full" style="aspect-ratio:3/4;object-fit:cover;object-position:top">
+            <img src="images/nicktoorn.png"
+                 alt="Nick Toorn — Founder, Studio Toorn" loading="lazy"
+                 class="w-full" style="aspect-ratio:3/4;object-fit:cover;object-position:center top">
             <div class="ir-cover"></div>
           </div>
         </div>
       </div>
+
+      <!-- Text -->
       <div>
         <div class="rv">
           <p class="sec-eyebrow">The Mind Behind Studio Toorn</p>
@@ -746,7 +737,9 @@ img{display:block;max-width:100%}
         <p class="rv d3" style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:1.2rem">Behind the camera, he discovered the same truth: the difference between a good portrait and an unforgettable one is the ability to see what others overlook.</p>
         <p class="rv d4" style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:1.2rem">Studio Toorn was born from a simple conviction — that digital experiences deserve the same obsessive attention to craft. Every pixel considered. Every interaction intentional. Every project delivered as if our reputation depends on it. <em style="color:var(--amber);font-style:italic">Because it does.</em></p>
         <p class="rv" style="transition-delay:.5s;font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:2.5rem">Now based on Spain's Costa del Sol, Studio Toorn combines this artisan mindset with cutting-edge AI technology to build digital experiences that don't just look extraordinary — they perform.</p>
-        <div class="rv grid grid-cols-3 gap-6 pt-8 border-t border-[rgba(200,164,85,0.15)]" id="stats-row" style="transition-delay:.6s">
+
+        <!-- Stats -->
+        <div class="rv grid grid-cols-3 gap-6 pt-8 border-t border-[rgba(200,164,85,0.15)]" style="transition-delay:.6s">
           <div>
             <div class="stat-num" data-count="50" data-suffix="+">0</div>
             <div class="stat-label">Projects Delivered</div>
@@ -776,39 +769,6 @@ img{display:block;max-width:100%}
     <div class="proc-wrap" id="proc-wrap">
       <div class="proc-line-bg"></div>
       <div class="proc-line-fill" id="proc-line-fill"></div>
-
-      <!-- Rocket -->
-      <div class="proc-rocket" id="proc-rocket">
-        <svg viewBox="0 0 40 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Nose cone -->
-          <path d="M20 2C20 2 14 14 13 20L13 22L27 22L27 20C26 14 20 2 20 2Z" fill="#e0bc78"/>
-          <!-- Body -->
-          <path d="M13 22L13 46L20 50L27 46L27 22Z" fill="#c8a455"/>
-          <!-- Body center stripe -->
-          <path d="M18 22L18 48L22 48L22 22Z" fill="#e0bc78" opacity=".25"/>
-          <!-- Porthole -->
-          <circle cx="20" cy="30" r="4" fill="#0a0a0a" stroke="#e0bc78" stroke-width="1"/>
-          <circle cx="20" cy="30" r="2" fill="rgba(200,164,85,0.15)"/>
-          <!-- Left fin -->
-          <path d="M13 36L5 50L13 46Z" fill="#c8a455"/>
-          <path d="M13 38L8 48L13 45Z" fill="#e0bc78" opacity=".3"/>
-          <!-- Right fin -->
-          <path d="M27 36L35 50L27 46Z" fill="#c8a455"/>
-          <path d="M27 38L32 48L27 45Z" fill="#e0bc78" opacity=".3"/>
-          <!-- Nozzle -->
-          <path d="M16 50L15 53L25 53L24 50Z" fill="#b8944a"/>
-          <!-- Outer flame -->
-          <path class="rocket-flame" d="M14 53L20 68L26 53Z" fill="url(#flameGrad)" opacity=".8"/>
-          <!-- Inner flame -->
-          <path class="rocket-flame-inner" d="M16.5 53L20 63L23.5 53Z" fill="#ffd700" opacity=".9"/>
-          <defs>
-            <linearGradient id="flameGrad" x1="20" y1="53" x2="20" y2="68" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#c8a455"/>
-              <stop offset="100%" stop-color="#e8853d"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
 
       <!-- Step 1 — LEFT -->
       <div class="proc-step left-step rv" id="st1">
@@ -854,13 +814,6 @@ img{display:block;max-width:100%}
         </div>
       </div>
 
-      <!-- Landing Pad -->
-      <div class="proc-landing" id="proc-landing">
-        <div class="proc-landing-circle" id="proc-landing-circle">
-          <span>T</span>
-        </div>
-        <div class="proc-landing-text" id="proc-landing-text">Mission complete.</div>
-      </div>
     </div>
   </div>
 </section>
@@ -872,26 +825,42 @@ img{display:block;max-width:100%}
       <p class="sec-eyebrow">Client Stories</p>
       <h2 class="sec-h2">Words from those who <em>trust us</em></h2>
     </div>
+
     <div class="rv d1" style="transition-delay:.15s">
+      <!-- Viewport -->
       <div class="testi-viewport" id="testi-viewport">
         <div class="testi-track" id="testi-track">
+          <!-- Card 1 -->
           <div class="tcard">
             <span class="tcard-qs">"</span>
             <p class="tcard-text">Studio Toorn didn't just build us a website — they built us a reputation. Within three months of launching our property listings site, we closed two deals that came directly through the new platform. The quality speaks before we even pick up the phone.</p>
-            <div class="mt-auto"><div class="tcard-name">Alejandro Ruiz</div><div class="tcard-role">Senior Estate Agent · Marbella Luxury Properties</div></div>
+            <div class="mt-auto">
+              <div class="tcard-name">Alejandro Ruiz</div>
+              <div class="tcard-role">Senior Estate Agent · Marbella Luxury Properties</div>
+            </div>
           </div>
+          <!-- Card 2 -->
           <div class="tcard">
             <span class="tcard-qs">"</span>
             <p class="tcard-text">We had a website before. After Studio Toorn, we had an experience. Reservations went up 40% in the first month. Guests arrive having already fallen in love with us — Nick has an extraordinary ability to communicate atmosphere through a screen.</p>
-            <div class="mt-auto"><div class="tcard-name">Carmen Iglesias</div><div class="tcard-role">Owner · La Terraza del Puerto, Málaga</div></div>
+            <div class="mt-auto">
+              <div class="tcard-name">Carmen Iglesias</div>
+              <div class="tcard-role">Owner · La Terraza del Puerto, Málaga</div>
+            </div>
           </div>
+          <!-- Card 3 -->
           <div class="tcard">
             <span class="tcard-qs">"</span>
             <p class="tcard-text">We came to Nick with a concept and a deadline. He came back with something that made our investors sit forward in their chairs. The AI automation workflows he built have since saved us an estimated 20+ hours per week. Exceptional ROI doesn't begin to cover it.</p>
-            <div class="mt-auto"><div class="tcard-name">Pieter van den Berg</div><div class="tcard-role">Co-Founder · Nexora AI, Amsterdam</div></div>
+            <div class="mt-auto">
+              <div class="tcard-name">Pieter van den Berg</div>
+              <div class="tcard-role">Co-Founder · Nexora AI, Amsterdam</div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Controls -->
       <div class="flex items-center gap-4 mt-8">
         <button class="testi-arr" id="t-prev" aria-label="Previous testimonial">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 12H5m7-7l-7 7 7 7"/></svg>
@@ -914,6 +883,8 @@ img{display:block;max-width:100%}
 <section id="contact" class="py-24 px-6 bg-[#080807]">
   <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+      <!-- Left info -->
       <div class="rv">
         <p class="sec-eyebrow">Get In Touch</p>
         <h2 class="sec-h2 mb-8" style="font-size:clamp(2rem,4vw,3.5rem)">Let's create something <em>extraordinary</em></h2>
@@ -936,20 +907,15 @@ img{display:block;max-width:100%}
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.524 5.845L.057 23.428a.75.75 0 0 0 .915.915l5.638-1.462A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 0 1-4.953-1.356l-.355-.211-3.683.955.975-3.589-.232-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
           Message on WhatsApp
         </a>
-        <div class="social-row" style="margin-top:2rem">
-          <a href="https://www.instagram.com/nicktoorn" target="_blank" rel="noopener" aria-label="Instagram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.linkedin.com/in/nick-toorn-973351195/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.facebook.com/ntoorn/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.youtube.com/@toornbuilds" target="_blank" rel="noopener" aria-label="YouTube"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        </div>
       </div>
+
+      <!-- Right form -->
       <div class="rv d1">
         <div style="margin-bottom:2rem">
           <p class="sec-eyebrow">Start a Project</p>
           <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">We respond within 24 hours.</p>
         </div>
-        <form id="contact-form" action="https://formspree.io/f/xdapgprn" method="POST">
-          <input type="hidden" name="_subject" value="Nieuw project aanvraag via studiotoorn.com">
+        <form id="contact-form" action="https://formspree.io/f/xpwzgrqj" method="POST">
           <div class="form-field" id="ff1">
             <label class="form-label" for="f-name">Your Name</label>
             <input class="form-input" id="f-name" name="name" type="text" placeholder="John Smith" required>
@@ -957,7 +923,6 @@ img{display:block;max-width:100%}
           <div class="form-field" id="ff2">
             <label class="form-label" for="f-email">Email Address</label>
             <input class="form-input" id="f-email" name="email" type="email" placeholder="john@company.com" required>
-            <input type="hidden" name="_replyto" id="f-replyto">
           </div>
           <div class="form-field" id="ff3">
             <label class="form-label" for="f-type">Project Type</label>
@@ -986,39 +951,24 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ════ FOOTER ════ -->
-<footer style="border-top:1px solid rgba(200,164,85,0.1); padding:48px 5% 32px; background:#050505;">
-  <div class="footer-inner" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
-
-    <!-- LINKS -->
-    <div>
-      <img src="images/Studio Toorn Monogram Final 4.png" alt="Studio Toorn" style="height:50px; display:block; margin-bottom:12px;">
-      <p style="font-size:13px; letter-spacing:0.25em; text-transform:uppercase; font-weight:300; color:rgba(240,235,224,0.6); margin:0;">STUDIO TOORN</p>
-      <p style="font-size:12px; color:rgba(240,235,224,0.3); margin:8px 0 0;">Built with obsession.</p>
+<footer class="py-12 px-6 border-t border-[rgba(200,164,85,0.15)] bg-[#050504]">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6">
+    <div style="display:flex;align-items:center;gap:.85rem">
+      <span class="nav-monogram" aria-hidden="true"></span>
+      <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--cream)">Studio Toorn</span>
     </div>
-
-    <!-- MIDDEN -->
-    <div style="display:flex; gap:20px; align-items:center;">
-      <a href="https://www.instagram.com/nicktoorn" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social" style="color:rgba(240,235,224,0.4); transition:color .3s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://www.linkedin.com/in/nick-toorn-973351195/" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-social" style="color:rgba(240,235,224,0.4); transition:color .3s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-      <a href="https://www.facebook.com/ntoorn/" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social" style="color:rgba(240,235,224,0.4); transition:color .3s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      <a href="https://www.youtube.com/@toornbuilds" target="_blank" rel="noopener" aria-label="YouTube" class="footer-social" style="color:rgba(240,235,224,0.4); transition:color .3s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    <span style="font-size:.62rem;letter-spacing:.25em;color:var(--muted)">Built with obsession.</span>
+    <div style="display:flex;gap:.75rem">
+      <a href="#" aria-label="Instagram" style="width:36px;height:36px;border:1px solid rgba(200,164,85,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .3s,color .3s;text-decoration:none" onmouseenter="this.style.borderColor='#c8a455';this.style.color='#c8a455'" onmouseleave="this.style.borderColor='rgba(200,164,85,.15)';this.style.color='var(--muted)'">
+        <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border:1px solid rgba(200,164,85,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .3s,color .3s;text-decoration:none" onmouseenter="this.style.borderColor='#c8a455';this.style.color='#c8a455'" onmouseleave="this.style.borderColor='rgba(200,164,85,.15)';this.style.color='var(--muted)'">
+        <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
     </div>
-
-    <!-- RECHTS -->
-    <div style="text-align:right;">
-      <p style="font-size:12px; color:rgba(240,235,224,0.3); margin:0;">© 2025 Studio Toorn. All rights reserved.</p>
-    </div>
-
+    <p style="font-size:.65rem;color:var(--muted)">© 2025 Studio Toorn. All rights reserved.</p>
   </div>
 </footer>
-
-<style>
-.footer-social:hover{color:#c8a455 !important}
-@media(max-width:768px){
-  .footer-inner{flex-direction:column !important;align-items:center !important;text-align:center !important;}
-  .footer-inner>div{align-items:center !important;text-align:center !important;}
-}
-</style>
 
 <!-- ════ SCRIPTS ════ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1029,6 +979,7 @@ img{display:block;max-width:100%}
 (function() {
 'use strict';
 
+/* ── Feature detect ──────────────────────────────────── */
 const isTouch = window.matchMedia('(pointer:coarse)').matches;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
@@ -1038,14 +989,18 @@ function initLenis() {
   lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.9, smoothWheel: true });
   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
+  // Connect to GSAP ScrollTrigger
   lenis.on('scroll', ScrollTrigger.update);
   gsap.registerPlugin(ScrollTrigger);
 }
 
 /* ── Scroll progress bar ─────────────────────────────── */
 function initProgress() {
+  const fill = document.querySelector('#prog::after') || null;
+  // Use Lenis scroll event + inline style
   const prog = document.getElementById('prog');
   if (!prog) return;
+  // Add inner div
   const bar = document.createElement('div');
   bar.style.cssText = 'position:absolute;inset:0;background:linear-gradient(90deg,#c8a455,#e0bc78);transform:scaleX(0);transform-origin:left;transition:transform .05s linear';
   prog.appendChild(bar);
@@ -1056,99 +1011,21 @@ function initProgress() {
   }
 }
 
-/* ── Custom Cursor — Spaceship ───────────────────────── */
+/* ── Custom cursor ───────────────────────────────────── */
 function initCursor() {
   if (isTouch) return;
-  const ship = document.getElementById('cursor-ship');
-  if (!ship) return;
-
-  let prevX = 0, prevY = 0, angle = -0;
-  const moveTo = gsap.quickTo(ship, 'left', { duration: 0.12, ease: 'power2' });
-  const moveToY = gsap.quickTo(ship, 'top', { duration: 0.12, ease: 'power2' });
-
-  window.addEventListener('mousemove', e => {
-    const dx = e.clientX - prevX;
-    const dy = e.clientY - prevY;
-    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
-      angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-    }
-    prevX = e.clientX;
-    prevY = e.clientY;
-    moveTo(e.clientX);
-    moveToY(e.clientY);
-    gsap.to(ship, { rotation: angle, duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
-  }, { passive: true });
-
-  // Hover effect
-  document.querySelectorAll('a,button,input,select,textarea,.svc-list-item').forEach(el => {
-    el.addEventListener('mouseenter', () => ship.classList.add('hover'));
-    el.addEventListener('mouseleave', () => ship.classList.remove('hover'));
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  const xD = gsap.quickTo(dot, 'left', { duration: 0.08, ease: 'power3' });
+  const yD = gsap.quickTo(dot, 'top',  { duration: 0.08, ease: 'power3' });
+  const xR = gsap.quickTo(ring, 'left', { duration: 0.45, ease: 'power3' });
+  const yR = gsap.quickTo(ring, 'top',  { duration: 0.45, ease: 'power3' });
+  window.addEventListener('mousemove', e => { xD(e.clientX); yD(e.clientY); xR(e.clientX); yR(e.clientY); }, { passive: true });
+  document.querySelectorAll('a,button,input,select,textarea,.svc-card').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
   });
-
-  // Click burst
-  document.addEventListener('click', e => {
-    for (let i = 0; i < 4; i++) {
-      const p = document.createElement('div');
-      p.className = 'cursor-particle';
-      p.style.left = e.clientX + 'px';
-      p.style.top = e.clientY + 'px';
-      document.body.appendChild(p);
-      const a = (i / 4) * Math.PI * 2;
-      const d = 25 + Math.random() * 20;
-      gsap.to(p, {
-        x: Math.cos(a) * d, y: Math.sin(a) * d,
-        opacity: 0, scale: 0, duration: 0.5, ease: 'power2.out',
-        onComplete: () => p.remove()
-      });
-    }
-  });
-}
-
-/* ── Matrix Rain Canvas ──────────────────────────────── */
-function initMatrixRain() {
-  const canvas = document.getElementById('matrix-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const fontSize = 14;
-  let columns, drops;
-  const specials = ['<div>','</>','{}','=> ','design','build','create','AI','0x','fn','const','async'];
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    columns = Math.floor(canvas.width / fontSize);
-    // On mobile, reduce columns
-    if (isTouch) columns = Math.floor(columns * 0.5);
-    drops = new Array(columns).fill(0).map(() => Math.random() * -50);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function draw() {
-    ctx.fillStyle = 'rgba(10, 10, 10, 0.06)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < columns; i++) {
-      let text;
-      if (Math.random() < 0.03) {
-        text = specials[Math.floor(Math.random() * specials.length)];
-      } else {
-        text = Math.random() > 0.5 ? '0' : '1';
-      }
-      const opacity = 0.06 + Math.random() * 0.35;
-      ctx.fillStyle = `rgba(200, 164, 85, ${opacity})`;
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i] += 0.15 + Math.random() * 0.25;
-    }
-    requestAnimationFrame(draw);
-  }
-  // Slightly delay to not compete with preloader
-  setTimeout(draw, 500);
 }
 
 /* ── Navbar scroll effect ────────────────────────────── */
@@ -1168,6 +1045,7 @@ function initNav() {
   }
   if (lenis) lenis.on('scroll', handleScroll);
   else window.addEventListener('scroll', handleScroll, { passive: true });
+  // Logo link scrolls to top
   const logoLink = document.getElementById('logo-link');
   if (logoLink) {
     logoLink.addEventListener('click', e => {
@@ -1201,6 +1079,7 @@ function initHamburger() {
     overlay.classList.contains('open') ? closeOverlay() : openOverlay();
   });
   if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+  // Close when a link is clicked
   overlay.querySelectorAll('.ov-link').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -1211,13 +1090,14 @@ function initHamburger() {
       }, 300);
     });
   });
+  // Close on backdrop click
   overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
 }
 
 /* ── Smooth anchor links ─────────────────────────────── */
 function initAnchorLinks() {
   document.querySelectorAll('a[href^="#"]').forEach(a => {
-    if (a.classList.contains('ov-link')) return;
+    if (a.classList.contains('ov-link')) return; // handled separately
     a.addEventListener('click', e => {
       const hash = a.getAttribute('href');
       if (hash === '#') { e.preventDefault(); if (lenis) lenis.scrollTo(0, { duration: 1.2 }); return; }
@@ -1268,7 +1148,7 @@ function initMagnetic() {
   });
 }
 
-/* ── Scroll reveal ───────────────────────────────────── */
+/* ── Scroll reveal (IntersectionObserver) ────────────── */
 function initScrollReveal() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -1293,84 +1173,48 @@ function initImageReveals() {
 
 /* ── Animated counters ───────────────────────────────── */
 function initCounters() {
-  var statsRow = document.getElementById('stats-row');
-  if (!statsRow) return;
-  var fired = false;
-  var obs = new IntersectionObserver(function(entries) {
-    if (fired || !entries[0].isIntersecting) return;
-    fired = true;
-    obs.disconnect();
-    statsRow.querySelectorAll('[data-count]').forEach(function(el) {
-      var target = parseInt(el.dataset.count, 10);
-      var suffix = el.dataset.suffix || '';
-      var dur = prefersReducedMotion ? 0 : (target >= 50 ? 2000 : target >= 7 ? 1500 : 1000);
-      if (dur === 0) { el.textContent = target + suffix; return; }
-      var start = performance.now();
-      var tick = function(now) {
-        var t = Math.min((now - start) / dur, 1);
-        var ease = 1 - Math.pow(1 - t, 3);
-        var val = Math.round(ease * target);
-        el.textContent = t >= 1 ? target + suffix : String(val);
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur = prefersReducedMotion ? 0 : 1600;
+      if (dur === 0) { el.textContent = target + suffix; obs.unobserve(el); return; }
+      const start = performance.now();
+      const tick = now => {
+        const t = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(ease * target) + suffix;
         if (t < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
+      obs.unobserve(el);
     });
-  }, { threshold: 0.3 });
-  obs.observe(statsRow);
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => obs.observe(el));
 }
 
-/* ── Process timeline + Rocket ───────────────────────── */
+/* ── Process timeline line ───────────────────────────── */
 function initProcess() {
   const line = document.getElementById('proc-line-fill');
+  if (!line) return;
   const wrap = document.getElementById('proc-wrap');
-  const rocket = document.getElementById('proc-rocket');
-  const landing = document.getElementById('proc-landing');
-  const landingCircle = document.getElementById('proc-landing-circle');
-  const landingText = document.getElementById('proc-landing-text');
-  if (!line || !wrap) return;
+  if (!wrap) return;
 
-  // Line fill
+  // Draw the line via ScrollTrigger scrub (NO pin)
   gsap.to(line, {
     height: '100%',
     ease: 'none',
-    scrollTrigger: { trigger: wrap, start: 'top 75%', end: 'bottom 30%', scrub: 1 }
+    scrollTrigger: {
+      trigger: wrap,
+      start: 'top 75%',
+      end: 'bottom 30%',
+      scrub: 1,
+    }
   });
 
-  // Rocket follows timeline
-  if (rocket) {
-    gsap.set(rocket, { top: 0 });
-    const rocketTl = gsap.to(rocket, {
-      top: () => wrap.scrollHeight - 80,
-      ease: 'none',
-      scrollTrigger: { trigger: wrap, start: 'top 75%', end: 'bottom 30%', scrub: 1 }
-    });
-
-    // Landing animation at end
-    ScrollTrigger.create({
-      trigger: wrap,
-      start: 'bottom 50%',
-      once: true,
-      onEnter() {
-        // Show landing pad
-        if (landing) gsap.to(landing, { opacity: 1, duration: 0.6 });
-        // Shrink rocket, hide flames
-        gsap.to(rocket, { scale: 0.7, duration: 0.8, ease: 'power2.out' });
-        rocket.querySelectorAll('.rocket-flame,.rocket-flame-inner').forEach(f => {
-          gsap.to(f, { opacity: 0, duration: 0.4 });
-        });
-        // Glow on landing circle
-        if (landingCircle) {
-          setTimeout(() => landingCircle.classList.add('glow'), 600);
-        }
-        // "Mission complete." text fades in
-        if (landingText) {
-          gsap.to(landingText, { opacity: 0.8, duration: 0.8, delay: 1 });
-        }
-      }
-    });
-  }
-
-  // Light up dots
+  // Light up dots with IntersectionObserver
   ['dot1','dot2','dot3','dot4'].forEach(id => {
     const dot = document.getElementById(id);
     if (!dot) return;
@@ -1392,7 +1236,8 @@ function initTestimonials() {
   if (!track || !prevBtn || !nextBtn) return;
 
   const N = 3;
-  let current = 0, autoTimer = null;
+  let current = 0;
+  let autoTimer = null;
 
   function goTo(idx) {
     current = (idx + N) % N;
@@ -1400,6 +1245,7 @@ function initTestimonials() {
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
     if (countEl) countEl.textContent = String(current + 1).padStart(2, '0') + ' / 0' + N;
   }
+
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
@@ -1409,163 +1255,33 @@ function initTestimonials() {
     dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.idx, 10)); resetAuto(); });
   });
 
+  // Auto-advance
   function startAuto() { autoTimer = setInterval(next, 6000); }
   function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
   function resetAuto() { stopAuto(); startAuto(); }
 
+  // Pause on hover
   if (viewport) {
     viewport.addEventListener('mouseenter', stopAuto);
     viewport.addEventListener('mouseleave', startAuto);
   }
 
+  // Touch swipe
   let touchStartX = 0;
-  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const delta = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(delta) > 50) { delta < 0 ? next() : prev(); resetAuto(); }
-  }, { passive: true });
+  if (track) {
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const delta = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) > 50) { delta < 0 ? next() : prev(); resetAuto(); }
+    }, { passive: true });
+  }
 
+  // Start when in view
   if (viewport) {
     const obs = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) { startAuto(); obs.disconnect(); }
     }, { threshold: 0.3 });
     obs.observe(viewport);
-  }
-}
-
-/* ── Portfolio carousel ──────────────────────────────── */
-function initPortfolio() {
-  var track = document.querySelector('.portfolio-track');
-  var slides = document.querySelectorAll('.portfolio-slide');
-  var dots = document.querySelectorAll('.portfolio-dot');
-  var counter = document.querySelector('.portfolio-counter');
-  var prevBtn = document.querySelector('.portfolio-prev');
-  var nextBtn = document.querySelector('.portfolio-next');
-  if (!track || !prevBtn || !nextBtn) return;
-
-  // Mobile: hide iframes, show visit link
-  if (window.innerWidth <= 768) {
-    slides.forEach(function(slide) {
-      var iframe = slide.querySelector('iframe');
-      var btn = slide.querySelector('.interact-btn');
-      var wrap = iframe ? iframe.parentElement : null;
-      if (iframe) iframe.style.display = 'none';
-      if (btn) btn.style.display = 'none';
-      if (wrap) {
-        wrap.style.paddingBottom = '0';
-        wrap.style.height = '200px';
-        wrap.style.display = 'flex';
-        wrap.style.alignItems = 'center';
-        wrap.style.justifyContent = 'center';
-        var link = slide.querySelector('div[style*="text-align:center"] a');
-        var href = link ? link.href : '#';
-        var name = slide.querySelector('div[style*="text-align:center"] h3');
-        var label = name ? name.textContent : 'Site';
-        var a = document.createElement('a');
-        a.href = href;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.textContent = 'Visit ' + label + ' →';
-        a.style.cssText = 'font-family:Playfair Display,serif;font-size:1.2rem;color:#f0ebe0;text-decoration:none;';
-        wrap.appendChild(a);
-      }
-    });
-  }
-
-  var current = 0;
-  var total = 6;
-
-  function goTo(index) {
-    current = ((index % total) + total) % total;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dots.forEach(function(d, i) {
-      d.style.width = i === current ? '24px' : '8px';
-      d.style.background = i === current ? '#c8a455' : 'rgba(255,255,255,0.2)';
-    });
-    if (counter) counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
-    // Reset all interact states when changing slide
-    document.querySelectorAll('.interact-btn').forEach(function(b) {
-      var iframe = b.closest('.portfolio-slide').querySelector('iframe');
-      if (iframe) iframe.style.pointerEvents = 'none';
-      b.textContent = 'Explore';
-      b.style.background = 'transparent';
-      b.style.color = '#c8a455';
-    });
-  }
-
-  prevBtn.addEventListener('click', function() { goTo(current - 1); });
-  nextBtn.addEventListener('click', function() { goTo(current + 1); });
-  dots.forEach(function(d, i) { d.addEventListener('click', function() { goTo(i); }); });
-
-  // Autoplay
-  var autoplay = setInterval(function() { goTo(current + 1); }, 6000);
-  var section = track.closest('section') || track.parentElement.parentElement;
-  section.addEventListener('mouseenter', function() { clearInterval(autoplay); });
-  section.addEventListener('mouseleave', function() { autoplay = setInterval(function() { goTo(current + 1); }, 6000); });
-
-  // Touch swipe
-  var touchStartX = 0;
-  track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', function(e) {
-    var delta = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(delta) > 50) { delta < 0 ? goTo(current + 1) : goTo(current - 1); }
-  }, { passive: true });
-
-  // Interact toggle
-  document.querySelectorAll('.interact-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var iframe = btn.closest('.portfolio-slide').querySelector('iframe');
-      if (!iframe) return;
-      var isActive = iframe.style.pointerEvents === 'auto';
-      iframe.style.pointerEvents = isActive ? 'none' : 'auto';
-      btn.textContent = isActive ? 'Explore' : 'Back';
-      btn.style.background = isActive ? 'transparent' : '#c8a455';
-      btn.style.color = isActive ? '#c8a455' : '#0a0a0a';
-    });
-  });
-}
-
-/* ── Services showcase ───────────────────────────────── */
-function initServices() {
-  const showcase = document.getElementById('svc-showcase');
-  const listItems = document.querySelectorAll('.svc-list-item');
-  const panels = document.querySelectorAll('.svc-panel');
-  if (!showcase || !listItems.length || !panels.length) return;
-
-  let current = 0, autoTimer = null;
-
-  function goTo(idx) {
-    current = idx;
-    listItems.forEach((item, i) => item.classList.toggle('active', i === current));
-    panels.forEach((panel, i) => {
-      if (i === current) { panel.classList.add('active'); panel.style.position = 'relative'; }
-      else { panel.classList.remove('active'); panel.style.position = 'absolute'; }
-    });
-  }
-
-  listItems.forEach(item => {
-    item.addEventListener('click', () => { goTo(parseInt(item.dataset.svc, 10)); resetAuto(); });
-  });
-
-  function startAuto() { autoTimer = setInterval(() => goTo((current + 1) % 4), 5000); }
-  function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
-  function resetAuto() { stopAuto(); startAuto(); }
-
-  showcase.addEventListener('mouseenter', stopAuto);
-  showcase.addEventListener('mouseleave', startAuto);
-
-  const obs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { startAuto(); obs.disconnect(); }
-  }, { threshold: 0.2 });
-  obs.observe(showcase);
-}
-
-/* ── Form: sync _replyto ─────────────────────────────── */
-function initFormSync() {
-  const emailField = document.getElementById('f-email');
-  const replyTo = document.getElementById('f-replyto');
-  if (emailField && replyTo) {
-    emailField.addEventListener('input', () => { replyTo.value = emailField.value; });
   }
 }
 
@@ -1589,59 +1305,75 @@ function initFormReveal() {
 
 /* ── Preloader ───────────────────────────────────────── */
 function initPreloader() {
-  const pl = document.getElementById('preloader');
-  const plName = document.getElementById('pl-name');
-  const plMono = document.getElementById('pl-mono');
-  const plCircle = document.getElementById('pl-circle');
-  if (!pl || !plName || !plCircle) {
-    if (pl) pl.style.display = 'none';
-    document.body.classList.remove('locked');
-    launchHero();
-    return;
-  }
+  const pl       = document.getElementById('preloader');
+  const plName   = document.getElementById('pl-name');
+  const pctNum   = document.getElementById('pl-pct-num');
+  const ringFill = document.getElementById('pl-ring-fill');
+
+  if (!pl) { document.body.classList.remove('locked'); launchHero(); return; }
+  if (prefersReducedMotion) { pl.remove(); document.body.classList.remove('locked'); launchHero(); return; }
 
   // Build name chars
-  'STUDIO TOORN'.split('').forEach(c => {
-    const s = document.createElement('span');
-    s.className = 'pl-char';
-    s.textContent = c === ' ' ? '\u00A0' : c;
-    plName.appendChild(s);
-  });
-
-  if (prefersReducedMotion) {
-    pl.style.display = 'none';
-    document.body.classList.remove('locked');
-    launchHero();
-    return;
+  if (plName) {
+    'Studio Toorn'.split('').forEach(c => {
+      const s = document.createElement('span');
+      s.className = 'pl-char';
+      s.textContent = c === ' ' ? '\u00A0' : c;
+      plName.appendChild(s);
+    });
   }
 
-  const circumference = 2 * Math.PI * 90; // ~565.5
-  plCircle.style.strokeDasharray = circumference;
-  plCircle.style.strokeDashoffset = circumference;
+  // Ring stroke: circumference = 2πr, r=96
+  const CIRC = 2 * Math.PI * 96;
+  if (ringFill) {
+    ringFill.style.strokeDasharray  = CIRC;
+    ringFill.style.strokeDashoffset = CIRC;
+  }
 
-  const tl = gsap.timeline({ delay: 0.3 });
+  // Progress object drives ring + counter + rail
+  const prog = { v: 0 };
+
+  // Logo visible from frame 1 — only scale it in, never hide it
+  gsap.set('#pl-logo', { scale: 0.82 });
+
+  const tl = gsap.timeline({ delay: 0.1 });
   tl
-    // Fase 1: Golden ring draws itself
-    .to(plCircle, { strokeDashoffset: 0, duration: 1.5, ease: 'power2.inOut' })
-    // Fase 2: Monogram fades in with glow
-    .to(plMono, { opacity: 1, duration: 0.6, ease: 'power2.out', onComplete() { if (plMono) plMono.classList.add('glow'); } }, '-=0.3')
-    // Ring pulse
-    .to(plCircle, { stroke: '#e0bc78', strokeWidth: 2.5, duration: 0.3, ease: 'power1.out' }, '-=0.1')
-    .to(plCircle, { stroke: '#c8a455', strokeWidth: 1, duration: 0.4, ease: 'power1.in' })
-    // Fase 3: Letters appear one by one
-    .to('.pl-char', { y: 0, opacity: 1, stagger: 0.04, duration: 0.5, ease: 'power3.out' }, '-=0.2')
-    // Fase 4: Scale up + fade out
-    .to('#pl-center', { scale: 1.2, opacity: 0, duration: 0.8, ease: 'power2.in', delay: 0.3 })
-    .to('#pl-name', { opacity: 0, duration: 0.4 }, '<')
-    .to(pl, {
-      opacity: 0, duration: 0.4,
-      onComplete() {
-        pl.style.display = 'none';
-        pl.style.pointerEvents = 'none';
-        document.body.classList.remove('locked');
-        launchHero();
+    // Logo: scale in only — opacity stays 1 from CSS (visible before GSAP loads)
+    .to('#pl-logo', { scale: 1, duration: 0.85, ease: 'power3.out' })
+    // Glow + outer ring
+    .to(['#pl-glow', '#pl-ring-outer'], { opacity: 1, duration: 0.9, ease: 'power2.out' }, '<+0.1')
+    // Name chars rise
+    .to('.pl-char', { y: 0, opacity: 1, stagger: 0.04, duration: 0.65, ease: 'power3.out' }, '-=0.4')
+    // Tagline
+    .to('#pl-tag', { opacity: 1, duration: 0.35 }, '-=0.2')
+    // Corner meta + rail
+    .to('.pl-meta', { opacity: 1, duration: 0.45, stagger: 0.05 }, '-=0.15')
+    .to('#pl-rail-wrap', { opacity: 1, duration: 0.3 }, '<')
+    // PROGRESS: ring stroke + counter + rail in lock-step
+    .to(prog, {
+      v: 100, duration: 1.8, ease: 'power1.inOut',
+      onUpdate() {
+        const v = prog.v;
+        if (pctNum)   pctNum.textContent = String(Math.floor(v)).padStart(2, '0');
+        if (ringFill) ringFill.style.strokeDashoffset = CIRC * (1 - v / 100);
       }
-    }, '-=0.2');
+    })
+    .to('#pl-bar', { width: '100%', duration: 1.8, ease: 'power1.inOut' }, '<')
+    // Hold
+    .to({}, { duration: 0.25 })
+    // EXIT: logo swells, all fades, curtains close from outside in
+    .to('#pl-logo', { scale: 1.12, duration: 0.4, ease: 'power2.in' })
+    .to(['#pl-glow', '.pl-name', '#pl-tag', '.pl-meta', '#pl-rail-wrap', '.pl-ring', '#pl-ring-outer', '.pl-pulse'],
+        { opacity: 0, duration: 0.3 }, '<')
+    .to('#pl-logo', { opacity: 0, scale: 1.28, duration: 0.38, ease: 'power3.in' }, '-=0.1')
+    // Curtains slide IN from top/bottom to cover
+    .to('#pl-curtain-top', { yPercent: 100, duration: 0.85, ease: 'expo.inOut' }, '-=0.05')
+    .to('#pl-curtain-bot', { yPercent: -100, duration: 0.85, ease: 'expo.inOut' }, '<')
+    .call(() => {
+      pl.remove();
+      document.body.classList.remove('locked');
+      launchHero();
+    });
 }
 
 /* ── Hero launch ─────────────────────────────────────── */
@@ -1651,10 +1383,12 @@ function launchHero() {
       const el = document.getElementById(id);
       if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
     });
+    // Start gradient animation on gold word
     document.querySelectorAll('.gold-word').forEach(el => { el.style.animationPlayState = 'running'; });
     return;
   }
 
+  // Start gradient on gold word
   document.querySelectorAll('.gold-word').forEach(el => { el.style.animationPlayState = 'running'; });
 
   const tl = gsap.timeline();
@@ -1668,12 +1402,20 @@ function launchHero() {
     .to('#scroll-ind', { opacity: 1, duration: 0.6 }, '-=.2');
 }
 
+/* ── Video fallback ──────────────────────────────────── */
+function initVideoFallback() {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+  video.addEventListener('error', () => {
+    video.style.display = 'none';
+  });
+}
+
 /* ── INIT ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initLenis();
   initProgress();
   initCursor();
-  initMatrixRain();
   initNav();
   initHamburger();
   initAnchorLinks();
@@ -1684,16 +1426,28 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initProcess();
   initTestimonials();
-  initPortfolio();
-  initServices();
-  initFormSync();
   initFormReveal();
-  initPreloader();
+  initVideoFallback();
+  initPreloader(); // Last — triggers hero launch on complete
 
-  document.fonts.ready.then(() => { ScrollTrigger.refresh(); });
+  // Refresh ScrollTrigger after fonts + layout settle
+  document.fonts.ready.then(() => {
+    ScrollTrigger.refresh();
+  });
+  // Scale live preview iframes to fit their containers
+  function scaleWorkIframes() {
+    document.querySelectorAll('.proj-live-vp').forEach(vp => {
+      const scaler = vp.querySelector('.proj-iframe-scaler');
+      if (!scaler) return;
+      const scale = vp.offsetWidth / 1440;
+      scaler.style.transform = `scale(${scale})`;
+    });
+  }
+  scaleWorkIframes();
+
   window.addEventListener('resize', () => {
     clearTimeout(window._resizeTimer);
-    window._resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
+    window._resizeTimer = setTimeout(() => { ScrollTrigger.refresh(); scaleWorkIframes(); }, 250);
   }, { passive: true });
 });
 
