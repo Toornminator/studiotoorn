@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OG Image Generator — Studio Toorn</title>
+<style>
+  body { margin: 0; padding: 0; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .og {
+    width: 1200px; height: 630px; background: #0a0a0a; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+  /* Noise texture overlay */
+  .og::before {
+    content: ''; position: absolute; inset: 0; opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+  /* Subtle radial glow */
+  .og::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(200,164,85,0.06) 0%, transparent 60%);
+  }
+  .og > * { position: relative; z-index: 1; }
+  /* Subtle border lines */
+  .border-line {
+    position: absolute; z-index: 1;
+    background: rgba(200,164,85,0.12);
+  }
+  .border-line.top { top: 40px; left: 60px; right: 60px; height: 1px; }
+  .border-line.bottom { bottom: 40px; left: 60px; right: 60px; height: 1px; }
+  .border-line.left { top: 40px; bottom: 40px; left: 60px; width: 1px; }
+  .border-line.right { top: 40px; bottom: 40px; right: 60px; width: 1px; }
+
+  .monogram { height: 120px; margin-bottom: 32px; }
+  .name {
+    font-size: 28px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: #c8a455; font-weight: 300; margin-bottom: 12px;
+  }
+  .tagline {
+    font-size: 18px; color: rgba(240,235,224,0.45); font-weight: 300;
+    letter-spacing: 0.08em;
+  }
+  .url {
+    position: absolute; bottom: 56px; font-size: 13px;
+    letter-spacing: 0.2em; color: rgba(200,164,85,0.35);
+    text-transform: lowercase;
+  }
+
+  /* Instructions */
+  .instructions {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(200,164,85,0.1); color: #c8a455; padding: 12px 24px;
+    border-radius: 8px; font-family: system-ui; font-size: 14px;
+    border: 1px solid rgba(200,164,85,0.2); z-index: 100;
+    width: 1200px; text-align: center; box-sizing: border-box;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="og" id="og-capture">
+  <div class="border-line top"></div>
+  <div class="border-line bottom"></div>
+  <div class="border-line left"></div>
+  <div class="border-line right"></div>
+
+  <img src="images/monogram preloader.png" alt="Studio Toorn" class="monogram">
+  <div class="name">Studio Toorn</div>
+  <div class="tagline">Premium Digital Agency</div>
+  <div class="url">studiotoorn.com</div>
+</div>
+
+<div class="instructions">
+  Right-click the image above &rarr; Inspect &rarr; Screenshot node (or use browser DevTools: Ctrl+Shift+P &rarr; "Capture node screenshot" on the #og-capture div). Save as <strong>images/og-image.png</strong>
+</div>
+
+</body>
+</html>
