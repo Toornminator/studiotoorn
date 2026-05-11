@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PaperBackground } from "@/components/layout/PaperBackground";
 import { fontVariables } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -16,8 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={cn(fontVariables, "h-full antialiased")}>
-      <body className="min-h-full flex flex-col bg-cream text-ink font-serif">
-        {children}
+      <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
+        <PaperBackground />
+        <main className="relative z-10 flex flex-1 flex-col">{children}</main>
       </body>
     </html>
   );
