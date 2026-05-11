@@ -4,8 +4,13 @@ export type StickerLayout = {
   alt?: string;
   size?: number;
   initialRotation: number;
-  /** Position expressed as a percentage of the viewport, top-left anchored. */
+  /** Horizontal position as % of viewport width, top-left anchored. */
   posVw: number;
+  /**
+   * Vertical position as % of viewport height. Values >100 place the
+   * sticker below the first viewport — useful for stickers that should
+   * land inside later sections (about, timeline, etc.).
+   */
   posVh: number;
 };
 
@@ -16,6 +21,7 @@ export type StickerLayout = {
  * sensible viewport-relative defaults.
  */
 export const stickerLayout: StickerLayout[] = [
+  // ── Hero section (first viewport) ──
   {
     id: "rose",
     svgPath: "/stickers/rose.svg",
@@ -60,5 +66,44 @@ export const stickerLayout: StickerLayout[] = [
     posVw: 70,
     posVh: 46,
     size: 120,
+  },
+
+  // ── Timeline chapter stickers (deeper in the page) ──
+  // Calibrated for desktop; the provider clamps to viewport edges on mobile.
+  {
+    id: "knife",
+    svgPath: "/stickers/knife.svg",
+    alt: "Chef's knife — Amsterdam chapter",
+    initialRotation: -14,
+    posVw: 83,
+    posVh: 305,
+    size: 110,
+  },
+  {
+    id: "camera",
+    svgPath: "/stickers/camera.svg",
+    alt: "Camera — photography chapter",
+    initialRotation: 10,
+    posVw: 7,
+    posVh: 380,
+    size: 110,
+  },
+  {
+    id: "sun",
+    svgPath: "/stickers/sun.svg",
+    alt: "Sun — Costa del Sol chapter",
+    initialRotation: 18,
+    posVw: 84,
+    posVh: 450,
+    size: 110,
+  },
+  {
+    id: "table",
+    svgPath: "/stickers/table.svg",
+    alt: "Dressed table — private chef chapter",
+    initialRotation: -10,
+    posVw: 8,
+    posVh: 525,
+    size: 115,
   },
 ];
