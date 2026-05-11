@@ -7,35 +7,6 @@ const LETTER_STAGGER = 0.08;
 const REVEAL_DURATION = 0.6;
 const TOORN = "TOORN";
 
-function NavBar() {
-  return (
-    <nav className="relative z-20 flex flex-wrap items-center justify-between gap-3 px-5 py-5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/70 sm:px-10 sm:text-[11px]">
-      <span className="font-medium text-ink">TOORN at table</span>
-      <div className="flex items-center gap-3 sm:gap-6">
-        <a
-          href="#kookboek"
-          className="transition-colors hover:text-tattoo-red"
-        >
-          <span className="hidden sm:inline">Het Kookboek</span>
-          <span className="sm:hidden">Kookboek</span>
-        </a>
-        <span aria-hidden className="text-ink/30">
-          ·
-        </span>
-        <a href="#events" className="transition-colors hover:text-tattoo-red">
-          Events
-        </a>
-        <span aria-hidden className="text-ink/30">
-          ·
-        </span>
-        <a href="#contact" className="transition-colors hover:text-tattoo-red">
-          Contact
-        </a>
-      </div>
-    </nav>
-  );
-}
-
 function HandwrittenNote({ delay }: { delay: number }) {
   return (
     <motion.div
@@ -90,8 +61,6 @@ export function Hero() {
       className="relative flex flex-col"
       style={{ minHeight: "max(100svh, 640px)" }}
     >
-      <NavBar />
-
       <div className="relative flex flex-1 flex-col items-center justify-center px-5 pb-24 pt-6 text-center sm:px-12">
         <h1 className="font-display italic text-ink">
           <span

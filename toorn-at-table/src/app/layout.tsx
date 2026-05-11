@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CustomCursor } from "@/components/layout/CustomCursor";
+import { NavBar } from "@/components/layout/NavBar";
 import { PaperBackground } from "@/components/layout/PaperBackground";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
         <SmoothScroll>
           <PaperBackground />
+          <NavBar />
           <main className="relative z-10 flex flex-1 flex-col">{children}</main>
           <StickerProvider />
           <CustomCursor />

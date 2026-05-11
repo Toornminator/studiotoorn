@@ -14,9 +14,9 @@ export function About() {
       aria-labelledby="about-heading"
       className="relative w-full"
     >
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-5 py-28 md:grid-cols-12 md:gap-16 md:px-12 md:py-40">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-12 md:py-40">
         <div className="md:col-span-5">
-          <div className="relative">
+          <div className="relative mx-auto w-full max-w-[320px] md:max-w-none">
             <Portrait />
             <span className="absolute -bottom-3 -right-3 rotate-[-4deg] bg-ink px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream">
               Nick Toorn · 36

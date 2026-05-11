@@ -31,6 +31,7 @@ export function StickerProvider() {
       className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full overflow-hidden"
     >
       {stickerLayout.map((s) => {
+        if (s.hideBelowVw && viewport.vw < s.hideBelowVw) return null;
         const size = Math.round((s.size ?? 120) * scale);
         const rawX = (viewport.vw * s.posVw) / 100 - size / 2;
         const rawY = (viewport.vh * s.posVh) / 100 - size / 2;

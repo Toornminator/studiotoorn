@@ -12,6 +12,12 @@ export type StickerLayout = {
    * land inside later sections (about, timeline, etc.).
    */
   posVh: number;
+  /**
+   * Hide this sticker when the viewport is narrower than this width in px.
+   * Useful for stickers anchored to a desktop layout that would crash into
+   * single-column mobile content if rendered.
+   */
+  hideBelowVw?: number;
 };
 
 /**
@@ -69,7 +75,8 @@ export const stickerLayout: StickerLayout[] = [
   },
 
   // ── Timeline chapter stickers (deeper in the page) ──
-  // Calibrated for desktop; the provider clamps to viewport edges on mobile.
+  // Calibrated for the desktop two-column timeline; hidden below md (768px)
+  // where the single-column layout has no margin to host them.
   {
     id: "knife",
     svgPath: "/stickers/knife.svg",
@@ -78,6 +85,7 @@ export const stickerLayout: StickerLayout[] = [
     posVw: 83,
     posVh: 305,
     size: 110,
+    hideBelowVw: 768,
   },
   {
     id: "camera",
@@ -87,6 +95,7 @@ export const stickerLayout: StickerLayout[] = [
     posVw: 7,
     posVh: 380,
     size: 110,
+    hideBelowVw: 768,
   },
   {
     id: "sun",
@@ -96,6 +105,7 @@ export const stickerLayout: StickerLayout[] = [
     posVw: 84,
     posVh: 450,
     size: 110,
+    hideBelowVw: 768,
   },
   {
     id: "table",
@@ -105,5 +115,6 @@ export const stickerLayout: StickerLayout[] = [
     posVw: 8,
     posVh: 525,
     size: 115,
+    hideBelowVw: 768,
   },
 ];
