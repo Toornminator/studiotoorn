@@ -14,21 +14,23 @@ function clamp(value: number, min: number, max: number) {
 
 export type StickerProps = {
   id: string;
-  svgPath: string;
+  imagePath: string;
   initialX: number;
   initialY: number;
   initialRotation?: number;
-  size?: number;
+  width: number;
+  height: number;
   alt?: string;
 };
 
 export function Sticker({
   id,
-  svgPath,
+  imagePath,
   initialX,
   initialY,
   initialRotation = 0,
-  size = 120,
+  width,
+  height,
   alt = "",
 }: StickerProps) {
   const hasHydrated = useStickerStore((s) => s.hasHydrated);
@@ -53,7 +55,6 @@ export function Sticker({
   const [isDragging, setIsDragging] = useState(false);
   const baseRotRef = useRef(initialRotation);
 
-  // After Zustand hydrates from localStorage, jump to the persisted position.
   useEffect(() => {
     if (!hasHydrated) return;
     baseRotRef.current = startRot;
@@ -108,27 +109,29 @@ export function Sticker({
       data-cursor="grab"
       className="absolute top-0 left-0 select-none will-change-transform"
       style={{
-        width: size,
-        height: size,
+        width,
+        height,
         transform,
         zIndex: isDragging ? 1000 : baseZ,
         pointerEvents: "auto",
         touchAction: "none",
         cursor: isDragging ? "grabbing" : "grab",
-        boxShadow: isDragging
-          ? "var(--shadow-sticker-lifted)"
-          : "var(--shadow-sticker-rest)",
-        borderRadius: "9999px",
-        transition: "box-shadow 220ms ease",
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={svgPath}
+        src={imagePath}
         alt={alt}
         draggable={false}
-        className="pointer-events-none h-full w-full"
-        style={{ userSelect: "none" }}
+        className="pointer-events-none h-full w-full select-none"
+        style={{
+          userSelect: "none",
+          objectFit: "contain",
+          filter: isDragging
+            ? "drop-shadow(0 14px 24px rgba(26,26,26,0.28))"
+            : "drop-shadow(0 5px 10px rgba(26,26,26,0.18))",
+          transition: "filter 220ms ease",
+        }}
       />
     </animated.div>
   );

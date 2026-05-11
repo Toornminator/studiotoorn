@@ -5,7 +5,7 @@ import { Sticker } from "./Sticker";
 import { stickerLayout } from "./sticker-config";
 
 const MOBILE_BREAKPOINT = 640;
-const MOBILE_SCALE = 0.65;
+const MOBILE_SCALE = 0.7;
 
 export function StickerProvider() {
   const [viewport, setViewport] = useState<{ vw: number; vh: number } | null>(
@@ -32,21 +32,23 @@ export function StickerProvider() {
     >
       {stickerLayout.map((s) => {
         if (s.hideBelowVw && viewport.vw < s.hideBelowVw) return null;
-        const size = Math.round((s.size ?? 120) * scale);
-        const rawX = (viewport.vw * s.posVw) / 100 - size / 2;
-        const rawY = (viewport.vh * s.posVh) / 100 - size / 2;
+        const height = Math.round((s.height ?? 140) * scale);
+        const width = Math.round(height * (s.aspect ?? 1));
+        const rawX = (viewport.vw * s.posVw) / 100 - width / 2;
+        const rawY = (viewport.vh * s.posVh) / 100 - height / 2;
         const initialX = Math.max(
           8,
-          Math.min(viewport.vw - size - 8, rawX),
+          Math.min(viewport.vw - width - 8, rawX),
         );
         const initialY = Math.max(8, rawY);
         return (
           <Sticker
             key={s.id}
             id={s.id}
-            svgPath={s.svgPath}
+            imagePath={s.imagePath}
             alt={s.alt}
-            size={size}
+            width={width}
+            height={height}
             initialRotation={s.initialRotation}
             initialX={initialX}
             initialY={initialY}

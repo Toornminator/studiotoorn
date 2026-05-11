@@ -12,6 +12,28 @@ export const metadata: Metadata = {
   title: "TOORN at table — Private chef, Costa del Sol",
   description:
     "Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als thuis. Private chef en culinair vakmanschap aan de Costa del Sol.",
+  openGraph: {
+    title: "TOORN at table",
+    description:
+      "Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als thuis.",
+    type: "website",
+    locale: "nl_NL",
+    images: [
+      {
+        url: "/images/logo-dark.jpg",
+        width: 1024,
+        height: 1024,
+        alt: "TOORN at table wordmark",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOORN at table",
+    description:
+      "Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als thuis.",
+    images: ["/images/logo-dark.jpg"],
+  },
 };
 
 export default function RootLayout({

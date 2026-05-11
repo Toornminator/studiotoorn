@@ -1,120 +1,124 @@
 export type StickerLayout = {
   id: string;
-  svgPath: string;
+  imagePath: string;
   alt?: string;
-  size?: number;
+  /** Display height in px on desktop. Width is derived via `aspect`. */
+  height?: number;
+  /** Width / height ratio of the sticker artwork. Defaults to 1. */
+  aspect?: number;
   initialRotation: number;
   /** Horizontal position as % of viewport width, top-left anchored. */
   posVw: number;
-  /**
-   * Vertical position as % of viewport height. Values >100 place the
-   * sticker below the first viewport — useful for stickers that should
-   * land inside later sections (about, timeline, etc.).
-   */
+  /** Vertical position as % of viewport height. Can exceed 100 for stickers
+   *  living below the first viewport. */
   posVh: number;
-  /**
-   * Hide this sticker when the viewport is narrower than this width in px.
-   * Useful for stickers anchored to a desktop layout that would crash into
-   * single-column mobile content if rendered.
-   */
+  /** Hide below this viewport width in px (handy for desktop-margin stickers). */
   hideBelowVw?: number;
 };
 
 /**
- * All stickers scattered across the page. The provider mounts these once at
- * the document root so they scroll with the page rather than resetting per
- * section. New stickers added in later phases should append here with
- * sensible viewport-relative defaults.
+ * All stickers scattered across the page. Mounted once in StickerProvider
+ * so they scroll with the document rather than reset per section.
+ *
+ * Asset aspect ratios were measured from the processed PNGs in
+ * /public/stickers/ — keep these in sync when assets are replaced.
  */
 export const stickerLayout: StickerLayout[] = [
-  // ── Hero section (first viewport) ──
+  // ── Hero (first viewport) ──
   {
-    id: "rose",
-    svgPath: "/stickers/rose.svg",
-    alt: "Tattoo flash rose",
-    initialRotation: -12,
-    posVw: 6,
+    id: "clover",
+    imagePath: "/stickers/clover.png",
+    alt: "Four-leaf clover tattoo flash",
+    initialRotation: -10,
+    posVw: 5,
     posVh: 14,
-    size: 140,
+    height: 150,
+    aspect: 0.696,
   },
   {
-    id: "swallow",
-    svgPath: "/stickers/swallow.svg",
-    alt: "Tattoo flash swallow",
-    initialRotation: 8,
+    id: "vino-veritas",
+    imagePath: "/stickers/vino-veritas.png",
+    alt: "Vino Veritas eagle tattoo flash",
+    initialRotation: 6,
     posVw: 78,
-    posVh: 12,
-    size: 140,
+    posVh: 10,
+    height: 200,
+    aspect: 0.764,
   },
   {
-    id: "anchor",
-    svgPath: "/stickers/anchor.svg",
-    alt: "Tattoo flash anchor",
-    initialRotation: 15,
+    id: "pint",
+    imagePath: "/stickers/pint.png",
+    alt: "Tall pint glass tattoo flash",
+    initialRotation: 12,
     posVw: 6,
-    posVh: 68,
-    size: 130,
+    posVh: 64,
+    height: 170,
+    aspect: 0.657,
   },
   {
-    id: "dagger",
-    svgPath: "/stickers/dagger.svg",
-    alt: "Tattoo flash dagger",
-    initialRotation: -8,
-    posVw: 80,
-    posVh: 70,
-    size: 130,
-  },
-  {
-    id: "heart",
-    svgPath: "/stickers/heart.svg",
-    alt: "Tattoo flash heart with TOORN banner",
-    initialRotation: -20,
+    id: "ufo-cow",
+    imagePath: "/stickers/ufo-cow.png",
+    alt: "UFO abducting a cow tattoo flash",
+    initialRotation: -6,
     posVw: 70,
-    posVh: 46,
-    size: 120,
+    posVh: 48,
+    height: 170,
+    aspect: 0.665,
+  },
+  {
+    id: "honey",
+    imagePath: "/stickers/honey.png",
+    alt: "Honey bottle with shot glass tattoo flash",
+    initialRotation: -14,
+    posVw: 82,
+    posVh: 66,
+    height: 170,
+    aspect: 0.660,
   },
 
-  // ── Timeline chapter stickers (deeper in the page) ──
-  // Calibrated for the desktop two-column timeline; hidden below md (768px)
-  // where the single-column layout has no margin to host them.
+  // ── Timeline chapter stickers (desktop only) ──
   {
-    id: "knife",
-    svgPath: "/stickers/knife.svg",
-    alt: "Chef's knife — Amsterdam chapter",
+    id: "boxer",
+    imagePath: "/stickers/boxer.png",
+    alt: "Boxer 'I'm Still Standing' — Amsterdam grind",
     initialRotation: -14,
-    posVw: 83,
+    posVw: 84,
     posVh: 305,
-    size: 110,
+    height: 170,
+    aspect: 0.668,
     hideBelowVw: 768,
   },
   {
-    id: "camera",
-    svgPath: "/stickers/camera.svg",
-    alt: "Camera — photography chapter",
+    id: "film-camera",
+    imagePath: "/stickers/film-camera.png",
+    alt: "Film strip wrapped camera with rose — photography chapter",
     initialRotation: 10,
-    posVw: 7,
+    posVw: 5,
     posVh: 380,
-    size: 110,
+    height: 200,
+    aspect: 0.540,
     hideBelowVw: 768,
   },
   {
-    id: "sun",
-    svgPath: "/stickers/sun.svg",
-    alt: "Sun — Costa del Sol chapter",
-    initialRotation: 18,
+    id: "palm-treasure",
+    imagePath: "/stickers/palm-treasure.png",
+    alt: "Palm tree with treasure chest and sunset — Costa del Sol",
+    initialRotation: 14,
     posVw: 84,
     posVh: 450,
-    size: 110,
+    height: 200,
+    aspect: 0.631,
     hideBelowVw: 768,
   },
   {
-    id: "table",
-    svgPath: "/stickers/table.svg",
-    alt: "Dressed table — private chef chapter",
+    id: "burger-wings",
+    imagePath: "/stickers/burger-wings.png",
+    alt: "Winged burger with halo — private chef chapter",
     initialRotation: -10,
-    posVw: 8,
+    posVw: 6,
     posVh: 525,
-    size: 115,
+    height: 170,
+    aspect: 0.706,
     hideBelowVw: 768,
   },
 ];
