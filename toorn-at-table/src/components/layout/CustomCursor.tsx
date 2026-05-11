@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 
 type CursorMode = "dot" | "link" | "grab";
 
-const SPRING = { damping: 28, stiffness: 360, mass: 0.55 };
+const SPRING = { damping: 40, stiffness: 1100, mass: 0.18 };
 const MODE_TRANSITION = { duration: 0.18, ease: "easeOut" } as const;
 
 function subscribeCoarsePointer(callback: () => void) {
@@ -29,6 +29,7 @@ export function CustomCursor() {
     getCoarsePointerServer,
   );
   const [mode, setMode] = useState<CursorMode>("dot");
+  const modeRef = useRef<CursorMode>("dot");
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
   const sx = useSpring(x, SPRING);
@@ -40,17 +41,23 @@ export function CustomCursor() {
     const previousCursor = document.body.style.cursor;
     document.body.style.cursor = "none";
 
+    const setIfChanged = (next: CursorMode) => {
+      if (modeRef.current === next) return;
+      modeRef.current = next;
+      setMode(next);
+    };
+
     const handleMove = (event: PointerEvent) => {
       x.set(event.clientX);
       y.set(event.clientY);
 
       const target = event.target as Element | null;
       if (!target) {
-        setMode("dot");
+        setIfChanged("dot");
         return;
       }
       if (target.closest('[data-cursor="grab"]')) {
-        setMode("grab");
+        setIfChanged("grab");
         return;
       }
       if (
@@ -58,10 +65,10 @@ export function CustomCursor() {
           'a, button, [role="button"], [data-cursor="link"], summary, label',
         )
       ) {
-        setMode("link");
+        setIfChanged("link");
         return;
       }
-      setMode("dot");
+      setIfChanged("dot");
     };
 
     const handleLeave = () => {
