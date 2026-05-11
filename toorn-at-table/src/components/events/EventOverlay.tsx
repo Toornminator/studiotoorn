@@ -174,7 +174,7 @@ export function EventOverlay({
           ) : (
             <>
               <a
-                href={`#contact?event=${event.slug}`}
+                href={`/?event=${event.slug}#contact`}
                 onClick={onClose}
                 className="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red"
               >
