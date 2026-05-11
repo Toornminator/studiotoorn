@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 
 type CursorMode = "dot" | "link" | "grab";
@@ -8,8 +8,26 @@ type CursorMode = "dot" | "link" | "grab";
 const SPRING = { damping: 28, stiffness: 360, mass: 0.55 };
 const MODE_TRANSITION = { duration: 0.18, ease: "easeOut" } as const;
 
+function subscribeCoarsePointer(callback: () => void) {
+  const media = window.matchMedia("(pointer: coarse)");
+  media.addEventListener("change", callback);
+  return () => media.removeEventListener("change", callback);
+}
+
+function getCoarsePointer() {
+  return window.matchMedia("(pointer: coarse)").matches;
+}
+
+function getCoarsePointerServer() {
+  return false;
+}
+
 export function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const isCoarsePointer = useSyncExternalStore(
+    subscribeCoarsePointer,
+    getCoarsePointer,
+    getCoarsePointerServer,
+  );
   const [mode, setMode] = useState<CursorMode>("dot");
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
@@ -17,10 +35,8 @@ export function CustomCursor() {
   const sy = useSpring(y, SPRING);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (isCoarsePointer) return;
 
-    setEnabled(true);
     const previousCursor = document.body.style.cursor;
     document.body.style.cursor = "none";
 
@@ -61,9 +77,9 @@ export function CustomCursor() {
       window.removeEventListener("pointerleave", handleLeave);
       document.body.style.cursor = previousCursor;
     };
-  }, [x, y]);
+  }, [isCoarsePointer, x, y]);
 
-  if (!enabled) return null;
+  if (isCoarsePointer) return null;
 
   return (
     <motion.div
