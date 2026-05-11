@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PaperBackground } from "@/components/layout/PaperBackground";
+import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { fontVariables } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
         <PaperBackground />
         <main className="relative z-10 flex flex-1 flex-col">{children}</main>
+        <StickerProvider />
       </body>
     </html>
   );
