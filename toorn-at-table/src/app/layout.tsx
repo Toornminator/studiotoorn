@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { PaperBackground } from "@/components/layout/PaperBackground";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { fontVariables } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
@@ -20,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="nl" className={cn(fontVariables, "h-full antialiased")}>
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
-        <PaperBackground />
-        <main className="relative z-10 flex flex-1 flex-col">{children}</main>
-        <StickerProvider />
-        <CustomCursor />
+        <SmoothScroll>
+          <PaperBackground />
+          <main className="relative z-10 flex flex-1 flex-col">{children}</main>
+          <StickerProvider />
+          <CustomCursor />
+        </SmoothScroll>
       </body>
     </html>
   );
