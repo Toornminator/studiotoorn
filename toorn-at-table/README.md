@@ -7,124 +7,158 @@ draggable tattoo flash stickers that scroll with the page.
 ## Tech stack
 
 - Next.js 16 (App Router) + TypeScript + Tailwind v4
-- React 19.2
+- React 19.2 (useActionState, useFormStatus, server actions)
 - Fonts via `next/font/google`: Fraunces (display), Instrument Serif (body),
   JetBrains Mono (UI), Caveat (handwritten notes)
 - `@use-gesture/react` + `@react-spring/web` for sticker drag physics
-- `framer-motion` for page-level reveals + the custom cursor
+- `framer-motion` for page reveals, the cursor and the overlay transitions
 - `lenis` for smooth scroll
 - `zustand` (+ persist middleware) for sticker positions in localStorage
+- `@supabase/supabase-js` for the recipe / event / travel / forms backend
+- `resend` for transactional newsletter + booking emails
 
 ## Run it
 
 ```bash
 npm install
-npm run dev   # turbopack dev server on http://localhost:3000
+cp .env.example .env.local   # fill in real values when you have them
+npm run dev                  # http://localhost:3000
 npm run build
 ```
+
+The site works without any env vars — it falls back to the static content in
+`src/content/*` and the contact form returns a "mail me direct" message.
+As soon as Supabase + Resend are wired the site routes through them
+automatically.
+
+## Page flow
+
+| #  | Section                | Source                        |
+|----|------------------------|-------------------------------|
+|    | Hero                   | static                         |
+| 01 | Over Nick              | static                         |
+| 02 | Tijdlijn               | `timeline-data.ts`             |
+| 03 | Reizen                 | `getTravelLocations()`         |
+| 04 | Het Kookboek           | `getRecipes()`                 |
+| 05 | Events                 | `getEvents()`                  |
+|    | Tussenrust + CTA       | static                         |
+| 06 | Aan tafel (booking)    | server action + Resend         |
+|    | Footer (nieuwsbrief)   | server action + Resend         |
+
+Recipes, events and travel posts each open as a focused overlay modal —
+single-page, no extra routes.
 
 ## Where things live
 
 ```
 src/
   app/
-    layout.tsx          mounts SmoothScroll → PaperBackground → main →
-                        StickerProvider → CustomCursor
-    page.tsx            renders <Hero />
-    globals.css         Tailwind + tokens + Lenis baseline
+    layout.tsx                    SmoothScroll → PaperBg → NavBar → main
+                                  → Footer → StickerProvider → CustomCursor
+    page.tsx                      Hero / About / Timeline / Travel /
+                                  Kookboek / Events / Closing / Contact
+    api/newsletter/confirm/       GET /api/newsletter/confirm?token=...
+    actions/                      server actions (contact, newsletter)
   components/
-    hero/Hero.tsx       nav, TOORN headline, subtitle, tagline, note
-    layout/
-      PaperBackground.tsx  cream paper + SVG grain
-      CustomCursor.tsx     ink-droplet cursor (dot / link / grab)
-      SmoothScroll.tsx     Lenis wrapper, opt-out on reduced-motion
-    stickers/
-      Sticker.tsx          spring-driven draggable sticker
-      StickerProvider.tsx  resolves vw/vh to pixel coords, renders all
-      sticker-config.ts    the source of truth for positions
-      useStickerStore.ts   Zustand store, persists to "toorn-stickers"
+    about/                        portrait, timeline, closing pull-quote
+    contact/                      booking form
+    events/                       list + overlay
+    hero/                         TOORN reveal + handwritten note
+    kookboek/                     filtered grid + recipe overlay
+    layout/                       nav, footer, paper bg, cursor,
+                                  smooth-scroll, newsletter form
+    stickers/                     drag system + provider
+    travel/                       atlas SVG + interactive markers + overlay
+  content/                        static recipes / events / travel
   lib/
-    fonts.ts          all next/font configs
-    utils.ts          cn() helper
-  styles/
-    tokens.css        @theme: colors, font aliases, paper shadows
+    content/                      data access: tries Supabase, falls back
+    supabase/                     client + server clients
+    types.ts                      domain shapes
+  styles/tokens.css               @theme colours / fonts / shadows
+supabase/migrations/              SQL — recipes, events, travel, forms, RLS
 public/
-  stickers/           placeholder tattoo SVGs (rose, swallow, anchor,
-                      dagger, heart) — to be replaced with Nick's art
+  images/                         portrait, logo-dark
+  stickers/                       14 processed tattoo flash PNGs
 ```
 
-## Phase 1 — what's done
+## Phase 1 + 2 — what's done
 
-- Project + design system (cream/ink palette, four-font stack, paper shadows)
-- Paper background with fractal-noise grain + soft vignette
-- Sticker system: drag physics, tilt clamp, hover scale, persisted positions
-- 5 placeholder American-traditional tattoo stickers
-- Hero: sticky mono nav, letter-by-letter TOORN reveal, staggered subtitle
-  and tagline, hand-written "psst" note
-- Custom ink cursor with mode transitions (dot / link / grab) — disabled on
-  touch devices
-- Lenis smooth scroll — disabled when `prefers-reduced-motion: reduce`
+- Cream paper foundation with fractal-noise grain + soft vignette
+- Sticker system (drag, tilt, lift, persisted positions) with **real**
+  tattoo flash artwork — 14 PNGs stripped of the ChatGPT backdrop, sized
+  for the hero and per-chapter use
+- Hero with letter-by-letter TOORN reveal
+- Over Nick portrait strook + scroll-revealed Tijdlijn
+- Reizen atlas — hand-drawn Mediterranean basin with pin markers + blog
+  overlay (locations added via `src/content/travel.ts`)
+- Het Kookboek — filterable index + full recipe overlay (intro, meta,
+  grouped ingredients, numbered steps, pairing)
+- Events — typographic agenda with capacity + overlay → prefilled
+  booking form
+- Booking form with server action: validates, stores in Supabase, mails
+  notification to Nick + confirmation to the visitor (Resend)
+- Newsletter signup with double opt-in via Resend; `/api/newsletter/confirm`
+  flips `confirmed_at` and shows a banner on the home page
+- Custom ink cursor (dot / link / grab)
+- Lenis smooth scroll, off when `prefers-reduced-motion: reduce`
+- Sticky brand-wide nav, anchor scroll-margin so jumps don't hide titles
 
 ## Adding a sticker
 
-1. Drop a 200×200 viewBox SVG into `public/stickers/<name>.svg`.
-2. Append an entry to `stickerLayout` in
-   `src/components/stickers/sticker-config.ts`:
+1. Drop a PNG in `public/stickers/<name>.png` (transparent, white sticker
+   border kept, 720px on the longest edge).
+2. Append to `stickerLayout` in `src/components/stickers/sticker-config.ts`:
 
    ```ts
    {
      id: "<unique>",
-     svgPath: "/stickers/<name>.svg",
+     imagePath: "/stickers/<name>.png",
      alt: "Describes the art",
      initialRotation: -10,
-     posVw: 50,  // % of viewport width, top-left anchored
-     posVh: 30,  // % of viewport height
-     size: 130,
+     posVw: 50, posVh: 30,
+     height: 160, aspect: 0.7,
+     hideBelowVw: 768, // optional, for desktop-margin stickers
    }
    ```
 
-3. That's it — the provider picks it up and the store will persist any new
-   drag positions automatically.
+## Adding content
 
-## How Nick can hand off real tattoo art
+- **Recipes** → edit `src/content/recipes.ts` or insert into the Supabase
+  `recipes` (+ `recipe_ingredients` + `recipe_steps`) tables and set
+  `published_at`. The shape matches `Recipe` in `src/lib/types.ts`.
+- **Events** → `src/content/events.ts` or Supabase `events` table.
+- **Travel** → `src/content/travel.ts` or Supabase `travel_locations`.
+  `mapX` / `mapY` are 0–100 percentages on the 800×500 atlas viewBox.
 
-Each sticker should be a single SVG file with:
+## Wiring Supabase (when ready)
 
-- **Transparent background** (no white rectangle behind the art)
-- **Flat colors** — no gradients, no raster effects
-- **Thick black outlines** (≈3–4px on a 200×200 viewBox so they read at
-  120px on screen)
-- ViewBox `0 0 200 200` (or any square viewBox — the layout sizes them
-  uniformly)
-- File names lowercase, kebab-case: `rose-with-banner.svg`
+1. Create a Supabase project, run the SQL in
+   `supabase/migrations/20260511120000_init.sql` against it (via the
+   dashboard editor or `supabase db push` if you use the CLI).
+2. Copy `.env.example` → `.env.local`, fill in:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY` (server-only)
+3. Restart dev. The content layer auto-switches from static fallback to
+   live data.
 
-Drop the files in `public/stickers/` and update `sticker-config.ts` to point
-at the new paths. No code changes beyond that.
+## Wiring Resend (when ready)
 
-If a sticker should re-center for everyone (e.g. you ship a new design and
-want existing visitors to see it in its intended spot), clear the persisted
-positions by calling `useStickerStore.getState().resetAll()` from a
-temporary admin button, or bump the persist `name` in `useStickerStore.ts`.
+1. Create a Resend account, verify a sending domain.
+2. Add to `.env.local`:
+   - `RESEND_API_KEY`
+   - `RESEND_FROM_ADDRESS="TOORN at table <hello@your-domain>"`
+   - `NOTIFICATION_EMAIL=nick@your-domain`  (where contact-form leads land)
+   - `NEXT_PUBLIC_SITE_URL=https://your-domain.com`  (used to build the
+     newsletter confirmation links — without it the action falls back to
+     the incoming request host)
 
-## What's next — phase 2 and beyond
+## Phase 3 ideas
 
-- **About / Nick's story** — Michelin background, move to Spain, timeline
-- **Events grid** — upcoming dinners with hover-to-peek cards
-- **Het Kookboek** — recipes section backed by Supabase
-  (`recipes`, `ingredients`, `steps`)
-- **Contact** — booking form posting to `contact_submissions` (Supabase) +
-  transactional confirmation via Resend
-- **Newsletter** — `newsletter_subscribers` with double opt-in via Resend
-- **i18n** — Dutch is primary, English + Spanish as additional locales
-
-## Hooking up Supabase later
-
-1. `npm install @supabase/supabase-js`
-2. Add a server-only Supabase client in `src/lib/supabase.ts` using
-   environment variables `NEXT_PUBLIC_SUPABASE_URL` and
-   `SUPABASE_SERVICE_ROLE_KEY` (or anon key for client reads).
-3. Drop migrations into `supabase/migrations/` describing the schemas above.
-4. Read recipes / events in Server Components (Next.js 16 prefers async
-   data fetching at the component boundary).
-5. Mutations (newsletter signup, contact form) go through Server Actions
-   that call Resend for confirmation emails.
+- Recipe photography → drop into `public/recipes/<slug>.jpg` and set
+  `heroImage` on the recipe to upgrade the card from typographic to
+  photographic.
+- Travel blog images + lightbox.
+- Sticker pack download for guests.
+- i18n: English + Spanish next to Dutch.
+- Stripe Checkout for event tickets.

@@ -14,3 +14,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+/* Sections targeted by anchor links sit beneath the sticky NavBar; offset
+   so the headline isn't tucked under the nav after a jump. */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
