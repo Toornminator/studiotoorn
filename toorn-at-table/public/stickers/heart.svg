@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <g stroke="#1A1A1A" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M100 168 Q50 138 38 92 Q34 60 62 50 Q86 48 100 72 Q114 48 138 50 Q166 60 162 92 Q150 138 100 168 Z" fill="#C8202A"/>
+    <path d="M70 80 Q76 70 90 72" stroke="#F4EDE0" stroke-width="6" fill="none"/>
+    <path d="M22 116 Q70 104 100 120 Q130 104 178 116 L172 138 Q126 124 100 142 Q74 124 28 138 Z" fill="#E5A823"/>
+    <path d="M22 116 L14 130 L28 138" />
+    <path d="M178 116 L186 130 L172 138" />
+    <text x="100" y="136" font-family="Georgia, serif" font-size="22" font-weight="700" text-anchor="middle" fill="#1A1A1A" stroke="none">TOORN</text>
+  </g>
+</svg>
