@@ -1,0 +1,212 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import type { Recipe, RecipeCategory, Season } from "@/lib/types";
+import { RecipeOverlay } from "./RecipeOverlay";
+
+const CATEGORIES: { id: RecipeCategory | "all"; label: string }[] = [
+  { id: "all", label: "Alle" },
+  { id: "voor", label: "Voor" },
+  { id: "hoofd", label: "Hoofd" },
+  { id: "bij", label: "Bij" },
+  { id: "dessert", label: "Dessert" },
+  { id: "borrel", label: "Borrel" },
+  { id: "basis", label: "Basis" },
+];
+
+const SEASONS: { id: Season | "all"; label: string }[] = [
+  { id: "all", label: "Hele jaar" },
+  { id: "lente", label: "Lente" },
+  { id: "zomer", label: "Zomer" },
+  { id: "herfst", label: "Herfst" },
+  { id: "winter", label: "Winter" },
+];
+
+const CATEGORY_LABEL: Record<RecipeCategory, string> = {
+  voor: "Voorgerecht",
+  hoofd: "Hoofdgerecht",
+  bij: "Bijgerecht",
+  dessert: "Dessert",
+  borrel: "Borrel",
+  basis: "Basis",
+};
+
+function formatMinutes(prep?: number, cook?: number) {
+  const total = (prep ?? 0) + (cook ?? 0);
+  if (!total) return null;
+  if (total < 60) return `${total} min`;
+  const h = Math.floor(total / 60);
+  const m = total % 60;
+  return m ? `${h} u ${m} min` : `${h} u`;
+}
+
+function DifficultyDots({ level = 0 }: { level?: number }) {
+  return (
+    <span className="inline-flex items-center gap-[3px]" aria-label={`Moeilijkheid ${level}/5`}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <span
+          key={i}
+          aria-hidden
+          className="h-[6px] w-[6px] rounded-full"
+          style={{ backgroundColor: i <= level ? "#1A1A1A" : "rgba(26,26,26,0.18)" }}
+        />
+      ))}
+    </span>
+  );
+}
+
+export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
+  const [activeCategory, setActiveCategory] =
+    useState<RecipeCategory | "all">("all");
+  const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
+
+  const filtered = useMemo(() => {
+    return recipes.filter((r) => {
+      if (activeCategory !== "all" && r.category !== activeCategory) return false;
+      if (
+        activeSeason !== "all" &&
+        !r.seasons.includes(activeSeason) &&
+        !r.seasons.includes("altijd")
+      )
+        return false;
+      return true;
+    });
+  }, [recipes, activeCategory, activeSeason]);
+
+  const openRecipe = openSlug
+    ? recipes.find((r) => r.slug === openSlug) ?? null
+    : null;
+
+  return (
+    <>
+      {/* Filters */}
+      <div className="mt-14 space-y-5 md:mt-20">
+        <FilterRow
+          label="Categorie"
+          options={CATEGORIES}
+          activeId={activeCategory}
+          onSelect={(id) => setActiveCategory(id as RecipeCategory | "all")}
+        />
+        <FilterRow
+          label="Seizoen"
+          options={SEASONS}
+          activeId={activeSeason}
+          onSelect={(id) => setActiveSeason(id as Season | "all")}
+        />
+      </div>
+
+      <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
+        {filtered.length} recept{filtered.length === 1 ? "" : "en"}
+      </p>
+
+      {/* Grid */}
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <AnimatePresence mode="popLayout" initial={false}>
+          {filtered.map((recipe) => (
+            <motion.button
+              key={recipe.slug}
+              layout
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              onClick={() => setOpenSlug(recipe.slug)}
+              className="group relative flex flex-col items-start gap-4 overflow-hidden border border-ink/12 bg-cream-warm/60 p-6 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:p-7"
+              style={{ borderRadius: 4 }}
+            >
+              <div className="flex w-full items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-tattoo-red">
+                  {CATEGORY_LABEL[recipe.category]}
+                </span>
+                <DifficultyDots level={recipe.difficulty ?? 0} />
+              </div>
+
+              <h3
+                className="font-display italic leading-[1.05] text-ink"
+                style={{ fontSize: "clamp(24px, 2.4vw, 30px)" }}
+              >
+                {recipe.title}
+              </h3>
+
+              {recipe.intro && (
+                <p className="font-serif text-ink/70" style={{ fontSize: 15, lineHeight: 1.5 }}>
+                  {recipe.intro.length > 110
+                    ? recipe.intro.slice(0, 110).trim() + "…"
+                    : recipe.intro}
+                </p>
+              )}
+
+              <div className="mt-auto flex w-full items-center justify-between pt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+                <span>
+                  {formatMinutes(recipe.prepMinutes, recipe.cookMinutes) ?? "—"}
+                </span>
+                <span className="inline-flex items-center gap-1 text-ink/40 transition-colors group-hover:text-tattoo-red">
+                  Open
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden>
+                    <path
+                      d="M1 4 H10 M7 1 L10 4 L7 7"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </motion.button>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {filtered.length === 0 && (
+        <p className="mt-12 text-center font-serif italic text-ink/55">
+          Geen recepten in deze combinatie. Probeer een andere filter.
+        </p>
+      )}
+
+      <AnimatePresence>
+        {openRecipe && (
+          <RecipeOverlay recipe={openRecipe} onClose={() => setOpenSlug(null)} />
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
+function FilterRow<T extends string>({
+  label,
+  options,
+  activeId,
+  onSelect,
+}: {
+  label: string;
+  options: { id: T; label: string }[];
+  activeId: T;
+  onSelect: (id: T) => void;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="mr-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40">
+        {label}
+      </span>
+      {options.map((opt) => {
+        const active = opt.id === activeId;
+        return (
+          <button
+            key={opt.id}
+            onClick={() => onSelect(opt.id)}
+            className={`rounded-full border px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors ${
+              active
+                ? "border-ink bg-ink text-cream"
+                : "border-ink/20 bg-transparent text-ink/65 hover:border-ink/40 hover:text-ink"
+            }`}
+          >
+            {opt.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
