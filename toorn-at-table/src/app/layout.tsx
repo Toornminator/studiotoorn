@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CustomCursor } from "@/components/layout/CustomCursor";
+import { Footer } from "@/components/layout/Footer";
 import { NavBar } from "@/components/layout/NavBar";
 import { PaperBackground } from "@/components/layout/PaperBackground";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -48,6 +49,7 @@ export default function RootLayout({
           <PaperBackground />
           <NavBar />
           <main className="relative z-10 flex flex-1 flex-col">{children}</main>
+          <Footer />
           <StickerProvider />
           <CustomCursor />
         </SmoothScroll>
