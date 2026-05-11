@@ -27,8 +27,9 @@ export async function Travel() {
             className="mt-6 max-w-2xl font-serif italic text-ink/75"
             style={{ fontSize: "clamp(17px, 1.25vw, 19px)" }}
           >
-            Een paar gerechten op deze site zijn er één lange reis lang
-            uitgegroeid. Hier de prikken op de kaart, en wat ze betekenen.
+            Zevenentwintig landen, één kompas. De rode pinnen hebben een
+            verhaal achter zich — klik erop. De kleine zwarte stippen zijn
+            plekken waar Nick is geweest, blog volgt.
           </p>
         </header>
 

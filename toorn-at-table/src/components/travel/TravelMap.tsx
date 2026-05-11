@@ -16,61 +16,71 @@ export function TravelMap({ locations }: { locations: TravelLocation[] }) {
     <>
       <div className="relative mt-14 md:mt-20">
         <AtlasMap>
-          {locations.map((loc) => (
-            <g
-              key={loc.slug}
-              transform={`translate(${(loc.mapX / 100) * 800}, ${(loc.mapY / 100) * 500})`}
-              style={{ cursor: "pointer" }}
-              onClick={() => setOpenSlug(loc.slug)}
-            >
-              {/* Pulse ring */}
-              <circle r="14" fill="#C8202A" fillOpacity="0.18">
-                <animate
-                  attributeName="r"
-                  values="9;18;9"
-                  dur="2.4s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="fill-opacity"
-                  values="0.25;0;0.25"
-                  dur="2.4s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              {/* Pin dot */}
-              <circle r="6" fill="#C8202A" stroke="#1A1A1A" strokeWidth="1.2" />
-              {/* Crosshair */}
-              <line x1="-10" y1="0" x2="-7" y2="0" stroke="#1A1A1A" strokeWidth="1" />
-              <line x1="7" y1="0" x2="10" y2="0" stroke="#1A1A1A" strokeWidth="1" />
-              <line x1="0" y1="-10" x2="0" y2="-7" stroke="#1A1A1A" strokeWidth="1" />
-              <line x1="0" y1="7" x2="0" y2="10" stroke="#1A1A1A" strokeWidth="1" />
-              {/* Label */}
-              <text
-                x="14"
-                y="-12"
-                fontFamily="var(--font-mono), monospace"
-                fontSize="10"
-                letterSpacing="1.5"
-                fill="#1A1A1A"
+          {locations.map((loc) => {
+            const isFeatured = Boolean(loc.intro || loc.body);
+            return (
+              <g
+                key={loc.slug}
+                transform={`translate(${(loc.mapX / 100) * 1400}, ${(loc.mapY / 100) * 640})`}
+                style={{ cursor: "pointer" }}
+                onClick={() => setOpenSlug(loc.slug)}
               >
-                {loc.name.toUpperCase()}
-              </text>
-              {loc.year && (
-                <text
-                  x="14"
-                  y="0"
-                  fontFamily="var(--font-mono), monospace"
-                  fontSize="8"
-                  letterSpacing="1.5"
-                  fill="#1A1A1A"
-                  fillOpacity="0.5"
-                >
-                  &apos;{String(loc.year).slice(-2)}
-                </text>
-              )}
-            </g>
-          ))}
+                {isFeatured && (
+                  <circle r="14" fill="#C8202A" fillOpacity="0.18">
+                    <animate
+                      attributeName="r"
+                      values="9;18;9"
+                      dur="2.4s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="fill-opacity"
+                      values="0.25;0;0.25"
+                      dur="2.4s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                )}
+                <circle
+                  r={isFeatured ? 6 : 4}
+                  fill={isFeatured ? "#C8202A" : "#1A1A1A"}
+                  stroke="#1A1A1A"
+                  strokeWidth="1"
+                />
+                {isFeatured && (
+                  <>
+                    <line x1="-10" y1="0" x2="-7" y2="0" stroke="#1A1A1A" strokeWidth="1" />
+                    <line x1="7" y1="0" x2="10" y2="0" stroke="#1A1A1A" strokeWidth="1" />
+                    <line x1="0" y1="-10" x2="0" y2="-7" stroke="#1A1A1A" strokeWidth="1" />
+                    <line x1="0" y1="7" x2="0" y2="10" stroke="#1A1A1A" strokeWidth="1" />
+                    <text
+                      x="14"
+                      y="-12"
+                      fontFamily="var(--font-mono), monospace"
+                      fontSize="10"
+                      letterSpacing="1.5"
+                      fill="#1A1A1A"
+                    >
+                      {loc.name.toUpperCase()}
+                    </text>
+                    {loc.year && (
+                      <text
+                        x="14"
+                        y="0"
+                        fontFamily="var(--font-mono), monospace"
+                        fontSize="8"
+                        letterSpacing="1.5"
+                        fill="#1A1A1A"
+                        fillOpacity="0.5"
+                      >
+                        &apos;{String(loc.year).slice(-2)}
+                      </text>
+                    )}
+                  </>
+                )}
+              </g>
+            );
+          })}
         </AtlasMap>
 
         {locations.length === 0 && (

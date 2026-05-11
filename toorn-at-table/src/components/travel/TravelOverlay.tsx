@@ -101,6 +101,16 @@ export function TravelOverlay({
             “{location.pullQuote}”
           </blockquote>
         )}
+
+        {!location.intro && !location.body && (
+          <p
+            className="mt-10 max-w-2xl font-serif italic text-ink/55"
+            style={{ fontSize: 18, lineHeight: 1.5 }}
+          >
+            Geweest. Verhaal volgt — Nick werkt aan een korte blog over deze
+            plek.
+          </p>
+        )}
       </motion.div>
     </motion.div>
   );
