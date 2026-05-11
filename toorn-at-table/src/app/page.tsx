@@ -5,6 +5,7 @@ import { Contact } from "@/components/contact/Contact";
 import { Events } from "@/components/events/Events";
 import { Hero } from "@/components/hero/Hero";
 import { Kookboek } from "@/components/kookboek/Kookboek";
+import { Travel } from "@/components/travel/Travel";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline />
+      <Travel />
       <Kookboek />
       <Events />
       <ClosingPanel />

@@ -20,7 +20,7 @@ export function ClosingPanel() {
         />
 
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-          Hoofdstuk 03 · De uitnodiging
+          Tussenrust
         </p>
 
         <motion.blockquote
