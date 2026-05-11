@@ -105,6 +105,7 @@ export function Sticker({
   return (
     <animated.div
       {...bind()}
+      data-cursor="grab"
       className="absolute top-0 left-0 select-none will-change-transform"
       style={{
         width: size,

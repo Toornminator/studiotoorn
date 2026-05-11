@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CustomCursor } from "@/components/layout/CustomCursor";
 import { PaperBackground } from "@/components/layout/PaperBackground";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { fontVariables } from "@/lib/fonts";
@@ -22,6 +23,7 @@ export default function RootLayout({
         <PaperBackground />
         <main className="relative z-10 flex flex-1 flex-col">{children}</main>
         <StickerProvider />
+        <CustomCursor />
       </body>
     </html>
   );
