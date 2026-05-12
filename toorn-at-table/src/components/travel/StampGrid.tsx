@@ -174,6 +174,7 @@ function Stamp({
           alt={`${location.name} reisstempel`}
           fill
           sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
+          unoptimized
           onError={() => setImageBroken(true)}
           className={`object-contain transition duration-300 ease-out ${
             isFeatured
