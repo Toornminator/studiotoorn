@@ -1,18 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const SESSION_KEY = "toorn-preloader-shown";
-const TOTAL_MS = 3200;
+const TOTAL_MS = 3300;
 const REDUCED_MS = 1400;
 
 const COLORS = {
-  bg: "#0B0A08",
+  bg: "#000000",
   ivory: "#F4ECD8",
   ivoryMid: "rgba(244,236,216,0.55)",
   ivoryDim: "rgba(244,236,216,0.32)",
   gold: "#C9A86A",
+  goldWarm: "rgba(255,180,80,1)",
 } as const;
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -65,42 +67,42 @@ export function Preloader() {
               ? { opacity: 0 }
               : { opacity: 0, filter: "blur(8px)", scale: 1.03 }
           }
-          transition={{ duration: reduce ? 0.5 : 0.9, ease: EASE }}
+          transition={{ duration: reduce ? 0.5 : 0.95, ease: EASE }}
           className="fixed inset-0 z-[300] flex flex-col items-center justify-center overflow-hidden"
           style={{ backgroundColor: COLORS.bg }}
         >
-          {/* Slow champagne-gold ambient glow */}
+          {/* Soft champagne ambient — sits behind everything */}
           {!reduce && (
             <motion.div
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
               style={{
-                width: "min(72vw, 720px)",
-                height: "min(72vw, 720px)",
+                width: "min(80vw, 820px)",
+                height: "min(80vw, 820px)",
                 background:
-                  "radial-gradient(circle at center, rgba(201,168,106,0.22) 0%, rgba(201,168,106,0.06) 35%, transparent 65%)",
-                filter: "blur(28px)",
+                  "radial-gradient(circle at center, rgba(201,168,106,0.20) 0%, rgba(201,168,106,0.05) 35%, transparent 65%)",
+                filter: "blur(40px)",
               }}
               initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: [0.85, 1.05, 1] }}
-              transition={{ duration: 2.4, ease: EASE }}
+              animate={{ opacity: 1, scale: [0.85, 1.08, 1] }}
+              transition={{ duration: 2.6, ease: EASE }}
             />
           )}
 
-          {/* Vignette */}
+          {/* Subtle vignette for depth */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.85) 100%)",
+                "radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)",
             }}
           />
 
-          {/* Fine paper grain */}
+          {/* Fine grain */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+            className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-overlay"
             style={{
               backgroundImage:
                 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'2\'/></filter><rect width=\'100%\' height=\'100%\' filter=\'url(%23n)\' opacity=\'0.6\'/></svg>")',
@@ -109,54 +111,23 @@ export function Preloader() {
 
           {/* Stage */}
           <div className="relative flex flex-col items-center px-6 text-center">
-            <Monogram reduce={reduce} />
-
-            <div className="mt-9 flex flex-col items-center md:mt-12">
-              <h1
-                className="font-display italic leading-[0.95]"
-                style={{
-                  color: COLORS.ivory,
-                  fontSize: "clamp(38px, 7vw, 84px)",
-                  letterSpacing: "0.015em",
-                }}
-              >
-                <LetterReveal
-                  text="TOORN"
-                  startDelay={reduce ? 0 : 0.85}
-                  reduce={reduce}
-                />
-              </h1>
-              <p
-                className="mt-3 font-display italic"
-                style={{
-                  color: COLORS.ivoryMid,
-                  fontSize: "clamp(13px, 1.7vw, 20px)",
-                  letterSpacing: "0.34em",
-                }}
-              >
-                <LetterReveal
-                  text="at table"
-                  startDelay={reduce ? 0 : 1.25}
-                  reduce={reduce}
-                />
-              </p>
-            </div>
+            <Logo reduce={reduce} />
 
             {/* Champagne hairline */}
             <motion.div
               aria-hidden
-              className="mt-8 h-px md:mt-10"
+              className="mt-4 h-px md:mt-6"
               style={{
                 background: `linear-gradient(90deg, transparent 0%, ${COLORS.gold} 50%, transparent 100%)`,
               }}
               initial={{ width: 0, opacity: 0 }}
               animate={{
-                width: reduce ? 160 : ["0px", "240px", "200px"],
+                width: reduce ? 160 : ["0px", "260px", "220px"],
                 opacity: 1,
               }}
               transition={{
                 duration: reduce ? 0.5 : 1.1,
-                delay: reduce ? 0.2 : 1.7,
+                delay: reduce ? 0.2 : 1.55,
                 ease: EASE,
               }}
             />
@@ -173,16 +144,16 @@ export function Preloader() {
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.8,
-                delay: reduce ? 0.3 : 2.1,
+                delay: reduce ? 0.3 : 1.95,
                 ease: EASE,
               }}
             >
               Een tafel wordt klaargemaakt
-              <Dots reduce={reduce} startDelay={reduce ? 0.6 : 2.55} />
+              <Dots reduce={reduce} startDelay={reduce ? 0.6 : 2.45} />
             </motion.p>
           </div>
 
-          {/* Bottom corner marks */}
+          {/* Bottom marker */}
           <motion.p
             className="absolute bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono uppercase"
             style={{
@@ -192,12 +163,12 @@ export function Preloader() {
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: reduce ? 0.4 : 2.3 }}
+            transition={{ duration: 0.9, delay: reduce ? 0.4 : 2.2 }}
           >
             Costa del Sol · Privé chef
           </motion.p>
 
-          {/* Frame corners — luxury menu plate detail */}
+          {/* Gold corner brackets — luxury menu plate detail */}
           <CornerMark className="left-6 top-6" reduce={reduce} />
           <CornerMark className="right-6 top-6 rotate-90" reduce={reduce} />
           <CornerMark className="bottom-6 left-6 -rotate-90" reduce={reduce} />
@@ -208,143 +179,83 @@ export function Preloader() {
   );
 }
 
-function Monogram({ reduce }: { reduce: boolean }) {
+function Logo({ reduce }: { reduce: boolean }) {
   return (
     <motion.div
       className="relative"
-      initial={{ opacity: 0, scale: 0.92 }}
+      style={{ width: "clamp(260px, 38vw, 460px)" }}
+      initial={{ opacity: 0, scale: 0.94 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: reduce ? 0.4 : 0.9, ease: EASE }}
+      transition={{
+        duration: reduce ? 0.55 : 1.4,
+        delay: reduce ? 0 : 0.25,
+        ease: EASE,
+      }}
     >
-      <svg
-        width="96"
-        height="96"
-        viewBox="0 0 96 96"
-        fill="none"
-        aria-hidden
-        className="block"
-      >
-        {/* Outer gold ring — drawn around the monogram */}
-        <motion.circle
-          cx="48"
-          cy="48"
-          r="46"
-          stroke={COLORS.gold}
-          strokeWidth="0.7"
-          strokeOpacity="0.7"
-          fill="none"
-          pathLength={1}
-          strokeDasharray="1 1"
-          initial={{ strokeDashoffset: 1, opacity: 0 }}
-          animate={{ strokeDashoffset: 0, opacity: 0.75 }}
+      {/* Warm glow behind the logo — peaks near the flame in the centre */}
+      {!reduce && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 44%, rgba(255,180,80,0.55) 0%, rgba(201,168,106,0.22) 22%, transparent 50%)",
+            filter: "blur(30px)",
+            transform: "scale(1.25)",
+            zIndex: 0,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.7, 1, 0.85, 1, 0.9] }}
           transition={{
-            duration: reduce ? 0.4 : 1.8,
-            delay: reduce ? 0.1 : 0.4,
-            ease: [0.65, 0, 0.35, 1],
+            duration: 3.2,
+            delay: 0.45,
+            ease: "easeInOut",
+            times: [0, 0.25, 0.5, 0.65, 0.85, 1],
           }}
         />
-        {/* Inner gold ring */}
-        <motion.circle
-          cx="48"
-          cy="48"
-          r="38"
-          stroke={COLORS.gold}
-          strokeWidth="0.5"
-          strokeOpacity="0.4"
-          fill="none"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 0.55, scale: 1 }}
+      )}
+
+      <Image
+        src="/images/logo-dark.jpg"
+        alt="TOORN at table"
+        width={1024}
+        height={1024}
+        priority
+        className="relative block h-auto w-full"
+        style={{ zIndex: 1 }}
+      />
+
+      {/* Flame flicker — a tighter pulsing dot over the flame to bring it
+          alive without redrawing it. Subtle: low opacity, soft blur,
+          short repeating shimmer cycles. */}
+      {!reduce && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            top: "44%",
+            width: "12%",
+            height: "12%",
+            background: `radial-gradient(circle, ${COLORS.goldWarm} 0%, rgba(201,168,106,0.4) 35%, transparent 65%)`,
+            filter: "blur(8px)",
+            mixBlendMode: "screen",
+            zIndex: 2,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: [0, 0.4, 0.7, 0.5, 0.85, 0.6, 0.8],
+            scale: [0.85, 1.05, 0.95, 1.1, 0.92, 1.08, 1],
+          }}
           transition={{
-            duration: reduce ? 0.4 : 1.0,
-            delay: reduce ? 0.15 : 0.8,
-            ease: EASE,
+            duration: 2.6,
+            delay: 1.2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror",
           }}
         />
-        {/* Triangle */}
-        <motion.path
-          d="M48 22 L72 70 H24 Z"
-          stroke={COLORS.ivory}
-          strokeWidth="1.1"
-          strokeLinejoin="round"
-          fill="none"
-          pathLength={1}
-          strokeDasharray="1 1"
-          initial={{ strokeDashoffset: 1, opacity: 0 }}
-          animate={{ strokeDashoffset: 0, opacity: 1 }}
-          transition={{
-            duration: reduce ? 0.4 : 1.2,
-            delay: reduce ? 0 : 0.25,
-            ease: [0.65, 0, 0.35, 1],
-          }}
-        />
-        {/* ST */}
-        <motion.text
-          x="48"
-          y="58"
-          textAnchor="middle"
-          fontFamily="serif"
-          fontStyle="italic"
-          fontSize="18"
-          fill={COLORS.ivory}
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.7,
-            delay: reduce ? 0.25 : 1.1,
-            ease: EASE,
-          }}
-        >
-          ST
-        </motion.text>
-      </svg>
+      )}
     </motion.div>
-  );
-}
-
-function LetterReveal({
-  text,
-  startDelay,
-  reduce,
-}: {
-  text: string;
-  startDelay: number;
-  reduce: boolean;
-}) {
-  if (reduce) {
-    return (
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.55, delay: startDelay, ease: EASE }}
-      >
-        {text}
-      </motion.span>
-    );
-  }
-
-  const letters = Array.from(text);
-  return (
-    <span
-      className="inline-flex overflow-hidden align-baseline"
-      style={{ paddingBottom: "0.18em", marginBottom: "-0.18em" }}
-    >
-      {letters.map((char, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          style={{ whiteSpace: "pre" }}
-          initial={{ y: "115%", opacity: 0 }}
-          animate={{ y: "0%", opacity: 1 }}
-          transition={{
-            duration: 1.05,
-            delay: startDelay + i * 0.06,
-            ease: EASE,
-          }}
-        >
-          {char === " " ? " " : char}
-        </motion.span>
-      ))}
-    </span>
   );
 }
 
@@ -399,7 +310,7 @@ function CornerMark({
       className={`absolute ${className ?? ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.7, delay: reduce ? 0.2 : 1.9, ease: EASE }}
+      transition={{ duration: 0.7, delay: reduce ? 0.2 : 1.8, ease: EASE }}
     >
       <path
         d="M1 1 H10 M1 1 V10"
