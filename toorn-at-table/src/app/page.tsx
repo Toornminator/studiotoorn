@@ -4,6 +4,7 @@ import { Stats } from "@/components/about/Stats";
 import { Timeline } from "@/components/about/Timeline";
 import { Contact } from "@/components/contact/Contact";
 import { Events } from "@/components/events/Events";
+import { Gallery } from "@/components/gallery/Gallery";
 import { Hero } from "@/components/hero/Hero";
 import { Kookboek } from "@/components/kookboek/Kookboek";
 import { Travel } from "@/components/travel/Travel";
@@ -27,6 +28,7 @@ export default function Home() {
       <Travel />
       <Stats />
       <Kookboek />
+      <Gallery />
       <Marquee
         items={[
           "Private dinners",
