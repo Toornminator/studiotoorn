@@ -158,18 +158,30 @@ function Stamp({
           isFeatured={isFeatured}
         />
       ) : (
-        <Image
-          src={imagePath}
-          alt={`${location.name} reisstempel`}
-          fill
-          sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
-          onError={() => setImageBroken(true)}
-          className={`object-contain transition duration-300 ease-out ${
-            isFeatured
-              ? ""
-              : "grayscale opacity-65 group-hover:grayscale-0 group-hover:opacity-100"
-          }`}
-        />
+        // Wrap the PNG in a circular clip + cream backdrop. Two reasons:
+        //   1. Many AI-exported "transparent" PNGs ship with the checker
+        //      pattern baked in as actual pixels in the corners. Clipping
+        //      to a circle hides the corners, so the checker is gone.
+        //   2. Where the PNG has true transparency inside the circle (or
+        //      a near-white background), the cream backdrop blends with
+        //      the surrounding paper instead of showing browser white.
+        <div
+          className="relative h-full w-full overflow-hidden rounded-full"
+          style={{ backgroundColor: "var(--color-cream)" }}
+        >
+          <Image
+            src={imagePath}
+            alt={`${location.name} reisstempel`}
+            fill
+            sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
+            onError={() => setImageBroken(true)}
+            className={`object-cover transition duration-300 ease-out ${
+              isFeatured
+                ? ""
+                : "grayscale opacity-65 group-hover:grayscale-0 group-hover:opacity-100"
+            }`}
+          />
+        </div>
       )}
 
       {/* Featured wax-stamp dot overlay — only when the PNG renders;
