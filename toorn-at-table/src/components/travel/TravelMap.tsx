@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { Parallax } from "@/components/ui/Parallax";
 import type { TravelLocation } from "@/lib/types";
 import { AtlasMap } from "./AtlasMap";
 import { TravelOverlay } from "./TravelOverlay";
@@ -14,7 +15,7 @@ export function TravelMap({ locations }: { locations: TravelLocation[] }) {
 
   return (
     <>
-      <div className="relative mt-14 md:mt-20">
+      <Parallax intensity={40} className="relative mt-14 md:mt-20">
         <AtlasMap>
           {locations.map((loc) => {
             const isFeatured = Boolean(loc.intro || loc.body);
@@ -24,6 +25,7 @@ export function TravelMap({ locations }: { locations: TravelLocation[] }) {
                 transform={`translate(${(loc.mapX / 100) * 1400}, ${(loc.mapY / 100) * 640})`}
                 style={{ cursor: "pointer" }}
                 onClick={() => setOpenSlug(loc.slug)}
+                data-cursor={isFeatured ? "Lees verhaal" : loc.name}
               >
                 {isFeatured && (
                   <circle r="14" fill="#C8202A" fillOpacity="0.18">
@@ -97,7 +99,7 @@ export function TravelMap({ locations }: { locations: TravelLocation[] }) {
             </div>
           </div>
         )}
-      </div>
+      </Parallax>
 
       {/* Compact location chips below the map for tap-friendly entry */}
       {locations.length > 0 && (
@@ -106,6 +108,7 @@ export function TravelMap({ locations }: { locations: TravelLocation[] }) {
             <li key={loc.slug}>
               <button
                 onClick={() => setOpenSlug(loc.slug)}
+                data-cursor="Lees verhaal"
                 className="rounded-full border border-ink/15 bg-cream-warm/40 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/70 transition-colors hover:border-ink hover:text-ink"
               >
                 {loc.name}

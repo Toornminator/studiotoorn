@@ -1,3 +1,4 @@
+import { Parallax } from "@/components/ui/Parallax";
 import { Portrait } from "./Portrait";
 
 /**
@@ -16,12 +17,12 @@ export function About() {
     >
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-12 md:py-40">
         <div className="md:col-span-5">
-          <div className="relative mx-auto w-full max-w-[320px] md:max-w-none">
+          <Parallax intensity={60} className="relative mx-auto w-full max-w-[320px] md:max-w-none">
             <Portrait />
             <span className="absolute -bottom-3 -right-3 rotate-[-4deg] bg-ink px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream">
               Nick Toorn · 36
             </span>
-          </div>
+          </Parallax>
         </div>
 
         <div className="flex flex-col justify-center md:col-span-7">

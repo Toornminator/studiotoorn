@@ -29,7 +29,9 @@ export function CustomCursor() {
     getCoarsePointerServer,
   );
   const [mode, setMode] = useState<CursorMode>("dot");
+  const [label, setLabel] = useState<string | null>(null);
   const modeRef = useRef<CursorMode>("dot");
+  const labelRef = useRef<string | null>(null);
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
   const sx = useSpring(x, SPRING);
@@ -41,10 +43,15 @@ export function CustomCursor() {
     const previousCursor = document.body.style.cursor;
     document.body.style.cursor = "none";
 
-    const setIfChanged = (next: CursorMode) => {
+    const setModeIfChanged = (next: CursorMode) => {
       if (modeRef.current === next) return;
       modeRef.current = next;
       setMode(next);
+    };
+    const setLabelIfChanged = (next: string | null) => {
+      if (labelRef.current === next) return;
+      labelRef.current = next;
+      setLabel(next);
     };
 
     const handleMove = (event: PointerEvent) => {
@@ -53,22 +60,32 @@ export function CustomCursor() {
 
       const target = event.target as Element | null;
       if (!target) {
-        setIfChanged("dot");
+        setModeIfChanged("dot");
+        setLabelIfChanged(null);
         return;
       }
+      // Grab is a reserved keyword for sticker drag — no label.
       if (target.closest('[data-cursor="grab"]')) {
-        setIfChanged("grab");
+        setModeIfChanged("grab");
+        setLabelIfChanged(null);
+        return;
+      }
+      // Any other data-cursor value becomes the floating pill label.
+      const labelEl = target.closest("[data-cursor]") as HTMLElement | null;
+      if (labelEl?.dataset.cursor && labelEl.dataset.cursor !== "grab") {
+        setModeIfChanged("link");
+        setLabelIfChanged(labelEl.dataset.cursor);
         return;
       }
       if (
-        target.closest(
-          'a, button, [role="button"], [data-cursor="link"], summary, label',
-        )
+        target.closest('a, button, [role="button"], summary, label')
       ) {
-        setIfChanged("link");
+        setModeIfChanged("link");
+        setLabelIfChanged(null);
         return;
       }
-      setIfChanged("dot");
+      setModeIfChanged("dot");
+      setLabelIfChanged(null);
     };
 
     const handleLeave = () => {
@@ -141,6 +158,24 @@ export function CustomCursor() {
               <line x1="23" y1="14" x2="23" y2="22" />
             </g>
           </motion.svg>
+        )}
+      </AnimatePresence>
+
+      {/* Floating label pill — appears to the side of the cursor when the
+          hovered element advertises a verb via data-cursor. */}
+      <AnimatePresence>
+        {label && (
+          <motion.span
+            key={label}
+            initial={{ opacity: 0, x: 4, y: 4, scale: 0.85 }}
+            animate={{ opacity: 1, x: 22, y: 18, scale: 1 }}
+            exit={{ opacity: 0, x: 4, y: 4, scale: 0.85 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+            className="pointer-events-none absolute left-0 top-0 whitespace-nowrap rounded-full bg-ink px-3 py-1 font-mono uppercase text-cream"
+            style={{ fontSize: 10, letterSpacing: "0.18em" }}
+          >
+            {label}
+          </motion.span>
         )}
       </AnimatePresence>
     </motion.div>

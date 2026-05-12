@@ -59,6 +59,7 @@ export function EventsList({ events }: { events: EventItem[] }) {
                 onClick={() => setOpenSlug(event.slug)}
                 whileHover={{ backgroundColor: "rgba(232, 220, 196, 0.55)" }}
                 transition={{ duration: 0.15 }}
+                data-cursor={isSoldOut ? "Volgeboekt" : "Boek plek"}
                 className="group grid w-full grid-cols-[88px_1fr_auto] items-center gap-6 border-b border-ink/15 px-1 py-7 text-left transition-colors hover:bg-cream-warm/55 last:border-b-0 md:grid-cols-[160px_1fr_auto_auto] md:gap-10 md:px-2 md:py-9"
               >
                 {/* Date stamp */}

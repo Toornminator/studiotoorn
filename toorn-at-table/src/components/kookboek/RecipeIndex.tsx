@@ -113,6 +113,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => setOpenSlug(recipe.slug)}
+              data-cursor="Open recept"
               className="group relative flex flex-col items-start gap-4 overflow-hidden border border-ink/12 bg-cream-warm/60 p-6 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:p-7"
               style={{ borderRadius: 4 }}
             >
