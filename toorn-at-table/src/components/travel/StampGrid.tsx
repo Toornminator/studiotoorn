@@ -26,6 +26,16 @@ import { TravelOverlay } from "./TravelOverlay";
  * snaps the slight handmade rotation to 0.
  */
 
+/**
+ * Cache-bust token for stamp PNGs. Bump this string whenever a batch
+ * of stamps gets re-uploaded so Next.js's image optimizer and the
+ * browser stop serving the previously-cached version under the same
+ * URL. Anything past "?v=" is opaque to the file system — the actual
+ * file on disk is loaded — but the URL change is enough to invalidate
+ * every cache layer between the file and the user's screen.
+ */
+const STAMP_VERSION = "v3";
+
 const STAMP_CODES: Record<string, string> = {
   nederland: "NL",
   belgie: "BE",
@@ -126,8 +136,9 @@ function Stamp({
   const isFeatured = Boolean(location.intro || location.body);
   const rotation = jitter(location.slug, 5);
   const labelName = (location.country ?? location.name).toUpperCase();
-  const imagePath =
+  const baseImagePath =
     location.heroImage ?? `/images/stamps/${location.slug}.png`;
+  const imagePath = `${baseImagePath}?v=${STAMP_VERSION}`;
 
   const [imageBroken, setImageBroken] = useState(false);
 
