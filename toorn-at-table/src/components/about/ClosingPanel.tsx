@@ -26,7 +26,7 @@ export function ClosingPanel() {
 
         <motion.blockquote
           id="closing-heading"
-          className="mt-8 font-display italic leading-[1.02] text-ink"
+          className="mt-8 font-serif italic leading-[1.02] text-ink"
           style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}

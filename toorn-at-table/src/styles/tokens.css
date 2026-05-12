@@ -7,10 +7,11 @@
   --color-tattoo-mustard: #e5a823;
   --color-tattoo-jade: #2e7d5b;
 
-  --font-display: var(--font-fraunces);
-  --font-serif: var(--font-instrument-serif);
-  --font-mono: var(--font-jetbrains-mono);
-  --font-hand: var(--font-caveat);
+  /* Rock & roll tattoo type stack — see src/lib/fonts.ts for the imports. */
+  --font-display: var(--font-alfa-slab-one);
+  --font-serif: var(--font-im-fell-english);
+  --font-mono: var(--font-special-elite);
+  --font-hand: var(--font-permanent-marker);
 
   --shadow-paper: 0 2px 4px rgba(26, 26, 26, 0.06), 0 0 0 1px rgba(26, 26, 26, 0.04);
   --shadow-sticker-rest: 0 4px 12px rgba(26, 26, 26, 0.12);

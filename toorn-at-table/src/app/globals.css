@@ -15,6 +15,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Alfa Slab One (--font-display) ships only a single 400 Roman cut.
+   Block the browser from faking italic / bold so headlines stay clean
+   slab rather than skewed pseudo-italics. Pull-quotes that need real
+   italic should use the serif body font (IM Fell English) which carries
+   a proper italic cut. */
+.font-display {
+  font-synthesis: none;
+}
+
 /* Sections targeted by anchor links sit beneath the sticky NavBar; offset
    so the headline isn't tucked under the nav after a jump. */
 section[id] {
