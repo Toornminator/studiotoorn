@@ -1,7 +1,12 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 const URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Supabase rolled out new key naming (`sb_publishable_…` / `sb_secret_…`)
+// alongside the old `anon` / `service_role` keys. Accept either so projects
+// on the new format work without renaming env vars.
+const PUBLIC_KEY =
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 let cached: SupabaseClient | null = null;
 
@@ -11,12 +16,12 @@ let cached: SupabaseClient | null = null;
  * and before the first deploy with real keys.
  */
 export function getSupabaseBrowser(): SupabaseClient | null {
-  if (!URL || !ANON_KEY) return null;
+  if (!URL || !PUBLIC_KEY) return null;
   if (cached) return cached;
-  cached = createClient(URL, ANON_KEY, {
+  cached = createClient(URL, PUBLIC_KEY, {
     auth: { persistSession: false },
   });
   return cached;
 }
 
-export const isSupabaseConfigured = Boolean(URL && ANON_KEY);
+export const isSupabaseConfigured = Boolean(URL && PUBLIC_KEY);
