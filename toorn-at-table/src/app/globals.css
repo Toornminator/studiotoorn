@@ -39,10 +39,9 @@ section[id] {
   animation-play-state: paused;
 }
 
-/* Hide the page chrome while the preloader is up so the curtain reveal
-   doesn't compete with the hero. */
-.preloader-active main,
-.preloader-active footer {
+/* Hide nav while the curtain is up so its sticky cream strip doesn't
+   poke above the dark preloader during the first frame of the exit. */
+.preloader-active nav {
   opacity: 0;
 }
 
