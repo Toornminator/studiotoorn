@@ -7,6 +7,7 @@ import {
   submitBookingRequest,
   type ContactFormState,
 } from "@/app/actions/contact";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const INITIAL: ContactFormState = { status: "idle" };
 
@@ -52,25 +53,28 @@ function inputClass(error?: string) {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red disabled:opacity-60"
-    >
-      {pending ? "Versturen…" : "Verstuur aanvraag"}
-      {!pending && (
-        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
-          <path
-            d="M1 5 H13 M10 1 L13 5 L10 9"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-transform group-hover:translate-x-0.5"
-          />
-        </svg>
-      )}
-    </button>
+    <Magnetic strength={0.4}>
+      <button
+        type="submit"
+        disabled={pending}
+        data-cursor={pending ? undefined : "Verstuur"}
+        className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red disabled:opacity-60"
+      >
+        {pending ? "Versturen…" : "Verstuur aanvraag"}
+        {!pending && (
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
+            <path
+              d="M1 5 H13 M10 1 L13 5 L10 9"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </svg>
+        )}
+      </button>
+    </Magnetic>
   );
 }
 

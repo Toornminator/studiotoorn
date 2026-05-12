@@ -1,3 +1,4 @@
+import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { BookingForm } from "./BookingForm";
 
 export function Contact() {
@@ -9,24 +10,27 @@ export function Contact() {
     >
       <div className="mx-auto w-full max-w-4xl px-5 pb-32 md:px-12 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">
-          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
+          <Reveal as="p" className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
             Hoofdstuk 06 · Aan tafel
-          </p>
+          </Reveal>
           <h2
             id="contact-heading"
             className="mt-4 max-w-3xl font-display italic leading-[0.95] text-ink"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
-            Vertel me wat je in gedachten hebt. Ik denk binnen een dag mee.
+            <RevealWords text="Vertel me wat je in gedachten hebt. Ik denk binnen een dag mee." />
           </h2>
-          <p
+          <Reveal
+            as="p"
+            delay={0.2}
             className="mt-6 max-w-2xl font-serif italic text-ink/75"
-            style={{ fontSize: "clamp(17px, 1.25vw, 19px)" }}
           >
-            Een private dinner aan huis, een villa-week, een verjaardag,
-            zomaar — alles past, als de tafel maar belangrijk is. Hoe meer
-            ik weet, hoe scherper het eerste voorstel.
-          </p>
+            <span style={{ fontSize: "clamp(17px, 1.25vw, 19px)" }}>
+              Een private dinner aan huis, een villa-week, een verjaardag,
+              zomaar — alles past, als de tafel maar belangrijk is. Hoe meer
+              ik weet, hoe scherper het eerste voorstel.
+            </span>
+          </Reveal>
         </header>
 
         <div className="mt-14 md:mt-20">

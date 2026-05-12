@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const REVEAL_EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -58,28 +59,31 @@ export function ClosingPanel() {
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/55">
             Wil je aan tafel?
           </p>
-          <a
-            href="#contact"
-            className="group relative inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-          >
-            Plan een diner
-            <svg
-              width="18"
-              height="12"
-              viewBox="0 0 18 12"
-              fill="none"
-              aria-hidden
-              className="transition-transform group-hover:translate-x-1"
+          <Magnetic strength={0.45}>
+            <a
+              href="#contact"
+              data-cursor="Reserveer"
+              className="group relative inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
-              <path
-                d="M1 6 H15 M11 1 L16 6 L11 11"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+              Plan een diner
+              <svg
+                width="18"
+                height="12"
+                viewBox="0 0 18 12"
+                fill="none"
+                aria-hidden
+                className="transition-transform group-hover:translate-x-1"
+              >
+                <path
+                  d="M1 6 H15 M11 1 L16 6 L11 11"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </Magnetic>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/40">
             Reactie binnen 24 uur
           </p>

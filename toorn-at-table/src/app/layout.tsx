@@ -3,6 +3,7 @@ import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Footer } from "@/components/layout/Footer";
 import { NavBar } from "@/components/layout/NavBar";
 import { PaperBackground } from "@/components/layout/PaperBackground";
+import { Preloader } from "@/components/layout/Preloader";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { fontVariables } from "@/lib/fonts";
@@ -53,6 +54,7 @@ export default function RootLayout({
           <StickerProvider />
           <CustomCursor />
         </SmoothScroll>
+        <Preloader />
       </body>
     </html>
   );

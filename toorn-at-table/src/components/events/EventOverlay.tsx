@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Magnetic } from "@/components/ui/Magnetic";
 import type { EventItem } from "@/lib/types";
 
 const NL_MONTHS_FULL = [
@@ -173,23 +174,26 @@ export function EventOverlay({
             </p>
           ) : (
             <>
-              <a
-                href={`/?event=${event.slug}#contact`}
-                onClick={onClose}
-                className="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red"
-              >
-                Reserveer een plek
-                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
-                  <path
-                    d="M1 5 H13 M10 1 L13 5 L10 9"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </svg>
-              </a>
+              <Magnetic strength={0.4}>
+                <a
+                  href={`/?event=${event.slug}#contact`}
+                  onClick={onClose}
+                  data-cursor="Reserveer"
+                  className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red"
+                >
+                  Reserveer een plek
+                  <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
+                    <path
+                      d="M1 5 H13 M10 1 L13 5 L10 9"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  </svg>
+                </a>
+              </Magnetic>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
                 Reactie binnen 24 uur
               </p>
