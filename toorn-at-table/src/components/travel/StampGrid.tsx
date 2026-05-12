@@ -158,33 +158,18 @@ function Stamp({
           isFeatured={isFeatured}
         />
       ) : (
-        // Three-layer cleanup for badly-exported PNGs (checker pattern
-        // baked into the canvas around the actual stamp art):
-        //   1. `rounded-full overflow-hidden` clips the cell to a circle.
-        //   2. `scale-[1.3]` zooms the image enough that the stamp's
-        //      design ring grows to the cell edge — anything beyond
-        //      that (the checker donut around the design) gets pushed
-        //      past the clip and disappears. A slight outer-ring crop
-        //      is the trade-off, but it's barely perceptible.
-        //   3. `mix-blend-mode: multiply` is the final safety net: any
-        //      pure-white residual background that's still visible
-        //      after the scale gets blended into the cream paper
-        //      (white × cream = cream), so it vanishes too.
-        <div className="relative h-full w-full overflow-hidden rounded-full">
-          <Image
-            src={imagePath}
-            alt={`${location.name} reisstempel`}
-            fill
-            sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
-            onError={() => setImageBroken(true)}
-            style={{ mixBlendMode: "multiply" }}
-            className={`scale-[1.3] object-cover transition duration-300 ease-out ${
-              isFeatured
-                ? ""
-                : "grayscale opacity-65 group-hover:grayscale-0 group-hover:opacity-100"
-            }`}
-          />
-        </div>
+        <Image
+          src={imagePath}
+          alt={`${location.name} reisstempel`}
+          fill
+          sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
+          onError={() => setImageBroken(true)}
+          className={`object-contain transition duration-300 ease-out ${
+            isFeatured
+              ? ""
+              : "grayscale opacity-65 group-hover:grayscale-0 group-hover:opacity-100"
+          }`}
+        />
       )}
 
       {/* Featured wax-stamp dot overlay — only when the PNG renders;
