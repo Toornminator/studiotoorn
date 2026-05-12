@@ -158,23 +158,23 @@ function Stamp({
           isFeatured={isFeatured}
         />
       ) : (
-        // Wrap the PNG in a circular clip + cream backdrop. Two reasons:
-        //   1. Many AI-exported "transparent" PNGs ship with the checker
-        //      pattern baked in as actual pixels in the corners. Clipping
-        //      to a circle hides the corners, so the checker is gone.
-        //   2. Where the PNG has true transparency inside the circle (or
-        //      a near-white background), the cream backdrop blends with
-        //      the surrounding paper instead of showing browser white.
-        <div
-          className="relative h-full w-full overflow-hidden rounded-full"
-          style={{ backgroundColor: "var(--color-cream)" }}
-        >
+        // Two-layer fix for PNG export inconsistencies between stamps:
+        //   1. `rounded-full overflow-hidden` clips the square corners so
+        //      any baked-in transparency-checker artefacts hiding there
+        //      get cropped away.
+        //   2. `mix-blend-mode: multiply` blends the image with the cream
+        //      paper underneath: pure-white residual backgrounds vanish
+        //      (white × cream = cream), while the dark inks + red accents
+        //      of the actual stamp art stay intact. True alpha-transparent
+        //      stamps are unaffected and still show the paper through.
+        <div className="relative h-full w-full overflow-hidden rounded-full">
           <Image
             src={imagePath}
             alt={`${location.name} reisstempel`}
             fill
             sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
             onError={() => setImageBroken(true)}
+            style={{ mixBlendMode: "multiply" }}
             className={`object-cover transition duration-300 ease-out ${
               isFeatured
                 ? ""
