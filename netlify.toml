@@ -9,8 +9,10 @@
   # Directory where commands are run + node_modules installed.
   base = "toorn-at-table"
 
-  # Where the built Next.js output ends up.
-  publish = "toorn-at-table/.next"
+  # Where the built Next.js output ends up. Resolved relative to `base`,
+  # so the absolute path Netlify uses becomes
+  # /opt/build/repo/toorn-at-table/.next.
+  publish = ".next"
 
   # Use the existing scripts. npm install runs automatically before this.
   command = "npm run build"
