@@ -25,6 +25,20 @@
   NEXT_TELEMETRY_DISABLED = "1"
 
 # --------------------------------------------------------------------------
+# Plugins
+# --------------------------------------------------------------------------
+#
+# Pin the official Next.js runtime so SSR, server actions, route handlers
+# and the image loader all land on Netlify's serverless functions /
+# edge functions. Netlify auto-installs this plugin when it detects a
+# Next.js project, but declaring it explicitly nails down behaviour
+# across the team and stops the "build succeeded but no plugin detected"
+# trap.
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# --------------------------------------------------------------------------
 # Headers — long-cache immutable Next.js assets, short-cache uploads.
 # --------------------------------------------------------------------------
 
