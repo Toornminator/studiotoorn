@@ -1,17 +1,114 @@
 "use client";
 
-import { Suspense, useActionState, useEffect, useRef } from "react";
-import { useFormStatus } from "react-dom";
+import { Suspense, useRef, useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
-import {
-  submitBookingRequest,
-  type ContactFormState,
-} from "@/app/actions/contact";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { useT } from "@/i18n/client";
 import type { Dictionary } from "@/i18n/types";
 
-const INITIAL: ContactFormState = { status: "idle" };
+/**
+ * Booking enquiry form. Pure client-side submit to Netlify Forms — the
+ * browser POSTs to `/` with `application/x-www-form-urlencoded` body
+ * carrying `form-name=contact`, Netlify's CDN intercepts it as a form
+ * submission and writes it into the Forms dashboard.
+ *
+ * The matching schema is registered at build time via
+ * `public/__forms.html` (Netlify scans /public during deploy).
+ *
+ * No server action, no Supabase, no Resend. Notifications + spam
+ * filtering are configured in the Netlify Forms dashboard.
+ */
+
+type ContactFormFields = {
+  name: string;
+  email: string;
+  phone: string;
+  eventType: string;
+  eventDate: string;
+  guests: string;
+  location: string;
+  message: string;
+};
+
+type FieldErrors = Partial<Record<keyof ContactFormFields, string>>;
+
+type FormState =
+  | { status: "idle" }
+  | { status: "ok"; message: string }
+  | {
+      status: "error";
+      message?: string;
+      fieldErrors?: FieldErrors;
+      values?: Partial<ContactFormFields>;
+    };
+
+const INITIAL: FormState = { status: "idle" };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function parseForm(form: HTMLFormElement): ContactFormFields {
+  const data = new FormData(form);
+  const get = (k: string) => String(data.get(k) ?? "").trim();
+  return {
+    name: get("name"),
+    email: get("email").toLowerCase(),
+    phone: get("phone"),
+    eventType: get("eventType"),
+    eventDate: get("eventDate"),
+    guests: get("guests"),
+    location: get("location"),
+    message: get("message"),
+  };
+}
+
+function validate(fields: ContactFormFields, t: Dictionary): FieldErrors | null {
+  const errors: FieldErrors = {};
+  if (!fields.name || fields.name.length < 2) {
+    errors.name = t.contact.form.errors.nameRequired;
+  }
+  if (!fields.email || !EMAIL_RE.test(fields.email)) {
+    errors.email = t.contact.form.errors.emailRequired;
+  }
+  if (!fields.eventType) {
+    errors.eventType = t.contact.form.errors.typeRequired;
+  }
+  if (!fields.message || fields.message.length < 20) {
+    errors.message = t.contact.form.errors.messageRequired;
+  }
+  if (fields.guests) {
+    const n = Number(fields.guests);
+    if (!Number.isFinite(n) || n < 1 || n > 200) {
+      errors.guests = t.contact.form.errors.guestsRange;
+    }
+  }
+  if (fields.eventDate) {
+    const d = new Date(fields.eventDate);
+    if (Number.isNaN(d.getTime())) {
+      errors.eventDate = t.contact.form.errors.dateInvalid;
+    }
+  }
+  return Object.keys(errors).length === 0 ? null : errors;
+}
+
+async function submitToNetlify(fields: ContactFormFields): Promise<boolean> {
+  const body = new URLSearchParams();
+  body.set("form-name", "contact");
+  body.set("bot-field", "");
+  body.set("name", fields.name);
+  body.set("email", fields.email);
+  body.set("phone", fields.phone);
+  body.set("eventType", fields.eventType);
+  body.set("eventDate", fields.eventDate);
+  body.set("guests", fields.guests);
+  body.set("location", fields.location);
+  body.set("message", fields.message);
+
+  const res = await fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  return res.ok;
+}
 
 function FieldLabel({
   children,
@@ -45,8 +142,7 @@ function inputClass(error?: string) {
   }`;
 }
 
-function SubmitButton({ t }: { t: Dictionary }) {
-  const { pending } = useFormStatus();
+function SubmitButton({ pending, t }: { pending: boolean; t: Dictionary }) {
   return (
     <Magnetic strength={0.4}>
       <button
@@ -75,7 +171,8 @@ function SubmitButton({ t }: { t: Dictionary }) {
 
 function BookingFormInner() {
   const t = useT();
-  const [state, action] = useActionState(submitBookingRequest, INITIAL);
+  const [state, setState] = useState<FormState>(INITIAL);
+  const [pending, startTransition] = useTransition();
   const params = useSearchParams();
   const eventSlug = params.get("event");
   const formRef = useRef<HTMLFormElement>(null);
@@ -88,19 +185,63 @@ function BookingFormInner() {
   ];
 
   const defaultEventType = eventSlug ? "event-ticket" : "";
-  const defaultMessage = eventSlug
-    ? `Event: ${eventSlug}\n\n`
-    : "";
+  const defaultMessage = eventSlug ? `Event: ${eventSlug}\n\n` : "";
 
-  useEffect(() => {
-    if (state.status === "ok") formRef.current?.reset();
-  }, [state.status]);
+  const values = state.status === "error" ? state.values : undefined;
+  const errors = state.status === "error" ? state.fieldErrors ?? {} : {};
 
-  const v = state.values;
-  const errors = state.fieldErrors ?? {};
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    const fields = parseForm(formRef.current);
+    const fieldErrors = validate(fields, t);
+    if (fieldErrors) {
+      setState({ status: "error", fieldErrors, values: fields });
+      return;
+    }
+    startTransition(async () => {
+      try {
+        const ok = await submitToNetlify(fields);
+        if (!ok) {
+          setState({
+            status: "error",
+            message: t.contact.form.errors.backendDown,
+            values: fields,
+          });
+          return;
+        }
+        setState({ status: "ok", message: t.contact.form.success });
+        formRef.current?.reset();
+      } catch {
+        setState({
+          status: "error",
+          message: t.contact.form.errors.backendDown,
+          values: fields,
+        });
+      }
+    });
+  };
 
   return (
-    <form ref={formRef} action={action} className="space-y-10" noValidate>
+    <form
+      ref={formRef}
+      onSubmit={onSubmit}
+      name="contact"
+      method="POST"
+      action="/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      className="space-y-10"
+      noValidate
+    >
+      {/* Hidden inputs Netlify expects */}
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>
+          Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div>
           <FieldLabel htmlFor="name" error={errors.name}>
@@ -112,7 +253,7 @@ function BookingFormInner() {
             type="text"
             required
             autoComplete="name"
-            defaultValue={v?.name}
+            defaultValue={values?.name}
             className={inputClass(errors.name)}
           />
         </div>
@@ -126,7 +267,7 @@ function BookingFormInner() {
             type="email"
             required
             autoComplete="email"
-            defaultValue={v?.email}
+            defaultValue={values?.email}
             className={inputClass(errors.email)}
           />
         </div>
@@ -137,7 +278,7 @@ function BookingFormInner() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            defaultValue={v?.phone}
+            defaultValue={values?.phone}
             className={inputClass()}
           />
         </div>
@@ -149,7 +290,7 @@ function BookingFormInner() {
             id="eventType"
             name="eventType"
             required
-            defaultValue={v?.eventType ?? defaultEventType}
+            defaultValue={values?.eventType ?? defaultEventType}
             className={`${inputClass(errors.eventType)} appearance-none pr-6`}
             style={{
               backgroundImage:
@@ -177,7 +318,7 @@ function BookingFormInner() {
             id="eventDate"
             name="eventDate"
             type="date"
-            defaultValue={v?.eventDate}
+            defaultValue={values?.eventDate}
             className={inputClass(errors.eventDate)}
           />
         </div>
@@ -191,7 +332,7 @@ function BookingFormInner() {
             type="number"
             min={1}
             max={200}
-            defaultValue={v?.guests}
+            defaultValue={values?.guests}
             className={inputClass(errors.guests)}
           />
         </div>
@@ -204,7 +345,7 @@ function BookingFormInner() {
             name="location"
             type="text"
             placeholder={t.contact.form.locationPlaceholder}
-            defaultValue={v?.location}
+            defaultValue={values?.location}
             className={inputClass()}
           />
         </div>
@@ -219,7 +360,7 @@ function BookingFormInner() {
           name="message"
           required
           rows={6}
-          defaultValue={v?.message ?? defaultMessage}
+          defaultValue={values?.message ?? defaultMessage}
           placeholder={t.contact.form.messagePlaceholder}
           className={`${inputClass(errors.message)} resize-y leading-relaxed`}
           style={{ fontSize: 17, lineHeight: 1.5 }}
@@ -227,15 +368,21 @@ function BookingFormInner() {
       </div>
 
       <div className="flex flex-col items-start gap-5">
-        <SubmitButton t={t} />
+        <SubmitButton pending={pending} t={t} />
 
         {state.status === "ok" && state.message && (
-          <p className="max-w-md font-serif italic text-tattoo-jade" style={{ fontSize: 16 }}>
+          <p
+            className="max-w-md font-serif italic text-tattoo-jade"
+            style={{ fontSize: 16 }}
+          >
             {state.message}
           </p>
         )}
         {state.status === "error" && state.message && (
-          <p className="max-w-md font-serif italic text-tattoo-red" style={{ fontSize: 16 }}>
+          <p
+            className="max-w-md font-serif italic text-tattoo-red"
+            style={{ fontSize: 16 }}
+          >
             {state.message}
           </p>
         )}
