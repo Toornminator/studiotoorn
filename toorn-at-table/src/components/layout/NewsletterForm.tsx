@@ -7,17 +7,19 @@ import {
   subscribeToNewsletter,
   type NewsletterFormState,
 } from "@/app/actions/newsletter";
+import { useT } from "@/i18n/client";
+import type { Dictionary } from "@/i18n/types";
 
 const INITIAL: NewsletterFormState = { status: "idle" };
 
-function SubmitArrow() {
+function SubmitArrow({ t }: { t: Dictionary }) {
   const { pending } = useFormStatus();
   return (
     <button
       type="submit"
       disabled={pending}
       className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-cream transition-colors hover:bg-tattoo-red disabled:opacity-60"
-      aria-label="Schrijf in"
+      aria-label={t.footer.newsletterButton}
     >
       {pending ? (
         <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-cream border-t-transparent" />
@@ -37,6 +39,7 @@ function SubmitArrow() {
 }
 
 function NewsletterFormInner() {
+  const t = useT();
   const [state, action] = useActionState(subscribeToNewsletter, INITIAL);
   const formRef = useRef<HTMLFormElement>(null);
   const params = useSearchParams();
@@ -48,11 +51,17 @@ function NewsletterFormInner() {
 
   const banner =
     confirmStatus === "ok"
-      ? { tone: "ok" as const, text: "Bevestigd. Welkom op de lijst." }
+      ? { tone: "ok" as const, text: t.footer.newsletterStatusBanners.ok }
       : confirmStatus === "invalid"
-        ? { tone: "error" as const, text: "Die bevestigingslink werkt niet (meer)." }
+        ? {
+            tone: "error" as const,
+            text: t.footer.newsletterStatusBanners.invalid,
+          }
         : confirmStatus === "error"
-          ? { tone: "error" as const, text: "Bevestigen lukte niet — probeer het zo nog eens." }
+          ? {
+              tone: "error" as const,
+              text: t.footer.newsletterStatusBanners.error,
+            }
           : null;
 
   return (
@@ -67,19 +76,19 @@ function NewsletterFormInner() {
       )}
       <form ref={formRef} action={action} className="relative max-w-sm">
         <label htmlFor="newsletter-email" className="sr-only">
-          Email
+          {t.contact.form.emailLabel}
         </label>
         <input
           id="newsletter-email"
           name="email"
           type="email"
           required
-          placeholder="jouw@email.nl"
+          placeholder={t.footer.newsletterPlaceholder}
           defaultValue={state.email ?? ""}
           className="w-full rounded-full border border-ink/20 bg-cream-warm/40 py-3 pl-5 pr-14 font-serif text-ink placeholder:text-ink/35 focus:border-ink focus:outline-none"
           style={{ fontSize: 16, fontStyle: "italic" }}
         />
-        <SubmitArrow />
+        <SubmitArrow t={t} />
       </form>
       {state.status === "ok" && state.message && (
         <p className="font-serif italic text-tattoo-jade" style={{ fontSize: 15 }}>
@@ -98,7 +107,7 @@ function NewsletterFormInner() {
 export function NewsletterForm() {
   return (
     <Suspense
-      fallback={<div className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/40">Form laden…</div>}
+      fallback={<div className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/40">…</div>}
     >
       <NewsletterFormInner />
     </Suspense>

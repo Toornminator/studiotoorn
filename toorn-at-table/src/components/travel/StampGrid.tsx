@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { useT } from "@/i18n/client";
 import type { TravelLocation } from "@/lib/types";
 import { TravelOverlay } from "./TravelOverlay";
 
@@ -77,26 +78,28 @@ function jitter(slug: string, range: number) {
 }
 
 export function StampGrid({ locations }: { locations: TravelLocation[] }) {
+  const t = useT();
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const open = openSlug
     ? locations.find((l) => l.slug === openSlug) ?? null
     : null;
 
   const featuredCount = locations.filter((l) => l.intro || l.body).length;
+  const legend = t.travel.legendTotal
+    .replace("{count}", String(locations.length))
+    .replace("{featured}", String(featuredCount));
 
   return (
     <>
       <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-ink/15 pt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/55">
-        <span>
-          {locations.length} stempels · {featuredCount} verhalen
-        </span>
+        <span>{legend}</span>
         <span className="inline-flex items-center gap-2">
           <span aria-hidden className="inline-block h-2 w-2 rounded-full bg-tattoo-red" />
-          met verhaal
+          {t.travel.legendWithStory}
         </span>
         <span className="inline-flex items-center gap-2">
           <span aria-hidden className="inline-block h-2 w-2 rounded-full border border-ink/50" />
-          alleen geweest
+          {t.travel.legendVisited}
         </span>
       </div>
 
@@ -133,6 +136,7 @@ function Stamp({
   onClick: () => void;
   index: number;
 }) {
+  const t = useT();
   const isFeatured = Boolean(location.intro || location.body);
   const rotation = jitter(location.slug, 5);
   const labelName = (location.country ?? location.name).toUpperCase();
@@ -145,7 +149,7 @@ function Stamp({
   return (
     <motion.button
       onClick={onClick}
-      data-cursor={isFeatured ? "Lees verhaal" : labelName}
+      data-cursor={isFeatured ? t.travel.cursorReadStory : labelName}
       initial={{ opacity: 0, y: 18, rotate: rotation }}
       whileInView={{ opacity: 1, y: 0, rotate: rotation }}
       whileHover={{ scale: 1.06, rotate: 0 }}

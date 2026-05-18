@@ -2,10 +2,12 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { useT } from "@/i18n/client";
 
 const REVEAL_EASE = [0.16, 1, 0.3, 1] as const;
 
 export function ClosingPanel() {
+  const t = useT();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -15,13 +17,10 @@ export function ClosingPanel() {
       className="relative w-full"
     >
       <div className="mx-auto w-full max-w-4xl px-5 pt-12 pb-32 text-center md:px-12 md:pt-20 md:pb-48">
-        <div
-          aria-hidden
-          className="mx-auto h-px w-24 bg-ink/25 mb-16 md:mb-24"
-        />
+        <div aria-hidden className="mx-auto h-px w-24 bg-ink/25 mb-16 md:mb-24" />
 
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-          Tussenrust
+          {t.closing.eyebrow}
         </p>
 
         <motion.blockquote
@@ -33,8 +32,11 @@ export function ClosingPanel() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: REVEAL_EASE }}
         >
-          <span className="text-ink/40">“</span>Geen catering.
-          <br className="hidden sm:inline" /> Een herinnering.
+          <span className="text-ink/40">“</span>
+          {t.closing.quoteLine1}
+          <br className="hidden sm:inline" />
+          {" "}
+          {t.closing.quoteLine2}
           <span className="text-ink/40">”</span>
         </motion.blockquote>
 
@@ -46,7 +48,7 @@ export function ClosingPanel() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         >
-          — Nick
+          {t.closing.signature}
         </motion.p>
 
         <motion.div
@@ -57,15 +59,15 @@ export function ClosingPanel() {
           transition={{ duration: 0.7, ease: REVEAL_EASE, delay: 0.4 }}
         >
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/55">
-            Wil je aan tafel?
+            {t.closing.ctaIntro}
           </p>
           <Magnetic strength={0.45}>
             <a
               href="#contact"
-              data-cursor="Reserveer"
+              data-cursor={t.contact.cursorReserve}
               className="group relative inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
-              Plan een diner
+              {t.closing.ctaButton}
               <svg
                 width="18"
                 height="12"
@@ -85,7 +87,7 @@ export function ClosingPanel() {
             </a>
           </Magnetic>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/40">
-            Reactie binnen 24 uur
+            {t.closing.ctaNote}
           </p>
         </motion.div>
       </div>

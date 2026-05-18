@@ -1,6 +1,7 @@
 import { readdirSync } from "fs";
 import { join } from "path";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
+import { getDictionary } from "@/i18n/server";
 import { GalleryGrid } from "./GalleryGrid";
 
 /**
@@ -16,7 +17,8 @@ import { GalleryGrid } from "./GalleryGrid";
  * back to the filename so screen readers get something meaningful even
  * without a captions file.
  */
-export function Gallery() {
+export async function Gallery() {
+  const t = await getDictionary();
   const dir = join(process.cwd(), "public/images/gallery");
 
   let files: string[] = [];
@@ -26,7 +28,6 @@ export function Gallery() {
       .filter((f) => !f.startsWith("."))
       .sort();
   } catch {
-    // Folder doesn't exist yet — render nothing.
     return null;
   }
 
@@ -49,14 +50,14 @@ export function Gallery() {
             as="p"
             className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red"
           >
-            Tussendoor · In de keuken
+            {t.gallery.eyebrow}
           </Reveal>
           <h2
             id="gallery-heading"
             className="mt-4 max-w-3xl font-display leading-[0.95] text-ink"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
-            <RevealWords text="Zo ziet het eruit als de avond loopt." />
+            <RevealWords text={t.gallery.title} />
           </h2>
           <Reveal
             as="p"
@@ -64,8 +65,7 @@ export function Gallery() {
             className="mt-6 max-w-2xl font-serif italic text-ink/75"
           >
             <span style={{ fontSize: "clamp(17px, 1.25vw, 19px)" }}>
-              Momenten van vorige tafels — borden, vuren, handen,
-              uitzichten. Klik om groot te zien.
+              {t.gallery.intro}
             </span>
           </Reveal>
         </header>

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useT } from "@/i18n/client";
 import type { TravelLocation } from "@/lib/types";
 
 export function TravelOverlay({
@@ -11,6 +12,7 @@ export function TravelOverlay({
   location: TravelLocation;
   onClose: () => void;
 }) {
+  const t = useT();
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -46,7 +48,7 @@ export function TravelOverlay({
       >
         <button
           onClick={onClose}
-          aria-label="Sluit"
+          aria-label={t.gallery.cursorClose}
           className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-cream-warm text-ink transition-colors hover:bg-tattoo-red hover:text-cream md:right-6 md:top-6"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -60,7 +62,7 @@ export function TravelOverlay({
         </button>
 
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-          Reizen
+          {t.travel.overlayEyebrow}
           {location.country && <span className="text-ink/40"> · {location.country}</span>}
           {location.year && <span className="text-ink/40"> · {location.year}</span>}
         </p>
@@ -107,8 +109,7 @@ export function TravelOverlay({
             className="mt-10 max-w-2xl font-serif italic text-ink/55"
             style={{ fontSize: 18, lineHeight: 1.5 }}
           >
-            Geweest. Verhaal volgt — Nick werkt aan een korte blog over deze
-            plek.
+            {t.travel.overlayPlaceholder}
           </p>
         )}
       </motion.div>

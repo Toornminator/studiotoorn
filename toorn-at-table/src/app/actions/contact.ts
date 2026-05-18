@@ -2,6 +2,8 @@
 
 import { Resend } from "resend";
 import { getSupabaseServer } from "@/lib/supabase/server";
+import { getDictionary } from "@/i18n/server";
+import type { Dictionary } from "@/i18n/types";
 
 export type ContactFormState = {
   status: "idle" | "ok" | "error";
@@ -46,22 +48,32 @@ function parse(formData: FormData): ContactFormFields {
 
 function validate(
   fields: ContactFormFields,
+  t: Dictionary,
 ): ContactFormState["fieldErrors"] | null {
   const errors: ContactFormState["fieldErrors"] = {};
-  if (!fields.name || fields.name.length < 2) errors.name = "Vul je naam in.";
-  if (!fields.email || !EMAIL_RE.test(fields.email))
-    errors.email = "Vul een geldig emailadres in.";
-  if (!fields.eventType) errors.eventType = "Kies wat voor avond je in gedachten hebt.";
-  if (!fields.message || fields.message.length < 20)
-    errors.message = "Schrijf even een paar zinnen over wat je wil — wat is de aanleiding, hoeveel gasten, locatie?";
+  if (!fields.name || fields.name.length < 2) {
+    errors.name = t.contact.form.errors.nameRequired;
+  }
+  if (!fields.email || !EMAIL_RE.test(fields.email)) {
+    errors.email = t.contact.form.errors.emailRequired;
+  }
+  if (!fields.eventType) {
+    errors.eventType = t.contact.form.errors.typeRequired;
+  }
+  if (!fields.message || fields.message.length < 20) {
+    errors.message = t.contact.form.errors.messageRequired;
+  }
   if (fields.guests) {
     const n = Number(fields.guests);
-    if (!Number.isFinite(n) || n < 1 || n > 200)
-      errors.guests = "Vul een getal tussen 1 en 200 in.";
+    if (!Number.isFinite(n) || n < 1 || n > 200) {
+      errors.guests = t.contact.form.errors.guestsRange;
+    }
   }
   if (fields.eventDate) {
     const d = new Date(fields.eventDate);
-    if (Number.isNaN(d.getTime())) errors.eventDate = "Geen geldige datum.";
+    if (Number.isNaN(d.getTime())) {
+      errors.eventDate = t.contact.form.errors.dateInvalid;
+    }
   }
   return Object.keys(errors).length === 0 ? null : errors;
 }
@@ -134,8 +146,9 @@ export async function submitBookingRequest(
   _prev: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
+  const t = await getDictionary();
   const fields = parse(formData);
-  const fieldErrors = validate(fields);
+  const fieldErrors = validate(fields, t);
   if (fieldErrors) {
     return { status: "error", fieldErrors, values: fields };
   }
@@ -151,15 +164,13 @@ export async function submitBookingRequest(
   if (!stored.ok && !notified.ok) {
     return {
       status: "error",
-      message:
-        "Het versturen lukte niet automatisch — kun je me direct mailen op info@studiotoorn.com of bellen op +31 6 14 41 21 02?",
+      message: t.contact.form.errors.backendDown,
       values: fields,
     };
   }
 
   return {
     status: "ok",
-    message:
-      "Bedankt — je aanvraag is binnen. Ik reageer binnen 24 uur. Check intussen je inbox voor de bevestiging.",
+    message: t.contact.form.success,
   };
 }

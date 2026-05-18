@@ -3,38 +3,17 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { useT, useLocale } from "@/i18n/client";
 import type { EventItem } from "@/lib/types";
 
-const NL_MONTHS_FULL = [
-  "januari",
-  "februari",
-  "maart",
-  "april",
-  "mei",
-  "juni",
-  "juli",
-  "augustus",
-  "september",
-  "oktober",
-  "november",
-  "december",
-];
-
-const NL_WEEKDAYS = [
-  "zondag",
-  "maandag",
-  "dinsdag",
-  "woensdag",
-  "donderdag",
-  "vrijdag",
-  "zaterdag",
-];
-
-function formatLongDate(iso: string) {
+function formatLongDate(iso: string, locale: string) {
   const d = new Date(iso + "T12:00:00");
-  return `${NL_WEEKDAYS[d.getDay()]} ${d.getDate()} ${
-    NL_MONTHS_FULL[d.getMonth()]
-  } ${d.getFullYear()}`;
+  return new Intl.DateTimeFormat(locale, {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(d);
 }
 
 export function EventOverlay({
@@ -44,6 +23,9 @@ export function EventOverlay({
   event: EventItem;
   onClose: () => void;
 }) {
+  const t = useT();
+  const locale = useLocale();
+
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -83,7 +65,7 @@ export function EventOverlay({
       >
         <button
           onClick={onClose}
-          aria-label="Sluit event"
+          aria-label={t.gallery.cursorClose}
           className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-cream-warm text-ink transition-colors hover:bg-tattoo-red hover:text-cream md:right-6 md:top-6"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -97,7 +79,7 @@ export function EventOverlay({
         </button>
 
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-          Event
+          {t.events.overlayEyebrow}
         </p>
 
         <h2
@@ -112,38 +94,43 @@ export function EventOverlay({
           className="mt-6 font-serif italic text-ink/70"
           style={{ fontSize: "clamp(17px, 1.3vw, 20px)" }}
         >
-          {formatLongDate(event.date)}
-          {event.startTime && <span className="text-ink/55"> · vanaf {event.startTime}</span>}
+          {formatLongDate(event.date, locale)}
+          {event.startTime && (
+            <span className="text-ink/55">
+              {" "}
+              · {t.events.overlayFrom} {event.startTime}
+            </span>
+          )}
         </p>
 
         <dl className="mt-10 grid grid-cols-2 gap-y-5 border-y border-ink/15 py-6 font-mono text-[11px] uppercase tracking-[0.22em] sm:grid-cols-4">
           <div>
-            <dt className="text-ink/45">Locatie</dt>
+            <dt className="text-ink/45">{t.events.overlayLocation}</dt>
             <dd className="mt-1 normal-case tracking-normal text-ink font-serif italic" style={{ fontSize: 14 }}>
               {event.location}
             </dd>
           </div>
           {event.city && (
             <div>
-              <dt className="text-ink/45">Stad</dt>
+              <dt className="text-ink/45">{t.events.overlayCity}</dt>
               <dd className="mt-1 text-ink">{event.city}</dd>
             </div>
           )}
           {event.priceEur !== undefined && (
             <div>
-              <dt className="text-ink/45">Prijs p.p.</dt>
+              <dt className="text-ink/45">{t.events.overlayPricePer}</dt>
               <dd className="mt-1 text-ink">€ {event.priceEur}</dd>
             </div>
           )}
           {event.capacity && (
             <div>
-              <dt className="text-ink/45">Plekken</dt>
+              <dt className="text-ink/45">{t.events.overlaySpots}</dt>
               <dd className="mt-1 text-ink">
                 {isSoldOut
-                  ? "Volgeboekt"
+                  ? t.events.soldOut
                   : event.spotsAvailable !== undefined
                     ? `${event.spotsAvailable} / ${event.capacity}`
-                    : `${event.capacity} max`}
+                    : `${event.capacity} ${t.events.overlayMax}`}
               </dd>
             </div>
           )}
@@ -170,7 +157,7 @@ export function EventOverlay({
         <div className="mt-12 flex flex-col items-start gap-4">
           {isSoldOut ? (
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-ink/55">
-              Volgeboekt — schrijf je in voor de nieuwsbrief voor de volgende
+              {t.events.soldOutNote}
             </p>
           ) : (
             <>
@@ -178,10 +165,10 @@ export function EventOverlay({
                 <a
                   href={`/?event=${event.slug}#contact`}
                   onClick={onClose}
-                  data-cursor="Reserveer"
+                  data-cursor={t.contact.cursorReserve}
                   className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red"
                 >
-                  Reserveer een plek
+                  {t.events.bookCta}
                   <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
                     <path
                       d="M1 5 H13 M10 1 L13 5 L10 9"
@@ -195,7 +182,7 @@ export function EventOverlay({
                 </a>
               </Magnetic>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
-                Reactie binnen 24 uur
+                {t.events.responseTime}
               </p>
             </>
           )}

@@ -2,35 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useT } from "@/i18n/client";
 import type { Recipe, RecipeCategory, Season } from "@/lib/types";
 import { RecipeOverlay } from "./RecipeOverlay";
-
-const CATEGORIES: { id: RecipeCategory | "all"; label: string }[] = [
-  { id: "all", label: "Alle" },
-  { id: "voor", label: "Voor" },
-  { id: "hoofd", label: "Hoofd" },
-  { id: "bij", label: "Bij" },
-  { id: "dessert", label: "Dessert" },
-  { id: "borrel", label: "Borrel" },
-  { id: "basis", label: "Basis" },
-];
-
-const SEASONS: { id: Season | "all"; label: string }[] = [
-  { id: "all", label: "Hele jaar" },
-  { id: "lente", label: "Lente" },
-  { id: "zomer", label: "Zomer" },
-  { id: "herfst", label: "Herfst" },
-  { id: "winter", label: "Winter" },
-];
-
-const CATEGORY_LABEL: Record<RecipeCategory, string> = {
-  voor: "Voorgerecht",
-  hoofd: "Hoofdgerecht",
-  bij: "Bijgerecht",
-  dessert: "Dessert",
-  borrel: "Borrel",
-  basis: "Basis",
-};
 
 function formatMinutes(prep?: number, cook?: number) {
   const total = (prep ?? 0) + (cook ?? 0);
@@ -38,12 +12,15 @@ function formatMinutes(prep?: number, cook?: number) {
   if (total < 60) return `${total} min`;
   const h = Math.floor(total / 60);
   const m = total % 60;
-  return m ? `${h} u ${m} min` : `${h} u`;
+  return m ? `${h} h ${m} min` : `${h} h`;
 }
 
 function DifficultyDots({ level = 0 }: { level?: number }) {
   return (
-    <span className="inline-flex items-center gap-[3px]" aria-label={`Moeilijkheid ${level}/5`}>
+    <span
+      className="inline-flex items-center gap-[3px]"
+      aria-label={`${level}/5`}
+    >
       {[1, 2, 3, 4, 5].map((i) => (
         <span
           key={i}
@@ -57,10 +34,38 @@ function DifficultyDots({ level = 0 }: { level?: number }) {
 }
 
 export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
+  const t = useT();
   const [activeCategory, setActiveCategory] =
     useState<RecipeCategory | "all">("all");
   const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
   const [openSlug, setOpenSlug] = useState<string | null>(null);
+
+  const CATEGORIES: { id: RecipeCategory | "all"; label: string }[] = [
+    { id: "all", label: t.cookbook.categoryAll },
+    { id: "voor", label: t.cookbook.categoryStarter },
+    { id: "hoofd", label: t.cookbook.categoryMain },
+    { id: "bij", label: t.cookbook.categorySide },
+    { id: "dessert", label: t.cookbook.categoryDessert },
+    { id: "borrel", label: t.cookbook.categoryDrink },
+    { id: "basis", label: t.cookbook.categoryBasic },
+  ];
+
+  const SEASONS: { id: Season | "all"; label: string }[] = [
+    { id: "all", label: t.cookbook.seasonAll },
+    { id: "lente", label: t.cookbook.seasonSpring },
+    { id: "zomer", label: t.cookbook.seasonSummer },
+    { id: "herfst", label: t.cookbook.seasonAutumn },
+    { id: "winter", label: t.cookbook.seasonWinter },
+  ];
+
+  const CATEGORY_LABEL: Record<RecipeCategory, string> = {
+    voor: t.cookbook.categoryStarter,
+    hoofd: t.cookbook.categoryMain,
+    bij: t.cookbook.categorySide,
+    dessert: t.cookbook.categoryDessert,
+    borrel: t.cookbook.categoryDrink,
+    basis: t.cookbook.categoryBasic,
+  };
 
   const filtered = useMemo(() => {
     return recipes.filter((r) => {
@@ -81,16 +86,15 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
 
   return (
     <>
-      {/* Filters */}
       <div className="mt-14 space-y-5 md:mt-20">
         <FilterRow
-          label="Categorie"
+          label={t.cookbook.filtersCategory}
           options={CATEGORIES}
           activeId={activeCategory}
           onSelect={(id) => setActiveCategory(id as RecipeCategory | "all")}
         />
         <FilterRow
-          label="Seizoen"
+          label={t.cookbook.filtersSeason}
           options={SEASONS}
           activeId={activeSeason}
           onSelect={(id) => setActiveSeason(id as Season | "all")}
@@ -98,10 +102,10 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
       </div>
 
       <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
-        {filtered.length} recept{filtered.length === 1 ? "" : "en"}
+        {filtered.length}{" "}
+        {filtered.length === 1 ? t.cookbook.resultsOne : t.cookbook.resultsMany}
       </p>
 
-      {/* Grid */}
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout" initial={false}>
           {filtered.map((recipe) => (
@@ -113,7 +117,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => setOpenSlug(recipe.slug)}
-              data-cursor="Open recept"
+              data-cursor={t.cookbook.cursorOpen}
               className="group relative flex flex-col items-start gap-4 overflow-hidden border border-ink/12 bg-cream-warm/60 p-6 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:p-7"
               style={{ borderRadius: 4 }}
             >
@@ -144,7 +148,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
                   {formatMinutes(recipe.prepMinutes, recipe.cookMinutes) ?? "—"}
                 </span>
                 <span className="inline-flex items-center gap-1 text-ink/40 transition-colors group-hover:text-tattoo-red">
-                  Open
+                  {t.events.openLabel}
                   <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden>
                     <path
                       d="M1 4 H10 M7 1 L10 4 L7 7"
@@ -163,7 +167,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
 
       {filtered.length === 0 && (
         <p className="mt-12 text-center font-serif italic text-ink/55">
-          Geen recepten in deze combinatie. Probeer een andere filter.
+          {t.cookbook.noResults}
         </p>
       )}
 

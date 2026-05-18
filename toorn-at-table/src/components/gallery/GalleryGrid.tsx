@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useT } from "@/i18n/client";
 
 type Photo = { src: string; alt: string };
 
 export function GalleryGrid({ photos }: { photos: Photo[] }) {
+  const t = useT();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -16,7 +18,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
             key={p.src}
             type="button"
             onClick={() => setOpenIndex(i)}
-            data-cursor="Open foto"
+            data-cursor={t.gallery.cursorOpen}
             className="group relative mb-4 block w-full overflow-hidden bg-cream-warm/30 sm:mb-5 md:mb-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
             style={{ breakInside: "avoid" }}
             initial={{ opacity: 0, y: 20 }}
@@ -66,6 +68,7 @@ function Lightbox({
   initialIndex: number;
   onClose: () => void;
 }) {
+  const t = useT();
   const [i, setI] = useState(initialIndex);
 
   useEffect(() => {
@@ -106,8 +109,8 @@ function Lightbox({
       <button
         type="button"
         onClick={onClose}
-        aria-label="Sluit"
-        data-cursor="Sluit"
+        aria-label={t.gallery.cursorClose}
+        data-cursor={t.gallery.cursorClose}
         className="absolute right-4 top-4 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-cream/30 bg-ink/40 text-cream transition-colors hover:bg-tattoo-red hover:border-transparent sm:right-8 sm:top-8"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -128,8 +131,8 @@ function Lightbox({
             e.stopPropagation();
             prevPhoto();
           }}
-          aria-label="Vorige foto"
-          data-cursor="Vorige"
+          aria-label={t.gallery.cursorPrev}
+          data-cursor={t.gallery.cursorPrev}
           className="absolute left-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-cream/30 bg-ink/40 text-cream transition-colors hover:bg-tattoo-red hover:border-transparent sm:left-6"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -152,8 +155,8 @@ function Lightbox({
             e.stopPropagation();
             nextPhoto();
           }}
-          aria-label="Volgende foto"
-          data-cursor="Volgende"
+          aria-label={t.gallery.cursorNext}
+          data-cursor={t.gallery.cursorNext}
           className="absolute right-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-cream/30 bg-ink/40 text-cream transition-colors hover:bg-tattoo-red hover:border-transparent sm:right-6"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>

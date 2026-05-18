@@ -10,37 +10,23 @@ import { Kookboek } from "@/components/kookboek/Kookboek";
 import { Services } from "@/components/services/Services";
 import { Travel } from "@/components/travel/Travel";
 import { Marquee } from "@/components/ui/Marquee";
+import { getDictionary } from "@/i18n/server";
 
-export default function Home() {
+export default async function Home() {
+  const t = await getDictionary();
+
   return (
     <>
       <Hero />
       <About />
       <Timeline />
       <Services />
-      <Marquee
-        items={[
-          "Costa del Sol",
-          "Open keuken",
-          "Lange tafels",
-          "Lokale producten",
-          "Eén gast tegelijk",
-        ]}
-      />
+      <Marquee items={t.marquee.primary} />
       <Travel />
       <Stats />
       <Kookboek />
       <Gallery />
-      <Marquee
-        items={[
-          "Private dinners",
-          "Villa takeovers",
-          "Verjaardagen",
-          "Eens-in-het-leven momenten",
-          "Boekingen open",
-        ]}
-        duration={44}
-      />
+      <Marquee items={t.marquee.secondary} duration={44} />
       <Events />
       <ClosingPanel />
       <Contact />

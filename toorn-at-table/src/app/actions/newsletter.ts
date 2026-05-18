@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { Resend } from "resend";
 import { getSupabaseServer } from "@/lib/supabase/server";
+import { getDictionary } from "@/i18n/server";
 
 export type NewsletterFormState = {
   status: "idle" | "ok" | "error";
@@ -25,6 +26,7 @@ export async function subscribeToNewsletter(
   _prev: NewsletterFormState,
   formData: FormData,
 ): Promise<NewsletterFormState> {
+  const t = await getDictionary();
   const email = String(formData.get("email") ?? "")
     .trim()
     .toLowerCase();
@@ -32,7 +34,7 @@ export async function subscribeToNewsletter(
   if (!email || !EMAIL_RE.test(email)) {
     return {
       status: "error",
-      message: "Vul een geldig emailadres in.",
+      message: t.footer.newsletterMessages.invalidEmail,
       email,
     };
   }
@@ -41,12 +43,10 @@ export async function subscribeToNewsletter(
   const resendKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_ADDRESS;
 
-  // No backend wired yet — be honest with the visitor.
   if (!supabase && !resendKey) {
     return {
       status: "error",
-      message:
-        "Nieuwsbrief wordt nog opgezet — mail me direct op info@studiotoorn.com om alvast op de lijst te komen.",
+      message: t.footer.newsletterMessages.backendDown,
       email,
     };
   }
@@ -65,8 +65,7 @@ export async function subscribeToNewsletter(
     if (error) {
       return {
         status: "error",
-        message:
-          "Er ging iets mis aan onze kant. Probeer het zo nog eens of mail me direct.",
+        message: t.footer.newsletterMessages.genericError,
         email,
       };
     }
@@ -75,7 +74,7 @@ export async function subscribeToNewsletter(
     if (data?.confirmed_at) {
       return {
         status: "ok",
-        message: "Je staat al op de lijst — dank!",
+        message: t.footer.newsletterMessages.alreadySubscribed,
       };
     }
   }
@@ -86,32 +85,28 @@ export async function subscribeToNewsletter(
     const resend = new Resend(resendKey);
     const html = `
       <div style="font-family:Georgia, serif; color:#1A1A1A; line-height:1.6; max-width:520px;">
-        <h1 style="font-style:italic; font-size:28px; margin-bottom:8px;">Bijna binnen.</h1>
-        <p>Bevestig dit emailadres met één klik en je staat op de lijst.</p>
+        <h1 style="font-style:italic; font-size:28px; margin-bottom:8px;">${t.footer.newsletterTitle}</h1>
+        <p>${t.footer.newsletterBody}</p>
         <p style="margin:2em 0;">
-          <a href="${confirmUrl}" style="display:inline-block;background:#1A1A1A;color:#F4EDE0;font-family:monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:999px;">Bevestig inschrijving</a>
+          <a href="${confirmUrl}" style="display:inline-block;background:#1A1A1A;color:#F4EDE0;font-family:monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:999px;">${t.footer.newsletterButton}</a>
         </p>
-        <p style="font-size:13px; color:#888;">Niet jou? Negeer dit bericht — er gebeurt verder niets.</p>
         <p style="margin-top:2.5em; font-size:12px; color:#888;">TOORN at table · Costa del Sol</p>
       </div>`;
     await resend.emails
       .send({
         from,
         to: email,
-        subject: "Bevestig je inschrijving — TOORN at table",
+        subject: t.footer.newsletterTitle,
         html,
       })
       .catch(() => null);
 
     return {
       status: "ok",
-      message:
-        "Check je inbox — er staat een mailtje van me met een bevestigingslink.",
+      message: t.footer.newsletterMessages.checkInbox,
     };
   }
 
-  // Supabase configured, no Resend yet: store as confirmed since we can't send
-  // the double opt-in mail anyway.
   if (supabase && !resendKey && token) {
     await supabase
       .from("newsletter_subscribers")
@@ -121,6 +116,6 @@ export async function subscribeToNewsletter(
 
   return {
     status: "ok",
-    message: "Bedankt — je staat op de lijst.",
+    message: t.footer.newsletterMessages.thanks,
   };
 }

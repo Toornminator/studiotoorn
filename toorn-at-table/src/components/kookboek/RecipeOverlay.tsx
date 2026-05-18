@@ -2,16 +2,8 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import type { Recipe, RecipeCategory, RecipeIngredient } from "@/lib/types";
-
-const CATEGORY_LABEL: Record<RecipeCategory, string> = {
-  voor: "Voorgerecht",
-  hoofd: "Hoofdgerecht",
-  bij: "Bijgerecht",
-  dessert: "Dessert",
-  borrel: "Borrel",
-  basis: "Basis",
-};
+import { useT } from "@/i18n/client";
+import type { Recipe, RecipeIngredient } from "@/lib/types";
 
 function formatTime(minutes?: number) {
   if (!minutes) return null;
@@ -38,6 +30,15 @@ export function RecipeOverlay({
   recipe: Recipe;
   onClose: () => void;
 }) {
+  const t = useT();
+  const CATEGORY_LABEL: Record<Recipe["category"], string> = {
+    voor: t.cookbook.categoryStarter,
+    hoofd: t.cookbook.categoryMain,
+    bij: t.cookbook.categorySide,
+    dessert: t.cookbook.categoryDessert,
+    borrel: t.cookbook.categoryDrink,
+    basis: t.cookbook.categoryBasic,
+  };
   // Lock body scroll + listen for ESC.
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -78,7 +79,7 @@ export function RecipeOverlay({
         {/* Close */}
         <button
           onClick={onClose}
-          aria-label="Sluit recept"
+          aria-label={t.gallery.cursorClose}
           className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-cream-warm text-ink transition-colors hover:bg-tattoo-red hover:text-cream md:right-6 md:top-6"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -119,25 +120,27 @@ export function RecipeOverlay({
         <dl className="mt-10 grid grid-cols-2 gap-y-4 border-y border-ink/15 py-5 font-mono text-[11px] uppercase tracking-[0.22em] sm:grid-cols-4">
           {totalTime > 0 && (
             <div>
-              <dt className="text-ink/45">Tijd totaal</dt>
+              <dt className="text-ink/45">{t.cookbook.overlayTotalTime}</dt>
               <dd className="mt-1 text-ink">{formatTime(totalTime)}</dd>
             </div>
           )}
           {recipe.servings && (
             <div>
-              <dt className="text-ink/45">Voor</dt>
-              <dd className="mt-1 text-ink">{recipe.servings} personen</dd>
+              <dt className="text-ink/45">{t.cookbook.overlayServes}</dt>
+              <dd className="mt-1 text-ink">
+                {recipe.servings} {t.cookbook.overlayServesUnit}
+              </dd>
             </div>
           )}
           {recipe.difficulty && (
             <div>
-              <dt className="text-ink/45">Moeilijkheid</dt>
+              <dt className="text-ink/45">{t.cookbook.overlayDifficulty}</dt>
               <dd className="mt-1 text-ink">{recipe.difficulty} / 5</dd>
             </div>
           )}
           {recipe.pairing && (
             <div className="col-span-2 sm:col-span-1">
-              <dt className="text-ink/45">Erbij</dt>
+              <dt className="text-ink/45">{t.cookbook.overlayPairing}</dt>
               <dd className="mt-1 text-ink normal-case tracking-normal font-serif italic" style={{ fontSize: 14 }}>
                 {recipe.pairing}
               </dd>
@@ -158,7 +161,7 @@ export function RecipeOverlay({
         <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <section className="md:col-span-5">
             <h3 className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-              Ingrediënten
+              {t.cookbook.overlayIngredients}
             </h3>
             <ul className="mt-6 space-y-6 font-serif">
               {grouped.map(([groupName, items]) => (
@@ -199,7 +202,7 @@ export function RecipeOverlay({
 
           <section className="md:col-span-7">
             <h3 className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-              Bereiding
+              {t.cookbook.overlayMethod}
             </h3>
             <ol className="mt-6 space-y-7">
               {recipe.steps.map((step) => (

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useT } from "@/i18n/client";
 
 const SESSION_KEY = "toorn-preloader-shown";
 const TOTAL_MS = 3300;
@@ -20,6 +21,7 @@ const COLORS = {
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Preloader() {
+  const t = useT();
   const [show, setShow] = useState(true);
   const reduceMotion = useReducedMotion();
 
@@ -60,7 +62,7 @@ export function Preloader() {
           key="preloader"
           role="status"
           aria-live="polite"
-          aria-label="TOORN at table — Een tafel wordt klaargemaakt"
+          aria-label={t.preloader.ariaLabel}
           initial={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
           exit={
             reduce
@@ -148,7 +150,7 @@ export function Preloader() {
                 ease: EASE,
               }}
             >
-              Een tafel wordt klaargemaakt
+              {t.preloader.loadingMessage}
               <Dots reduce={reduce} startDelay={reduce ? 0.6 : 2.45} />
             </motion.p>
           </div>
@@ -165,7 +167,7 @@ export function Preloader() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: reduce ? 0.4 : 2.2 }}
           >
-            Costa del Sol · Privé chef
+            {t.preloader.locationCaption}
           </motion.p>
 
           {/* Gold corner brackets — luxury menu plate detail */}

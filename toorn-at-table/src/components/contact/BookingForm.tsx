@@ -8,15 +8,10 @@ import {
   type ContactFormState,
 } from "@/app/actions/contact";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { useT } from "@/i18n/client";
+import type { Dictionary } from "@/i18n/types";
 
 const INITIAL: ContactFormState = { status: "idle" };
-
-const EVENT_TYPES = [
-  { id: "private-dinner", label: "Private dinner aan huis" },
-  { id: "villa-takeover", label: "Villa takeover (meerdere dagen)" },
-  { id: "event-ticket", label: "Plek op een open event" },
-  { id: "anders", label: "Iets anders" },
-];
 
 function FieldLabel({
   children,
@@ -50,17 +45,17 @@ function inputClass(error?: string) {
   }`;
 }
 
-function SubmitButton() {
+function SubmitButton({ t }: { t: Dictionary }) {
   const { pending } = useFormStatus();
   return (
     <Magnetic strength={0.4}>
       <button
         type="submit"
         disabled={pending}
-        data-cursor={pending ? undefined : "Verstuur"}
+        data-cursor={pending ? undefined : t.contact.cursorSubmit}
         className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red disabled:opacity-60"
       >
-        {pending ? "Versturen…" : "Verstuur aanvraag"}
+        {pending ? t.contact.form.submitting : t.contact.form.submit}
         {!pending && (
           <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
             <path
@@ -79,17 +74,24 @@ function SubmitButton() {
 }
 
 function BookingFormInner() {
+  const t = useT();
   const [state, action] = useActionState(submitBookingRequest, INITIAL);
   const params = useSearchParams();
   const eventSlug = params.get("event");
   const formRef = useRef<HTMLFormElement>(null);
 
+  const eventTypes = [
+    { id: "private-dinner", label: t.contact.form.types.privateDinner },
+    { id: "villa-takeover", label: t.contact.form.types.villaTakeover },
+    { id: "event-ticket", label: t.contact.form.types.eventTicket },
+    { id: "anders", label: t.contact.form.types.other },
+  ];
+
   const defaultEventType = eventSlug ? "event-ticket" : "";
   const defaultMessage = eventSlug
-    ? `Ik wil graag een plek reserveren voor het event "${eventSlug}". Hieronder met hoeveel personen en wat de aanleiding is —\n\n`
+    ? `Event: ${eventSlug}\n\n`
     : "";
 
-  // Reset on success (imperative DOM call, not state).
   useEffect(() => {
     if (state.status === "ok") formRef.current?.reset();
   }, [state.status]);
@@ -98,16 +100,11 @@ function BookingFormInner() {
   const errors = state.fieldErrors ?? {};
 
   return (
-    <form
-      ref={formRef}
-      action={action}
-      className="space-y-10"
-      noValidate
-    >
+    <form ref={formRef} action={action} className="space-y-10" noValidate>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div>
           <FieldLabel htmlFor="name" error={errors.name}>
-            Je naam *
+            {t.contact.form.nameLabel}
           </FieldLabel>
           <input
             id="name"
@@ -121,7 +118,7 @@ function BookingFormInner() {
         </div>
         <div>
           <FieldLabel htmlFor="email" error={errors.email}>
-            Email *
+            {t.contact.form.emailLabel}
           </FieldLabel>
           <input
             id="email"
@@ -134,7 +131,7 @@ function BookingFormInner() {
           />
         </div>
         <div>
-          <FieldLabel htmlFor="phone">Telefoon (optional)</FieldLabel>
+          <FieldLabel htmlFor="phone">{t.contact.form.phoneLabel}</FieldLabel>
           <input
             id="phone"
             name="phone"
@@ -146,7 +143,7 @@ function BookingFormInner() {
         </div>
         <div>
           <FieldLabel htmlFor="eventType" error={errors.eventType}>
-            Wat heb je in gedachten? *
+            {t.contact.form.typeLabel}
           </FieldLabel>
           <select
             id="eventType"
@@ -163,18 +160,18 @@ function BookingFormInner() {
             }}
           >
             <option value="" disabled>
-              Kies een type
+              {t.contact.form.typePlaceholder}
             </option>
-            {EVENT_TYPES.map((t) => (
-              <option key={t.id} value={t.id}>
-                {t.label}
+            {eventTypes.map((opt) => (
+              <option key={opt.id} value={opt.id}>
+                {opt.label}
               </option>
             ))}
           </select>
         </div>
         <div>
           <FieldLabel htmlFor="eventDate" error={errors.eventDate}>
-            Datum (indien al bekend)
+            {t.contact.form.dateLabel}
           </FieldLabel>
           <input
             id="eventDate"
@@ -186,7 +183,7 @@ function BookingFormInner() {
         </div>
         <div>
           <FieldLabel htmlFor="guests" error={errors.guests}>
-            Aantal gasten
+            {t.contact.form.guestsLabel}
           </FieldLabel>
           <input
             id="guests"
@@ -199,12 +196,14 @@ function BookingFormInner() {
           />
         </div>
         <div className="md:col-span-2">
-          <FieldLabel htmlFor="location">Locatie / stad</FieldLabel>
+          <FieldLabel htmlFor="location">
+            {t.contact.form.locationLabel}
+          </FieldLabel>
           <input
             id="location"
             name="location"
             type="text"
-            placeholder="Bv. Marbella, eigen villa in Estepona, een Airbnb in Mijas…"
+            placeholder={t.contact.form.locationPlaceholder}
             defaultValue={v?.location}
             className={inputClass()}
           />
@@ -213,7 +212,7 @@ function BookingFormInner() {
 
       <div>
         <FieldLabel htmlFor="message" error={errors.message}>
-          Wat speelt er? *
+          {t.contact.form.messageLabel}
         </FieldLabel>
         <textarea
           id="message"
@@ -221,14 +220,14 @@ function BookingFormInner() {
           required
           rows={6}
           defaultValue={v?.message ?? defaultMessage}
-          placeholder="Wat is de aanleiding, met wie, wat verwacht je van de avond, eventuele dieetwensen, budget-indicatie als je die hebt…"
+          placeholder={t.contact.form.messagePlaceholder}
           className={`${inputClass(errors.message)} resize-y leading-relaxed`}
           style={{ fontSize: 17, lineHeight: 1.5 }}
         />
       </div>
 
       <div className="flex flex-col items-start gap-5">
-        <SubmitButton />
+        <SubmitButton t={t} />
 
         {state.status === "ok" && state.message && (
           <p className="max-w-md font-serif italic text-tattoo-jade" style={{ fontSize: 16 }}>
@@ -242,7 +241,7 @@ function BookingFormInner() {
         )}
 
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/40">
-          We bewaren je gegevens uitsluitend om op je aanvraag te reageren.
+          {t.contact.form.privacyNote}
         </p>
       </div>
     </form>
@@ -253,11 +252,8 @@ export function BookingForm() {
   return (
     <Suspense
       fallback={
-        <div
-          className="font-serif italic text-ink/40"
-          style={{ fontSize: 17 }}
-        >
-          Formulier laden…
+        <div className="font-serif italic text-ink/40" style={{ fontSize: 17 }}>
+          …
         </div>
       }
     >
