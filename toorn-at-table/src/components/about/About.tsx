@@ -44,26 +44,31 @@ export function About() {
 
           <div className="mt-8 space-y-5 font-serif text-ink/85" style={{ fontSize: "clamp(17px, 1.3vw, 19px)", lineHeight: 1.55 }}>
             <p>
-              Ik ben Nick. Zesendertig, opgegroeid in Amsterdam, gelukkig
-              gestrand aan de Costa del Sol. Voordat ik hier voor mensen kookte,
-              stond ik jaren in een keuken met een ster boven de deur — en
-              daarvoor met een camera in de hand op zoek naar het juiste
-              licht op iemands gezicht.
+              Ik ben Nick. Zesendertig, geboren in Zwolle, met een jeugd over
+              grenzen heen — deels België, deels Duitsland. Mijn opleiding rondde
+              ik af in Groningen. De keuken vond me pas laat: eerst drie jaar
+              bij de Marechaussee, daarna een jaar vrijwilligerswerk in Gambia.
             </p>
             <p>
-              Ergens onderweg merkte ik dat die twee hetzelfde willen: een
-              moment vasthouden, dichtbij komen, iets eerlijks neerzetten. Nu
-              probeer ik dat te doen aan een tafel in de zon, met een bord
-              waar je niet over hoeft te praten omdat het al genoeg zegt.
+              Pas rond mijn zesentwintigste koos ik voluit voor het vak. Eerst
+              aan de koude kant van een restaurantkeuken, daarna een vormend
+              jaar in de patisserie van Bord&apos;eau in Hotel de L&apos;Europe
+              — onder Bas van Kranen. De camera was er al sinds mijn achttiende:
+              dezelfde discipline, een ander gereedschap.
+            </p>
+            <p>
+              Sinds 2023 kook ik privé aan de Costa del Sol. Discipline uit het
+              uniform, precisie uit de sterrenkeuken, rust uit Andalusië —
+              samengebracht aan één tafel. Geen catering. Een herinnering.
             </p>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[11px] uppercase tracking-[0.25em] text-ink/60">
-            <span>Michelin-getraind</span>
+            <span>Sterrenkeuken-getraind</span>
             <span aria-hidden className="text-ink/30">·</span>
-            <span>Portretfotograaf</span>
+            <span>Portret- en straatfotograaf</span>
             <span aria-hidden className="text-ink/30">·</span>
-            <span>Private chef sinds 2024</span>
+            <span>Private chef sinds 2023</span>
           </div>
         </div>
       </div>

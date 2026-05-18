@@ -33,8 +33,8 @@ export function ClosingPanel() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: REVEAL_EASE }}
         >
-          <span className="text-ink/40">“</span>Een tafel is geen restaurant
-          —<br className="hidden sm:inline" /> het is een uitnodiging.
+          <span className="text-ink/40">“</span>Geen catering.
+          <br className="hidden sm:inline" /> Een herinnering.
           <span className="text-ink/40">”</span>
         </motion.blockquote>
 

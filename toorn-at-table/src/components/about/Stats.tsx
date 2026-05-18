@@ -32,16 +32,16 @@ export function Stats() {
 
           <Reveal delay={0.12} className="flex flex-col items-start gap-3">
             <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
-              Jaar in de keuken
+              Jaar in het vak
             </p>
             <p
               className="font-display italic leading-[0.85] text-ink"
               style={{ fontSize: "clamp(72px, 9vw, 132px)" }}
             >
-              <Counter value={16} />
+              <Counter value={10} />
             </p>
             <p className="font-serif italic text-ink/65" style={{ fontSize: 15 }}>
-              Acht jaar Michelin, acht jaar zoeken.
+              Sinds mijn 26e — geen jaar eerder.
             </p>
           </Reveal>
 

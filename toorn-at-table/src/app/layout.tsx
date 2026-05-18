@@ -13,11 +13,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "TOORN at table — Private chef, Costa del Sol",
   description:
-    "Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als thuis. Private chef en culinair vakmanschap aan de Costa del Sol.",
+    "Een fotografenoog, de discipline van jaren in dienst en de precisie van een sterrenkeuken — aan één tafel in de zon. Private chef Nick Toorn, Costa del Sol.",
   openGraph: {
-    title: "TOORN at table",
+    title: "TOORN at table — Art on a Plate",
     description:
-      "Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als thuis.",
+      "Sterrenkeuken-precisie, Andalusische zon, één tafel. Geen catering — een herinnering.",
     type: "website",
     locale: "nl_NL",
     images: [
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TOORN at table",
+    title: "TOORN at table — Art on a Plate",
     description:
-      "Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als thuis.",
+      "Sterrenkeuken-precisie, Andalusische zon, één tafel. Geen catering — een herinnering.",
     images: ["/images/logo-dark.jpg"],
   },
 };

@@ -114,7 +114,7 @@ export function Hero() {
           }}
           className="mt-10 font-mono text-[10px] uppercase tracking-[0.3em] text-ink/65 sm:mt-12 sm:text-xs sm:tracking-[0.32em]"
         >
-          Private chef · Costa del Sol · Est. 2024
+          Private chef · Costa del Sol · Est. 2023
         </motion.p>
 
         <motion.p
@@ -128,8 +128,8 @@ export function Hero() {
           className="mt-5 max-w-xl px-2 font-serif italic text-ink/80 sm:max-w-2xl"
           style={{ fontSize: "clamp(18px, 2.2vw, 22px)", lineHeight: 1.45 }}
         >
-          Michelin-getrainde keuken, Spaanse zon, en een tafel die voelt als
-          thuis.
+          Een fotografenoog, de discipline van jaren in dienst en de precisie
+          van een sterrenkeuken — aan één tafel in de zon.
         </motion.p>
 
         <HandwrittenNote delay={headlineEnd + 0.8} />
