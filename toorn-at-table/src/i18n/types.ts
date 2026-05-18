@@ -34,6 +34,12 @@ export type Dictionary = {
     chip3: string;
     portraitCaption: string;
   };
+  timeline: {
+    eyebrow: string;
+    title: string;
+    /** Prefix shown before every chapter number (e.g. "Chap." / "Hfdstk"). */
+    chapterPrefix: string;
+  };
   services: {
     eyebrow: string;
     title: string;

@@ -40,6 +40,12 @@ export const es: Dictionary = {
     chip3: "Chef privado desde 2023",
     portraitCaption: "Nick Toorn · 36",
   },
+  timeline: {
+    eyebrow: "Capítulo 02 · La Cronología",
+    title:
+      "Cómo un cocinero holandés acabó en una mesa en Andalucía.",
+    chapterPrefix: "Cap.",
+  },
   services: {
     eyebrow: "Servicios · Qué puedes reservar",
     title: "Cuatro maneras de sentarte a la mesa.",

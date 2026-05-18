@@ -40,6 +40,12 @@ export const nl: Dictionary = {
     chip3: "Private chef sinds 2023",
     portraitCaption: "Nick Toorn · 36",
   },
+  timeline: {
+    eyebrow: "Hoofdstuk 02 · De Tijdlijn",
+    title:
+      "Hoe een Hollandse keukenjongen aan een tafel in Andalusië belandde.",
+    chapterPrefix: "Hfdstk",
+  },
   services: {
     eyebrow: "Diensten · Wat je kunt boeken",
     title: "Vier manieren om aan tafel te zitten.",
