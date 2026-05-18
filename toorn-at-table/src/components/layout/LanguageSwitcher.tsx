@@ -2,26 +2,36 @@
 
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { setLocale } from "@/app/actions/locale";
+import { setLocale as persistLocaleCookie } from "@/app/actions/locale";
 import { LOCALES, LOCALE_LABELS, LOCALE_LONG_LABELS, type Locale } from "@/i18n/config";
-import { useLocale, useT } from "@/i18n/client";
+import { useLocale, useSetLocale, useT } from "@/i18n/client";
 
 /**
  * Tiny three-letter pill — EN / ES / NL — that swaps the active locale.
- * Sets a year-long cookie via the server action and refreshes so the
- * next server render speaks the chosen language. The current locale is
- * styled inkfilled; the rest are hairline ink-on-cream.
+ *
+ * Two-phase swap so the button feels instant:
+ *  1. Synchronous client flip via the LocaleProvider — every `useT()`
+ *     consumer re-renders this frame, the pill highlights the new
+ *     choice immediately, no awaiting anything.
+ *  2. Fire-and-forget background: persist the choice in a year-long
+ *     cookie + `router.refresh()` so server-rendered sections (Hero,
+ *     About, Footer, …) catch up to the new dictionary shortly after.
  */
 export function LanguageSwitcher() {
   const current = useLocale();
+  const setLocale = useSetLocale();
   const dict = useT();
   const router = useRouter();
-  const [pending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const onSelect = (locale: Locale) => {
-    if (locale === current || pending) return;
-    startTransition(async () => {
-      await setLocale(locale);
+    if (locale === current) return;
+    // 1. Instant client swap — pill + every useT() consumer flips now.
+    setLocale(locale);
+    // 2. Background: write the cookie and let the next server render
+    //    catch up. Not awaited — the button never feels blocked.
+    startTransition(() => {
+      void persistLocaleCookie(locale);
       router.refresh();
     });
   };
@@ -41,8 +51,7 @@ export function LanguageSwitcher() {
             onClick={() => onSelect(locale)}
             aria-current={active ? "true" : undefined}
             aria-label={LOCALE_LONG_LABELS[locale]}
-            disabled={pending && !active}
-            className={`px-2.5 py-1 transition-colors ${
+            className={`px-2.5 py-1 transition-colors duration-150 ${
               active
                 ? "bg-ink text-cream"
                 : "text-ink/65 hover:text-ink"

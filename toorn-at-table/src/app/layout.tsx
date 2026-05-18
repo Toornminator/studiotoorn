@@ -7,7 +7,7 @@ import { Preloader } from "@/components/layout/Preloader";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { LocaleProvider } from "@/i18n/client";
-import { getCurrentLocale, getDictionaryFor } from "@/i18n/server";
+import { getCurrentLocale } from "@/i18n/server";
 import { fontVariables } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -46,12 +46,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getCurrentLocale();
-  const dict = getDictionaryFor(locale);
 
   return (
     <html lang={locale} className={cn(fontVariables, "h-full antialiased")}>
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
-        <LocaleProvider locale={locale} dict={dict}>
+        <LocaleProvider initialLocale={locale}>
           <SmoothScroll>
             <PaperBackground />
             <NavBar />
