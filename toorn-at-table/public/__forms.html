@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form definitions</title>
+  </head>
+  <body>
+    <!--
+      This page exists only so Netlify's build bot can discover the
+      forms used on the site and provision submission endpoints +
+      a dashboard view for them.
+
+      Do not link to it from anywhere; do not style it. The real form
+      lives in src/components/contact/BookingForm.tsx and submits via
+      a Next.js server action that fans out to Supabase, Resend, and
+      then POSTs a copy here (so submissions also land in the Netlify
+      Forms dashboard).
+
+      Keep the input names IDENTICAL to BookingForm.tsx field names —
+      Netlify validates that the runtime submission matches the
+      discovered field set.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="eventType" />
+      <input type="date" name="eventDate" />
+      <input type="number" name="guests" />
+      <input type="text" name="location" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

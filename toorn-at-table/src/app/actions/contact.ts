@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import { getSupabaseServer } from "@/lib/supabase/server";
 import { getDictionary } from "@/i18n/server";
@@ -120,6 +121,42 @@ async function sendNotificationMail(fields: ContactFormFields) {
   return { ok: true as const };
 }
 
+async function siteBaseUrl(): Promise<string> {
+  const env = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.URL;
+  if (env) return env.replace(/\/$/, "");
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host");
+  const proto = h.get("x-forwarded-proto") ?? "http";
+  return host ? `${proto}://${host}` : "http://localhost:3000";
+}
+
+/**
+ * Mirror the submission to the Netlify Forms dashboard. The form schema
+ * is registered via public/__forms.html (which Netlify's build bot scans
+ * at deploy time). This is fire-and-forget — if Netlify is unreachable
+ * the visitor's submit is unaffected; Supabase + Resend already covered
+ * the storage and notification paths.
+ */
+async function postToNetlifyForms(fields: ContactFormFields) {
+  const base = await siteBaseUrl();
+  const body = new URLSearchParams({
+    "form-name": "contact",
+    name: fields.name,
+    email: fields.email,
+    phone: fields.phone ?? "",
+    eventType: fields.eventType,
+    eventDate: fields.eventDate ?? "",
+    guests: fields.guests ?? "",
+    location: fields.location ?? "",
+    message: fields.message,
+  });
+  await fetch(base + "/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+}
+
 async function sendConfirmationMail(fields: ContactFormFields) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_ADDRESS;
@@ -158,8 +195,12 @@ export async function submitBookingRequest(
     sendNotificationMail(fields),
   ]);
 
-  // Best-effort confirmation mail, don't fail the whole submit if it errors.
-  await sendConfirmationMail(fields).catch(() => null);
+  // Best-effort confirmation mail + Netlify Forms mirror, don't fail
+  // the whole submit if either errors.
+  await Promise.all([
+    sendConfirmationMail(fields).catch(() => null),
+    postToNetlifyForms(fields).catch(() => null),
+  ]);
 
   if (!stored.ok && !notified.ok) {
     return {
