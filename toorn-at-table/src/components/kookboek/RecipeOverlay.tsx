@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n/client";
 import { useBodyScrollLock } from "@/lib/hooks/useBodyScrollLock";
-import type { Recipe, RecipeIngredient } from "@/lib/types";
+import { MarginNotesForAnchor } from "@/components/marginalia/MarginNote";
+import { NowPlaying } from "@/components/now-playing/NowPlaying";
+import type {
+  EssayImage,
+  Recipe,
+  RecipeIngredient,
+} from "@/lib/types";
 
 function formatTime(minutes?: number) {
   if (!minutes) return null;
@@ -22,6 +29,36 @@ function groupIngredients(items: RecipeIngredient[]) {
     groups.get(key)!.push(item);
   }
   return Array.from(groups.entries());
+}
+
+/**
+ * Inline essay photo. Anchored by `afterParagraph` index so the body
+ * renderer slots it in between paragraphs without having to know the
+ * full content shape.
+ */
+function EssayPhoto({ img, slug }: { img: EssayImage; slug: string }) {
+  const src = img.src.startsWith("/")
+    ? img.src
+    : `/images/recipes/${slug}/${img.src}`;
+  return (
+    <figure className="my-8">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-warm shadow-paper">
+        <Image
+          src={src}
+          alt={img.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 672px"
+          className="object-cover"
+          unoptimized
+        />
+      </div>
+      {img.caption && (
+        <figcaption className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
+          {img.caption}
+        </figcaption>
+      )}
+    </figure>
+  );
 }
 
 export function RecipeOverlay({
@@ -51,6 +88,15 @@ export function RecipeOverlay({
 
   const totalTime = (recipe.prepMinutes ?? 0) + (recipe.cookMinutes ?? 0);
   const grouped = groupIngredients(recipe.ingredients);
+
+  // Group essay images by the paragraph index they sit after, so the
+  // body renderer can splice them in without a second pass.
+  const imagesByParagraph = new Map<number, EssayImage[]>();
+  for (const img of recipe.essayImages ?? []) {
+    const list = imagesByParagraph.get(img.afterParagraph) ?? [];
+    list.push(img);
+    imagesByParagraph.set(img.afterParagraph, list);
+  }
 
   return (
     <motion.div
@@ -112,8 +158,43 @@ export function RecipeOverlay({
           </p>
         )}
 
-        {/* Meta strip */}
-        <dl className="mt-10 grid grid-cols-2 gap-y-4 border-y border-ink/15 py-5 font-mono text-[11px] uppercase tracking-[0.22em] sm:grid-cols-4">
+        {/* Intro-anchored marginalia (sits right under the intro) */}
+        <MarginNotesForAnchor
+          notes={recipe.marginalia}
+          anchor="intro"
+          className="mt-4 max-w-md md:ml-auto md:max-w-xs md:text-right"
+        />
+
+        {/* Now playing — pinned strip under the intro */}
+        {recipe.nowPlaying && <NowPlaying data={recipe.nowPlaying} />}
+
+        {/* Essay body — long-read part. Renders before the meta strip
+            so the story comes first and the recipe-as-spec comes after. */}
+        {recipe.body && recipe.body.length > 0 && (
+          <div
+            className="mt-10 max-w-2xl space-y-5 font-serif text-ink/85"
+            style={{ fontSize: "clamp(16px, 1.1vw, 18px)", lineHeight: 1.6 }}
+          >
+            {recipe.body.map((para, i) => (
+              <div key={i}>
+                <p>{para}</p>
+                {(imagesByParagraph.get(i) ?? []).map((img, j) => (
+                  <EssayPhoto key={`${i}-${j}`} img={img} slug={recipe.slug} />
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Essay-anchored marginalia (after the long-read, before the spec) */}
+        <MarginNotesForAnchor
+          notes={recipe.marginalia}
+          anchor="essay"
+          className="mt-8 max-w-md md:ml-auto md:max-w-xs md:text-right"
+        />
+
+        {/* Meta strip — spec begins here */}
+        <dl className="mt-12 grid grid-cols-2 gap-y-4 border-y border-ink/15 py-5 font-mono text-[11px] uppercase tracking-[0.22em] sm:grid-cols-4">
           {totalTime > 0 && (
             <div>
               <dt className="text-ink/45">{t.cookbook.overlayTotalTime}</dt>
@@ -143,17 +224,6 @@ export function RecipeOverlay({
             </div>
           )}
         </dl>
-
-        {recipe.body && recipe.body.length > 0 && (
-          <div
-            className="mt-10 max-w-2xl space-y-5 font-serif text-ink/85"
-            style={{ fontSize: "clamp(16px, 1.1vw, 18px)", lineHeight: 1.6 }}
-          >
-            {recipe.body.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </div>
-        )}
 
         {/* Ingredients + steps */}
         <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
@@ -196,6 +266,11 @@ export function RecipeOverlay({
                 </li>
               ))}
             </ul>
+            <MarginNotesForAnchor
+              notes={recipe.marginalia}
+              anchor="ingredients"
+              className="mt-6"
+            />
           </section>
 
           <section className="md:col-span-7">
@@ -204,22 +279,34 @@ export function RecipeOverlay({
             </h3>
             <ol className="mt-6 space-y-7">
               {recipe.steps.map((step) => (
-                <li key={step.position} className="flex gap-5">
-                  <span
-                    className="font-display italic text-tattoo-red"
-                    style={{ fontSize: 32, lineHeight: 1, minWidth: 36 }}
-                  >
-                    {step.position}
-                  </span>
-                  <p
-                    className="font-serif text-ink/90"
-                    style={{ fontSize: 17, lineHeight: 1.55 }}
-                  >
-                    {step.body}
-                  </p>
+                <li key={step.position} className="flex flex-col gap-2">
+                  <div className="flex gap-5">
+                    <span
+                      className="font-display italic text-tattoo-red"
+                      style={{ fontSize: 32, lineHeight: 1, minWidth: 36 }}
+                    >
+                      {step.position}
+                    </span>
+                    <p
+                      className="font-serif text-ink/90"
+                      style={{ fontSize: 17, lineHeight: 1.55 }}
+                    >
+                      {step.body}
+                    </p>
+                  </div>
+                  <MarginNotesForAnchor
+                    notes={recipe.marginalia}
+                    anchor={`step-${step.position}` as const}
+                    className="ml-14 max-w-md"
+                  />
                 </li>
               ))}
             </ol>
+            <MarginNotesForAnchor
+              notes={recipe.marginalia}
+              anchor="method"
+              className="mt-8 ml-14 max-w-md"
+            />
           </section>
         </div>
       </motion.div>

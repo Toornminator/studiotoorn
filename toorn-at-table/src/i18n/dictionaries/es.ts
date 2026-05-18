@@ -46,6 +46,10 @@ export const es: Dictionary = {
       "Cómo un cocinero holandés acabó en una mesa en Andalucía.",
     chapterPrefix: "Cap.",
   },
+  marginalia: {
+    warningPrefix: "ojo —",
+    wrongPrefix: "salió mal —",
+  },
   services: {
     eyebrow: "Servicios · Qué puedes reservar",
     title: "Cuatro maneras de sentarte a la mesa.",

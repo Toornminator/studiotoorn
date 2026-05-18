@@ -46,6 +46,10 @@ export const en: Dictionary = {
       "How a Dutch kitchen kid ended up at a table in Andalucía.",
     chapterPrefix: "Chap.",
   },
+  marginalia: {
+    warningPrefix: "heads up —",
+    wrongPrefix: "went wrong —",
+  },
   services: {
     eyebrow: "Services · What you can book",
     title: "Four ways to sit at the table.",

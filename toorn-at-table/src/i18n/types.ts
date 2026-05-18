@@ -40,6 +40,12 @@ export type Dictionary = {
     /** Prefix shown before every chapter number (e.g. "Chap." / "Hfdstk"). */
     chapterPrefix: string;
   };
+  marginalia: {
+    /** Struck-through preamble on a `warning` margin note. */
+    warningPrefix: string;
+    /** Struck-through preamble on a `wrong` margin note. */
+    wrongPrefix: string;
+  };
   services: {
     eyebrow: string;
     title: string;

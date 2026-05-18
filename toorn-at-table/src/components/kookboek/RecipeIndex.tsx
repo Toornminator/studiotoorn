@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useT } from "@/i18n/client";
+import { NowPlayingBadge } from "@/components/now-playing/NowPlaying";
 import type { Recipe, RecipeCategory, Season } from "@/lib/types";
 import { RecipeOverlay } from "./RecipeOverlay";
 
@@ -134,6 +135,10 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
               >
                 {recipe.title}
               </h3>
+
+              {recipe.nowPlaying && (
+                <NowPlayingBadge data={recipe.nowPlaying} />
+              )}
 
               {recipe.intro && (
                 <p className="font-serif text-ink/70" style={{ fontSize: 15, lineHeight: 1.5 }}>

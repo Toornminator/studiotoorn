@@ -35,15 +35,70 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "Make it in the morning. Not later. Give the flavours all day to settle, and serve it just shy of ice-cold — that's where you taste the tomato properly.",
+        "The first time I ate real gazpacho was at a Friday market in Estepona, late June, from a paper cup a guy named Rafa handed me. It was nothing like the tomato soup I knew from Holland. It was cold, yes — but the cold wasn't the point. The point was that the tomato had been allowed to be a tomato, and everything else had stepped back.",
+        "I asked him what was in it. He shrugged: ripe tomatoes, oil, garlic, day-old bread, vinegar, salt. That's it. The whole conversation took less than a minute. I thought about it for two weeks.",
+        "What changed me was understanding that gazpacho isn't a cold soup. It's a vehicle for one good tomato. The bread isn't a thickener — it's there so the olive oil can emulsify and the soup stops feeling like juice. The vinegar isn't seasoning — it's what wakes the tomato up so you taste more of it, not less.",
+        "I make it now, at home, almost every week between June and September. I drink it from the same kind of paper cup. Sometimes with manzanilla, often without. It's the first thing I serve at a villa dinner if the weather is right — it tells everyone, from the very first sip, what kind of evening this is going to be.",
       ],
       es: [
-        "Hazlo por la mañana. No más tarde. Deja que los sabores se asienten durante el día y sírvelo no del todo helado — ahí es donde el tomate se nota de verdad.",
+        "La primera vez que comí gazpacho de verdad fue un viernes en el mercado de Estepona, finales de junio, en un vaso de papel que me dio un tipo llamado Rafa. No tenía nada que ver con la sopa de tomate que conocía de Holanda. Estaba fría, sí — pero el frío no era el tema. El tema era que el tomate había podido ser tomate, y el resto se había apartado.",
+        "Le pregunté qué llevaba. Encogió los hombros: tomates maduros, aceite, ajo, pan duro del día anterior, vinagre, sal. Ya está. La conversación entera duró menos de un minuto. Le di vueltas dos semanas.",
+        "Lo que me cambió fue entender que el gazpacho no es una sopa fría. Es un vehículo para un buen tomate. El pan no es espesante — está ahí para que el aceite emulsione y la sopa deje de parecer un zumo. El vinagre no es condimento — es lo que despierta al tomate para que sepa más a sí mismo, no a otra cosa.",
+        "Lo hago en casa casi todas las semanas entre junio y septiembre. Lo bebo del mismo tipo de vaso de papel. A veces con manzanilla, muchas veces sin. Es lo primero que sirvo en una cena en una villa si el tiempo lo permite — dice a todos, desde el primer sorbo, qué clase de noche va a ser.",
       ],
       nl: [
-        "Maak hem 's ochtends. Niet later. Geef de smaken de hele dag om in te trekken en serveer 'm net niet ijskoud — dan voel je de tomaat het beste.",
+        "De eerste keer dat ik écht gazpacho proefde was op een vrijdagmarkt in Estepona, eind juni, uit een papieren bekertje dat een vent met de naam Rafa me aanreikte. Het had niets te maken met die koude tomatensoep die ik in Nederland kende. Hij was koud, ja — maar de kou was niet het punt. Het punt was dat de tomaat een tomaat had mogen blijven, en al het andere een stap terug had gezet.",
+        "Ik vroeg wat erin zat. Hij haalde z'n schouders op: rijpe tomaten, olie, knoflook, oudbakken brood, azijn, zout. Klaar. Het hele gesprek duurde minder dan een minuut. Ik dacht er twee weken over na.",
+        "Wat me veranderde was het besef dat gazpacho geen koude soep is. Het is een vehikel voor één goede tomaat. Het brood is geen bindmiddel — het is er zodat de olijfolie kan emulgeren en de soep niet meer voelt als sap. De azijn is geen kruiding — het is wat de tomaat wakker maakt zodat je hem méér proeft, niet minder.",
+        "Ik maak hem nu thuis bijna elke week tussen juni en september. Ik drink hem uit hetzelfde soort papieren bekertje. Soms met manzanilla, vaak niet. Het is het eerste wat ik serveer bij een villa-diner als het weer het toelaat — het zegt iedereen, vanaf de eerste slok, wat voor een soort avond dit wordt.",
       ],
     },
+    nowPlaying: {
+      track: "Tres Días",
+      artist: "Pata Negra",
+    },
+    marginalia: [
+      {
+        id: "gazp-1",
+        kind: "scrawl",
+        anchor: "intro",
+        body: {
+          en: "I only make this between June and September. Off-season tomatoes don't earn the soup.",
+          es: "Sólo lo hago entre junio y septiembre. Los tomates fuera de temporada no se merecen esta sopa.",
+          nl: "Ik maak 'm alleen tussen juni en september. Tomaten buiten dat seizoen verdienen deze soep niet.",
+        },
+      },
+      {
+        id: "gazp-2",
+        kind: "tip",
+        anchor: "step-2",
+        body: {
+          en: "Push the blender to its highest setting. Don't go easy on it.",
+          es: "Pon la batidora al máximo. No te quedes a medias.",
+          nl: "Blender op de hoogste stand. Geen half werk.",
+        },
+      },
+      {
+        id: "gazp-3",
+        kind: "warning",
+        anchor: "step-3",
+        body: {
+          en: "Taste before the last spoon of vinegar. Once it's in, you can't take it out.",
+          es: "Prueba antes de la última cucharada de vinagre. Una vez dentro, no se quita.",
+          nl: "Proeven voor je de laatste lepel azijn erin gooit. Eenmaal binnen, niet meer eruit.",
+        },
+      },
+      {
+        id: "gazp-4",
+        kind: "wrong",
+        anchor: "method",
+        body: {
+          en: "First time I made this I doubled the vinegar by accident. Threw the whole pot. Read the recipe like a recipe.",
+          es: "La primera vez doblé el vinagre sin querer. Tiré toda la olla. Lee la receta como una receta.",
+          nl: "Eerste keer dat ik 'm maakte deed ik per ongeluk dubbele azijn. Hele pan weggegooid. Lees het recept als een recept.",
+        },
+      },
+    ],
     ingredients: [
       {
         quantity: { en: "1 kg", es: "1 kg", nl: "1 kg" },
@@ -205,15 +260,70 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "Three hours of braising that barely asks anything of you. Start at two, eat at six. A spoon of mash on the side and you're done.",
+        "Carrillera ibérica was the first slow-cooked dish I really got wrong in Spain. November 2023, a rainy afternoon in my first kitchen here, a butcher in Estepona who'd been recommended by a neighbour I barely knew. He sold me eight beautiful pieces of cheek and told me, in Spanish too fast for me to keep up, exactly what to do. I nodded. I didn't follow a word of it.",
+        "I overreduced the sauce. I rushed the oloroso. The first hour at 160 °C instead of 140. By the time it came out of the oven the sauce was a tarry mess and the cheeks themselves were stringy where they should have been soft. I ate it anyway, standing at the kitchen counter, in a foul mood.",
+        "A month later I tried again. This time I asked Rocío, the butcher's daughter, to write it down for me on the back of the receipt. Slower, lower, less reduction, more patience. The second attempt is the dish I now serve every winter at private dinners — same eight cheeks, same sherry, but the trick is doing absolutely less than you think you need to.",
+        "The first version was the one I learned from. The one in this recipe is the one I'd ask Rocío to grade.",
       ],
       es: [
-        "Tres horas de estofado que casi no necesitan atención. Empieza a las dos, come a las seis. Un puré de patata al lado y listo.",
+        "La carrillera ibérica fue el primer guiso lento que de verdad me salió mal en España. Noviembre de 2023, una tarde lluviosa en mi primera cocina aquí, un carnicero en Estepona que me había recomendado una vecina a la que apenas conocía. Me vendió ocho piezas preciosas de carrillera y me explicó, en un castellano demasiado rápido para mí, exactamente lo que tenía que hacer. Asentí. No pillé una palabra.",
+        "Reduje demasiado la salsa. Apresuré el oloroso. La primera hora a 160 °C en lugar de 140. Cuando salió del horno la salsa era un alquitrán y las carrilleras estaban hebrosas donde deberían estar blandas. Me la comí igual, de pie en la encimera, con muy mal humor.",
+        "Un mes después lo intenté otra vez. Esta vez le pedí a Rocío, la hija del carnicero, que me lo apuntara en el reverso del tique. Más despacio, más bajo, menos reducción, más paciencia. El segundo intento es el plato que ahora sirvo cada invierno en las cenas privadas — las mismas ocho carrilleras, el mismo jerez, pero el truco está en hacer mucho menos de lo que crees que tienes que hacer.",
+        "La primera versión es de la que aprendí. La que está en esta receta es la que le pediría a Rocío que me puntuara.",
       ],
       nl: [
-        "Drie uur stoofwerk waar je nauwelijks naar om hoeft te kijken. Begin om twee uur, eet om zes. Schepje aardappelpuree erbij en je bent klaar.",
+        "Carrillera ibérica was het eerste langzaam gestoofde gerecht dat ik in Spanje écht verprutste. November 2023, een natte middag in mijn eerste keuken hier, een slager in Estepona die door een buurvrouw was aanbevolen die ik nauwelijks kende. Hij verkocht me acht prachtige wangetjes en legde me uit, in een Spaans te snel om bij te houden, precies wat ik moest doen. Ik knikte. Ik volgde geen woord.",
+        "Ik reduceerde de saus te veel. Ik haastte de oloroso. Het eerste uur op 160 °C in plaats van 140. Toen het uit de oven kwam was de saus een teerachtige zooi en de wangetjes draderig waar ze zacht hadden moeten zijn. Ik at het toch op, staand aan het aanrecht, met een rothumeur.",
+        "Een maand later probeerde ik het opnieuw. Ditmaal vroeg ik Rocío, de dochter van de slager, om het op de achterkant van de bon te schrijven. Langzamer, lager, minder reduceren, meer geduld. De tweede poging is het gerecht dat ik nu elke winter serveer bij privé-diners — dezelfde acht wangetjes, dezelfde sherry, maar de truc zit in véél minder doen dan je denkt nodig te hebben.",
+        "De eerste versie is degene waar ik van leerde. De versie in dit recept is de versie waarvan ik aan Rocío zou willen vragen of ze 'm goedkeurt.",
       ],
     },
+    nowPlaying: {
+      track: "Tom Traubert's Blues",
+      artist: "Tom Waits",
+    },
+    marginalia: [
+      {
+        id: "carr-1",
+        kind: "tip",
+        anchor: "intro",
+        body: {
+          en: "Use a dry sherry — oloroso seco or palo cortado. Sweet sherry turns the sauce into syrup.",
+          es: "Usa un jerez seco — oloroso seco o palo cortado. Un jerez dulce convierte la salsa en jarabe.",
+          nl: "Gebruik droge sherry — oloroso seco of palo cortado. Zoete sherry maakt de saus stroop.",
+        },
+      },
+      {
+        id: "carr-2",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "No cheeks at the supermarket? Ask the butcher on Wednesdays. They always have them.",
+          es: "¿Sin carrillera en el súper? Pregunta al carnicero los miércoles. Siempre tienen.",
+          nl: "Geen wangetjes in de supermarkt? Vraag het de slager op woensdag. Ze hebben ze altijd.",
+        },
+      },
+      {
+        id: "carr-3",
+        kind: "warning",
+        anchor: "step-5",
+        body: {
+          en: "Oven NOT above 140 °C. Anything higher and the cheeks go from tender to dry in twenty minutes.",
+          es: "El horno NO por encima de 140 °C. Más alto y las carrilleras pasan de tiernas a secas en veinte minutos.",
+          nl: "Oven NIET boven 140 °C. Hoger en de wangetjes gaan van mals naar droog in twintig minuten.",
+        },
+      },
+      {
+        id: "carr-4",
+        kind: "wrong",
+        anchor: "step-6",
+        body: {
+          en: "First attempt: reduced the sauce 70%. It split. Stop at the spoon-coating stage — not before, not after.",
+          es: "Primer intento: reduje la salsa un 70%. Se cortó. Para cuando cubra la cuchara — ni antes, ni después.",
+          nl: "Eerste poging: saus 70% gereduceerd. Schiftte. Stop wanneer 'ie de lepel bekleedt — niet eerder, niet later.",
+        },
+      },
+    ],
     ingredients: [
       {
         quantity: { en: "8 pieces", es: "8 unidades", nl: "8 stuks" },

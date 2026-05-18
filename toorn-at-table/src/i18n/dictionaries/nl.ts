@@ -46,6 +46,10 @@ export const nl: Dictionary = {
       "Hoe een Hollandse keukenjongen aan een tafel in Andalusië belandde.",
     chapterPrefix: "Hfdstk",
   },
+  marginalia: {
+    warningPrefix: "let op —",
+    wrongPrefix: "ging mis —",
+  },
   services: {
     eyebrow: "Diensten · Wat je kunt boeken",
     title: "Vier manieren om aan tafel te zitten.",
