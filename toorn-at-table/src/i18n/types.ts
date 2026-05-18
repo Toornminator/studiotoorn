@@ -64,6 +64,10 @@ export type Dictionary = {
     overlayPlaceholder: string;
     overlayEyebrow: string;
     cursorReadStory: string;
+    /** Alt text for the stamp PNG. `{name}` is replaced with the country. */
+    stampAlt: string;
+    /** Suffix in the stamp aria-label. `{year}` is replaced with the year. */
+    visitedInYear: string;
   };
   cookbook: {
     eyebrow: string;

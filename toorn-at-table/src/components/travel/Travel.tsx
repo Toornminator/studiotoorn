@@ -1,11 +1,12 @@
 import { getTravelLocations } from "@/lib/content/travel";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
-import { getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { StampGrid } from "./StampGrid";
 
 export async function Travel() {
+  const locale = await getCurrentLocale();
   const [locations, t] = await Promise.all([
-    getTravelLocations(),
+    getTravelLocations(locale),
     getDictionary(),
   ]);
 

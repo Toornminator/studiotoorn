@@ -161,8 +161,10 @@ function Stamp({
       }}
       className="group relative block aspect-square w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
       aria-label={`${location.name}${
-        location.year ? `, bezocht ${location.year}` : ""
-      }${isFeatured ? " — lees verhaal" : ""}`}
+        location.year
+          ? t.travel.visitedInYear.replace("{year}", String(location.year))
+          : ""
+      }${isFeatured ? ` — ${t.travel.cursorReadStory}` : ""}`}
     >
       {imageBroken ? (
         <SvgStamp
@@ -175,7 +177,7 @@ function Stamp({
       ) : (
         <Image
           src={imagePath}
-          alt={`${location.name} reisstempel`}
+          alt={t.travel.stampAlt.replace("{name}", location.name)}
           fill
           sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
           unoptimized

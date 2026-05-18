@@ -97,6 +97,8 @@ export const nl: Dictionary = {
       "Geweest. Verhaal volgt — Nick werkt aan een korte blog over deze plek.",
     overlayEyebrow: "Reizen",
     cursorReadStory: "Lees verhaal",
+    stampAlt: "{name} reisstempel",
+    visitedInYear: ", bezocht {year}",
   },
   cookbook: {
     eyebrow: "Hoofdstuk 04 · Het Kookboek",

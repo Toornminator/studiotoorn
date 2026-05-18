@@ -97,6 +97,8 @@ export const es: Dictionary = {
       "He estado allí. La historia viene en camino — Nick está escribiendo un blog corto sobre este sitio.",
     overlayEyebrow: "Viajes",
     cursorReadStory: "Leer historia",
+    stampAlt: "Sello de viaje de {name}",
+    visitedInYear: ", visitado en {year}",
   },
   cookbook: {
     eyebrow: "Capítulo 04 · El Recetario",
