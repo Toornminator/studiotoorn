@@ -1,19 +1,64 @@
 "use client";
 
-import { Suspense, useActionState, useEffect, useRef } from "react";
-import { useFormStatus } from "react-dom";
-import { useSearchParams } from "next/navigation";
-import {
-  subscribeToNewsletter,
-  type NewsletterFormState,
-} from "@/app/actions/newsletter";
-import { useT } from "@/i18n/client";
+import { useRef, useState, useTransition } from "react";
+import { useLocale, useT } from "@/i18n/client";
 import type { Dictionary } from "@/i18n/types";
 
-const INITIAL: NewsletterFormState = { status: "idle" };
+/**
+ * Newsletter signup. Client-side submit straight to Netlify Forms —
+ * mirrors the BookingForm pattern. Subscribers land in the Forms
+ * dashboard under the "newsletter" form; sending the actual newsletter
+ * is a separate concern (export CSV → import into a sending tool when
+ * Nick is ready to broadcast).
+ *
+ * Captured per signup:
+ *   - email (required, validated client-side)
+ *   - locale (auto-filled from the cookie — useful when we later send
+ *     EN/ES/NL versions of a dispatch and want to route by language)
+ *   - source ("footer" today; could become "popup", "checkout", etc.
+ *     as more signup surfaces appear)
+ */
 
-function SubmitArrow({ t }: { t: Dictionary }) {
-  const { pending } = useFormStatus();
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+type FormState =
+  | { status: "idle" }
+  | { status: "ok"; message: string }
+  | { status: "error"; message: string; email?: string };
+
+const INITIAL: FormState = { status: "idle" };
+
+async function submitToNetlify(
+  email: string,
+  locale: string,
+): Promise<boolean> {
+  const body = new URLSearchParams();
+  body.set("form-name", "newsletter");
+  body.set("bot-field", "");
+  body.set("email", email);
+  body.set("locale", locale);
+  body.set("source", "footer");
+
+  const res = await fetch("/__forms.html", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  if (!res.ok) {
+    console.error(
+      `[newsletter] Netlify Forms POST failed: ${res.status} ${res.statusText}`,
+    );
+  }
+  return res.ok;
+}
+
+function SubmitArrow({
+  pending,
+  t,
+}: {
+  pending: boolean;
+  t: Dictionary;
+}) {
   return (
     <button
       type="submit"
@@ -38,43 +83,77 @@ function SubmitArrow({ t }: { t: Dictionary }) {
   );
 }
 
-function NewsletterFormInner() {
+export function NewsletterForm() {
   const t = useT();
-  const [state, action] = useActionState(subscribeToNewsletter, INITIAL);
+  const locale = useLocale();
+  const [state, setState] = useState<FormState>(INITIAL);
+  const [pending, startTransition] = useTransition();
   const formRef = useRef<HTMLFormElement>(null);
-  const params = useSearchParams();
-  const confirmStatus = params.get("nieuwsbrief");
 
-  useEffect(() => {
-    if (state.status === "ok") formRef.current?.reset();
-  }, [state.status]);
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    const data = new FormData(formRef.current);
+    const email = String(data.get("email") ?? "").trim().toLowerCase();
 
-  const banner =
-    confirmStatus === "ok"
-      ? { tone: "ok" as const, text: t.footer.newsletterStatusBanners.ok }
-      : confirmStatus === "invalid"
-        ? {
-            tone: "error" as const,
-            text: t.footer.newsletterStatusBanners.invalid,
-          }
-        : confirmStatus === "error"
-          ? {
-              tone: "error" as const,
-              text: t.footer.newsletterStatusBanners.error,
-            }
-          : null;
+    if (!email || !EMAIL_RE.test(email)) {
+      setState({
+        status: "error",
+        message: t.footer.newsletterMessages.invalidEmail,
+        email,
+      });
+      return;
+    }
+
+    startTransition(async () => {
+      try {
+        const ok = await submitToNetlify(email, locale);
+        if (!ok) {
+          setState({
+            status: "error",
+            message: t.footer.newsletterMessages.genericError,
+            email,
+          });
+          return;
+        }
+        setState({
+          status: "ok",
+          message: t.footer.newsletterMessages.thanks,
+        });
+        formRef.current?.reset();
+      } catch {
+        setState({
+          status: "error",
+          message: t.footer.newsletterMessages.genericError,
+          email,
+        });
+      }
+    });
+  };
+
+  const defaultEmail = state.status === "error" ? state.email ?? "" : "";
 
   return (
     <div className="space-y-4">
-      {banner && (
-        <p
-          className="font-mono text-[10px] uppercase tracking-[0.22em]"
-          style={{ color: banner.tone === "ok" ? "#2E7D5B" : "#C8202A" }}
-        >
-          {banner.text}
+      <form
+        ref={formRef}
+        onSubmit={onSubmit}
+        name="newsletter"
+        method="POST"
+        action="/__forms.html"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        className="relative max-w-sm"
+      >
+        <input type="hidden" name="form-name" value="newsletter" />
+        <input type="hidden" name="locale" value={locale} />
+        <input type="hidden" name="source" value="footer" />
+        <p hidden>
+          <label>
+            Don&apos;t fill this out:{" "}
+            <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          </label>
         </p>
-      )}
-      <form ref={formRef} action={action} className="relative max-w-sm">
         <label htmlFor="newsletter-email" className="sr-only">
           {t.contact.form.emailLabel}
         </label>
@@ -84,32 +163,28 @@ function NewsletterFormInner() {
           type="email"
           required
           placeholder={t.footer.newsletterPlaceholder}
-          defaultValue={state.email ?? ""}
+          defaultValue={defaultEmail}
           className="w-full rounded-full border border-ink/20 bg-cream-warm/40 py-3 pl-5 pr-14 font-serif text-ink placeholder:text-ink/35 focus:border-ink focus:outline-none"
           style={{ fontSize: 16, fontStyle: "italic" }}
         />
-        <SubmitArrow t={t} />
+        <SubmitArrow pending={pending} t={t} />
       </form>
-      {state.status === "ok" && state.message && (
-        <p className="font-serif italic text-tattoo-jade" style={{ fontSize: 15 }}>
+      {state.status === "ok" && (
+        <p
+          className="font-serif italic text-tattoo-jade"
+          style={{ fontSize: 15 }}
+        >
           {state.message}
         </p>
       )}
-      {state.status === "error" && state.message && (
-        <p className="font-serif italic text-tattoo-red" style={{ fontSize: 15 }}>
+      {state.status === "error" && (
+        <p
+          className="font-serif italic text-tattoo-red"
+          style={{ fontSize: 15 }}
+        >
           {state.message}
         </p>
       )}
     </div>
-  );
-}
-
-export function NewsletterForm() {
-  return (
-    <Suspense
-      fallback={<div className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/40">…</div>}
-    >
-      <NewsletterFormInner />
-    </Suspense>
   );
 }
