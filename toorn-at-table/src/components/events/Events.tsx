@@ -1,10 +1,11 @@
 import { getEvents } from "@/lib/content/events";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
-import { getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { EventsList } from "./EventsList";
 
 export async function Events() {
-  const [events, t] = await Promise.all([getEvents(), getDictionary()]);
+  const locale = await getCurrentLocale();
+  const [events, t] = await Promise.all([getEvents(locale), getDictionary()]);
 
   return (
     <section
