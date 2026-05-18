@@ -102,11 +102,21 @@ async function submitToNetlify(fields: ContactFormFields): Promise<boolean> {
   body.set("location", fields.location);
   body.set("message", fields.message);
 
-  const res = await fetch("/", {
+  // POST to the static form-definition URL. Netlify's edge intercepts
+  // any POST to a path that maps to a registered form (matching the
+  // `form-name` field) and writes it to the Forms dashboard. Posting
+  // to a static path dodges any Next.js route handler at `/`, so the
+  // submission can't accidentally be eaten by RSC routing.
+  const res = await fetch("/__forms.html", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body,
   });
+  if (!res.ok) {
+    console.error(
+      `[contact] Netlify Forms POST failed: ${res.status} ${res.statusText}`,
+    );
+  }
   return res.ok;
 }
 

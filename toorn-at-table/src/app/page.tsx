@@ -3,6 +3,7 @@ import { ClosingPanel } from "@/components/about/ClosingPanel";
 import { Stats } from "@/components/about/Stats";
 import { Timeline } from "@/components/about/Timeline";
 import { Contact } from "@/components/contact/Contact";
+import { NetlifyFormSchema } from "@/components/contact/NetlifyFormSchema";
 import { Events } from "@/components/events/Events";
 import { Gallery } from "@/components/gallery/Gallery";
 import { Hero } from "@/components/hero/Hero";
@@ -30,6 +31,7 @@ export default async function Home() {
       <Events />
       <ClosingPanel />
       <Contact />
+      <NetlifyFormSchema />
     </>
   );
 }
