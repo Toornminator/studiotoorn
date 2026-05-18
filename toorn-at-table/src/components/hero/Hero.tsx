@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useT } from "@/i18n/client";
 
 const REVEAL_EASE = [0.65, 0, 0.35, 1] as const;
 const LETTER_STAGGER = 0.08;
 const REVEAL_DURATION = 0.6;
 const TOORN = "TOORN";
 
-function HandwrittenNote({ delay }: { delay: number }) {
+function HandwrittenNote({ delay, text }: { delay: number; text: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, rotate: -4 }}
@@ -19,7 +20,7 @@ function HandwrittenNote({ delay }: { delay: number }) {
         className="font-hand text-tattoo-red whitespace-nowrap"
         style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.1 }}
       >
-        psst — pak me op en gooi me rond
+        {text}
       </span>
       <svg
         width="64"
@@ -50,6 +51,7 @@ function HandwrittenNote({ delay }: { delay: number }) {
 }
 
 export function Hero() {
+  const t = useT();
   const reduceMotion = useReducedMotion();
   const stagger = reduceMotion ? 0 : LETTER_STAGGER;
   const dur = reduceMotion ? 0.001 : REVEAL_DURATION;
@@ -114,7 +116,7 @@ export function Hero() {
           }}
           className="mt-10 font-mono text-[10px] uppercase tracking-[0.3em] text-ink/65 sm:mt-12 sm:text-xs sm:tracking-[0.32em]"
         >
-          Private chef · Costa del Sol · Est. 2023
+          {t.hero.establishedLine}
         </motion.p>
 
         <motion.p
@@ -128,11 +130,10 @@ export function Hero() {
           className="mt-5 max-w-xl px-2 font-serif italic text-ink/80 sm:max-w-2xl"
           style={{ fontSize: "clamp(18px, 2.2vw, 22px)", lineHeight: 1.45 }}
         >
-          Een fotografenoog, de discipline van jaren in dienst en de precisie
-          van een sterrenkeuken — aan één tafel in de zon.
+          {t.hero.tagline}
         </motion.p>
 
-        <HandwrittenNote delay={headlineEnd + 0.8} />
+        <HandwrittenNote delay={headlineEnd + 0.8} text={t.hero.handwrittenNote} />
       </div>
     </section>
   );
