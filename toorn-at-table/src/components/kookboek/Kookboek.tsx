@@ -1,10 +1,11 @@
 import { getRecipes } from "@/lib/content/recipes";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
-import { getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { RecipeIndex } from "./RecipeIndex";
 
 export async function Kookboek() {
-  const [recipes, t] = await Promise.all([getRecipes(), getDictionary()]);
+  const locale = await getCurrentLocale();
+  const [recipes, t] = await Promise.all([getRecipes(locale), getDictionary()]);
 
   return (
     <section

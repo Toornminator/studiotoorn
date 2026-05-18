@@ -1,7 +1,14 @@
 import "server-only";
 import { recipes as staticRecipes } from "@/content/recipes";
 import { getSupabaseServer } from "@/lib/supabase/server";
-import type { Recipe, RecipeCategory, Season } from "@/lib/types";
+import { pick, pickOptional } from "@/lib/content/i18n";
+import type { Locale } from "@/i18n/config";
+import type {
+  LocalisedRecipe,
+  Recipe,
+  RecipeCategory,
+  Season,
+} from "@/lib/types";
 
 type RecipeRow = {
   slug: string;
@@ -34,9 +41,36 @@ type StepRow = {
   body: string;
 };
 
-export async function getRecipes(): Promise<Recipe[]> {
+function resolveRecipe(r: LocalisedRecipe, locale: Locale): Recipe {
+  return {
+    slug: r.slug,
+    title: pick(r.title, locale),
+    intro: pickOptional(r.intro, locale),
+    body: pickOptional(r.body, locale),
+    category: r.category,
+    seasons: r.seasons,
+    difficulty: r.difficulty,
+    prepMinutes: r.prepMinutes,
+    cookMinutes: r.cookMinutes,
+    servings: r.servings,
+    heroImage: r.heroImage,
+    pairing: pickOptional(r.pairing, locale),
+    ingredients: r.ingredients.map((i) => ({
+      group: pickOptional(i.group, locale),
+      quantity: pickOptional(i.quantity, locale),
+      ingredient: pick(i.ingredient, locale),
+      note: pickOptional(i.note, locale),
+    })),
+    steps: r.steps.map((s) => ({
+      position: s.position,
+      body: pick(s.body, locale),
+    })),
+  };
+}
+
+export async function getRecipes(locale: Locale): Promise<Recipe[]> {
   const supabase = getSupabaseServer();
-  if (!supabase) return staticRecipes;
+  if (!supabase) return staticRecipes.map((r) => resolveRecipe(r, locale));
 
   const { data: rows, error } = await supabase
     .from("recipes")
@@ -46,7 +80,7 @@ export async function getRecipes(): Promise<Recipe[]> {
     .returns<(RecipeRow & { id: string })[]>();
 
   if (error || !rows || rows.length === 0) {
-    return staticRecipes;
+    return staticRecipes.map((r) => resolveRecipe(r, locale));
   }
 
   const ids = rows.map((r) => r.id);
@@ -65,6 +99,8 @@ export async function getRecipes(): Promise<Recipe[]> {
       .returns<StepRow[]>(),
   ]);
 
+  // Supabase schema is currently single-language. Until it grows EN/ES/NL
+  // columns, the cloud copy ignores `locale` and returns rows as-is.
   return rows.map((r) => ({
     slug: r.slug,
     title: r.title,
