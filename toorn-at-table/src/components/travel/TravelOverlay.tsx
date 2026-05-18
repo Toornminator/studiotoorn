@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n/client";
+import { useBodyScrollLock } from "@/lib/hooks/useBodyScrollLock";
 import type { TravelLocation } from "@/lib/types";
 
 export function TravelOverlay({
@@ -13,17 +14,13 @@ export function TravelOverlay({
   onClose: () => void;
 }) {
   const t = useT();
+  useBodyScrollLock();
   useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
   return (

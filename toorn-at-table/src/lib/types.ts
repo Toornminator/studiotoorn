@@ -17,6 +17,77 @@ export type LocalisedString = { en: string; es: string; nl: string };
 /** Same as `LocalisedString`, but with paragraphs as an array per locale. */
 export type LocalisedParagraphs = { en: string[]; es: string[]; nl: string[] };
 
+/**
+ * Marginal note rendered in the overlay margin (or inline on mobile).
+ * Permanent-marker scrawls in Nick's voice — "I always burn step 3,"
+ * "if you can't find oloroso, don't substitute," "first time I made
+ * this it split, here's why." Anchored to a fixed slot in the overlay.
+ *
+ * - `scrawl`  — neutral aside, ink-grey, jittered rotation
+ * - `tip`     — practical pointer, same look as scrawl
+ * - `warning` — pre-emptive heads-up, tattoo-red, straight
+ * - `wrong`   — postscript about a failed attempt, tattoo-red,
+ *               struck-through preamble
+ */
+export type MarginalNoteKind = "scrawl" | "tip" | "warning" | "wrong";
+
+export type MarginalNoteAnchor =
+  | "intro"
+  | "essay"
+  | "ingredients"
+  | "method"
+  | `step-${number}`;
+
+export type LocalisedMarginalNote = {
+  /** Stable id — drives the deterministic rotation jitter. */
+  id: string;
+  kind: MarginalNoteKind;
+  anchor: MarginalNoteAnchor;
+  body: LocalisedString;
+  /** Override the auto-jittered rotation (degrees). Optional. */
+  rotation?: number;
+};
+
+export type MarginalNote = {
+  id: string;
+  kind: MarginalNoteKind;
+  anchor: MarginalNoteAnchor;
+  body: string;
+  rotation?: number;
+};
+
+/**
+ * Inline photo embedded in the essay-body of a recipe or dispatch.
+ * `src` is a relative path under `public/images/recipes/{slug}/`.
+ * `afterParagraph` is 0-indexed against the resolved body paragraphs.
+ */
+export type LocalisedEssayImage = {
+  src: string;
+  alt: LocalisedString;
+  caption?: LocalisedString;
+  afterParagraph: number;
+};
+
+export type EssayImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+  afterParagraph: number;
+};
+
+/**
+ * "What was playing." Track titles don't translate — `track` and
+ * `artist` are bare strings. Either `spotifyTrackId` or `youtubeId`
+ * (or neither) can be set; the component picks the first available
+ * for the click-to-load embed.
+ */
+export type NowPlaying = {
+  track: string;
+  artist: string;
+  spotifyTrackId?: string;
+  youtubeId?: string;
+};
+
 export type RecipeCategory =
   | "voor"
   | "hoofd"
@@ -43,7 +114,12 @@ export type Recipe = {
   slug: string;
   title: string;
   intro?: string;
-  body?: string;
+  /**
+   * Essay body — Bourdain-style story BEFORE the recipe. Multiple
+   * paragraphs; `essayImages` get spliced in by `afterParagraph` index.
+   * Was a single string until the May 2026 sauce upgrade.
+   */
+  body?: string[];
   category: RecipeCategory;
   seasons: Season[];
   difficulty?: 1 | 2 | 3 | 4 | 5;
@@ -54,6 +130,11 @@ export type Recipe = {
   pairing?: string;
   ingredients: RecipeIngredient[];
   steps: RecipeStep[];
+  essayImages?: EssayImage[];
+  marginalia?: MarginalNote[];
+  nowPlaying?: NowPlaying;
+  /** ISO date — makes a recipe double as a dated dispatch when needed. */
+  publishedAt?: string;
 };
 
 export type LocalisedRecipeIngredient = {
@@ -72,7 +153,7 @@ export type LocalisedRecipe = {
   slug: string;
   title: LocalisedString;
   intro?: LocalisedString;
-  body?: LocalisedString;
+  body?: LocalisedParagraphs;
   category: RecipeCategory;
   seasons: Season[];
   difficulty?: 1 | 2 | 3 | 4 | 5;
@@ -83,6 +164,10 @@ export type LocalisedRecipe = {
   pairing?: LocalisedString;
   ingredients: LocalisedRecipeIngredient[];
   steps: LocalisedRecipeStep[];
+  essayImages?: LocalisedEssayImage[];
+  marginalia?: LocalisedMarginalNote[];
+  nowPlaying?: NowPlaying;
+  publishedAt?: string;
 };
 
 export type EventItem = {

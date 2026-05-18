@@ -34,9 +34,15 @@ export const recipes: LocalisedRecipe[] = [
       nl: "Manzanilla in mooie hoge glazen.",
     },
     body: {
-      en: "Make it in the morning. Not later. Give the flavours all day to settle, and serve it just shy of ice-cold — that's where you taste the tomato properly.",
-      es: "Hazlo por la mañana. No más tarde. Deja que los sabores se asienten durante el día y sírvelo no del todo helado — ahí es donde el tomate se nota de verdad.",
-      nl: "Maak hem 's ochtends. Niet later. Geef de smaken de hele dag om in te trekken en serveer 'm net niet ijskoud — dan voel je de tomaat het beste.",
+      en: [
+        "Make it in the morning. Not later. Give the flavours all day to settle, and serve it just shy of ice-cold — that's where you taste the tomato properly.",
+      ],
+      es: [
+        "Hazlo por la mañana. No más tarde. Deja que los sabores se asienten durante el día y sírvelo no del todo helado — ahí es donde el tomate se nota de verdad.",
+      ],
+      nl: [
+        "Maak hem 's ochtends. Niet later. Geef de smaken de hele dag om in te trekken en serveer 'm net niet ijskoud — dan voel je de tomaat het beste.",
+      ],
     },
     ingredients: [
       {
@@ -198,9 +204,15 @@ export const recipes: LocalisedRecipe[] = [
       nl: "Een glas van dezelfde oloroso. Of een zware Garnacha.",
     },
     body: {
-      en: "Three hours of braising that barely asks anything of you. Start at two, eat at six. A spoon of mash on the side and you're done.",
-      es: "Tres horas de estofado que casi no necesitan atención. Empieza a las dos, come a las seis. Un puré de patata al lado y listo.",
-      nl: "Drie uur stoofwerk waar je nauwelijks naar om hoeft te kijken. Begin om twee uur, eet om zes. Schepje aardappelpuree erbij en je bent klaar.",
+      en: [
+        "Three hours of braising that barely asks anything of you. Start at two, eat at six. A spoon of mash on the side and you're done.",
+      ],
+      es: [
+        "Tres horas de estofado que casi no necesitan atención. Empieza a las dos, come a las seis. Un puré de patata al lado y listo.",
+      ],
+      nl: [
+        "Drie uur stoofwerk waar je nauwelijks naar om hoeft te kijken. Begin om twee uur, eet om zes. Schepje aardappelpuree erbij en je bent klaar.",
+      ],
     },
     ingredients: [
       {
@@ -383,9 +395,15 @@ export const recipes: LocalisedRecipe[] = [
       nl: "Een glaasje pedro ximénez of een sterke koffie.",
     },
     body: {
-      en: "Gluten-free before that was a thing. Even better the day after baking — give it time to go properly moist.",
-      es: "Sin gluten desde antes de que se pusiera de moda. Está aún mejor al día siguiente — dale tiempo a que se ponga jugosa.",
-      nl: "Glutenvrij voordat dat een ding werd. Werkt nog beter een dag na het bakken — geef hem 'm de tijd om vochtig te worden.",
+      en: [
+        "Gluten-free before that was a thing. Even better the day after baking — give it time to go properly moist.",
+      ],
+      es: [
+        "Sin gluten desde antes de que se pusiera de moda. Está aún mejor al día siguiente — dale tiempo a que se ponga jugosa.",
+      ],
+      nl: [
+        "Glutenvrij voordat dat een ding werd. Werkt nog beter een dag na het bakken — geef hem 'm de tijd om vochtig te worden.",
+      ],
     },
     ingredients: [
       {
@@ -530,9 +548,15 @@ export const recipes: LocalisedRecipe[] = [
       nl: "Manzanilla en pasilla. Of een droge cava.",
     },
     body: {
-      en: "The trick is a fish that doesn't smell too aggressively of the sea — that one's already gone. Ask the fishmonger to fillet and skin it for you.",
-      es: "La clave: un pescado que no huela demasiado a mar — ése ya ha pasado. Pídele al pescadero que te lo filetee y le quite la piel.",
-      nl: "Sleutel is een vissige vis die NIET overdreven vers ruikt — die heeft 'm gezien. Vraag de visboer om 'em zelf te fileren en de huid eraf te halen.",
+      en: [
+        "The trick is a fish that doesn't smell too aggressively of the sea — that one's already gone. Ask the fishmonger to fillet and skin it for you.",
+      ],
+      es: [
+        "La clave: un pescado que no huela demasiado a mar — ése ya ha pasado. Pídele al pescadero que te lo filetee y le quite la piel.",
+      ],
+      nl: [
+        "Sleutel is een vissige vis die NIET overdreven vers ruikt — die heeft 'm gezien. Vraag de visboer om 'em zelf te fileren en de huid eraf te halen.",
+      ],
     },
     ingredients: [
       {
@@ -680,9 +704,15 @@ export const recipes: LocalisedRecipe[] = [
     cookMinutes: 0,
     servings: 6,
     body: {
-      en: "This is the Catalan version without egg — only oil and garlic binding through patience. It works or it splits. Don't rush the oil.",
-      es: "Ésta es la versión catalana sin huevo — sólo aceite y ajo que ligan por paciencia. Sale o se corta. No corras con el aceite.",
-      nl: "Dit is de Catalaanse versie zonder ei — alleen olie en knoflook die binden door geduld. Lukt of mislukt, geen tussenweg. Vooral niet haasten met de olie.",
+      en: [
+        "This is the Catalan version without egg — only oil and garlic binding through patience. It works or it splits. Don't rush the oil.",
+      ],
+      es: [
+        "Ésta es la versión catalana sin huevo — sólo aceite y ajo que ligan por paciencia. Sale o se corta. No corras con el aceite.",
+      ],
+      nl: [
+        "Dit is de Catalaanse versie zonder ei — alleen olie en knoflook die binden door geduld. Lukt of mislukt, geen tussenweg. Vooral niet haasten met de olie.",
+      ],
     },
     ingredients: [
       {

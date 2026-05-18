@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n/client";
+import { useBodyScrollLock } from "@/lib/hooks/useBodyScrollLock";
 import type { Recipe, RecipeIngredient } from "@/lib/types";
 
 function formatTime(minutes?: number) {
@@ -39,18 +40,13 @@ export function RecipeOverlay({
     borrel: t.cookbook.categoryDrink,
     basis: t.cookbook.categoryBasic,
   };
-  // Lock body scroll + listen for ESC.
+  useBodyScrollLock();
   useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
   const totalTime = (recipe.prepMinutes ?? 0) + (recipe.cookMinutes ?? 0);
@@ -148,13 +144,15 @@ export function RecipeOverlay({
           )}
         </dl>
 
-        {recipe.body && (
-          <p
-            className="mt-10 max-w-2xl font-serif text-ink/85"
+        {recipe.body && recipe.body.length > 0 && (
+          <div
+            className="mt-10 max-w-2xl space-y-5 font-serif text-ink/85"
             style={{ fontSize: "clamp(16px, 1.1vw, 18px)", lineHeight: 1.6 }}
           >
-            {recipe.body}
-          </p>
+            {recipe.body.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
         )}
 
         {/* Ingredients + steps */}

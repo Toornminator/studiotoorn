@@ -1,7 +1,11 @@
 import "server-only";
 import { recipes as staticRecipes } from "@/content/recipes";
 import { getSupabaseServer } from "@/lib/supabase/server";
-import { pick, pickOptional } from "@/lib/content/i18n";
+import {
+  pick,
+  pickOptional,
+  pickParagraphs,
+} from "@/lib/content/i18n";
 import type { Locale } from "@/i18n/config";
 import type {
   LocalisedRecipe,
@@ -46,7 +50,7 @@ function resolveRecipe(r: LocalisedRecipe, locale: Locale): Recipe {
     slug: r.slug,
     title: pick(r.title, locale),
     intro: pickOptional(r.intro, locale),
-    body: pickOptional(r.body, locale),
+    body: r.body ? pickParagraphs(r.body, locale) : undefined,
     category: r.category,
     seasons: r.seasons,
     difficulty: r.difficulty,
@@ -65,6 +69,21 @@ function resolveRecipe(r: LocalisedRecipe, locale: Locale): Recipe {
       position: s.position,
       body: pick(s.body, locale),
     })),
+    essayImages: r.essayImages?.map((img) => ({
+      src: img.src,
+      alt: pick(img.alt, locale),
+      caption: pickOptional(img.caption, locale),
+      afterParagraph: img.afterParagraph,
+    })),
+    marginalia: r.marginalia?.map((n) => ({
+      id: n.id,
+      kind: n.kind,
+      anchor: n.anchor,
+      body: pick(n.body, locale),
+      rotation: n.rotation,
+    })),
+    nowPlaying: r.nowPlaying,
+    publishedAt: r.publishedAt,
   };
 }
 
@@ -101,11 +120,13 @@ export async function getRecipes(locale: Locale): Promise<Recipe[]> {
 
   // Supabase schema is currently single-language. Until it grows EN/ES/NL
   // columns, the cloud copy ignores `locale` and returns rows as-is.
+  // The body column is still a single string — split on blank lines into
+  // paragraphs so the resolved shape matches the static path.
   return rows.map((r) => ({
     slug: r.slug,
     title: r.title,
     intro: r.intro ?? undefined,
-    body: r.body ?? undefined,
+    body: r.body ? r.body.split(/\n\n+/) : undefined,
     category: r.category,
     seasons: r.seasons ?? [],
     difficulty: (r.difficulty as Recipe["difficulty"]) ?? undefined,
