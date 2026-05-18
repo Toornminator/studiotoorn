@@ -7,6 +7,7 @@ import { Events } from "@/components/events/Events";
 import { Gallery } from "@/components/gallery/Gallery";
 import { Hero } from "@/components/hero/Hero";
 import { Kookboek } from "@/components/kookboek/Kookboek";
+import { Services } from "@/components/services/Services";
 import { Travel } from "@/components/travel/Travel";
 import { Marquee } from "@/components/ui/Marquee";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline />
+      <Services />
       <Marquee
         items={[
           "Costa del Sol",

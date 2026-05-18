@@ -1,5 +1,6 @@
 const NAV_LINKS = [
   { href: "#over-nick", label: "Over Nick", hideOnMobile: true },
+  { href: "#diensten", label: "Diensten", hideOnMobile: true },
   { href: "#reizen", label: "Reizen", hideOnMobile: true },
   { href: "#kookboek", label: "Kookboek", hideOnMobile: false },
   { href: "#events", label: "Events", hideOnMobile: false },
