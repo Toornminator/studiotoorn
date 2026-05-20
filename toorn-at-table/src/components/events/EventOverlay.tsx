@@ -48,6 +48,10 @@ export function EventOverlay({
       role="dialog"
       aria-modal="true"
       aria-labelledby="event-overlay-title"
+      // data-lenis-prevent stops Lenis from hijacking wheel + touch
+      // events inside the overlay so the native overflow-y-auto can
+      // actually scroll the dialog content instead of the page behind it.
+      data-lenis-prevent
       className="fixed inset-0 z-[200] overflow-y-auto bg-ink/40 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
