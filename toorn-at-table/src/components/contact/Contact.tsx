@@ -18,7 +18,7 @@ export async function Contact() {
         caption="Een gerecht in wording"
         size="md"
         rotation={-4}
-        className="absolute right-[2vw] top-[6vh] z-10 hidden lg:block"
+        className="absolute right-[max(4vw,80px)] top-[6vh] z-10 hidden lg:block"
       />
       <div className="mx-auto w-full max-w-4xl px-5 pb-32 md:px-12 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">

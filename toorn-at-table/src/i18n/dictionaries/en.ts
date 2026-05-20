@@ -22,7 +22,7 @@ export const en: Dictionary = {
     establishedLine: "Private chef · Costa del Sol · Est. 2023",
     tagline:
       "An eye for light, the discipline of years in uniform, and the precision of a Michelin-trained kitchen — at one table in the sun.",
-    handwrittenNote: "psst — pick me up and toss me around",
+    handwrittenNote: "not catering — a memory",
   },
   about: {
     eyebrow: "Chapter 01 · About Nick",

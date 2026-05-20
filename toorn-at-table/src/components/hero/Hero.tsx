@@ -13,9 +13,9 @@ function HandwrittenNote({ delay, text }: { delay: number; text: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, rotate: -4 }}
-      animate={{ opacity: 1, rotate: -8 }}
+      animate={{ opacity: 1, rotate: -6 }}
       transition={{ delay, duration: 0.6 }}
-      className="pointer-events-none absolute left-1/2 top-[78%] hidden -translate-x-1/2 items-center gap-3 md:flex md:left-auto md:right-[6vw] md:top-[58%] md:translate-x-0"
+      className="pointer-events-none absolute left-1/2 top-[78%] hidden -translate-x-1/2 md:flex md:left-auto md:right-[max(6vw,80px)] md:top-[58%] md:translate-x-0"
     >
       <span
         className="font-hand text-tattoo-red whitespace-nowrap"
@@ -23,30 +23,6 @@ function HandwrittenNote({ delay, text }: { delay: number; text: string }) {
       >
         {text}
       </span>
-      <svg
-        width="64"
-        height="48"
-        viewBox="0 0 64 48"
-        fill="none"
-        aria-hidden
-        className="-rotate-[20deg]"
-      >
-        <path
-          d="M4 14 Q26 4 50 24 Q56 30 58 38"
-          stroke="#C8202A"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          fill="none"
-        />
-        <path
-          d="M50 32 L58 38 L52 44"
-          stroke="#C8202A"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
     </motion.div>
   );
 }
@@ -144,7 +120,7 @@ export function Hero() {
           size="md"
           priority
           rotation={6}
-          className="absolute right-[5vw] top-[14vh] z-10 hidden md:block lg:right-[8vw]"
+          className="absolute right-[max(5vw,80px)] top-[14vh] z-10 hidden md:block lg:right-[max(8vw,96px)]"
         />
       </div>
     </section>

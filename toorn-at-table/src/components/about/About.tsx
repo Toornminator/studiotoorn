@@ -25,7 +25,7 @@ export async function About() {
         caption="Voor de deur"
         size="md"
         rotation={-5}
-        className="absolute right-[3vw] top-[6vh] z-10 hidden lg:block"
+        className="absolute right-[max(4vw,80px)] top-[6vh] z-10 hidden lg:block"
       />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-12 md:py-40">
         <div className="md:col-span-5">

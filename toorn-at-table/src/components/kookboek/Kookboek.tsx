@@ -20,7 +20,7 @@ export async function Kookboek() {
         caption="Na de service"
         size="md"
         rotation={-3}
-        className="absolute right-[3vw] top-[8vh] z-10 hidden lg:block"
+        className="absolute right-[max(4vw,80px)] top-[8vh] z-10 hidden lg:block"
       />
       <div className="mx-auto w-full max-w-6xl px-5 pt-24 pb-32 md:px-12 md:pt-32 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">

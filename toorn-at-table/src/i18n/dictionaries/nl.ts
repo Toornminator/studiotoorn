@@ -22,7 +22,7 @@ export const nl: Dictionary = {
     establishedLine: "Private chef · Costa del Sol · Est. 2023",
     tagline:
       "Een fotografenoog, de discipline van jaren in dienst en de precisie van een sterrenkeuken — aan één tafel in de zon.",
-    handwrittenNote: "psst — pak me op en gooi me rond",
+    handwrittenNote: "geen catering — een herinnering",
   },
   about: {
     eyebrow: "Hoofdstuk 01 · Over Nick",
