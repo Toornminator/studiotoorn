@@ -23,7 +23,7 @@ export async function Travel() {
         caption="Onderweg"
         size="md"
         rotation={4}
-        className="absolute right-[max(4vw,80px)] top-[10vh] z-10 hidden lg:block"
+        className="absolute right-[max(6vw,120px)] top-[10vh] z-10 hidden lg:block"
       />
       <div className="mx-auto w-full max-w-6xl px-5 pt-24 pb-32 md:px-12 md:pt-32 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">

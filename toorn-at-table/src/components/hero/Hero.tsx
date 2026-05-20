@@ -120,7 +120,7 @@ export function Hero() {
           size="md"
           priority
           rotation={6}
-          className="absolute right-[max(5vw,80px)] top-[14vh] z-10 hidden md:block lg:right-[max(8vw,96px)]"
+          className="absolute right-[max(5vw,100px)] top-[14vh] z-10 hidden md:block lg:right-[max(8vw,120px)]"
         />
       </div>
     </section>

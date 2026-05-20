@@ -8,11 +8,18 @@ body {
   color: var(--color-ink);
 }
 
+/* Defensive horizontal overflow trim. Polaroids floated near viewport
+   edges can extend ~20px past their natural box because of rotation,
+   plus their drop-shadows reach further still. Without this, those
+   pixels would push a phantom horizontal scrollbar on some viewport
+   widths. With overflow-x: hidden on body, anything that escapes is
+   quietly clipped instead. */
 body {
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 /* Alfa Slab One (--font-display) ships only a single 400 Roman cut.
