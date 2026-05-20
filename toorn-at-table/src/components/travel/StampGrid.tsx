@@ -91,16 +91,8 @@ export function StampGrid({ locations }: { locations: TravelLocation[] }) {
 
   return (
     <>
-      <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-ink/15 pt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/55">
+      <div className="mt-12 border-t border-ink/15 pt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/55">
         <span>{legend}</span>
-        <span className="inline-flex items-center gap-2">
-          <span aria-hidden className="inline-block h-2 w-2 rounded-full bg-tattoo-red" />
-          {t.travel.legendWithStory}
-        </span>
-        <span className="inline-flex items-center gap-2">
-          <span aria-hidden className="inline-block h-2 w-2 rounded-full border border-ink/50" />
-          {t.travel.legendVisited}
-        </span>
       </div>
 
       <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-10 md:mt-14 md:grid-cols-4 md:gap-x-8 md:gap-y-12 lg:grid-cols-5">
@@ -190,16 +182,6 @@ function Stamp({
         />
       )}
 
-      {/* Featured wax-stamp dot overlay — only when the PNG renders;
-          the SVG fallback already draws its own corner mark. */}
-      {!imageBroken && isFeatured && (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute right-[10%] top-[10%]"
-        >
-          <span className="relative block h-3 w-3 rounded-full bg-tattoo-red shadow-[0_0_0_4px_rgba(200,32,42,0.18)]" />
-        </span>
-      )}
     </motion.button>
   );
 }
@@ -286,28 +268,6 @@ function SvgStamp({
         </text>
       )}
 
-      {isFeatured && (
-        <g>
-          <circle cx="156" cy="46" r="6" fill="#C8202A" />
-          <circle
-            cx="156"
-            cy="46"
-            r="11"
-            fill="none"
-            stroke="#C8202A"
-            strokeWidth="0.8"
-            opacity="0.4"
-          />
-          <circle cx="44" cy="158" r="1.5" fill="currentColor" />
-          <circle cx="58" cy="56" r="1" fill="currentColor" opacity="0.55" />
-          <path
-            d="M150 156 L156 156 M153 153 L153 159"
-            stroke="currentColor"
-            strokeWidth="0.9"
-            strokeLinecap="round"
-          />
-        </g>
-      )}
     </svg>
   );
 }
