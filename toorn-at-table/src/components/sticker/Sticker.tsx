@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 /**
  * Tattoo-flash sticker — a small decorative PNG placed inline in a
@@ -76,7 +77,7 @@ export function Sticker({
       }
       viewport={{ once: true, margin: "-8% 0px" }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-      className={`pointer-events-none select-none ${className}`}
+      className={cn("pointer-events-none select-none", className)}
       style={{
         width: px,
         height: px,

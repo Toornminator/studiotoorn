@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 /**
  * Polaroid — small framed photo with a marker-scribbled caption.
@@ -101,7 +102,16 @@ export function Polaroid({
         // visitors with prefers-reduced-motion.
         transform: `rotate(${finalRotation}deg)`,
       }}
-      className={`relative inline-block bg-cream-warm shadow-[0_8px_22px_-10px_rgba(20,16,12,0.45)] ring-1 ring-ink/[0.06] ${className}`}
+      // cn() with twMerge ensures the caller's positioning class
+      // (absolute, fixed, …) wins over the default `relative` here.
+      // Before this, a Tailwind class collision left the polaroid
+      // as position:relative and `right: 120px` pushed it 120px
+      // LEFT into the viewport edge instead of pinning the right
+      // edge 120px from the viewport's right side.
+      className={cn(
+        "relative inline-block bg-cream-warm shadow-[0_8px_22px_-10px_rgba(20,16,12,0.45)] ring-1 ring-ink/[0.06]",
+        className,
+      )}
     >
       {/* Matting around the photo — extra room below for the caption */}
       <div className="px-3 pt-3 pb-2">
