@@ -4,40 +4,59 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 /**
- * Click-to-play video clip. Renders a poster image with a centered
- * play button until the visitor clicks, then mounts the real <video>
- * element and starts playback. This keeps page weight flat for the
- * "didn't watch" majority and dodges autoplay-policy quirks across
- * browsers.
+ * Video clip in one of two modes:
  *
- * If no poster is provided, the first video frame loads as the
- * placeholder via `preload="metadata"` once the visitor clicks.
+ *  - `mode="click"` (default) — poster image with a centered cream
+ *    play button. The actual <video> element only mounts after the
+ *    visitor clicks, so page weight stays flat for the "didn't watch"
+ *    majority and we dodge autoplay-policy quirks across browsers.
  *
- * Caption matches the polaroid scribble — same red marker font —
- * so video clips visually sit next to polaroids without clashing.
+ *  - `mode="ambient"` — autoplay, muted, loop, no controls, no
+ *    overlay. For short looping snippets that read like motion
+ *    photographs more than they read like "videos." Wrapped in the
+ *    same shadow + paper-ring frame as the click variant so it lives
+ *    in the same family as the polaroids on the page.
+ *
+ * Aspect prop drives the container ratio (16/9 default, 9/16 for
+ * portrait phone clips, 1/1 for square). Caller controls the rendered
+ * width via className (max-w-* / w-* / etc.).
  */
 
+type Mode = "click" | "ambient";
+type Aspect = "16/9" | "9/16" | "1/1" | "4/5";
+
+const ASPECT_CLASS: Record<Aspect, string> = {
+  "16/9": "aspect-video",
+  "9/16": "aspect-[9/16]",
+  "1/1": "aspect-square",
+  "4/5": "aspect-[4/5]",
+};
+
 export type ClipProps = {
-  /** Absolute path under /public, e.g. "/videos/koetshuys.mp4" */
+  /** Absolute path under /public, e.g. "/videos/whatsapp-clip.mp4" */
   src: string;
-  /** Optional poster image path (highly recommended). */
-  poster?: string;
   /** Required for screen readers. */
   alt: string;
+  mode?: Mode;
+  aspect?: Aspect;
+  /** Optional poster image — only used in click mode. */
+  poster?: string;
   /** Optional handwritten caption shown under the clip. */
   caption?: string;
-  /** Caller-supplied sizing / positioning classes. */
+  /** Caller-supplied sizing / positioning classes (e.g. max-w-sm). */
   className?: string;
 };
 
 export function Clip({
   src,
-  poster,
   alt,
+  mode = "click",
+  aspect = "16/9",
+  poster,
   caption,
   className = "",
 }: ClipProps) {
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(mode === "ambient");
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const onPlay = () => {
@@ -49,10 +68,28 @@ export function Clip({
     });
   };
 
+  const aspectClass = ASPECT_CLASS[aspect];
+  const isAmbient = mode === "ambient";
+
   return (
     <figure className={`relative ${className}`}>
-      <div className="relative aspect-video w-full overflow-hidden bg-ink shadow-[0_10px_28px_-12px_rgba(20,16,12,0.5)] ring-1 ring-ink/[0.08]">
-        {playing ? (
+      <div
+        className={`relative w-full overflow-hidden bg-ink shadow-[0_10px_28px_-12px_rgba(20,16,12,0.5)] ring-1 ring-ink/[0.08] ${aspectClass}`}
+      >
+        {isAmbient ? (
+          // Ambient: autoplay/muted/loop, no controls, mounts immediately
+          <video
+            ref={videoRef}
+            src={src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label={alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : playing ? (
           <video
             ref={videoRef}
             src={src}

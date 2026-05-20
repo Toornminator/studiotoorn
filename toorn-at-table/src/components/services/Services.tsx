@@ -1,5 +1,4 @@
 import { Polaroid } from "@/components/polaroid/Polaroid";
-import { Clip } from "@/components/video/Clip";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getDictionary } from "@/i18n/server";
 
@@ -124,15 +123,6 @@ export async function Services() {
             </li>
           ))}
         </ul>
-
-        {/* "Watch how" beat — short clip from a venue night */}
-        <div className="mx-auto mt-16 w-full max-w-2xl md:mt-20">
-          <Clip
-            src="/videos/koetshuys.mp4"
-            alt="Korte clip van een avond in het Koetshuys"
-            caption="Een avond in het Koetshuys"
-          />
-        </div>
       </div>
     </section>
   );

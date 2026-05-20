@@ -52,9 +52,11 @@ export function ClosingPanel() {
           {t.closing.signature}
         </motion.p>
 
-        {/* "Watch a moment" beat between the signature and the CTA */}
+        {/* Ambient portrait reel — autoplay, muted, looping. Reads
+            like a still photograph that moves, sits in the same
+            paper-frame family as the polaroids. */}
         <motion.div
-          className="mx-auto mt-16 w-full max-w-xl"
+          className="mx-auto mt-16 w-full max-w-[280px]"
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -62,7 +64,9 @@ export function ClosingPanel() {
         >
           <Clip
             src="/videos/whatsapp-clip.mp4"
-            alt="Korte clip van Nick aan het werk"
+            alt="Korte loop van Nick aan het werk"
+            mode="ambient"
+            aspect="9/16"
             caption="Een moment uit de keuken"
           />
         </motion.div>
