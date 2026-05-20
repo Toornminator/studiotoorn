@@ -40,31 +40,9 @@ function resolveTravel(
 export async function getTravelLocations(
   locale: Locale,
 ): Promise<TravelLocation[]> {
-  const supabase = getSupabaseServer();
-  if (!supabase) return staticTravel.map((l) => resolveTravel(l, locale));
-
-  const { data, error } = await supabase
-    .from("travel_locations")
-    .select("*")
-    .order("position", { ascending: true })
-    .returns<TravelRow[]>();
-
-  if (error || !data || data.length === 0) {
-    return staticTravel.map((l) => resolveTravel(l, locale));
-  }
-
-  // Supabase schema is currently single-language; locale is ignored on the
-  // cloud path until the travel_locations table grows EN/ES/NL columns.
-  return data.map((r) => ({
-    slug: r.slug,
-    name: r.name,
-    country: r.country ?? undefined,
-    year: r.year ?? undefined,
-    heroImage: r.hero_image ?? undefined,
-    mapX: Number(r.map_x),
-    mapY: Number(r.map_y),
-    intro: r.intro ?? undefined,
-    body: r.body ?? undefined,
-    pullQuote: r.pull_quote ?? undefined,
-  }));
+  // Static file is the source of truth — it carries the full EN/ES/NL
+  // content Nick wrote via the Reisverhalen vragenlijst. The Supabase
+  // `travel_locations` table is single-language and out of date; bypass
+  // it until the schema grows proper i18n columns and gets re-seeded.
+  return staticTravel.map((l) => resolveTravel(l, locale));
 }
