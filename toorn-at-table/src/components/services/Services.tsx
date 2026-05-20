@@ -1,3 +1,5 @@
+import { Polaroid } from "@/components/polaroid/Polaroid";
+import { Clip } from "@/components/video/Clip";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getDictionary } from "@/i18n/server";
 
@@ -40,6 +42,41 @@ export async function Services() {
             </span>
           </Reveal>
         </header>
+
+        {/* Scattered polaroid row above the cards — one per service mood */}
+        <div className="mt-12 flex flex-wrap items-end justify-center gap-x-6 gap-y-8 md:mt-16 md:gap-x-2">
+          <Polaroid
+            src="/images/polaroids/paella.jpeg"
+            alt="Een grote paella op tafel"
+            caption="Paella, midden op tafel"
+            size="sm"
+            rotation={-4}
+          />
+          <Polaroid
+            src="/images/polaroids/blokes.jpeg"
+            alt="Nick met zijn ploeg"
+            caption="De ploeg"
+            size="sm"
+            rotation={3}
+            className="md:-ml-4"
+          />
+          <Polaroid
+            src="/images/polaroids/cocktails.jpeg"
+            alt="Cocktails klaar op de bar"
+            caption="Cocktails klaar"
+            size="sm"
+            rotation={-2}
+            className="md:-ml-4"
+          />
+          <Polaroid
+            src="/images/polaroids/avonduitverkocht.jpeg"
+            alt="Vol bezette avond in de zaak"
+            caption="Vol bezet"
+            size="sm"
+            rotation={4}
+            className="md:-ml-4"
+          />
+        </div>
 
         <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden border border-ink/15 bg-ink/15 md:mt-20 md:grid-cols-2">
           {cards.map((card, i) => (
@@ -87,6 +124,15 @@ export async function Services() {
             </li>
           ))}
         </ul>
+
+        {/* "Watch how" beat — short clip from a venue night */}
+        <div className="mx-auto mt-16 w-full max-w-2xl md:mt-20">
+          <Clip
+            src="/videos/koetshuys.mp4"
+            alt="Korte clip van een avond in het Koetshuys"
+            caption="Een avond in het Koetshuys"
+          />
+        </div>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { Polaroid } from "@/components/polaroid/Polaroid";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getDictionary } from "@/i18n/server";
 import { BookingForm } from "./BookingForm";
@@ -11,6 +12,14 @@ export async function Contact() {
       aria-labelledby="contact-heading"
       className="relative w-full"
     >
+      <Polaroid
+        src="/images/polaroids/whatsapp-2.jpeg"
+        alt="Sfeerbeeld uit de keuken"
+        caption="Een gerecht in wording"
+        size="md"
+        rotation={-4}
+        className="absolute right-[2vw] top-[6vh] z-10 hidden lg:block"
+      />
       <div className="mx-auto w-full max-w-4xl px-5 pb-32 md:px-12 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">
           <Reveal as="p" className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">

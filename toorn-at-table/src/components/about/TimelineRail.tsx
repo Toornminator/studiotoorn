@@ -2,9 +2,127 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion, useScroll } from "framer-motion";
+import { Polaroid } from "@/components/polaroid/Polaroid";
 import type { TimelineChapter } from "@/lib/types";
 
 const CARD_EASE = [0.16, 1, 0.3, 1] as const;
+
+/**
+ * Polaroids anchored to a timeline chapter id. Rendered as a wrapping
+ * cluster at the foot of the chapter card — on desktop they overlap
+ * slightly via negative margin, on mobile they stack inline.
+ *
+ * Kept inline in this file (not on the LocalisedTimelineChapter type)
+ * because captions are currently NL-only and the rest of the timeline
+ * data follows the i18n pattern. Promote to the type when we localise.
+ */
+type ChapterPolaroid = {
+  src: string;
+  alt: string;
+  caption: string;
+  rotation?: number;
+  size?: "sm" | "md" | "lg";
+};
+
+const CHAPTER_POLAROIDS: Record<string, ChapterPolaroid[]> = {
+  marechaussee: [
+    {
+      src: "/images/polaroids/Marechaussee.jpeg",
+      alt: "Nick in marechaussee-uniform op Schiphol",
+      caption: "Schiphol, in uniform",
+    },
+  ],
+  gambia: [
+    {
+      src: "/images/polaroids/gambia.jpeg",
+      alt: "Nick tijdens vrijwilligerswerk in Gambia",
+      caption: "Een jaar Gambia",
+    },
+  ],
+  amateur: [
+    {
+      src: "/images/polaroids/koksopleiding.jpeg",
+      alt: "Nick tijdens de koksopleiding",
+      caption: "Eerste mes",
+    },
+  ],
+  bordeau: [
+    {
+      src: "/images/polaroids/patisserie-amsterdam.jpeg",
+      alt: "Nick aan het werk bij de patisserie van Bord'eau",
+      caption: "Bord'eau, patisserie",
+      size: "sm",
+      rotation: -4,
+    },
+    {
+      src: "/images/polaroids/patisserie-amsterdam1.jpeg",
+      alt: "Detail van de patisserie bij Bord'eau",
+      caption: "In de mise",
+      size: "sm",
+      rotation: 3,
+    },
+    {
+      src: "/images/polaroids/patisserie-amsterdam2.jpeg",
+      alt: "Patisserie bij Bord'eau, derde shot",
+      caption: "Eind van de service",
+      size: "sm",
+      rotation: -2,
+    },
+  ],
+  groningen: [
+    {
+      src: "/images/polaroids/kvk.jpeg",
+      alt: "Nick bij de Kamer van Koophandel",
+      caption: "KvK, dag een",
+      size: "sm",
+      rotation: 4,
+    },
+    {
+      src: "/images/polaroids/eetcafetexels.jpeg",
+      alt: "Het pand van Eetcafe Texels in Groningen",
+      caption: "Eetcafé Texels",
+      size: "sm",
+      rotation: -3,
+    },
+    {
+      src: "/images/polaroids/kaylee-eetcafetexels.jpeg",
+      alt: "Kaylee achter de bar bij Eetcafe Texels",
+      caption: "Kaylee achter de bar",
+      size: "sm",
+      rotation: 2,
+    },
+    {
+      src: "/images/polaroids/holyburgers.jpeg",
+      alt: "Holyburgers in de Gelkingestraat",
+      caption: "Holyburgers, Gelkingestraat",
+      size: "sm",
+      rotation: -4,
+    },
+  ],
+  fotografie: [
+    {
+      src: "/images/polaroids/Stockholm.jpeg",
+      alt: "Stockholm-archipel in de zomer",
+      caption: "Stockholm, zomer",
+    },
+  ],
+  "costa-del-sol": [
+    {
+      src: "/images/polaroids/coin.jpeg",
+      alt: "Het Andalusische landschap rond Coin",
+      caption: "Coín, achterland",
+      size: "sm",
+      rotation: -3,
+    },
+    {
+      src: "/images/polaroids/paellaavond.jpeg",
+      alt: "Gasten rond een paella",
+      caption: "Paella avond",
+      size: "sm",
+      rotation: 4,
+    },
+  ],
+};
 
 function ChapterCard({
   chapter,
@@ -76,6 +194,26 @@ function ChapterCard({
           {chapter.marginalia}
         </motion.p>
       )}
+
+      {(() => {
+        const polaroids = CHAPTER_POLAROIDS[chapter.id];
+        if (!polaroids || polaroids.length === 0) return null;
+        return (
+          <div className="mt-10 flex flex-wrap items-end justify-start gap-x-6 gap-y-8 md:mt-12 md:gap-x-2">
+            {polaroids.map((p, i) => (
+              <Polaroid
+                key={p.src}
+                src={p.src}
+                alt={p.alt}
+                caption={p.caption}
+                size={p.size ?? "md"}
+                rotation={p.rotation}
+                className={i > 0 ? "md:-ml-4" : ""}
+              />
+            ))}
+          </div>
+        );
+      })()}
     </motion.article>
   );
 }

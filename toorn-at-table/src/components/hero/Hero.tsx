@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { Polaroid } from "@/components/polaroid/Polaroid";
 import { useT } from "@/i18n/client";
 
 const REVEAL_EASE = [0.65, 0, 0.35, 1] as const;
@@ -134,6 +135,17 @@ export function Hero() {
         </motion.p>
 
         <HandwrittenNote delay={headlineEnd + 0.8} text={t.hero.handwrittenNote} />
+
+        {/* Above-the-fold polaroid — desktop-only so mobile hero stays calm */}
+        <Polaroid
+          src="/images/polaroids/kokenmetnick.jpeg"
+          alt="Nick aan het koken voor gasten"
+          caption="Aan tafel"
+          size="md"
+          priority
+          rotation={6}
+          className="absolute right-[5vw] top-[14vh] z-10 hidden md:block lg:right-[8vw]"
+        />
       </div>
     </section>
   );

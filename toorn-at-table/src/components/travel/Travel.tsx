@@ -1,4 +1,5 @@
 import { getTravelLocations } from "@/lib/content/travel";
+import { Polaroid } from "@/components/polaroid/Polaroid";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { StampGrid } from "./StampGrid";
@@ -16,6 +17,14 @@ export async function Travel() {
       aria-labelledby="travel-heading"
       className="relative w-full"
     >
+      <Polaroid
+        src="/images/polaroids/whatsapp-1.jpeg"
+        alt="Onderweg, foto van Nick"
+        caption="Onderweg"
+        size="md"
+        rotation={4}
+        className="absolute right-[2vw] top-[10vh] z-10 hidden lg:block"
+      />
       <div className="mx-auto w-full max-w-6xl px-5 pt-24 pb-32 md:px-12 md:pt-32 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">
           <Reveal

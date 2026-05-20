@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { Clip } from "@/components/video/Clip";
 import { useT } from "@/i18n/client";
 
 const REVEAL_EASE = [0.16, 1, 0.3, 1] as const;
@@ -50,6 +51,21 @@ export function ClosingPanel() {
         >
           {t.closing.signature}
         </motion.p>
+
+        {/* "Watch a moment" beat between the signature and the CTA */}
+        <motion.div
+          className="mx-auto mt-16 w-full max-w-xl"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: REVEAL_EASE, delay: 0.35 }}
+        >
+          <Clip
+            src="/videos/whatsapp-clip.mp4"
+            alt="Korte clip van Nick aan het werk"
+            caption="Een moment uit de keuken"
+          />
+        </motion.div>
 
         <motion.div
           className="mt-16 flex flex-col items-center gap-4"
