@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
-import { Sticker } from "@/components/sticker/Sticker";
 import { Clip } from "@/components/video/Clip";
 import { useT } from "@/i18n/client";
 
@@ -18,13 +17,6 @@ export function ClosingPanel() {
       aria-labelledby="closing-heading"
       className="relative w-full"
     >
-      <Sticker
-        src="/images/stickers/truffle.png"
-        alt="Tattoo-flash zwarte truffel op kussen"
-        size="md"
-        rotation={5}
-        className="absolute right-[4vw] top-[14vh] z-10 hidden lg:block"
-      />
       <div className="mx-auto w-full max-w-4xl px-5 pt-12 pb-32 text-center md:px-12 md:pt-20 md:pb-48">
         <div aria-hidden className="mx-auto h-px w-24 bg-ink/25 mb-16 md:mb-24" />
 

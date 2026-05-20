@@ -82,7 +82,9 @@ export const useStickerStore = create<StickerStore>()(
       _setHydrated: (hasHydrated) => set({ hasHydrated }),
     }),
     {
-      name: "toorn-stickers",
+      // Bump this key after editing sticker-config.ts so stale positions
+      // for removed / renamed stickers don't haunt repeat visitors.
+      name: "toorn-stickers-v2",
       partialize: (state) => ({
         positions: state.positions,
         topZ: state.topZ,

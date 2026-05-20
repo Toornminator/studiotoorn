@@ -1,6 +1,5 @@
 import { getEvents } from "@/lib/content/events";
 import { Polaroid } from "@/components/polaroid/Polaroid";
-import { Sticker } from "@/components/sticker/Sticker";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { EventsList } from "./EventsList";
@@ -22,13 +21,6 @@ export async function Events() {
         size="md"
         rotation={3}
         className="absolute right-[3vw] top-[6vh] z-10 hidden lg:block"
-      />
-      <Sticker
-        src="/images/stickers/roast.png"
-        alt="Tattoo-flash hele kip op schaal"
-        size="md"
-        rotation={-6}
-        className="absolute left-[2vw] top-[20vh] z-10 hidden lg:block"
       />
       <div className="mx-auto w-full max-w-6xl px-5 pb-32 md:px-12 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">

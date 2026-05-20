@@ -1,5 +1,4 @@
 import { Polaroid } from "@/components/polaroid/Polaroid";
-import { Sticker } from "@/components/sticker/Sticker";
 import { Parallax } from "@/components/ui/Parallax";
 import { getDictionary } from "@/i18n/server";
 import { Portrait } from "./Portrait";
@@ -27,13 +26,6 @@ export async function About() {
         size="md"
         rotation={-5}
         className="absolute right-[3vw] top-[6vh] z-10 hidden lg:block"
-      />
-
-      <Sticker
-        src="/images/stickers/oyster.png"
-        alt="Tattoo-flash oester met parel"
-        size="sm"
-        className="absolute left-[2vw] bottom-[8vh] z-10 hidden lg:block"
       />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-12 md:py-40">
         <div className="md:col-span-5">

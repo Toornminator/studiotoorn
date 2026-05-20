@@ -1,5 +1,4 @@
 import { Polaroid } from "@/components/polaroid/Polaroid";
-import { Sticker } from "@/components/sticker/Sticker";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getDictionary } from "@/i18n/server";
 import { BookingForm } from "./BookingForm";
@@ -20,13 +19,6 @@ export async function Contact() {
         size="md"
         rotation={-4}
         className="absolute right-[2vw] top-[6vh] z-10 hidden lg:block"
-      />
-      <Sticker
-        src="/images/stickers/saucepan.png"
-        alt="Tattoo-flash koperen steelpan met stoom"
-        size="sm"
-        rotation={-8}
-        className="absolute left-[3vw] top-[30vh] z-10 hidden lg:block"
       />
       <div className="mx-auto w-full max-w-4xl px-5 pb-32 md:px-12 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">
