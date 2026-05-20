@@ -1,5 +1,6 @@
 import { getRecipes } from "@/lib/content/recipes";
 import { Polaroid } from "@/components/polaroid/Polaroid";
+import { Sticker } from "@/components/sticker/Sticker";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { RecipeIndex } from "./RecipeIndex";
@@ -21,6 +22,19 @@ export async function Kookboek() {
         size="md"
         rotation={-3}
         className="absolute right-[3vw] top-[8vh] z-10 hidden lg:block"
+      />
+      <Sticker
+        src="/images/stickers/chefs-knife.png"
+        alt="Tattoo-flash chef's knife"
+        size="lg"
+        rotation={-10}
+        className="absolute left-[1vw] top-[8vh] z-10 hidden lg:block"
+      />
+      <Sticker
+        src="/images/stickers/lemon.png"
+        alt="Tattoo-flash citroen met bloesem"
+        size="sm"
+        className="absolute right-[8vw] top-[55vh] z-10 hidden lg:block"
       />
       <div className="mx-auto w-full max-w-6xl px-5 pt-24 pb-32 md:px-12 md:pt-32 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">

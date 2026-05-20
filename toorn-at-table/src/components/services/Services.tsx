@@ -1,4 +1,5 @@
 import { Polaroid } from "@/components/polaroid/Polaroid";
+import { Sticker } from "@/components/sticker/Sticker";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getDictionary } from "@/i18n/server";
 
@@ -23,6 +24,12 @@ export async function Services() {
       aria-labelledby="services-heading"
       className="relative w-full"
     >
+      <Sticker
+        src="/images/stickers/lobster.png"
+        alt="Tattoo-flash kreeft"
+        size="md"
+        className="absolute right-[2vw] top-[16vh] z-10 hidden lg:block"
+      />
       <div className="mx-auto w-full max-w-6xl px-5 pb-32 md:px-12 md:pb-48">
         <header className="border-t border-ink/15 pt-12 md:pt-20">
           <Reveal as="p" className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">

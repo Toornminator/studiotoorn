@@ -1,3 +1,4 @@
+import { Sticker } from "@/components/sticker/Sticker";
 import { getDictionary } from "@/i18n/server";
 import { NewsletterForm } from "./NewsletterForm";
 
@@ -7,6 +8,13 @@ export async function Footer() {
 
   return (
     <footer id="footer" className="relative w-full bg-ink text-cream">
+      <Sticker
+        src="/images/stickers/cleaver.png"
+        alt="Tattoo-flash hakmes"
+        size="sm"
+        rotation={-12}
+        className="absolute right-[4vw] top-[2vh] z-10 hidden lg:block"
+      />
       <div className="mx-auto w-full max-w-6xl px-5 pb-14 pt-20 md:px-12 md:pb-16 md:pt-28">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-7" id="newsletter">

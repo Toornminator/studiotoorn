@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion, useScroll } from "framer-motion";
 import { Polaroid } from "@/components/polaroid/Polaroid";
+import { Sticker } from "@/components/sticker/Sticker";
 import type { TimelineChapter } from "@/lib/types";
 
 const CARD_EASE = [0.16, 1, 0.3, 1] as const;
@@ -124,6 +125,51 @@ const CHAPTER_POLAROIDS: Record<string, ChapterPolaroid[]> = {
   ],
 };
 
+/**
+ * Tattoo-flash sticker anchored to a chapter — floats opposite the
+ * polaroid cluster, picks up a tiny piece of that era's flavour.
+ * Only added where the chapter content sets it up naturally.
+ */
+type ChapterSticker = {
+  src: string;
+  alt: string;
+  size?: "sm" | "md" | "lg";
+  rotation?: number;
+};
+
+const CHAPTER_STICKERS: Record<string, ChapterSticker> = {
+  gambia: {
+    src: "/images/stickers/fish.png",
+    alt: "Tattoo-flash vis met golven",
+    size: "sm",
+    rotation: 6,
+  },
+  amateur: {
+    src: "/images/stickers/wooden-spoon.png",
+    alt: "Tattoo-flash houten lepel",
+    size: "sm",
+    rotation: -10,
+  },
+  bordeau: {
+    src: "/images/stickers/baguette.png",
+    alt: "Tattoo-flash stokbrood",
+    size: "md",
+    rotation: 8,
+  },
+  groningen: {
+    src: "/images/stickers/skillet-fire.png",
+    alt: "Tattoo-flash gietijzeren pan op vuur",
+    size: "sm",
+    rotation: -6,
+  },
+  "costa-del-sol": {
+    src: "/images/stickers/garlic.png",
+    alt: "Tattoo-flash knoflook met bloemen",
+    size: "sm",
+    rotation: 4,
+  },
+};
+
 function ChapterCard({
   chapter,
   chapterPrefix,
@@ -212,6 +258,20 @@ function ChapterCard({
               />
             ))}
           </div>
+        );
+      })()}
+
+      {(() => {
+        const sticker = CHAPTER_STICKERS[chapter.id];
+        if (!sticker) return null;
+        return (
+          <Sticker
+            src={sticker.src}
+            alt={sticker.alt}
+            size={sticker.size ?? "md"}
+            rotation={sticker.rotation}
+            className="absolute right-[-6vw] top-4 z-10 hidden lg:block"
+          />
         );
       })()}
     </motion.article>

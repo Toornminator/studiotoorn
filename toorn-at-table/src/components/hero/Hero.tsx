@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Polaroid } from "@/components/polaroid/Polaroid";
+import { Sticker } from "@/components/sticker/Sticker";
 import { useT } from "@/i18n/client";
 
 const REVEAL_EASE = [0.65, 0, 0.35, 1] as const;
@@ -145,6 +146,14 @@ export function Hero() {
           priority
           rotation={6}
           className="absolute right-[5vw] top-[14vh] z-10 hidden md:block lg:right-[8vw]"
+        />
+
+        <Sticker
+          src="/images/stickers/gamba.png"
+          alt="Tattoo-flash gamba met citroen en knoflook"
+          size="md"
+          rotation={-8}
+          className="absolute bottom-[8vh] left-[5vw] z-10 hidden md:block"
         />
       </div>
     </section>

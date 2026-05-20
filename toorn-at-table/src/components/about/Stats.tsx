@@ -1,6 +1,7 @@
 "use client";
 
 import { Counter } from "@/components/ui/Counter";
+import { Sticker } from "@/components/sticker/Sticker";
 import { Reveal } from "@/components/ui/Reveal";
 import { useT } from "@/i18n/client";
 
@@ -15,6 +16,12 @@ export function Stats() {
 
   return (
     <section aria-label="Statistieken" className="relative w-full">
+      <Sticker
+        src="/images/stickers/chili.png"
+        alt="Tattoo-flash chili pepper met vlammen"
+        size="sm"
+        className="absolute right-[4vw] top-[2vh] z-10 hidden lg:block"
+      />
       <div className="mx-auto w-full max-w-6xl px-5 pb-24 md:px-12 md:pb-32">
         <div className="grid grid-cols-1 gap-12 border-y border-ink/15 py-16 sm:grid-cols-3 md:gap-16 md:py-24">
           <Reveal className="flex flex-col items-start gap-3">

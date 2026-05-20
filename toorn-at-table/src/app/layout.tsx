@@ -5,7 +5,6 @@ import { NavBar } from "@/components/layout/NavBar";
 import { PaperBackground } from "@/components/layout/PaperBackground";
 import { Preloader } from "@/components/layout/Preloader";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { LocaleProvider } from "@/i18n/client";
 import { getCurrentLocale } from "@/i18n/server";
 import { fontVariables } from "@/lib/fonts";
@@ -56,7 +55,6 @@ export default async function RootLayout({
             <NavBar />
             <main className="relative z-10 flex flex-1 flex-col">{children}</main>
             <Footer />
-            <StickerProvider />
             <CustomCursor />
           </SmoothScroll>
           <Preloader />
