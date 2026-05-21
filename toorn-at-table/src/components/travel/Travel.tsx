@@ -19,8 +19,16 @@ export async function Travel() {
     >
       <Polaroid
         src="/images/polaroids/whatsapp-1.jpeg"
-        alt="Onderweg, foto van Nick"
-        caption="Onderweg"
+        alt={{
+          en: "On the road, photo of Nick",
+          es: "En camino, foto de Nick",
+          nl: "Onderweg, foto van Nick",
+        }}
+        caption={{
+          en: "On the road",
+          es: "En camino",
+          nl: "Onderweg",
+        }}
         size="md"
         rotation={4}
         className="absolute right-[max(6vw,120px)] top-[10vh] z-10 hidden lg:block"

@@ -14,8 +14,16 @@ export async function Contact() {
     >
       <Polaroid
         src="/images/polaroids/whatsapp-2.jpeg"
-        alt="Sfeerbeeld uit de keuken"
-        caption="Een gerecht in wording"
+        alt={{
+          en: "Atmospheric shot from the kitchen",
+          es: "Imagen ambiente desde la cocina",
+          nl: "Sfeerbeeld uit de keuken",
+        }}
+        caption={{
+          en: "A dish in the making",
+          es: "Un plato en proceso",
+          nl: "Een gerecht in wording",
+        }}
         size="md"
         rotation={-4}
         className="absolute right-[max(6vw,120px)] top-[6vh] z-10 hidden lg:block"

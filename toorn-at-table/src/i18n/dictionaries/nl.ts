@@ -98,11 +98,12 @@ export const nl: Dictionary = {
     eyebrow: "Hoofdstuk 03 · Reizen",
     title: "27 stempels, 27 keukens die mij iets bijbrachten.",
     intro:
-      "Klik op een stempel met een rode dop voor het verhaal. De andere zijn waar Nick is geweest, het blog volgt nog.",
+      "Tik op elke stempel om het verhaal erachter te openen — elke keuken had zijn les, elk bord zijn nasmaak.",
     emptyState: "Nog geen reisstempels — komt binnenkort.",
     legendTotal: "{count} stempels · {featured} verhalen",
     legendWithStory: "met verhaal",
     legendVisited: "alleen geweest",
+    tapHint: "Tik om te lezen",
     overlayPlaceholder:
       "Geweest. Verhaal volgt — Nick werkt aan een korte blog over deze plek.",
     overlayEyebrow: "Reizen",

@@ -21,8 +21,16 @@ export async function About() {
           the portrait column as a second visual anchor */}
       <Polaroid
         src="/images/polaroids/holyburgersdeurportret.jpeg"
-        alt="Portret van Nick voor de Holyburgers-deur"
-        caption="Voor de deur"
+        alt={{
+          en: "Portrait of Nick in front of the Holyburgers door",
+          es: "Retrato de Nick frente a la puerta de Holyburgers",
+          nl: "Portret van Nick voor de Holyburgers-deur",
+        }}
+        caption={{
+          en: "Out front",
+          es: "A la puerta",
+          nl: "Voor de deur",
+        }}
         size="md"
         rotation={-5}
         className="absolute right-[max(6vw,120px)] top-[6vh] z-10 hidden lg:block"

@@ -2,6 +2,9 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { useLocale } from "@/i18n/client";
+import { pick } from "@/lib/content/i18n";
+import type { LocalisedString } from "@/lib/types";
 
 /**
  * Video clip in one of two modes:
@@ -35,17 +38,27 @@ const ASPECT_CLASS: Record<Aspect, string> = {
 export type ClipProps = {
   /** Absolute path under /public, e.g. "/videos/whatsapp-clip.mp4" */
   src: string;
-  /** Required for screen readers. */
-  alt: string;
+  /** Required for screen readers. Plain string or Localised trio. */
+  alt: string | LocalisedString;
   mode?: Mode;
   aspect?: Aspect;
   /** Optional poster image — only used in click mode. */
   poster?: string;
-  /** Optional handwritten caption shown under the clip. */
-  caption?: string;
+  /** Optional handwritten caption shown under the clip. Plain string
+   *  or Localised trio that flips with the active language. */
+  caption?: string | LocalisedString;
   /** Caller-supplied sizing / positioning classes (e.g. max-w-sm). */
   className?: string;
 };
+
+function resolveLocalised(
+  value: string | LocalisedString | undefined,
+  locale: ReturnType<typeof useLocale>,
+): string | undefined {
+  if (value === undefined) return undefined;
+  if (typeof value === "string") return value;
+  return pick(value, locale);
+}
 
 export function Clip({
   src,
@@ -58,6 +71,9 @@ export function Clip({
 }: ClipProps) {
   const [playing, setPlaying] = useState(mode === "ambient");
   const videoRef = useRef<HTMLVideoElement>(null);
+  const locale = useLocale();
+  const resolvedAlt = resolveLocalised(alt, locale) ?? "";
+  const resolvedCaption = resolveLocalised(caption, locale);
 
   const onPlay = () => {
     setPlaying(true);
@@ -86,7 +102,7 @@ export function Clip({
             loop
             playsInline
             preload="auto"
-            aria-label={alt}
+            aria-label={resolvedAlt}
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : playing ? (
@@ -97,14 +113,14 @@ export function Clip({
             playsInline
             preload="metadata"
             poster={poster}
-            aria-label={alt}
+            aria-label={resolvedAlt}
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
           <button
             type="button"
             onClick={onPlay}
-            aria-label={`Play: ${alt}`}
+            aria-label={`Play: ${resolvedAlt}`}
             className="group relative block h-full w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
           >
             {poster ? (
@@ -139,12 +155,12 @@ export function Clip({
         )}
       </div>
 
-      {caption && (
+      {resolvedCaption && (
         <figcaption
           className="mt-3 text-center font-hand text-tattoo-red leading-[1.15]"
           style={{ fontSize: 16 }}
         >
-          {caption}
+          {resolvedCaption}
         </figcaption>
       )}
     </figure>

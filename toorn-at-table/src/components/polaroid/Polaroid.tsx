@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "@/i18n/client";
+import { pick } from "@/lib/content/i18n";
+import type { LocalisedString } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
@@ -52,10 +55,15 @@ function jitter(seed: string, range: number): number {
 export type PolaroidProps = {
   /** Absolute path under /public, e.g. "/images/polaroids/paella.jpeg" */
   src: string;
-  /** Required for accessibility — never let the photo carry the text. */
-  alt: string;
-  /** Optional handwritten caption shown under the photo. */
-  caption?: string;
+  /** Required for accessibility — never let the photo carry the text.
+   *  Accepts either a plain string (legacy) or a Localised trio that
+   *  the component picks against the active locale. */
+  alt: string | LocalisedString;
+  /** Optional handwritten caption shown under the photo. Same i18n
+   *  contract as `alt`: pass a plain string for one-off labels, or
+   *  a Localised trio so the marker scribble flips with the active
+   *  language. Brand rule: no em-dashes in polaroid captions. */
+  caption?: string | LocalisedString;
   /** Override the auto-jittered rotation in degrees. */
   rotation?: number;
   size?: Size;
@@ -66,6 +74,15 @@ export type PolaroidProps = {
   /** Caller-supplied positioning + sizing classes. */
   className?: string;
 };
+
+function resolveLocalised(
+  value: string | LocalisedString | undefined,
+  locale: ReturnType<typeof useLocale>,
+): string | undefined {
+  if (value === undefined) return undefined;
+  if (typeof value === "string") return value;
+  return pick(value, locale);
+}
 
 export function Polaroid({
   src,
@@ -78,9 +95,12 @@ export function Polaroid({
   className = "",
 }: PolaroidProps) {
   const reduceMotion = useReducedMotion() ?? false;
+  const locale = useLocale();
   const width = SIZE_WIDTH[size];
   const captionPx = SIZE_CAPTION_PX[size];
   const finalRotation = rotation ?? jitter(seed ?? src, 4);
+  const resolvedAlt = resolveLocalised(alt, locale) ?? "";
+  const resolvedCaption = resolveLocalised(caption, locale);
 
   return (
     <motion.figure
@@ -121,7 +141,7 @@ export function Polaroid({
         >
           <Image
             src={src}
-            alt={alt}
+            alt={resolvedAlt}
             fill
             sizes={`${width}px`}
             priority={priority}
@@ -131,12 +151,12 @@ export function Polaroid({
         </div>
       </div>
 
-      {caption && (
+      {resolvedCaption && (
         <figcaption
           className="px-3 pb-4 pt-1 text-center font-hand text-tattoo-red leading-[1.15]"
           style={{ fontSize: captionPx }}
         >
-          {caption}
+          {resolvedCaption}
         </figcaption>
       )}
     </motion.figure>

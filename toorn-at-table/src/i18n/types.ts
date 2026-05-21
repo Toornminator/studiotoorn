@@ -73,6 +73,10 @@ export type Dictionary = {
     legendTotal: string;
     legendWithStory: string;
     legendVisited: string;
+    /** Subtle "tap to read" hint shown next to the carousel legend so
+     *  touch visitors know each stamp opens an overlay (the desktop
+     *  custom-cursor hint is invisible on coarse pointers). */
+    tapHint: string;
     overlayPlaceholder: string;
     overlayEyebrow: string;
     cursorReadStory: string;

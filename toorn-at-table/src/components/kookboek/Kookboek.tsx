@@ -16,8 +16,16 @@ export async function Kookboek() {
     >
       <Polaroid
         src="/images/polaroids/schoonmaak.jpeg"
-        alt="Sluitingstijd in de keuken"
-        caption="Na de service"
+        alt={{
+          en: "Closing time in the kitchen",
+          es: "Hora de cierre en la cocina",
+          nl: "Sluitingstijd in de keuken",
+        }}
+        caption={{
+          en: "After service",
+          es: "Después del servicio",
+          nl: "Na de service",
+        }}
         size="md"
         rotation={-3}
         className="absolute right-[max(6vw,120px)] top-[8vh] z-10 hidden lg:block"

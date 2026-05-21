@@ -115,8 +115,16 @@ export function Hero() {
         {/* Above-the-fold polaroid — desktop-only so mobile hero stays calm */}
         <Polaroid
           src="/images/polaroids/kokenmetnick.jpeg"
-          alt="Nick aan het koken voor gasten"
-          caption="Aan tafel"
+          alt={{
+            en: "Nick cooking for guests",
+            es: "Nick cocinando para los invitados",
+            nl: "Nick aan het koken voor gasten",
+          }}
+          caption={{
+            en: "At table",
+            es: "A la mesa",
+            nl: "Aan tafel",
+          }}
           size="md"
           priority
           rotation={6}

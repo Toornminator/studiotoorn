@@ -64,10 +64,18 @@ export function ClosingPanel() {
         >
           <Clip
             src="/videos/whatsapp-clip.mp4"
-            alt="Korte loop van Nick aan het werk"
+            alt={{
+              en: "Short loop of Nick at work",
+              es: "Bucle corto de Nick trabajando",
+              nl: "Korte loop van Nick aan het werk",
+            }}
             mode="ambient"
             aspect="9/16"
-            caption="Een moment uit de keuken"
+            caption={{
+              en: "A moment from the kitchen",
+              es: "Un instante de la cocina",
+              nl: "Een moment uit de keuken",
+            }}
           />
         </motion.div>
 

@@ -16,7 +16,11 @@ export async function Events() {
     >
       <Polaroid
         src="/images/polaroids/rietstulp.jpeg"
-        alt="Sfeerbeeld Rietstulp"
+        alt={{
+          en: "Atmospheric shot at Rietstulp",
+          es: "Imagen ambiente de Rietstulp",
+          nl: "Sfeerbeeld Rietstulp",
+        }}
         caption="Rietstulp"
         size="md"
         rotation={3}

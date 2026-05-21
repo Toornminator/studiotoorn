@@ -46,31 +46,63 @@ export async function Services() {
         <div className="mt-12 flex flex-wrap items-end justify-center gap-x-6 gap-y-8 md:mt-16 md:gap-x-2">
           <Polaroid
             src="/images/polaroids/paella.jpeg"
-            alt="Een grote paella op tafel"
-            caption="Paella, midden op tafel"
+            alt={{
+              en: "A large paella on the table",
+              es: "Una gran paella en la mesa",
+              nl: "Een grote paella op tafel",
+            }}
+            caption={{
+              en: "Paella, centre of the table",
+              es: "Paella, en el centro",
+              nl: "Paella, midden op tafel",
+            }}
             size="sm"
             rotation={-4}
           />
           <Polaroid
             src="/images/polaroids/blokes.jpeg"
-            alt="Nick met zijn ploeg"
-            caption="De ploeg"
+            alt={{
+              en: "Nick with his crew",
+              es: "Nick con su equipo",
+              nl: "Nick met zijn ploeg",
+            }}
+            caption={{
+              en: "The crew",
+              es: "El equipo",
+              nl: "De ploeg",
+            }}
             size="sm"
             rotation={3}
             className="md:-ml-4"
           />
           <Polaroid
             src="/images/polaroids/cocktails.jpeg"
-            alt="Cocktails klaar op de bar"
-            caption="Cocktails klaar"
+            alt={{
+              en: "Cocktails ready on the bar",
+              es: "Cócteles listos en la barra",
+              nl: "Cocktails klaar op de bar",
+            }}
+            caption={{
+              en: "Cocktails up",
+              es: "Cócteles listos",
+              nl: "Cocktails klaar",
+            }}
             size="sm"
             rotation={-2}
             className="md:-ml-4"
           />
           <Polaroid
             src="/images/polaroids/avonduitverkocht.jpeg"
-            alt="Vol bezette avond in de zaak"
-            caption="Vol bezet"
+            alt={{
+              en: "A fully booked evening at the venue",
+              es: "Una noche con todas las mesas llenas",
+              nl: "Vol bezette avond in de zaak",
+            }}
+            caption={{
+              en: "Full house",
+              es: "Sala llena",
+              nl: "Vol bezet",
+            }}
             size="sm"
             rotation={4}
             className="md:-ml-4"

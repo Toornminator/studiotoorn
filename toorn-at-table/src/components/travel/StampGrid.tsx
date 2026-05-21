@@ -165,7 +165,12 @@ export function StampGrid({ locations }: { locations: TravelLocation[] }) {
   return (
     <>
       <div className="mt-12 flex items-baseline justify-between gap-4 border-t border-ink/15 pt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/55">
-        <span>{legend}</span>
+        <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <span>{legend}</span>
+          <span aria-hidden className="text-tattoo-red/70">
+            ↳ {t.travel.tapHint}
+          </span>
+        </span>
         {currentLocation && (
           <span className="text-ink/40">
             {currentLocation.name}{" "}

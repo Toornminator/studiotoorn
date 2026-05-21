@@ -98,11 +98,12 @@ export const en: Dictionary = {
     eyebrow: "Chapter 03 · Travels",
     title: "27 stamps, 27 kitchens that taught me something.",
     intro:
-      "Click on a stamp with a red dot for the story. The others are places I've been; the blogs are still on the way.",
+      "Tap any stamp to open the story behind it — every kitchen had its lesson, every plate its echo.",
     emptyState: "No travel stamps yet — coming soon.",
     legendTotal: "{count} stamps · {featured} stories",
     legendWithStory: "with story",
     legendVisited: "visited only",
+    tapHint: "Tap to read",
     overlayPlaceholder:
       "I've been there. The story is on its way — Nick is working on a short blog about this place.",
     overlayEyebrow: "Travels",

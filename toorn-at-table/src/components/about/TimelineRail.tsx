@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion, useScroll } from "framer-motion";
 import { Polaroid } from "@/components/polaroid/Polaroid";
-import type { TimelineChapter } from "@/lib/types";
+import type { LocalisedString, TimelineChapter } from "@/lib/types";
 
 const CARD_EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -12,14 +12,14 @@ const CARD_EASE = [0.16, 1, 0.3, 1] as const;
  * cluster at the foot of the chapter card — on desktop they overlap
  * slightly via negative margin, on mobile they stack inline.
  *
- * Kept inline in this file (not on the LocalisedTimelineChapter type)
- * because captions are currently NL-only and the rest of the timeline
- * data follows the i18n pattern. Promote to the type when we localise.
+ * Captions + alts are Localised trios so the marker scribble flips
+ * with the active language alongside the chapter body. Brand rule:
+ * no em-dashes in polaroid captions.
  */
 type ChapterPolaroid = {
   src: string;
-  alt: string;
-  caption: string;
+  alt: LocalisedString;
+  caption: LocalisedString;
   rotation?: number;
   size?: "sm" | "md" | "lg";
 };
@@ -28,43 +28,91 @@ const CHAPTER_POLAROIDS: Record<string, ChapterPolaroid[]> = {
   marechaussee: [
     {
       src: "/images/polaroids/Marechaussee.jpeg",
-      alt: "Nick in marechaussee-uniform op Schiphol",
-      caption: "Schiphol, in uniform",
+      alt: {
+        en: "Nick in Royal Marechaussee uniform at Schiphol",
+        es: "Nick con uniforme de la Marechaussee en Schiphol",
+        nl: "Nick in marechaussee-uniform op Schiphol",
+      },
+      caption: {
+        en: "Schiphol, in uniform",
+        es: "Schiphol, de uniforme",
+        nl: "Schiphol, in uniform",
+      },
     },
   ],
   gambia: [
     {
       src: "/images/polaroids/gambia.jpeg",
-      alt: "Nick tijdens vrijwilligerswerk in Gambia",
-      caption: "Een jaar Gambia",
+      alt: {
+        en: "Nick volunteering in The Gambia",
+        es: "Nick haciendo voluntariado en Gambia",
+        nl: "Nick tijdens vrijwilligerswerk in Gambia",
+      },
+      caption: {
+        en: "A year in The Gambia",
+        es: "Un año en Gambia",
+        nl: "Een jaar Gambia",
+      },
     },
   ],
   amateur: [
     {
       src: "/images/polaroids/koksopleiding.jpeg",
-      alt: "Nick tijdens de koksopleiding",
-      caption: "Eerste mes",
+      alt: {
+        en: "Nick during culinary school",
+        es: "Nick en la escuela de cocina",
+        nl: "Nick tijdens de koksopleiding",
+      },
+      caption: {
+        en: "First knife",
+        es: "Primer cuchillo",
+        nl: "Eerste mes",
+      },
     },
   ],
   bordeau: [
     {
       src: "/images/polaroids/patisserie-amsterdam.jpeg",
-      alt: "Nick aan het werk bij de patisserie van Bord'eau",
-      caption: "Bord'eau, patisserie",
+      alt: {
+        en: "Nick at work in the Bord'eau patisserie",
+        es: "Nick trabajando en la pastelería de Bord'eau",
+        nl: "Nick aan het werk bij de patisserie van Bord'eau",
+      },
+      caption: {
+        en: "Bord'eau, patisserie",
+        es: "Bord'eau, pastelería",
+        nl: "Bord'eau, patisserie",
+      },
       size: "sm",
       rotation: -4,
     },
     {
       src: "/images/polaroids/patisserie-amsterdam1.jpeg",
-      alt: "Detail van de patisserie bij Bord'eau",
-      caption: "In de mise",
+      alt: {
+        en: "Detail of the Bord'eau patisserie",
+        es: "Detalle de la pastelería de Bord'eau",
+        nl: "Detail van de patisserie bij Bord'eau",
+      },
+      caption: {
+        en: "On the mise",
+        es: "En la mise",
+        nl: "In de mise",
+      },
       size: "sm",
       rotation: 3,
     },
     {
       src: "/images/polaroids/patisserie-amsterdam2.jpeg",
-      alt: "Patisserie bij Bord'eau, derde shot",
-      caption: "Eind van de service",
+      alt: {
+        en: "Bord'eau patisserie, third shot",
+        es: "Pastelería de Bord'eau, tercera toma",
+        nl: "Patisserie bij Bord'eau, derde shot",
+      },
+      caption: {
+        en: "End of service",
+        es: "Fin del servicio",
+        nl: "Eind van de service",
+      },
       size: "sm",
       rotation: -2,
     },
@@ -72,29 +120,61 @@ const CHAPTER_POLAROIDS: Record<string, ChapterPolaroid[]> = {
   groningen: [
     {
       src: "/images/polaroids/kvk.jpeg",
-      alt: "Nick bij de Kamer van Koophandel",
-      caption: "KvK, dag een",
+      alt: {
+        en: "Nick at the Chamber of Commerce",
+        es: "Nick en la Cámara de Comercio",
+        nl: "Nick bij de Kamer van Koophandel",
+      },
+      caption: {
+        en: "Day one, registered",
+        es: "Día uno, dado de alta",
+        nl: "KvK, dag een",
+      },
       size: "sm",
       rotation: 4,
     },
     {
       src: "/images/polaroids/eetcafetexels.jpeg",
-      alt: "Het pand van Eetcafe Texels in Groningen",
-      caption: "Eetcafé Texels",
+      alt: {
+        en: "The Eetcafé Texels building in Groningen",
+        es: "El local de Eetcafé Texels en Groningen",
+        nl: "Het pand van Eetcafe Texels in Groningen",
+      },
+      caption: {
+        en: "Eetcafé Texels",
+        es: "Eetcafé Texels",
+        nl: "Eetcafé Texels",
+      },
       size: "sm",
       rotation: -3,
     },
     {
       src: "/images/polaroids/kaylee-eetcafetexels.jpeg",
-      alt: "Kaylee achter de bar bij Eetcafe Texels",
-      caption: "Kaylee achter de bar",
+      alt: {
+        en: "Kaylee behind the bar at Eetcafé Texels",
+        es: "Kaylee detrás de la barra en Eetcafé Texels",
+        nl: "Kaylee achter de bar bij Eetcafe Texels",
+      },
+      caption: {
+        en: "Kaylee behind the bar",
+        es: "Kaylee tras la barra",
+        nl: "Kaylee achter de bar",
+      },
       size: "sm",
       rotation: 2,
     },
     {
       src: "/images/polaroids/holyburgers.jpeg",
-      alt: "Holyburgers in de Gelkingestraat",
-      caption: "Holyburgers, Gelkingestraat",
+      alt: {
+        en: "Holyburgers on Gelkingestraat",
+        es: "Holyburgers en la Gelkingestraat",
+        nl: "Holyburgers in de Gelkingestraat",
+      },
+      caption: {
+        en: "Holyburgers, Gelkingestraat",
+        es: "Holyburgers, Gelkingestraat",
+        nl: "Holyburgers, Gelkingestraat",
+      },
       size: "sm",
       rotation: -4,
     },
@@ -102,22 +182,46 @@ const CHAPTER_POLAROIDS: Record<string, ChapterPolaroid[]> = {
   fotografie: [
     {
       src: "/images/polaroids/Stockholm.jpeg",
-      alt: "Stockholm-archipel in de zomer",
-      caption: "Stockholm, zomer",
+      alt: {
+        en: "Stockholm archipelago in summer",
+        es: "Archipiélago de Estocolmo en verano",
+        nl: "Stockholm-archipel in de zomer",
+      },
+      caption: {
+        en: "Stockholm, summer",
+        es: "Estocolmo, verano",
+        nl: "Stockholm, zomer",
+      },
     },
   ],
   "costa-del-sol": [
     {
       src: "/images/polaroids/coin.jpeg",
-      alt: "Het Andalusische landschap rond Coin",
-      caption: "Coín, achterland",
+      alt: {
+        en: "The Andalusian landscape around Coín",
+        es: "El paisaje andaluz alrededor de Coín",
+        nl: "Het Andalusische landschap rond Coin",
+      },
+      caption: {
+        en: "Coín, the backcountry",
+        es: "Coín, el interior",
+        nl: "Coín, achterland",
+      },
       size: "sm",
       rotation: -3,
     },
     {
       src: "/images/polaroids/paellaavond.jpeg",
-      alt: "Gasten rond een paella",
-      caption: "Paella avond",
+      alt: {
+        en: "Guests gathered around a paella",
+        es: "Invitados alrededor de una paella",
+        nl: "Gasten rond een paella",
+      },
+      caption: {
+        en: "Paella night",
+        es: "Noche de paella",
+        nl: "Paella avond",
+      },
       size: "sm",
       rotation: 4,
     },

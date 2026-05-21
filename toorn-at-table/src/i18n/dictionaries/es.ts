@@ -98,11 +98,12 @@ export const es: Dictionary = {
     eyebrow: "Capítulo 03 · Viajes",
     title: "27 sellos, 27 cocinas que me enseñaron algo.",
     intro:
-      "Haz clic en un sello con punto rojo para leer la historia. Los demás son lugares en los que he estado; los textos están en camino.",
+      "Toca cualquier sello para abrir la historia detrás — cada cocina tuvo su lección, cada plato su eco.",
     emptyState: "Aún no hay sellos — pronto.",
     legendTotal: "{count} sellos · {featured} historias",
     legendWithStory: "con historia",
     legendVisited: "solo visitado",
+    tapHint: "Toca para leer",
     overlayPlaceholder:
       "He estado allí. La historia viene en camino — Nick está escribiendo un blog corto sobre este sitio.",
     overlayEyebrow: "Viajes",
