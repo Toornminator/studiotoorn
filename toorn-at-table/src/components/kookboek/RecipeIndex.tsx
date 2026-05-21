@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useT } from "@/i18n/client";
 import { NowPlayingBadge } from "@/components/now-playing/NowPlaying";
@@ -119,9 +120,24 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => setOpenSlug(recipe.slug)}
               data-cursor={t.cookbook.cursorOpen}
-              className="group relative flex flex-col items-start gap-4 overflow-hidden border border-ink/12 bg-cream-warm/60 p-6 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:p-7"
+              className="group relative flex flex-col items-start overflow-hidden border border-ink/12 bg-cream-warm/60 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
               style={{ borderRadius: 4 }}
             >
+              {recipe.heroImage && (
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink/5">
+                  <Image
+                    src={recipe.heroImage}
+                    alt={recipe.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    unoptimized
+                  />
+                </div>
+              )}
+
+              <div className="flex w-full flex-col items-start gap-4 p-6 md:p-7">
               <div className="flex w-full items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-tattoo-red">
                   {CATEGORY_LABEL[recipe.category]}
@@ -164,6 +180,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
                     />
                   </svg>
                 </span>
+              </div>
               </div>
             </motion.button>
           ))}

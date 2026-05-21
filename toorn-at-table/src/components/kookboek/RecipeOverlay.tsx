@@ -138,6 +138,20 @@ export function RecipeOverlay({
           </svg>
         </button>
 
+        {recipe.heroImage && (
+          <div className="relative -mx-5 -mt-16 mb-10 aspect-[16/10] w-[calc(100%+2.5rem)] overflow-hidden bg-ink/5 md:-mx-12 md:-mt-20 md:mb-12 md:w-[calc(100%+6rem)]">
+            <Image
+              src={recipe.heroImage}
+              alt={recipe.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 896px"
+              priority
+              className="object-cover"
+              unoptimized
+            />
+          </div>
+        )}
+
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
           {CATEGORY_LABEL[recipe.category]}
           {recipe.seasons.length > 0 && (
