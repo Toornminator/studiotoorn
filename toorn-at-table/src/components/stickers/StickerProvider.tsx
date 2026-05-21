@@ -4,8 +4,13 @@ import { useEffect, useState } from "react";
 import { Sticker } from "./Sticker";
 import { stickerLayout } from "./sticker-config";
 
-const MOBILE_BREAKPOINT = 640;
-const MOBILE_SCALE = 0.7;
+// Stickers are a desktop Easter-egg. Below this width they cost more
+// than they pay back — every sticker carries gesture listeners with
+// `touchAction: none`, which silently blocks page scroll when the
+// visitor's thumb lands on one. So we don't render them at all on
+// phones; the scattered hand-drawn polaroids already carry the
+// "found in a drawer" feel on mobile.
+const MOBILE_BREAKPOINT = 768;
 
 export function StickerProvider() {
   const [viewport, setViewport] = useState<{ vw: number; vh: number } | null>(
@@ -21,9 +26,7 @@ export function StickerProvider() {
   }, []);
 
   if (!viewport) return null;
-
-  const isMobile = viewport.vw < MOBILE_BREAKPOINT;
-  const scale = isMobile ? MOBILE_SCALE : 1;
+  if (viewport.vw < MOBILE_BREAKPOINT) return null;
 
   return (
     <div
@@ -32,7 +35,7 @@ export function StickerProvider() {
     >
       {stickerLayout.map((s) => {
         if (s.hideBelowVw && viewport.vw < s.hideBelowVw) return null;
-        const height = Math.round((s.height ?? 140) * scale);
+        const height = s.height ?? 140;
         const width = Math.round(height * (s.aspect ?? 1));
         const rawX = (viewport.vw * s.posVw) / 100 - width / 2;
         const rawY = (viewport.vh * s.posVh) / 100 - height / 2;

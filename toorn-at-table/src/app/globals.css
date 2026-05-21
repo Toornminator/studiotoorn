@@ -10,16 +10,25 @@ body {
 
 /* Defensive horizontal overflow trim. Polaroids floated near viewport
    edges can extend ~20px past their natural box because of rotation,
-   plus their drop-shadows reach further still. Without this, those
-   pixels would push a phantom horizontal scrollbar on some viewport
-   widths. With overflow-x: hidden on body, anything that escapes is
-   quietly clipped instead. */
+   plus their drop-shadows reach further still. Without overflow-x
+   clipping, those pixels push a phantom horizontal scrollbar — which
+   on mobile presents as the entire page being draggable to the right,
+   revealing nav-bar content that "fell off" the edge.
+
+   `overflow-x: clip` is preferred over `hidden` because it does NOT
+   create a new scroll container, so the sticky NavBar keeps working.
+   Applied at both html- and body-level so neither browser layer can
+   leak a horizontal scroll axis. */
+html {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Alfa Slab One (--font-display) ships only a single 400 Roman cut.
