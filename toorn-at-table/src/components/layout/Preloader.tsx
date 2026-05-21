@@ -185,7 +185,10 @@ function Logo({ reduce }: { reduce: boolean }) {
   return (
     <motion.div
       className="relative"
-      style={{ width: "clamp(260px, 38vw, 460px)" }}
+      // Smaller than the old square mark since the new logo is portrait
+      // (chef hat at the top, blade dropping below). Clamps keep it
+      // commanding on desktop without crowding on mobile.
+      style={{ width: "clamp(220px, 32vw, 380px)" }}
       initial={{ opacity: 0, scale: 0.94 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
@@ -194,16 +197,18 @@ function Logo({ reduce }: { reduce: boolean }) {
         ease: EASE,
       }}
     >
-      {/* Warm glow behind the logo — peaks near the flame in the centre */}
+      {/* Warm halo behind the logo — centred on the skull so the chef
+          hat and knife read against a soft ambient bloom rather than
+          flat black. Pulses gently then settles. */}
       {!reduce && (
         <motion.div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 50% 44%, rgba(255,180,80,0.55) 0%, rgba(201,168,106,0.22) 22%, transparent 50%)",
-            filter: "blur(30px)",
-            transform: "scale(1.25)",
+              "radial-gradient(circle at 50% 50%, rgba(255,200,120,0.45) 0%, rgba(201,168,106,0.18) 28%, transparent 58%)",
+            filter: "blur(34px)",
+            transform: "scale(1.35)",
             zIndex: 0,
           }}
           initial={{ opacity: 0 }}
@@ -218,35 +223,42 @@ function Logo({ reduce }: { reduce: boolean }) {
       )}
 
       <Image
-        src="/images/logo-dark.jpg"
+        src="/images/chef_skull_knife_transparent.png"
         alt="TOORN at table"
-        width={1024}
-        height={1024}
+        width={1227}
+        height={1251}
         priority
+        unoptimized
         className="relative block h-auto w-full"
-        style={{ zIndex: 1 }}
+        style={{
+          zIndex: 1,
+          // Subtle drop shadow lifts the mark off the black backdrop
+          // without making the linework feel printed-on.
+          filter: "drop-shadow(0 14px 30px rgba(0,0,0,0.55))",
+        }}
       />
 
-      {/* Flame flicker — a tighter pulsing dot over the flame to bring it
-          alive without redrawing it. Subtle: low opacity, soft blur,
-          short repeating shimmer cycles. */}
+      {/* Blood-drip glow — a small red shimmer pulsing where the knife
+          drips. Keeps the eye where the logo wants you to look and
+          replaces the old flame flicker now that there is no flame. */}
       {!reduce && (
         <motion.div
           aria-hidden
           className="pointer-events-none absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
-            top: "44%",
-            width: "12%",
-            height: "12%",
-            background: `radial-gradient(circle, ${COLORS.goldWarm} 0%, rgba(201,168,106,0.4) 35%, transparent 65%)`,
-            filter: "blur(8px)",
+            top: "92%",
+            width: "9%",
+            height: "9%",
+            background:
+              "radial-gradient(circle, rgba(220,40,40,0.85) 0%, rgba(160,20,20,0.35) 40%, transparent 70%)",
+            filter: "blur(6px)",
             mixBlendMode: "screen",
             zIndex: 2,
           }}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.4, 0.7, 0.5, 0.85, 0.6, 0.8],
-            scale: [0.85, 1.05, 0.95, 1.1, 0.92, 1.08, 1],
+            opacity: [0, 0.5, 0.85, 0.6, 0.95, 0.7, 0.9],
+            scale: [0.8, 1.05, 0.9, 1.1, 0.95, 1.08, 1],
           }}
           transition={{
             duration: 2.6,

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getDictionary } from "@/i18n/server";
 import { NewsletterForm } from "./NewsletterForm";
 
@@ -31,6 +32,23 @@ export async function Footer() {
           </div>
 
           <div className="md:col-span-5 md:pl-10">
+            {/* The chef-skull-and-knife mark sits as the visual anchor
+                of the brand column. White hat + cream skull + red drip
+                land cleanly on the ink background; the dark knife
+                handle stays legible through its detailed linework.
+                Drop shadow lifts it just enough to feel placed rather
+                than printed onto the dark. */}
+            <Image
+              src="/images/chef_skull_knife_transparent.png"
+              alt="TOORN at table"
+              width={1227}
+              height={1251}
+              unoptimized
+              className="mb-8 h-24 w-auto md:h-28"
+              style={{
+                filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.45))",
+              }}
+            />
             <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-cream/50">
               {t.footer.brandEyebrow}
             </p>

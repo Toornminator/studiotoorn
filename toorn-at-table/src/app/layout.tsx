@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     locale: "en_GB",
     images: [
       {
-        url: "/images/logo-dark.jpg",
-        width: 1024,
-        height: 1024,
-        alt: "TOORN at table wordmark",
+        url: "/images/chef_skull_knife_transparent.png",
+        width: 1227,
+        height: 1251,
+        alt: "TOORN at table — chef-skull-and-knife brand mark",
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "TOORN at table — Art on a Plate",
     description:
       "Michelin-trained precision, Andalusian sun, one table. Not catering — a memory.",
-    images: ["/images/logo-dark.jpg"],
+    images: ["/images/chef_skull_knife_transparent.png"],
   },
 };
 
