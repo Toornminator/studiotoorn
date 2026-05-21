@@ -14,6 +14,8 @@ export const en: Dictionary = {
     cookbook: "Cookbook",
     events: "Events",
     contact: "Contact",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
   },
   languageSwitcher: {
     label: "Language",

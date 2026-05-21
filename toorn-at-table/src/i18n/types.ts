@@ -12,6 +12,10 @@ export type Dictionary = {
     cookbook: string;
     events: string;
     contact: string;
+    /** Accessible label for the mobile menu trigger when closed. */
+    menuOpen: string;
+    /** Accessible label for the mobile menu trigger when open. */
+    menuClose: string;
   };
   languageSwitcher: {
     label: string;

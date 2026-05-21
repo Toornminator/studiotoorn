@@ -1,3 +1,13 @@
+/**
+ * Fixed cream paper backdrop sitting beneath the entire page.
+ *
+ * The grain texture is rendered as an SVG filter (`feTurbulence`),
+ * which is gorgeous on desktop but expensive to paint on mobile
+ * Safari — measurable LCP delay on a 4G iPhone. So the SVG is
+ * hidden below md and the radial vignette carries the cream
+ * warmth on its own. The grain returns at md+ where the GPU has
+ * the room to paint it without stalling first paint.
+ */
 export function PaperBackground() {
   return (
     <div
@@ -5,7 +15,7 @@ export function PaperBackground() {
       className="pointer-events-none fixed inset-0 -z-10 bg-cream"
     >
       <svg
-        className="absolute inset-0 h-full w-full opacity-[0.07] mix-blend-multiply"
+        className="absolute inset-0 hidden h-full w-full opacity-[0.07] mix-blend-multiply md:block"
         xmlns="http://www.w3.org/2000/svg"
       >
         <filter id="paper-grain">

@@ -1,14 +1,40 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useT } from "@/i18n/client";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function NavBar() {
   const t = useT();
-  // On mobile (< md) the in-page sitemap lives in the footer; the top
-  // bar collapses to brand + language pill so it fits a 360-375px viewport
-  // without horizontal overflow.
+  const reduceMotion = useReducedMotion();
+  const [open, setOpen] = useState(false);
+
+  // The mobile sheet must close when a section is picked, and also when
+  // the visitor rotates to landscape / resizes up past md where the
+  // inline links are visible instead. Close on Escape too — small
+  // keyboard niceties that make sticky-mobile-nav not feel cheap.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
+
+  // The full sitemap. On md+ it spreads inline in the bar; on < md
+  // it lives behind a hamburger that slides a sheet down from the
+  // bottom of the bar. Touch visitors get the same direct-jump
+  // navigation desktop users have.
   const links = [
     { href: "#over-nick", label: t.nav.aboutNick },
     { href: "#diensten", label: t.nav.services },
@@ -24,6 +50,7 @@ export function NavBar() {
         <a
           href="#hero"
           aria-label="TOORN at table — back to top"
+          onClick={() => setOpen(false)}
           className="group flex min-w-0 items-center gap-2.5 font-medium text-ink transition-colors hover:text-tattoo-red sm:gap-3"
         >
           <Image
@@ -59,8 +86,107 @@ export function NavBar() {
             ))}
           </ul>
           <LanguageSwitcher />
+          <button
+            type="button"
+            aria-label={open ? t.nav.menuClose : t.nav.menuOpen}
+            aria-expanded={open}
+            aria-controls="mobile-nav-sheet"
+            onClick={() => setOpen((v) => !v)}
+            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm md:hidden"
+          >
+            {/* Two crossing strokes that morph between bars and an X.
+                Pure SVG so it never animates the DOM, only paint. */}
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              aria-hidden
+              className="transition-transform duration-200"
+            >
+              <motion.path
+                d="M1 4 H13"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                animate={
+                  open
+                    ? { d: "M2 2 L12 12", opacity: 1 }
+                    : { d: "M1 4 H13", opacity: 1 }
+                }
+                transition={{ duration: reduceMotion ? 0 : 0.22 }}
+              />
+              <motion.path
+                d="M1 10 H13"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                animate={
+                  open
+                    ? { d: "M12 2 L2 12", opacity: 1 }
+                    : { d: "M1 10 H13", opacity: 1 }
+                }
+                transition={{ duration: reduceMotion ? 0 : 0.22 }}
+              />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile sheet — slides down out of the bar with a backdrop blur
+          that doesn't block the underlying scroll position (sheet
+          dismisses on link tap or backdrop tap). */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              key="backdrop"
+              role="presentation"
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 top-[3.25rem] z-40 bg-ink/30 backdrop-blur-[2px] md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.18 }}
+            />
+            <motion.div
+              key="sheet"
+              id="mobile-nav-sheet"
+              role="dialog"
+              aria-modal="true"
+              aria-label={t.nav.menuOpen}
+              className="absolute left-0 right-0 top-full z-50 border-b border-ink/10 bg-cream shadow-[0_18px_36px_-18px_rgba(20,16,12,0.35)] md:hidden"
+              initial={{ y: -12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -12, opacity: 0 }}
+              transition={{
+                duration: reduceMotion ? 0 : 0.24,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              <ul className="flex flex-col py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink/80">
+                {links.map((link, i) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-between px-5 py-3.5 transition-colors hover:bg-cream-warm hover:text-tattoo-red active:bg-cream-warm sm:px-6"
+                    >
+                      <span className="truncate">{link.label}</span>
+                      <span
+                        aria-hidden
+                        className="ml-3 font-mono text-[10px] tracking-[0.3em] text-ink/35"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

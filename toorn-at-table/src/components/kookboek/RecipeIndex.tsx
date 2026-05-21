@@ -132,7 +132,6 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    unoptimized
                   />
                 </div>
               )}

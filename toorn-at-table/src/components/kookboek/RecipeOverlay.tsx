@@ -147,7 +147,6 @@ export function RecipeOverlay({
               sizes="(max-width: 768px) 100vw, 896px"
               priority
               className="object-cover"
-              unoptimized
             />
           </div>
         )}

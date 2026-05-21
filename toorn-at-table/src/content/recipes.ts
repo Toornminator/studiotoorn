@@ -28,7 +28,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 30,
     cookMinutes: 10,
     servings: 2,
-    heroImage: "/images/recipes/brioche-mortadella-pistache.png",
+    heroImage: "/images/recipes/brioche-mortadella-pistache.jpg",
     pairing: {
       en: "Chilled Verdejo or a glass of dry cava.",
       es: "Verdejo bien frío o una copa de cava brut.",
@@ -224,7 +224,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 25,
     cookMinutes: 25,
     servings: 4,
-    heroImage: "/images/recipes/gougere-comte-parmezaan.png",
+    heroImage: "/images/recipes/gougere-comte-parmezaan.jpg",
     pairing: {
       en: "Dry champagne or a cold manzanilla.",
       es: "Champán brut o una manzanilla fría.",
@@ -428,7 +428,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 20,
     cookMinutes: 10,
     servings: 2,
-    heroImage: "/images/recipes/rillette-zalm.png",
+    heroImage: "/images/recipes/rillette-zalm.jpg",
     pairing: {
       en: "Sancerre or a bone-dry Riesling.",
       es: "Sancerre o un Riesling muy seco.",
@@ -614,7 +614,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 30,
     cookMinutes: 0,
     servings: 6,
-    heroImage: "/images/recipes/drie-sauzen.png",
+    heroImage: "/images/recipes/drie-sauzen.jpg",
     pairing: {
       en: "Bread, charred vegetables, grilled meat or fish — pick a partner.",
       es: "Pan, verduras a la brasa, carne o pescado a la plancha — elige pareja.",
@@ -832,7 +832,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 10,
     cookMinutes: 20,
     servings: 2,
-    heroImage: "/images/recipes/peer-kardemom-mascarpone.png",
+    heroImage: "/images/recipes/peer-kardemom-mascarpone.jpg",
     pairing: {
       en: "Pedro Ximénez sweet sherry, in a small glass.",
       es: "Pedro Ximénez, en copita.",
@@ -1010,7 +1010,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 10,
     cookMinutes: 25,
     servings: 2,
-    heroImage: "/images/recipes/no-knead-baguette.png",
+    heroImage: "/images/recipes/no-knead-baguette.jpg",
     pairing: {
       en: "Soft butter, good olive oil, soup — anything.",
       es: "Mantequilla blanda, buen aceite, sopa — lo que sea.",
@@ -1193,7 +1193,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 25,
     cookMinutes: 480,
     servings: 2,
-    heroImage: "/images/recipes/runderwang-rode-wijn.png",
+    heroImage: "/images/recipes/runderwang-rode-wijn.jpg",
     pairing: {
       en: "Mencía from Bierzo, or a big Ribera del Duero.",
       es: "Mencía del Bierzo o un Ribera del Duero con cuerpo.",
@@ -1391,7 +1391,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 10,
     cookMinutes: 10,
     servings: 2,
-    heroImage: "/images/recipes/dorada-plancha.png",
+    heroImage: "/images/recipes/dorada-plancha.jpg",
     pairing: {
       en: "Albariño from Rías Baixas. Cold. Big glass.",
       es: "Albariño de las Rías Baixas. Frío. Copa grande.",
@@ -1558,7 +1558,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 50,
     cookMinutes: 15,
     servings: 2,
-    heroImage: "/images/recipes/tagliatelle-nero-nduja.png",
+    heroImage: "/images/recipes/tagliatelle-nero-nduja.jpg",
     pairing: {
       en: "Vermentino di Sardegna or a Greco di Tufo.",
       es: "Vermentino de Cerdeña o un Greco di Tufo.",
@@ -1761,7 +1761,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 30,
     cookMinutes: 60,
     servings: 2,
-    heroImage: "/images/recipes/vitello-tonnato.png",
+    heroImage: "/images/recipes/vitello-tonnato.jpg",
     pairing: {
       en: "Soave Classico or a lightly chilled Barolo.",
       es: "Soave Classico o un Barolo ligeramente frío.",
@@ -1959,7 +1959,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 20,
     cookMinutes: 25,
     servings: 9,
-    heroImage: "/images/recipes/brownie-fleur-de-sel.png",
+    heroImage: "/images/recipes/brownie-fleur-de-sel.jpg",
     pairing: {
       en: "Espresso, or a twenty-year tawny port in a small glass.",
       es: "Espresso o un tawny de veinte años en copita.",
@@ -2142,7 +2142,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 30,
     cookMinutes: 30,
     servings: 2,
-    heroImage: "/images/recipes/kreeft-thermidor.png",
+    heroImage: "/images/recipes/kreeft-thermidor.jpg",
     pairing: {
       en: "Premier-cru Chablis, very cold. Or a vintage brut champagne.",
       es: "Chablis Premier Cru muy frío. O un champán brut vintage.",
@@ -2344,7 +2344,7 @@ export const recipes: LocalisedRecipe[] = [
     prepMinutes: 40,
     cookMinutes: 6,
     servings: 2,
-    heroImage: "/images/recipes/diamanthaas-chimichurri.png",
+    heroImage: "/images/recipes/diamanthaas-chimichurri.jpg",
     pairing: {
       en: "Argentine Malbec from Mendoza, or a young Mencía.",
       es: "Malbec argentino de Mendoza o un Mencía joven.",
