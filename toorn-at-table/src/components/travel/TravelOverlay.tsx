@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n/client";
 import { useBodyScrollLock } from "@/lib/hooks/useBodyScrollLock";
+import { Clip } from "@/components/video/Clip";
+import { Polaroid } from "@/components/polaroid/Polaroid";
 import type { TravelLocation } from "@/lib/types";
 
 export function TravelOverlay({
@@ -112,6 +114,46 @@ export function TravelOverlay({
           >
             {t.travel.overlayPlaceholder}
           </p>
+        )}
+
+        {/* Photo cluster + optional ambient clip. The clip lands on the
+            right at md+ so the polaroid scatter and the 9:16 portrait
+            sit shoulder-to-shoulder; on mobile the clip stacks above
+            the polaroids so the moving image catches the eye first. */}
+        {(location.polaroids?.length || location.clip) && (
+          <div
+            className={`mt-14 grid items-start gap-10 md:mt-20 md:gap-12 ${
+              location.clip ? "md:grid-cols-[1fr_auto]" : ""
+            }`}
+          >
+            {location.polaroids && location.polaroids.length > 0 && (
+              <div className="order-2 flex flex-wrap items-end justify-start gap-x-6 gap-y-8 md:order-1 md:gap-x-2">
+                {location.polaroids.map((p, i) => (
+                  <Polaroid
+                    key={p.src}
+                    src={p.src}
+                    alt={p.alt}
+                    caption={p.caption}
+                    size="md"
+                    rotation={p.rotation}
+                    className={i > 0 ? "md:-ml-4" : ""}
+                  />
+                ))}
+              </div>
+            )}
+
+            {location.clip && (
+              <div className="order-1 mx-auto w-full max-w-[260px] md:order-2 md:mx-0">
+                <Clip
+                  src={location.clip.src}
+                  alt={location.clip.alt}
+                  caption={location.clip.caption}
+                  mode="ambient"
+                  aspect="9/16"
+                />
+              </div>
+            )}
+          </div>
         )}
       </motion.div>
     </motion.div>

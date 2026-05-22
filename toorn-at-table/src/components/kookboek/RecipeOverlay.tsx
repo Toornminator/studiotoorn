@@ -49,7 +49,6 @@ function EssayPhoto({ img, slug }: { img: EssayImage; slug: string }) {
           fill
           sizes="(max-width: 768px) 100vw, 672px"
           className="object-cover"
-          unoptimized
         />
       </div>
       {img.caption && (

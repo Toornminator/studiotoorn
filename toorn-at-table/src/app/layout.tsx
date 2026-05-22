@@ -22,21 +22,18 @@ export const metadata: Metadata = {
       "Michelin-trained precision, Andalusian sun, one table. Not catering — a memory.",
     type: "website",
     locale: "en_GB",
-    images: [
-      {
-        url: "/images/chef_skull_knife_transparent.png",
-        width: 1227,
-        height: 1251,
-        alt: "TOORN at table — chef-skull-and-knife brand mark",
-      },
-    ],
+    // The OG image itself is the 1200×630 card composed in
+    // scripts/build-og-image.py and dropped at src/app/opengraph-image.png —
+    // Next.js App Router auto-discovers that file and emits the right
+    // <meta property="og:image"> tags. No need to repeat it here.
   },
   twitter: {
     card: "summary_large_image",
     title: "TOORN at table — Art on a Plate",
     description:
       "Michelin-trained precision, Andalusian sun, one table. Not catering — a memory.",
-    images: ["/images/chef_skull_knife_transparent.png"],
+    // Same story for Twitter — src/app/twitter-image.png is picked up
+    // automatically and overrides the openGraph image for Twitter cards.
   },
 };
 

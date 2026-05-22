@@ -1,7 +1,7 @@
 import type { Dictionary } from "../types";
 
 /**
- * Dutch copy — the original voice all current components were written
+ * Dutch copy. The original voice all current components were written
  * against. Kept so Dutch-speaking visitors can read the site in the
  * language Nick actually uses to talk and write.
  */
@@ -23,8 +23,8 @@ export const nl: Dictionary = {
   hero: {
     establishedLine: "Private chef · Costa del Sol · Est. 2023",
     tagline:
-      "Een fotografenoog, de discipline van jaren in dienst en de precisie van een sterrenkeuken — aan één tafel in de zon.",
-    handwrittenNote: "geen catering — een herinnering",
+      "Een fotografenoog. Jaren in dienst. Een sterrenkeuken voor de precisie. Eén tafel in de zon, meer niet.",
+    handwrittenNote: "geen catering. een herinnering",
   },
   about: {
     eyebrow: "Hoofdstuk 01 · Over Nick",
@@ -32,11 +32,11 @@ export const nl: Dictionary = {
     headlineLine2: "een camera,",
     headlineLine3: "een nieuwe tafel.",
     body1:
-      "Ik ben Nick. Zesendertig, geboren in Zwolle, met een jeugd over grenzen heen — deels België, deels Duitsland. Mijn opleiding rondde ik af in Groningen. De keuken vond me pas laat: eerst drie jaar bij de Marechaussee, daarna een jaar vrijwilligerswerk in Gambia.",
+      "Ik ben Nick. Zesendertig. Geboren in Zwolle, jeugd deels in België en Duitsland, school afgerond in Groningen. De keuken vond me pas laat. Eerst drie jaar bij de Marechaussee. Daarna een jaar vrijwilligerswerk in Gambia.",
     body2:
-      "Pas rond mijn zesentwintigste koos ik voluit voor het vak. Eerst aan de koude kant van een restaurantkeuken, daarna een vormend jaar in de patisserie van Bord'eau in Hotel de L'Europe — onder Bas van Kranen. De camera was er al sinds mijn achttiende: dezelfde discipline, een ander gereedschap.",
+      "Pas op mijn zesentwintigste ben ik voluit gegaan. Begonnen aan de koude kant van een keuken. Daarna een jaar in de patisserie van Bord'eau, Hotel de L'Europe, onder Bas van Kranen. Het jaar dat me leerde wat discipline echt is. De camera was er al eerder, achttien. Dezelfde discipline, ander gereedschap.",
     body3:
-      "Sinds 2023 kook ik privé aan de Costa del Sol. Discipline uit het uniform, precisie uit de sterrenkeuken, rust uit Andalusië — samengebracht aan één tafel. Geen catering. Een herinnering.",
+      "Sinds 2023 kook ik privé aan de Costa del Sol. Discipline uit het uniform. Precisie uit de sterrenkeuken. Rust uit Andalusië. Alles samen aan één tafel. Geen catering. Een herinnering.",
     chip1: "Sterrenkeuken-getraind",
     chip2: "Portret- en straatfotograaf",
     chip3: "Private chef sinds 2023",
@@ -49,14 +49,14 @@ export const nl: Dictionary = {
     chapterPrefix: "Hfdstk",
   },
   marginalia: {
-    warningPrefix: "let op —",
-    wrongPrefix: "ging mis —",
+    warningPrefix: "let op ",
+    wrongPrefix: "ging mis ",
   },
   services: {
     eyebrow: "Diensten · Wat je kunt boeken",
     title: "Vier manieren om aan tafel te zitten.",
     intro:
-      "Geen vaste tarieven — alles op maat. Hieronder de vorm; de invulling bespreken we samen.",
+      "Geen vaste tarieven. Alles op maat. Hieronder de vorm; de invulling bespreken we samen.",
     cards: {
       privateDinner: {
         eyebrow: "Aan jouw tafel",
@@ -69,14 +69,14 @@ export const nl: Dictionary = {
         eyebrow: "Een vaste chef voor een week",
         title: "Villa takeover",
         body:
-          "Een hele week op locatie — diners, en lunches of ontbijten waar gewenst. Ik beweeg mee in het ritme van het gezelschap: één avond rauw vuur, een ander een Italiaans dorps-menu, alles vers van de markt.",
+          "Een hele week op locatie. Diners, en lunches of ontbijten waar gewenst. Ik beweeg mee in het ritme van het gezelschap: één avond rauw vuur, een ander een Italiaans dorps-menu, alles vers van de markt.",
         cta: "Boek een week",
       },
       workshops: {
         eyebrow: "Hands-on in mijn tempo",
         title: "Kookworkshops",
         body:
-          "Klein gezelschap, jouw keuken of de mijne. Eén gerecht of een hele line-up, alles meelopend met de seizoenen. Wat ik je leer: techniek bovenal — een goede basis maakt elke avond beter.",
+          "Klein gezelschap, jouw keuken of de mijne. Eén gerecht of een hele line-up, alles meelopend met de seizoenen. Wat ik je leer: techniek bovenal. Een goede basis maakt elke avond beter.",
         cta: "Vraag aan",
       },
       events: {
@@ -92,7 +92,7 @@ export const nl: Dictionary = {
     countriesLabel: "Landen bezocht",
     countriesSubline: "Van San Sebastián tot Tokio.",
     yearsLabel: "Jaar in het vak",
-    yearsSubline: "Sinds mijn 26e — geen jaar eerder.",
+    yearsSubline: "Sinds mijn 26e. Geen jaar eerder.",
     tablesLabel: "Tafels per maand",
     tablesSubline: "Klein gehouden, met opzet.",
   },
@@ -100,14 +100,14 @@ export const nl: Dictionary = {
     eyebrow: "Hoofdstuk 03 · Reizen",
     title: "27 stempels, 27 keukens die mij iets bijbrachten.",
     intro:
-      "Tik op elke stempel om het verhaal erachter te openen — elke keuken had zijn les, elk bord zijn nasmaak.",
-    emptyState: "Nog geen reisstempels — komt binnenkort.",
+      "Tik op elke stempel voor het verhaal. Elke keuken had zijn les. Elk bord liet een spoor achter.",
+    emptyState: "Nog geen reisstempels. Komt binnenkort.",
     legendTotal: "{count} stempels · {featured} verhalen",
     legendWithStory: "met verhaal",
     legendVisited: "alleen geweest",
     tapHint: "Tik om te lezen",
     overlayPlaceholder:
-      "Geweest. Verhaal volgt — Nick werkt aan een korte blog over deze plek.",
+      "Geweest. Verhaal volgt. Nick werkt aan een korte blog over deze plek.",
     overlayEyebrow: "Reizen",
     cursorReadStory: "Lees verhaal",
     stampAlt: "{name} reisstempel",
@@ -116,7 +116,7 @@ export const nl: Dictionary = {
   cookbook: {
     eyebrow: "Hoofdstuk 04 · Het Kookboek",
     title:
-      "Recepten die ik thuis maak — eerlijke producten, simpele techniek, Spaanse zon.",
+      "Recepten die ik thuis maak. Eerlijke producten, simpele techniek, Spaanse zon.",
     intro:
       "Een klein, groeiend kookboek. Pak er een avond een uit, kook voor wie je liefhebt, drink er iets bij dat er volgens mij bij past.",
     filtersCategory: "Categorie",
@@ -147,7 +147,7 @@ export const nl: Dictionary = {
   },
   events: {
     eyebrow: "Hoofdstuk 05 · Events",
-    title: "Komende dinners — open tafels, korte gastenlijsten.",
+    title: "Komende dinners. Open tafels, korte gastenlijsten.",
     intro:
       "Een paar keer per maand kook ik aan een lange tafel waar je een plek kunt boeken. Kleine gezelschappen, lokale producten, telkens een andere plek aan de Costa.",
     emptyState:
@@ -160,7 +160,7 @@ export const nl: Dictionary = {
     bookCta: "Reserveer een plek",
     responseTime: "Reactie binnen 24 uur",
     soldOutNote:
-      "Volgeboekt — schrijf je in voor de nieuwsbrief voor de volgende",
+      "Volgeboekt. Schrijf je in voor de nieuwsbrief voor de volgende",
     overlayEyebrow: "Event",
     overlayLocation: "Locatie",
     overlayCity: "Stad",
@@ -175,7 +175,7 @@ export const nl: Dictionary = {
     eyebrow: "Tussenrust",
     quoteLine1: "Geen catering.",
     quoteLine2: "Een herinnering.",
-    signature: "— Nick",
+    signature: " Nick",
     ctaIntro: "Wil je aan tafel?",
     ctaButton: "Plan een diner",
     ctaNote: "Reactie binnen 24 uur",
@@ -184,7 +184,7 @@ export const nl: Dictionary = {
     eyebrow: "Hoofdstuk 06 · Aan tafel",
     title: "Vertel me wat je in gedachten hebt. Ik denk binnen een dag mee.",
     intro:
-      "Een private dinner aan huis, een villa-week, een verjaardag, zomaar — alles past, als de tafel maar belangrijk is. Hoe meer ik weet, hoe scherper het eerste voorstel.",
+      "Een private dinner aan huis. Een villa-week. Een verjaardag. Iets heel anders. Alles past, als de tafel maar belangrijk is. Hoe meer je me vertelt, hoe scherper het eerste voorstel.",
     directEyebrow: "Direct",
     directWhatsApp: "WhatsApp",
     directBase: "Basis",
@@ -218,14 +218,14 @@ export const nl: Dictionary = {
         emailRequired: "Vul een geldig emailadres in.",
         typeRequired: "Kies wat voor avond je in gedachten hebt.",
         messageRequired:
-          "Schrijf even een paar zinnen over wat je wil — wat is de aanleiding, hoeveel gasten, locatie?",
+          "Schrijf even een paar zinnen over wat je wil. Wat is de aanleiding, hoeveel gasten, locatie?",
         guestsRange: "Vul een getal tussen 1 en 200 in.",
         dateInvalid: "Geen geldige datum.",
         backendDown:
-          "Het versturen lukte niet automatisch — kun je me direct mailen op info@studiotoorn.com of bellen op +31 6 14 41 21 02?",
+          "Het versturen lukte niet automatisch. Kun je me direct mailen op info@studiotoorn.com of bellen op +31 6 14 41 21 02?",
       },
       success:
-        "Bedankt — je aanvraag is binnen. Ik reageer binnen 24 uur. Check intussen je inbox voor de bevestiging.",
+        "Bedankt. Je aanvraag is binnen. Ik reageer binnen 24 uur. Check intussen je inbox voor de bevestiging.",
     },
     cursorSubmit: "Verstuur",
     cursorReserve: "Reserveer",
@@ -241,18 +241,18 @@ export const nl: Dictionary = {
     newsletterStatusBanners: {
       ok: "Bevestigd. Welkom op de lijst.",
       invalid: "Die bevestigingslink werkt niet (meer).",
-      error: "Bevestigen lukte niet — probeer het zo nog eens.",
+      error: "Bevestigen lukte niet. Probeer het zo nog eens.",
     },
     newsletterMessages: {
       backendDown:
-        "Nieuwsbrief wordt nog opgezet — mail me direct op info@studiotoorn.com om alvast op de lijst te komen.",
+        "Nieuwsbrief wordt nog opgezet. Mail me direct op info@studiotoorn.com om alvast op de lijst te komen.",
       invalidEmail: "Vul een geldig emailadres in.",
       genericError:
         "Er ging iets mis aan onze kant. Probeer het zo nog eens of mail me direct.",
-      alreadySubscribed: "Je staat al op de lijst — dank!",
+      alreadySubscribed: "Je staat al op de lijst. Dank!",
       checkInbox:
-        "Check je inbox — er staat een mailtje van me met een bevestigingslink.",
-      thanks: "Bedankt — je staat op de lijst.",
+        "Check je inbox. Er staat een mailtje van me met een bevestigingslink.",
+      thanks: "Bedankt. Je staat op de lijst.",
     },
     brandEyebrow: "TOORN at table",
     brandLine1: "Private chef",
@@ -269,13 +269,13 @@ export const nl: Dictionary = {
   preloader: {
     loadingMessage: "Een tafel wordt klaargemaakt",
     locationCaption: "Costa del Sol · Privé chef",
-    ariaLabel: "TOORN at table — Een tafel wordt klaargemaakt",
+    ariaLabel: "TOORN at table. Een tafel wordt klaargemaakt",
   },
   gallery: {
     eyebrow: "Tussendoor · In de keuken",
     title: "Zo ziet het eruit als de avond loopt.",
     intro:
-      "Momenten van vorige tafels — borden, vuren, handen, uitzichten. Klik om groot te zien.",
+      "Momenten van vorige tafels. Borden, vuren, handen, uitzichten. Klik om groot te zien.",
     cursorOpen: "Open foto",
     cursorClose: "Sluit",
     cursorPrev: "Vorige",

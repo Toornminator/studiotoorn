@@ -112,7 +112,11 @@ export function Hero() {
 
         <HandwrittenNote delay={headlineEnd + 0.8} text={t.hero.handwrittenNote} />
 
-        {/* Above-the-fold polaroid — desktop-only so mobile hero stays calm */}
+        {/* Above-the-fold polaroid — desktop only. Tablet portrait would
+            have it collide with the centred wordmark, and every other
+            section's floating polaroid is already `lg:block`, so this
+            keeps the rhythm consistent: phones + tablets see the calm
+            text-only hero, lg+ gets the scatter. */}
         <Polaroid
           src="/images/polaroids/kokenmetnick.jpeg"
           alt={{
@@ -128,7 +132,7 @@ export function Hero() {
           size="md"
           priority
           rotation={6}
-          className="absolute right-[max(5vw,100px)] top-[14vh] z-10 hidden md:block lg:right-[max(8vw,120px)]"
+          className="absolute right-[max(8vw,120px)] top-[14vh] z-10 hidden lg:block"
         />
       </div>
     </section>

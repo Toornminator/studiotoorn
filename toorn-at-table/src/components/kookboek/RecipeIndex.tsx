@@ -165,7 +165,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
 
               <div className="mt-auto flex w-full items-center justify-between pt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
                 <span>
-                  {formatMinutes(recipe.prepMinutes, recipe.cookMinutes) ?? "—"}
+                  {formatMinutes(recipe.prepMinutes, recipe.cookMinutes) ?? "·"}
                 </span>
                 <span className="inline-flex items-center gap-1 text-ink/40 transition-colors group-hover:text-tattoo-red">
                   {t.events.openLabel}

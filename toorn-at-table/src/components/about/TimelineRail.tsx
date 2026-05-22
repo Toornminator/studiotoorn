@@ -181,16 +181,16 @@ const CHAPTER_POLAROIDS: Record<string, ChapterPolaroid[]> = {
   ],
   fotografie: [
     {
-      src: "/images/polaroids/Stockholm.jpeg",
+      src: "/images/polaroids/japan-yokohama.jpeg",
       alt: {
-        en: "Stockholm archipelago in summer",
-        es: "Archipiélago de Estocolmo en verano",
-        nl: "Stockholm-archipel in de zomer",
+        en: "Eating ramen in Yokohama",
+        es: "Comiendo ramen en Yokohama",
+        nl: "Ramen eten in Yokohama",
       },
       caption: {
-        en: "Stockholm, summer",
-        es: "Estocolmo, verano",
-        nl: "Stockholm, zomer",
+        en: "Yokohama, '24",
+        es: "Yokohama, '24",
+        nl: "Yokohama, '24",
       },
     },
   ],
@@ -257,6 +257,13 @@ function ChapterCard({
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: CARD_EASE }}
     >
+      {/* Inner elements used to each carry their own staggered whileInView
+          fade-up. With nine chapters that added up to ~30 concurrent
+          IntersectionObservers and noticeable scroll jank on mid-tier
+          phones. The parent article's whileInView covers the visual
+          intent — the whole card fades in once. Inner h3 / body / scrawl
+          ride along as plain HTML, which is what they should have been
+          from the start. */}
       <div className="flex items-baseline gap-4">
         <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-tattoo-red">
           {chapterPrefix} {chapter.number}
@@ -265,39 +272,27 @@ function ChapterCard({
           {chapter.period}
         </span>
       </div>
-      <motion.h3
+      <h3
         className="mt-4 max-w-2xl font-display italic leading-[1.02] text-ink"
         style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
-        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: CARD_EASE, delay: 0.05 }}
       >
         {chapter.title}
-      </motion.h3>
-      <motion.div
+      </h3>
+      <div
         className="mt-6 max-w-2xl space-y-5 font-serif text-ink/85"
         style={{ fontSize: "clamp(17px, 1.25vw, 19px)", lineHeight: 1.6 }}
-        initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.7, ease: CARD_EASE, delay: 0.12 }}
       >
         {chapter.body.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
-      </motion.div>
+      </div>
       {chapter.marginalia && (
-        <motion.p
+        <p
           className="mt-6 font-hand text-tattoo-red"
-          style={{ fontSize: "20px" }}
-          initial={reduceMotion ? false : { opacity: 0, rotate: -2 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, rotate: -1.5 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          style={{ fontSize: "20px", transform: "rotate(-1.5deg)" }}
         >
           {chapter.marginalia}
-        </motion.p>
+        </p>
       )}
 
       {(() => {

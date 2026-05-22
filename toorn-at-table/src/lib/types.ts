@@ -202,6 +202,44 @@ export type LocalisedEventItem = {
   bookable: boolean;
 };
 
+/**
+ * Photo dropped into a travel overlay's polaroid cluster. The src is a
+ * path under /public; the caption is the handwritten line at the foot
+ * of the polaroid frame and follows the brand rule of no em-dashes.
+ * `rotation` overrides the auto-jittered tilt when a specific photo
+ * needs a particular angle.
+ */
+export type TravelPolaroid = {
+  src: string;
+  alt: string;
+  caption?: string;
+  rotation?: number;
+};
+
+export type LocalisedTravelPolaroid = {
+  src: string;
+  alt: LocalisedString;
+  caption?: LocalisedString;
+  rotation?: number;
+};
+
+/**
+ * Short ambient video bound to a travel location — e.g. Yokohama's
+ * 9:16 portrait shot of the old lady cooking. Plays muted on autoplay
+ * loop inside the overlay; pure motion-photograph, not a "video."
+ */
+export type TravelClip = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type LocalisedTravelClip = {
+  src: string;
+  alt: LocalisedString;
+  caption?: LocalisedString;
+};
+
 export type TravelLocation = {
   slug: string;
   name: string;
@@ -214,6 +252,10 @@ export type TravelLocation = {
   intro?: string;
   body?: string;
   pullQuote?: string;
+  /** Cluster of polaroid photos shown at the foot of the travel overlay. */
+  polaroids?: TravelPolaroid[];
+  /** Optional ambient clip — 9:16 portrait, muted loop, no controls. */
+  clip?: TravelClip;
 };
 
 export type LocalisedTravelLocation = {
@@ -230,6 +272,8 @@ export type LocalisedTravelLocation = {
   intro?: LocalisedString;
   body?: LocalisedString;
   pullQuote?: LocalisedString;
+  polaroids?: LocalisedTravelPolaroid[];
+  clip?: LocalisedTravelClip;
 };
 
 export type TimelineChapter = {

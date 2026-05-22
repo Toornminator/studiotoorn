@@ -4,29 +4,44 @@ import { useEffect, useState } from "react";
 import { Sticker } from "./Sticker";
 import { stickerLayout } from "./sticker-config";
 
-// Stickers are a desktop Easter-egg. Below this width they cost more
-// than they pay back — every sticker carries gesture listeners with
-// `touchAction: none`, which silently blocks page scroll when the
-// visitor's thumb lands on one. So we don't render them at all on
-// phones; the scattered hand-drawn polaroids already carry the
-// "found in a drawer" feel on mobile.
-const MOBILE_BREAKPOINT = 768;
+// Stickers are a desktop Easter-egg, period. Every sticker carries
+// gesture listeners with `touchAction: none`, which silently blocks
+// page scroll when a thumb lands on one. So we render them only on
+// hover-capable, fine-pointer devices wide enough to give the scatter
+// room (>= 768 px). That excludes phones AND tablets — both portrait
+// and landscape iPad get the calmer polaroid-only experience that
+// scrolls cleanly under any thumb.
+const MIN_WIDTH = 768;
 
 export function StickerProvider() {
   const [viewport, setViewport] = useState<{ vw: number; vh: number } | null>(
     null,
   );
+  const [isTouch, setIsTouch] = useState<boolean | null>(null);
 
   useEffect(() => {
     const update = () =>
       setViewport({ vw: window.innerWidth, vh: window.innerHeight });
     update();
     window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+
+    const coarse = window.matchMedia("(pointer: coarse)");
+    const noHover = window.matchMedia("(hover: none)");
+    const sync = () => setIsTouch(coarse.matches || noHover.matches);
+    sync();
+    coarse.addEventListener("change", sync);
+    noHover.addEventListener("change", sync);
+
+    return () => {
+      window.removeEventListener("resize", update);
+      coarse.removeEventListener("change", sync);
+      noHover.removeEventListener("change", sync);
+    };
   }, []);
 
-  if (!viewport) return null;
-  if (viewport.vw < MOBILE_BREAKPOINT) return null;
+  if (!viewport || isTouch === null) return null;
+  if (isTouch) return null;
+  if (viewport.vw < MIN_WIDTH) return null;
 
   return (
     <div

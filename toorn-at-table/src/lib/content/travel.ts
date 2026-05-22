@@ -34,6 +34,19 @@ function resolveTravel(
     intro: pickOptional(l.intro, locale),
     body: pickOptional(l.body, locale),
     pullQuote: pickOptional(l.pullQuote, locale),
+    polaroids: l.polaroids?.map((p) => ({
+      src: p.src,
+      alt: pick(p.alt, locale),
+      caption: pickOptional(p.caption, locale),
+      rotation: p.rotation,
+    })),
+    clip: l.clip
+      ? {
+          src: l.clip.src,
+          alt: pick(l.clip.alt, locale),
+          caption: pickOptional(l.clip.caption, locale),
+        }
+      : undefined,
   };
 }
 

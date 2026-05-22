@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useLocale } from "@/i18n/client";
 import { pick } from "@/lib/content/i18n";
@@ -71,9 +71,42 @@ export function Clip({
 }: ClipProps) {
   const [playing, setPlaying] = useState(mode === "ambient");
   const videoRef = useRef<HTMLVideoElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
   const resolvedAlt = resolveLocalised(alt, locale) ?? "";
   const resolvedCaption = resolveLocalised(caption, locale);
+
+  // Ambient clips defer their src until the frame is near the viewport.
+  // Without this, the whatsapp-clip's 11 MB would download on every page
+  // load — even for visitors who never scroll to ClosingPanel. With this,
+  // the bytes only land when the visitor is about to see them, with a
+  // ~400 px rootMargin to give the browser a head start so the loop is
+  // already running by the time the frame is fully on screen.
+  const [shouldLoad, setShouldLoad] = useState(mode !== "ambient");
+  useEffect(() => {
+    if (mode !== "ambient") return;
+    if (shouldLoad) return;
+    const el = frameRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldLoad(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setShouldLoad(true);
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin: "400px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [mode, shouldLoad]);
 
   const onPlay = () => {
     setPlaying(true);
@@ -90,18 +123,21 @@ export function Clip({
   return (
     <figure className={`relative ${className}`}>
       <div
+        ref={frameRef}
         className={`relative w-full overflow-hidden bg-ink shadow-[0_10px_28px_-12px_rgba(20,16,12,0.5)] ring-1 ring-ink/[0.08] ${aspectClass}`}
       >
         {isAmbient ? (
-          // Ambient: autoplay/muted/loop, no controls, mounts immediately
+          // Ambient: autoplay/muted/loop. The <video> only carries a real
+          // src once the IntersectionObserver above flips shouldLoad, so
+          // visitors who never scroll here pay no bytes for the clip.
           <video
             ref={videoRef}
-            src={src}
+            src={shouldLoad ? src : undefined}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             aria-label={resolvedAlt}
             className="absolute inset-0 h-full w-full object-cover"
           />

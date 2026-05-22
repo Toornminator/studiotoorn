@@ -55,7 +55,7 @@ export function NowPlaying({ data }: { data: NowPlayingData }) {
           {data.track}
         </span>
         <span className="text-ink/50 normal-case tracking-normal font-serif italic">
-          — {data.artist}
+          · {data.artist}
         </span>
         {hasEmbed && (
           <span className="ml-2 text-[9px] tracking-[0.28em] text-ink/40 group-hover:text-tattoo-red">

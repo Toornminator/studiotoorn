@@ -1,7 +1,7 @@
 import type { Dictionary } from "../types";
 
 /**
- * Spanish copy — for locals on the Costa del Sol who'd rather read the
+ * Spanish copy. For locals on the Costa del Sol who'd rather read the
  * site in their own language. Voice tracks the Dutch / English: tattoo-
  * flash meets fine dining, warm-but-direct.
  */
@@ -23,8 +23,8 @@ export const es: Dictionary = {
   hero: {
     establishedLine: "Chef privado · Costa del Sol · Est. 2023",
     tagline:
-      "Ojo de fotógrafo, la disciplina de años en uniforme y la precisión de una cocina de estrella Michelin — en una mesa al sol.",
-    handwrittenNote: "no es catering — es un recuerdo",
+      "Ojo de fotógrafo. Años en uniforme. Una cocina de estrella para la precisión. Una mesa al sol, y nada más.",
+    handwrittenNote: "no es catering. es un recuerdo",
   },
   about: {
     eyebrow: "Capítulo 01 · Sobre Nick",
@@ -32,11 +32,11 @@ export const es: Dictionary = {
     headlineLine2: "una cámara,",
     headlineLine3: "una mesa nueva.",
     body1:
-      "Soy Nick. Treinta y seis, nacido en Zwolle, con una infancia partida entre Bélgica y Alemania. Terminé mis estudios en Groningen. La cocina me encontró tarde: primero tres años en la Marechaussee Real, luego un año de voluntariado en Gambia.",
+      "Soy Nick. Treinta y seis. Nacido en Zwolle, infancia partida entre Bélgica y Alemania, estudios terminados en Groningen. La cocina me encontró tarde. Tres años en la Marechaussee Real primero. Después un año de voluntariado en Gambia.",
     body2:
-      "No fue hasta cerca de los veintiséis cuando me lancé del todo. Empecé por la partida fría de un restaurante, después un año formativo en la pastelería de Bord'eau en el Hotel de L'Europe — bajo Bas van Kranen. La cámara me acompaña desde los dieciocho: la misma disciplina, otra herramienta.",
+      "Veintiséis años antes de lanzarme del todo. Empecé por la partida fría de un restaurante. Después un año en la pastelería de Bord'eau, Hotel de L'Europe, bajo Bas van Kranen. El año que me enseñó qué es la disciplina. La cámara llegó antes, a los dieciocho. La misma disciplina, otra herramienta.",
     body3:
-      "Desde 2023 cocino en privado en la Costa del Sol. La disciplina del uniforme, la precisión de la estrella, la calma de Andalucía — todo a la misma mesa. No es catering. Es un recuerdo.",
+      "Desde 2023 cocino en privado en la Costa del Sol. Disciplina del uniforme. Precisión de la estrella. Calma de Andalucía. Todo a la misma mesa. No es catering. Es un recuerdo.",
     chip1: "Formado en estrella Michelin",
     chip2: "Fotógrafo de retrato y calle",
     chip3: "Chef privado desde 2023",
@@ -49,14 +49,14 @@ export const es: Dictionary = {
     chapterPrefix: "Cap.",
   },
   marginalia: {
-    warningPrefix: "ojo —",
-    wrongPrefix: "salió mal —",
+    warningPrefix: "ojo ",
+    wrongPrefix: "salió mal ",
   },
   services: {
     eyebrow: "Servicios · Qué puedes reservar",
     title: "Cuatro maneras de sentarte a la mesa.",
     intro:
-      "Sin tarifas fijas — todo a medida. Aquí va la forma; el contenido lo vemos juntos.",
+      "Sin tarifas fijas. Todo a medida. Aquí va la forma; el contenido lo vemos juntos.",
     cards: {
       privateDinner: {
         eyebrow: "En tu mesa",
@@ -69,14 +69,14 @@ export const es: Dictionary = {
         eyebrow: "Un chef en residencia, una semana",
         title: "Villa takeover",
         body:
-          "Una semana entera en el sitio — cenas, y comidas o desayunos si quieres. Me adapto al ritmo del grupo: una noche fuego puro, otra un menú de pueblo italiano, todo directo del mercado.",
+          "Una semana entera en el sitio. Cenas, y comidas o desayunos si quieres. Me adapto al ritmo del grupo: una noche fuego puro, otra un menú de pueblo italiano, todo directo del mercado.",
         cta: "Reserva una semana",
       },
       workshops: {
         eyebrow: "Práctico, a mi ritmo",
         title: "Talleres de cocina",
         body:
-          "Grupo pequeño, tu cocina o la mía. Un plato o una línea completa, siempre con la temporada. Lo que te enseño: técnica ante todo — una buena base mejora cualquier noche.",
+          "Grupo pequeño, tu cocina o la mía. Un plato o una línea completa, siempre con la temporada. Lo que te enseño: técnica ante todo. Una buena base mejora cualquier noche.",
         cta: "Pregúntame",
       },
       events: {
@@ -92,7 +92,7 @@ export const es: Dictionary = {
     countriesLabel: "Países visitados",
     countriesSubline: "De San Sebastián a Tokio.",
     yearsLabel: "Años en el oficio",
-    yearsSubline: "Desde los veintiséis — ni un año antes.",
+    yearsSubline: "Desde los veintiséis. Ni un año antes.",
     tablesLabel: "Mesas al mes",
     tablesSubline: "Pequeño a propósito.",
   },
@@ -100,14 +100,14 @@ export const es: Dictionary = {
     eyebrow: "Capítulo 03 · Viajes",
     title: "27 sellos, 27 cocinas que me enseñaron algo.",
     intro:
-      "Toca cualquier sello para abrir la historia detrás — cada cocina tuvo su lección, cada plato su eco.",
-    emptyState: "Aún no hay sellos — pronto.",
+      "Toca cualquier sello para la historia. Cada cocina tuvo su lección. Cada plato dejó huella.",
+    emptyState: "Aún no hay sellos. Pronto.",
     legendTotal: "{count} sellos · {featured} historias",
     legendWithStory: "con historia",
     legendVisited: "solo visitado",
     tapHint: "Toca para leer",
     overlayPlaceholder:
-      "He estado allí. La historia viene en camino — Nick está escribiendo un blog corto sobre este sitio.",
+      "He estado allí. La historia viene en camino. Nick está escribiendo un blog corto sobre este sitio.",
     overlayEyebrow: "Viajes",
     cursorReadStory: "Leer historia",
     stampAlt: "Sello de viaje de {name}",
@@ -116,7 +116,7 @@ export const es: Dictionary = {
   cookbook: {
     eyebrow: "Capítulo 04 · El Recetario",
     title:
-      "Recetas que cocino en casa — producto honesto, técnica sencilla, sol español.",
+      "Recetas que cocino en casa. Producto honesto, técnica sencilla, sol español.",
     intro:
       "Un recetario pequeño, en crecimiento. Elige una para una noche, cocina para alguien a quien quieres, sirve algo que en mi opinión combina.",
     filtersCategory: "Categoría",
@@ -148,7 +148,7 @@ export const es: Dictionary = {
   },
   events: {
     eyebrow: "Capítulo 05 · Eventos",
-    title: "Próximas cenas — mesas abiertas, listas cortas de invitados.",
+    title: "Próximas cenas. Mesas abiertas, listas cortas de invitados.",
     intro:
       "Unas veces al mes cocino en una mesa larga donde puedes reservar plaza. Grupos pequeños, producto local, cada vez en un sitio distinto de la Costa.",
     emptyState:
@@ -161,7 +161,7 @@ export const es: Dictionary = {
     bookCta: "Reservar plaza",
     responseTime: "Respondo en 24 horas",
     soldOutNote:
-      "Agotado — apúntate a la newsletter para el siguiente",
+      "Agotado. Apúntate a la newsletter para el siguiente",
     overlayEyebrow: "Evento",
     overlayLocation: "Lugar",
     overlayCity: "Ciudad",
@@ -176,7 +176,7 @@ export const es: Dictionary = {
     eyebrow: "Pausa",
     quoteLine1: "No es catering.",
     quoteLine2: "Es un recuerdo.",
-    signature: "— Nick",
+    signature: " Nick",
     ctaIntro: "¿Te sientas a la mesa?",
     ctaButton: "Planea una cena",
     ctaNote: "Respondo en 24 horas",
@@ -186,7 +186,7 @@ export const es: Dictionary = {
     title:
       "Cuéntame qué tienes en mente. Te respondo en menos de un día.",
     intro:
-      "Una cena privada en casa, una semana en villa, un cumpleaños, otra cosa — todo cabe, mientras la mesa importe. Cuanto más sé, más afinada será la primera propuesta.",
+      "Una cena privada en casa. Una semana en villa. Un cumpleaños. Cualquier otra cosa. Todo cabe, mientras la mesa importe. Cuanto más me cuentes, más afinada será la primera propuesta.",
     directEyebrow: "Directo",
     directWhatsApp: "WhatsApp",
     directBase: "Base",
@@ -220,14 +220,14 @@ export const es: Dictionary = {
         emailRequired: "Escribe un email válido.",
         typeRequired: "Elige qué tipo de noche tienes en mente.",
         messageRequired:
-          "Cuéntame en unas frases lo que quieres — el motivo, cuántos invitados, el sitio.",
+          "Cuéntame en unas frases lo que quieres. El motivo, cuántos invitados, el sitio.",
         guestsRange: "Pon un número entre 1 y 200.",
         dateInvalid: "Esa fecha no es válida.",
         backendDown:
           "El envío automático ha fallado. Escríbeme a info@studiotoorn.com o por WhatsApp al +31 6 14 41 21 02.",
       },
       success:
-        "Gracias — tu consulta ha llegado. Te respondo en 24 horas. Mira tu bandeja de entrada para la confirmación.",
+        "Gracias. Tu consulta ha llegado. Te respondo en 24 horas. Mira tu bandeja de entrada para la confirmación.",
     },
     cursorSubmit: "Enviar",
     cursorReserve: "Reservar",
@@ -243,18 +243,18 @@ export const es: Dictionary = {
     newsletterStatusBanners: {
       ok: "Confirmado. Bienvenido a la lista.",
       invalid: "Ese enlace de confirmación ya no funciona.",
-      error: "No pudimos confirmar — inténtalo de nuevo en un momento.",
+      error: "No pudimos confirmar. Inténtalo de nuevo en un momento.",
     },
     newsletterMessages: {
       backendDown:
-        "La newsletter aún está en montaje — escríbeme a info@studiotoorn.com para entrar ya.",
+        "La newsletter aún está en montaje. Escríbeme a info@studiotoorn.com para entrar ya.",
       invalidEmail: "Pon un email válido.",
       genericError:
         "Algo falló por nuestro lado. Inténtalo de nuevo o escríbeme directamente.",
-      alreadySubscribed: "Ya estás en la lista — ¡gracias!",
+      alreadySubscribed: "Ya estás en la lista  ¡gracias!",
       checkInbox:
-        "Mira tu bandeja de entrada — te he enviado un enlace de confirmación.",
-      thanks: "Gracias — estás en la lista.",
+        "Mira tu bandeja de entrada. Te he enviado un enlace de confirmación.",
+      thanks: "Gracias. Estás en la lista.",
     },
     brandEyebrow: "TOORN at table",
     brandLine1: "Chef privado",
@@ -271,13 +271,13 @@ export const es: Dictionary = {
   preloader: {
     loadingMessage: "Poniendo la mesa",
     locationCaption: "Costa del Sol · Chef privado",
-    ariaLabel: "TOORN at table — Poniendo la mesa",
+    ariaLabel: "TOORN at table. Poniendo la mesa",
   },
   gallery: {
     eyebrow: "Pausa · En la cocina",
     title: "Así se ve cuando arranca la noche.",
     intro:
-      "Momentos de mesas anteriores — platos, fuegos, manos, vistas. Haz clic para verlos en grande.",
+      "Momentos de mesas anteriores. Platos, fuegos, manos, vistas. Haz clic para verlos en grande.",
     cursorOpen: "Abrir foto",
     cursorClose: "Cerrar",
     cursorPrev: "Anterior",

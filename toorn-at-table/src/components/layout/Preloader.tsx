@@ -225,10 +225,9 @@ function Logo({ reduce }: { reduce: boolean }) {
       <Image
         src="/images/chef_skull_knife_transparent.png"
         alt="TOORN at table"
-        width={1227}
-        height={1251}
+        width={785}
+        height={800}
         priority
-        unoptimized
         className="relative block h-auto w-full"
         style={{
           zIndex: 1,

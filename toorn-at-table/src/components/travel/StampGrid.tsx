@@ -25,14 +25,6 @@ import { TravelOverlay } from "./TravelOverlay";
  *      Slab country code + ANNO baseline).
  */
 
-/**
- * Cache-bust token for stamp PNGs. Bump this string whenever a batch
- * of stamps gets re-uploaded so Next.js's image optimizer and the
- * browser stop serving the previously-cached version under the same
- * URL.
- */
-const STAMP_VERSION = "v3";
-
 const STAMP_CODES: Record<string, string> = {
   nederland: "NL",
   belgie: "BE",
@@ -276,9 +268,8 @@ function Stamp({
   const isFeatured = Boolean(location.intro || location.body);
   const rotation = jitter(location.slug, 4);
   const labelName = (location.country ?? location.name).toUpperCase();
-  const baseImagePath =
+  const imagePath =
     location.heroImage ?? `/images/stamps/${location.slug}.png`;
-  const imagePath = `${baseImagePath}?v=${STAMP_VERSION}`;
 
   const [imageBroken, setImageBroken] = useState(false);
 
@@ -300,7 +291,7 @@ function Stamp({
         location.year
           ? t.travel.visitedInYear.replace("{year}", String(location.year))
           : ""
-      }${isFeatured ? ` — ${t.travel.cursorReadStory}` : ""}`}
+      }${isFeatured ? `. ${t.travel.cursorReadStory}` : ""}`}
     >
       {imageBroken ? (
         <SvgStamp
@@ -316,7 +307,6 @@ function Stamp({
           alt={t.travel.stampAlt.replace("{name}", location.name)}
           fill
           sizes="(max-width: 640px) 180px, (max-width: 768px) 220px, (max-width: 1024px) 240px, 260px"
-          unoptimized
           onError={() => setImageBroken(true)}
           className="object-contain transition duration-300 ease-out"
         />

@@ -41,9 +41,8 @@ export async function Footer() {
             <Image
               src="/images/chef_skull_knife_transparent.png"
               alt="TOORN at table"
-              width={1227}
-              height={1251}
-              unoptimized
+              width={785}
+              height={800}
               className="mb-8 h-24 w-auto md:h-28"
               style={{
                 filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.45))",
@@ -88,7 +87,7 @@ export async function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-cream/15 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45 md:flex-row md:items-center">
-          <p>© {year} TOORN at table — {t.footer.copyright}</p>
+          <p>© {year} TOORN at table · {t.footer.copyright}</p>
           <p>{t.footer.madeWith}</p>
         </div>
       </div>

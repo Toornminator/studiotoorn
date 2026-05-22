@@ -1,7 +1,7 @@
 import type { LocalisedTimelineChapter } from "@/lib/types";
 
 /**
- * Timeline chapters — Nick's full route from Zwolle to the Costa del Sol.
+ * Timeline chapters. Nick's full route from Zwolle to the Costa del Sol.
  * Sourced from the May 2026 brand bible (merkdossier). Each chapter
  * renders as a card in the Timeline component with the sticky year column
  * flagging the period on the left.
@@ -28,15 +28,15 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     },
     body: {
       en: [
-        "Born in Zwolle, raised partly in Belgium and partly in Germany. Different countries, different kitchens, different tables — an early lesson that food speaks a different language wherever you go.",
+        "Born in Zwolle, raised partly in Belgium and partly in Germany. Different countries, different kitchens, different tables. An early lesson that food speaks a different language wherever you go.",
         "The family eventually settled in Groningen, where I finished my schooling.",
       ],
       es: [
-        "Nacido en Zwolle, criado en parte en Bélgica y en parte en Alemania. Países distintos, cocinas distintas, mesas distintas — una lección temprana de que la comida habla otro idioma en cada sitio.",
+        "Nacido en Zwolle, criado en parte en Bélgica y en parte en Alemania. Países distintos, cocinas distintas, mesas distintas. Una lección temprana de que la comida habla otro idioma en cada sitio.",
         "Al final la familia se asentó en Groningen, donde terminé mis estudios.",
       ],
       nl: [
-        "Geboren in Zwolle, opgegroeid deels in België en deels in Duitsland. Verschillende landen, verschillende keukens, verschillende tafels — een vroege les dat eten overal een andere taal spreekt.",
+        "Geboren in Zwolle, opgegroeid deels in België en deels in Duitsland. Verschillende landen, verschillende keukens, verschillende tafels. Een vroege les dat eten overal een andere taal spreekt.",
         "Uiteindelijk streek het gezin neer in Groningen, waar ik mijn opleiding afrondde.",
       ],
     },
@@ -63,15 +63,15 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     body: {
       en: [
         "Before the kitchen called, I chose the service. With the Royal Marechaussee I trained as a first-class sergeant and worked, among other places, at Schiphol airport.",
-        "Three years long I learned what precision, responsibility and finishing a task actually mean — an attitude that walked straight into the kitchen with me.",
+        "Three years long I learned what precision, responsibility and finishing a task actually mean. An attitude that walked straight into the kitchen with me.",
       ],
       es: [
         "Antes de que llamara la cocina, escogí el servicio. En la Real Mariscalía me formé como sargento de primera clase y trabajé, entre otros sitios, en el aeropuerto de Schiphol.",
-        "Durante tres años aprendí lo que significan de verdad la precisión, la responsabilidad y terminar bien una tarea — una actitud que entró conmigo directa en la cocina.",
+        "Durante tres años aprendí lo que significan de verdad la precisión, la responsabilidad y terminar bien una tarea. Una actitud que entró conmigo directa en la cocina.",
       ],
       nl: [
         "Voordat de keuken riep, koos ik voor de dienst. Bij de Koninklijke Marechaussee volgde ik de opleiding tot wachtmeester eerste klasse en werkte ik onder meer op Schiphol.",
-        "Drie jaar lang leerde ik wat precisie, verantwoordelijkheid en het afmaken van een taak écht betekenen — een houding die regelrecht de keuken in zou gaan.",
+        "Drie jaar lang leerde ik wat precisie, verantwoordelijkheid en het afmaken van een taak écht betekenen. Een houding die regelrecht de keuken in zou gaan.",
       ],
     },
     marginalia: {
@@ -130,15 +130,15 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     },
     body: {
       en: [
-        "All through it, I was cooking. No training, no brigade — but an unsatisfiable hunger, endless 24Kitchen, and a camera never far away.",
+        "All through it, I was cooking. No training, no brigade. But an unsatisfiable hunger, endless 24Kitchen, and a camera never far away.",
         "Two passions sitting on a low flame, waiting for their moment.",
       ],
       es: [
-        "Durante todo ese tiempo, cocinaba. Sin formación, sin brigada — pero con un hambre insaciable, 24Kitchen sin parar, y una cámara nunca lejos.",
+        "Durante todo ese tiempo, cocinaba. Sin formación, sin brigada. Pero con un hambre insaciable, 24Kitchen sin parar, y una cámara nunca lejos.",
         "Dos pasiones a fuego lento, esperando su momento.",
       ],
       nl: [
-        "Door alles heen werd er gekookt. Geen opleiding, geen brigade — wel een onverzadigbare honger, eindeloos 24Kitchen, en een camera die nooit ver weg was.",
+        "Door alles heen werd er gekookt. Geen opleiding, geen brigade. Wel een onverzadigbare honger, eindeloos 24Kitchen, en een camera die nooit ver weg was.",
         "Twee passies die op een laag pitje stonden te wachten op hun moment.",
       ],
     },
@@ -164,15 +164,15 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     },
     body: {
       en: [
-        "It wasn't until around twenty-six that I went all in on the craft. I started in a restaurant kitchen, mostly on the cold section — the place where you learn that build, timing and cleanliness are half the work.",
+        "It wasn't until around twenty-six that I went all in on the craft. I started in a restaurant kitchen, mostly on the cold section. The place where you learn that build, timing and cleanliness are half the work.",
         "From there I moved on, with a stop at De Middenstip in Epe, on the road to Amsterdam.",
       ],
       es: [
-        "No fue hasta los veintiséis cuando aposté del todo por el oficio. Empecé en la cocina de un restaurante, sobre todo en la fría — el sitio donde aprendes que montaje, tempo y limpieza son la mitad del trabajo.",
+        "No fue hasta los veintiséis cuando aposté del todo por el oficio. Empecé en la cocina de un restaurante, sobre todo en la fría. El sitio donde aprendes que montaje, tempo y limpieza son la mitad del trabajo.",
         "De ahí pasé adelante, con una parada en De Middenstip de Epe, camino de Ámsterdam.",
       ],
       nl: [
-        "Pas rond mijn zesentwintigste koos ik voluit voor het vak. Ik begon in de keuken van een restaurant, vooral aan de koude kant — de plek waar je leert dat opbouw, timing en netheid het halve werk zijn.",
+        "Pas rond mijn zesentwintigste koos ik voluit voor het vak. Ik begon in de keuken van een restaurant, vooral aan de koude kant. De plek waar je leert dat opbouw, timing en netheid het halve werk zijn.",
         "Daarna trok ik verder, met een tussenstop bij De Middenstip in Epe, op weg naar Amsterdam.",
       ],
     },
@@ -187,9 +187,9 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     number: "06",
     yearShort: "'17",
     period: {
-      en: "2017 — 2018 · Amsterdam",
-      es: "2017 — 2018 · Ámsterdam",
-      nl: "2017 — 2018 · Amsterdam",
+      en: "2017. 2018 · Amsterdam",
+      es: "2017. 2018 · Ámsterdam",
+      nl: "2017. 2018 · Amsterdam",
     },
     title: {
       en: "A year inside a starred kitchen.",
@@ -232,15 +232,15 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     },
     body: {
       en: [
-        "I picked my own road. First I took over Eetcafé Texels — and learned right away how heavy a wrong location and an oversized building weigh.",
+        "I picked my own road. First I took over Eetcafé Texels. And learned right away how heavy a wrong location and an oversized building weigh.",
         "After that, in a small unit on the Gelkingestraat, I opened Holyburgers: Groningen's first halal burger spot. Great product, accessible but with class. It grew into the best-reviewed burger spot in the city. That's where I really learned how to run a business.",
       ],
       es: [
-        "Elegí mi propio camino. Primero me hice cargo del Eetcafé Texels — y aprendí enseguida lo mucho que pesan un mal sitio y un local demasiado grande.",
+        "Elegí mi propio camino. Primero me hice cargo del Eetcafé Texels. Y aprendí enseguida lo mucho que pesan un mal sitio y un local demasiado grande.",
         "Después, en un local pequeño de la Gelkingestraat, abrí Holyburgers: la primera hamburguesería halal de Groningen. Buen producto, accesible pero con clase. Creció hasta convertirse en la hamburguesería mejor valorada de la ciudad. Ahí aprendí de verdad a emprender.",
       ],
       nl: [
-        "Ik koos mijn eigen weg. Eerst nam ik Eetcafé Texels over — en leerde meteen hoe zwaar een verkeerde locatie en een te groot pand wegen.",
+        "Ik koos mijn eigen weg. Eerst nam ik Eetcafé Texels over. En leerde meteen hoe zwaar een verkeerde locatie en een te groot pand wegen.",
         "Daarna, in een klein pand aan de Gelkingestraat, opende ik Holyburgers: de eerste halal-burgerzaak van Groningen. Prachtige producten, toegankelijk maar met klasse. Het groeide uit tot de best beoordeelde burgerzaak van de stad. Hier leerde ik écht ondernemen.",
       ],
     },
@@ -267,15 +267,15 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     body: {
       en: [
         "I've been shooting since I was eighteen. As an all-round photographer with a heart for portraits I learned the same discipline that shapes my kitchen: wait for the right light, pick the right moment, and know when to stop fine-tuning.",
-        "In 2024 I travelled across Japan — a wealth of images and a wealth of kitchen inspiration.",
+        "In 2024 I travelled across Japan. A wealth of images and a wealth of kitchen inspiration.",
       ],
       es: [
         "Hago fotos desde los dieciocho. Como fotógrafo polivalente con debilidad por el retrato aprendí la misma disciplina que da forma a mi cocina: esperar la luz adecuada, elegir el momento justo, y saber cuándo dejar de retocar.",
-        "En 2024 viajé por Japón — un tesoro de imágenes y de inspiración para la cocina.",
+        "En 2024 viajé por Japón. Un tesoro de imágenes y de inspiración para la cocina.",
       ],
       nl: [
         "Sinds mijn achttiende fotografeer ik. Als allround fotograaf met een hart voor portret leerde ik dezelfde discipline die mijn keuken vormt: wachten op het juiste licht, het juiste moment kiezen, en weten wanneer je moet stoppen met bijschaven.",
-        "In 2024 reisde ik door Japan — een schat aan beelden én keukeninspiratie.",
+        "In 2024 reisde ik door Japan. Een schat aan beelden én keukeninspiratie.",
       ],
     },
     marginalia: {
@@ -289,9 +289,9 @@ export const timelineChapters: LocalisedTimelineChapter[] = [
     number: "09",
     yearShort: "'23",
     period: {
-      en: "2023 — now · Costa del Sol",
-      es: "2023 — ahora · Costa del Sol",
-      nl: "2023 — nu · Costa del Sol",
+      en: "2023. Now · Costa del Sol",
+      es: "2023. Ahora · Costa del Sol",
+      nl: "2023. Nu · Costa del Sol",
     },
     title: {
       en: "A new table under the sun.",

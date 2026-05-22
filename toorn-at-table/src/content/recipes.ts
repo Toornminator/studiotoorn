@@ -1,7 +1,7 @@
 import type { LocalisedRecipe } from "@/lib/types";
 
 /**
- * Concept recipes — written in Nick's voice as placeholders until the real
+ * Concept recipes. Written in Nick's voice as placeholders until the real
  * cookbook copy lands. Every translatable field is a `{ en, es, nl }` trio;
  * `src/lib/content/recipes.ts` flattens it to the active locale.
  *
@@ -36,18 +36,18 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "The first time I had real mortadella was at a tiny deli on Calle Ancha in Marbella, a Tuesday morning, no other customers in the shop. The owner, an Italian called Beppe who hadn't lost his Emilia accent in twenty years on the coast, sliced a piece paper-thin and pushed it across the counter without saying a word. The fat dissolved before I could chew it. The pistachio came later — almost an afterthought from a friend who'd been to Bronte and wouldn't shut up about it.",
-        "Everything you've ever eaten called mortadella in a Dutch supermarket is plastic. Pink rubber with white squares pretending to be fat. The real thing, sliced thin enough that the light comes through, tastes like nothing and everything at once — pork, salt, pistachio, time. The cream you make on top is just the pistachio finding the volume to match it.",
+        "The first time I had real mortadella was at a tiny deli on Calle Ancha in Marbella, a Tuesday morning, no other customers in the shop. The owner, an Italian called Beppe who hadn't lost his Emilia accent in twenty years on the coast, sliced a piece paper-thin and pushed it across the counter without saying a word. The fat dissolved before I could chew it. The pistachio came later. Almost an afterthought from a friend who'd been to Bronte and wouldn't shut up about it.",
+        "Everything you've ever eaten called mortadella in a Dutch supermarket is plastic. Pink rubber with white squares pretending to be fat. The real thing, sliced thin enough that the light comes through, tastes like nothing and everything at once. Pork, salt, pistachio, time. The cream you make on top is just the pistachio finding the volume to match it.",
         "I serve this as the first thing to land on the table when villa guests arrive and they haven't sat down yet. Two bites, no fork, just hands. By the time they figure out what they ate the bottle is open and the evening is already underway.",
       ],
       es: [
-        "La primera vez que probé mortadela de verdad fue en una pequeña charcutería de la Calle Ancha en Marbella, un martes por la mañana, ningún otro cliente en la tienda. El dueño, un italiano llamado Beppe que no había perdido su acento emiliano en veinte años de costa, cortó una loncha finísima y la deslizó sobre el mostrador sin decir palabra. La grasa se deshacía antes de masticar. El pistacho llegó después — un capricho de un amigo que había estado en Bronte y no paraba de hablar de ello.",
-        "Todo lo que has comido y se llamaba mortadela en un súper holandés es plástico. Goma rosa con cuadritos blancos haciéndose pasar por grasa. La de verdad, cortada tan fina que pasa la luz, sabe a nada y a todo a la vez — cerdo, sal, pistacho, tiempo. La crema encima sólo es el pistacho encontrando el volumen para acompañarla.",
+        "La primera vez que probé mortadela de verdad fue en una pequeña charcutería de la Calle Ancha en Marbella, un martes por la mañana, ningún otro cliente en la tienda. El dueño, un italiano llamado Beppe que no había perdido su acento emiliano en veinte años de costa, cortó una loncha finísima y la deslizó sobre el mostrador sin decir palabra. La grasa se deshacía antes de masticar. El pistacho llegó después. Un capricho de un amigo que había estado en Bronte y no paraba de hablar de ello.",
+        "Todo lo que has comido y se llamaba mortadela en un súper holandés es plástico. Goma rosa con cuadritos blancos haciéndose pasar por grasa. La de verdad, cortada tan fina que pasa la luz, sabe a nada y a todo a la vez. Cerdo, sal, pistacho, tiempo. La crema encima sólo es el pistacho encontrando el volumen para acompañarla.",
         "Lo sirvo como lo primero que llega a la mesa cuando los invitados aún ni se han sentado. Dos bocados, sin tenedor, sólo manos. Para cuando entienden qué han comido la botella ya está abierta y la noche ha empezado.",
       ],
       nl: [
-        "De eerste keer dat ik écht mortadella proefde was bij een piepkleine delicatessenwinkel aan de Calle Ancha in Marbella, een dinsdagochtend, geen andere klant in de zaak. De eigenaar, een Italiaan met de naam Beppe die zijn Emiliaanse accent in twintig jaar aan de kust niet was kwijtgeraakt, sneed een flinterdunne plak en schoof 'm zonder iets te zeggen over de toonbank. Het vet loste op voordat ik kon kauwen. De pistache kwam later — een idee van een vriend die in Bronte was geweest en er niet over kon ophouden.",
-        "Alles wat je ooit hebt gegeten dat mortadella heette in een Nederlandse supermarkt is plastic. Roze rubber met witte vierkantjes die voor vet doorgaan. Het echte werk, dun genoeg gesneden zodat het licht erdoor valt, smaakt naar niets en alles tegelijk — varken, zout, pistache, tijd. De crème die je erop maakt is gewoon de pistache die het volume vindt om mee te kunnen.",
+        "De eerste keer dat ik écht mortadella proefde was bij een piepkleine delicatessenwinkel aan de Calle Ancha in Marbella, een dinsdagochtend, geen andere klant in de zaak. De eigenaar, een Italiaan met de naam Beppe die zijn Emiliaanse accent in twintig jaar aan de kust niet was kwijtgeraakt, sneed een flinterdunne plak en schoof 'm zonder iets te zeggen over de toonbank. Het vet loste op voordat ik kon kauwen. De pistache kwam later. Een idee van een vriend die in Bronte was geweest en er niet over kon ophouden.",
+        "Alles wat je ooit hebt gegeten dat mortadella heette in een Nederlandse supermarkt is plastic. Roze rubber met witte vierkantjes die voor vet doorgaan. Het echte werk, dun genoeg gesneden zodat het licht erdoor valt, smaakt naar niets en alles tegelijk. Varken, zout, pistache, tijd. De crème die je erop maakt is gewoon de pistache die het volume vindt om mee te kunnen.",
         "Ik serveer dit als eerste op tafel als villagasten net binnen zijn en nog niet zitten. Twee happen, geen vork, alleen handen. Tegen de tijd dat ze doorhebben wat ze hebben gegeten is de fles open en is de avond al begonnen.",
       ],
     },
@@ -191,16 +191,16 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 4,
         body: {
-          en: "Split the brioche horizontally. Toast the cut faces briefly in a dry pan — gold, not brown.",
-          es: "Corta el brioche por la mitad horizontalmente. Marca brevemente las caras en una sartén seca — doradas, no quemadas.",
-          nl: "Snijd de brioche horizontaal half door. Rooster de snijvlakken kort in een droge pan — goud, niet bruin.",
+          en: "Split the brioche horizontally. Toast the cut faces briefly in a dry pan. Gold, not brown.",
+          es: "Corta el brioche por la mitad horizontalmente. Marca brevemente las caras en una sartén seca. Doradas, no quemadas.",
+          nl: "Snijd de brioche horizontaal half door. Rooster de snijvlakken kort in een droge pan. Goud, niet bruin.",
         },
       },
       {
         position: 5,
         body: {
-          en: "Spread a thick line of pistachio cream on the base. Fold the mortadella on top loose — keep the air in. Scatter the crumble. Few drops of olive oil, crack of pepper. Close loose, serve now.",
-          es: "Pinta una buena raya de crema de pistacho en la base. Coloca la mortadela encima sin aplastar — aire dentro. Esparce el crumble. Unas gotas de aceite, vuelta de pimienta. Cierra suelto y sirve ya.",
+          en: "Spread a thick line of pistachio cream on the base. Fold the mortadella on top loose. Keep the air in. Scatter the crumble. Few drops of olive oil, crack of pepper. Close loose, serve now.",
+          es: "Pinta una buena raya de crema de pistacho en la base. Coloca la mortadela encima sin aplastar. Aire dentro. Esparce el crumble. Unas gotas de aceite, vuelta de pimienta. Cierra suelto y sirve ya.",
           nl: "Smeer een rijke streep pistachecrème op de onderkant. Vouw de mortadella er los op (lucht erin). Strooi de crumble erover, een paar druppels olijfolie, krak peper. Sluit losjes, serveer direct.",
         },
       },
@@ -232,18 +232,18 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "I learned gougère from Marc, the pastry chef at Bord'eau in Amsterdam, on a Friday night when the kitchen was already wrecked. He didn't teach me, exactly — he stood next to me, made one tray of his, watched me make a tray of mine, and pointed at the difference. His were sky-high. Mine were sunk in the middle like sad little berets. He shrugged: 'eggs', he said, 'too fast', and walked away.",
-        "Choux dough lives or dies on the eggs. Add them too quickly and the dough is too wet to climb. Open the oven before they've set and they collapse on the spot. It's a recipe for patience, which is exactly why it's perfect for the start of an evening — you can't rush it, so you stop running.",
+        "I learned gougère from Marc, the pastry chef at Bord'eau in Amsterdam, on a Friday night when the kitchen was already wrecked. He didn't teach me, exactly. He stood next to me, made one tray of his, watched me make a tray of mine, and pointed at the difference. His were sky-high. Mine were sunk in the middle like sad little berets. He shrugged: 'eggs', he said, 'too fast', and walked away.",
+        "Choux dough lives or dies on the eggs. Add them too quickly and the dough is too wet to climb. Open the oven before they've set and they collapse on the spot. It's a recipe for patience, which is exactly why it's perfect for the start of an evening. You can't rush it, so you stop running.",
         "The goat-cheese mousse in the middle is a cold trick on a warm puff. The first bite is the crust splitting, the second is the cool centre catching up with you. I serve them straight from the oven, on the wood, no plates.",
       ],
       es: [
-        "Aprendí la gougère de Marc, el pastelero de Bord'eau en Ámsterdam, un viernes por la noche con la cocina ya hecha trizas. No me enseñó exactamente — se puso a mi lado, hizo una bandeja suya, me vio hacer la mía y me señaló la diferencia. Las suyas subían al cielo. Las mías se hundían en el medio como boinas tristes. Encogió los hombros: 'los huevos', dijo, 'demasiado rápido', y se fue.",
-        "La masa choux vive o muere por los huevos. Si los añades demasiado rápido la masa queda muy húmeda y no sube. Si abres el horno antes de que cuajen se desploman ahí mismo. Es una receta de paciencia, y por eso es perfecta para abrir una noche — no se puede acelerar, así que paras de correr.",
+        "Aprendí la gougère de Marc, el pastelero de Bord'eau en Ámsterdam, un viernes por la noche con la cocina ya hecha trizas. No me enseñó exactamente. Se puso a mi lado, hizo una bandeja suya, me vio hacer la mía y me señaló la diferencia. Las suyas subían al cielo. Las mías se hundían en el medio como boinas tristes. Encogió los hombros: 'los huevos', dijo, 'demasiado rápido', y se fue.",
+        "La masa choux vive o muere por los huevos. Si los añades demasiado rápido la masa queda muy húmeda y no sube. Si abres el horno antes de que cuajen se desploman ahí mismo. Es una receta de paciencia, y por eso es perfecta para abrir una noche. No se puede acelerar, así que paras de correr.",
         "La mousse de queso de cabra en el centro es un truco frío sobre un bollo caliente. El primer bocado es la corteza partiéndose, el segundo es el corazón fresco alcanzándote. Los sirvo recién salidos del horno, sobre madera, sin platos.",
       ],
       nl: [
-        "Ik leerde gougère van Marc, de pâtissier bij Bord'eau in Amsterdam, op een vrijdagnacht toen de keuken al een ruïne was. Hij leerde het me niet echt — hij stond naast me, maakte een plaat van zijn, keek hoe ik er een maakte van mijn, en wees op het verschil. Die van hem stonden hemelhoog. Die van mij waren in het midden ingezakt als trieste kleine barets. Hij haalde z'n schouders op: 'eieren', zei hij, 'te snel', en liep weg.",
-        "Soezendeeg leeft of sterft op de eieren. Te snel toegevoegd en het deeg is te nat om te klimmen. Oven open voor ze hebben gepakt en ze zakken ter plekke in. Het is een recept van geduld, en juist daarom past het zo goed bij het begin van een avond — je kunt het niet versnellen, dus stop je met haasten.",
+        "Ik leerde gougère van Marc, de pâtissier bij Bord'eau in Amsterdam, op een vrijdagnacht toen de keuken al een ruïne was. Hij leerde het me niet echt. Hij stond naast me, maakte een plaat van zijn, keek hoe ik er een maakte van mijn, en wees op het verschil. Die van hem stonden hemelhoog. Die van mij waren in het midden ingezakt als trieste kleine barets. Hij haalde z'n schouders op: 'eieren', zei hij, 'te snel', en liep weg.",
+        "Soezendeeg leeft of sterft op de eieren. Te snel toegevoegd en het deeg is te nat om te klimmen. Oven open voor ze hebben gepakt en ze zakken ter plekke in. Het is een recept van geduld, en juist daarom past het zo goed bij het begin van een avond. Je kunt het niet versnellen, dus stop je met haasten.",
         "De geitenkaasmousse in het hart is een koude truc op een warme bol. Eerste hap is de korst die kraakt, tweede hap is het koele midden dat je inhaalt. Ik serveer ze direct uit de oven, op het hout, geen borden.",
       ],
     },
@@ -326,7 +326,7 @@ export const recipes: LocalisedRecipe[] = [
         group: { en: "Gougères (8 pieces)", es: "Gougères (8 unidades)", nl: "Gougères (8 stuks)" },
         quantity: { en: "1", es: "1", nl: "1" },
         ingredient: {
-          en: "egg, beaten — for the wash",
+          en: "egg, beaten. For the wash",
           es: "huevo batido para pintar",
           nl: "ei, losgeklopt voor afstrijken",
         },
@@ -436,18 +436,18 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "I learned this in Stockholm, between portrait shoots, the year I was pretending I was a photographer first and a cook second. Hötorget market, early August, a fishmonger named Erik who'd lost two fingers to a herring boat in the seventies. He sold me a slab of salmon, then watched me from across the counter while he wrote down — in English with the spelling of someone who'd learned it on ships — how to make rillette. 'No machine,' he wrote, twice, underlined.",
-        "Salmon rillette is one of those preparations where the whole craft is in not overworking it. Steam the fish gently, pull it into flakes, fold the rest in with a wooden spoon. Touch it as little as possible. The texture is the whole point — if you can spread it like pâté, you've gone too far.",
+        "I learned this in Stockholm, between portrait shoots, the year I was pretending I was a photographer first and a cook second. Hötorget market, early August, a fishmonger named Erik who'd lost two fingers to a herring boat in the seventies. He sold me a slab of salmon, then watched me from across the counter while he wrote down. In English with the spelling of someone who'd learned it on ships. How to make rillette. 'No machine,' he wrote, twice, underlined.",
+        "Salmon rillette is one of those preparations where the whole craft is in not overworking it. Steam the fish gently, pull it into flakes, fold the rest in with a wooden spoon. Touch it as little as possible. The texture is the whole point. If you can spread it like pâté, you've gone too far.",
         "Make it the morning before. Six hours in the fridge and the flavours line up. A day too far and it goes flat. Lemon, chive, butter, a bit of crème fraîche to round it. Toasted sourdough. That's the whole evening.",
       ],
       es: [
-        "Aprendí esto en Estocolmo, entre sesiones de retrato, el año en que fingía ser primero fotógrafo y luego cocinero. El mercado de Hötorget, primeros de agosto, un pescadero llamado Erik que había perdido dos dedos en un pesquero de arenques en los setenta. Me vendió un lomo de salmón y me observó desde el otro lado del mostrador mientras me escribía — en un inglés con la ortografía de alguien que lo aprendió en barcos — cómo hacer rillette. 'No máquina,' escribió, dos veces, subrayado.",
-        "La rillette de salmón es una de esas preparaciones donde todo el oficio está en no manosearla. Vapora el pescado con cuidado, desmígalo, integra el resto con una cuchara de madera. Toca lo mínimo. La textura es todo — si la puedes untar como un paté, te has pasado.",
+        "Aprendí esto en Estocolmo, entre sesiones de retrato, el año en que fingía ser primero fotógrafo y luego cocinero. El mercado de Hötorget, primeros de agosto, un pescadero llamado Erik que había perdido dos dedos en un pesquero de arenques en los setenta. Me vendió un lomo de salmón y me observó desde el otro lado del mostrador mientras me escribía. En un inglés con la ortografía de alguien que lo aprendió en barcos. Cómo hacer rillette. 'No máquina,' escribió, dos veces, subrayado.",
+        "La rillette de salmón es una de esas preparaciones donde todo el oficio está en no manosearla. Vapora el pescado con cuidado, desmígalo, integra el resto con una cuchara de madera. Toca lo mínimo. La textura es todo. Si la puedes untar como un paté, te has pasado.",
         "Hazla la mañana antes. Seis horas en la nevera y los sabores se alinean. Un día de más y se queda plana. Limón, cebollino, mantequilla, un poco de crème fraîche para redondear. Pan de masa madre tostado. Esa es toda la noche.",
       ],
       nl: [
-        "Ik leerde dit in Stockholm, tussen portretshoots door, het jaar dat ik deed alsof ik eerst fotograaf was en pas daarna kok. De Hötorget-markt, begin augustus, een visboer met de naam Erik die in de jaren zeventig twee vingers had verloren aan een haringboot. Hij verkocht me een stuk zalm en keek me vanaf de andere kant van de toonbank aan terwijl hij — in een Engels met de spelling van iemand die het op zee had geleerd — opschreef hoe je rillette maakte. 'No machine,' schreef hij, twee keer, onderstreept.",
-        "Rillette van zalm is een van die bereidingen waar het hele vak in zit in niet té veel ermee doen. Stoom de vis voorzichtig, pluk hem in flakes, vouw de rest erdoor met een houten lepel. Raak het zo min mogelijk aan. Textuur is alles — als je het kunt smeren als paté, ben je te ver gegaan.",
+        "Ik leerde dit in Stockholm, tussen portretshoots door, het jaar dat ik deed alsof ik eerst fotograaf was en pas daarna kok. De Hötorget-markt, begin augustus, een visboer met de naam Erik die in de jaren zeventig twee vingers had verloren aan een haringboot. Hij verkocht me een stuk zalm en keek me vanaf de andere kant van de toonbank aan terwijl hij. In een Engels met de spelling van iemand die het op zee had geleerd. Opschreef hoe je rillette maakte. 'No machine,' schreef hij, twee keer, onderstreept.",
+        "Rillette van zalm is een van die bereidingen waar het hele vak in zit in niet té veel ermee doen. Stoom de vis voorzichtig, pluk hem in flakes, vouw de rest erdoor met een houten lepel. Raak het zo min mogelijk aan. Textuur is alles. Als je het kunt smeren als paté, ben je te ver gegaan.",
         "Maak hem de ochtend ervoor. Zes uur in de koelkast en de smaken vallen op hun plek. Een dag te ver en hij wordt vlak. Citroen, bieslook, boter, een lepel crème fraîche om het rond te maken. Geroosterd zuurdesem. Dat is de hele avond.",
       ],
     },
@@ -481,9 +481,9 @@ export const recipes: LocalisedRecipe[] = [
         kind: "scrawl",
         anchor: "ingredients",
         body: {
-          en: "Smoked salmon adds the salt note. Don't skip it — it does what salt alone can't.",
-          es: "El salmón ahumado añade la nota salada. No lo saltes — hace lo que la sal sola no puede.",
-          nl: "De gerookte zalm voegt de zout-noot toe. Niet weglaten — doet wat zout alleen niet kan.",
+          en: "Smoked salmon adds the salt note. Don't skip it. It does what salt alone can't.",
+          es: "El salmón ahumado añade la nota salada. No lo saltes. Hace lo que la sal sola no puede.",
+          nl: "De gerookte zalm voegt de zout-noot toe. Niet weglaten. Doet wat zout alleen niet kan.",
         },
       },
     ],
@@ -557,23 +557,23 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 1,
         body: {
-          en: "Season the fresh salmon lightly. Steam on parchment at 80 °C for 8 minutes — core temp 50 °C. Let it cool fully.",
-          es: "Sazona ligero el salmón fresco. Cuécelo al vapor sobre papel a 80 °C durante 8 minutos — núcleo a 50 °C. Deja enfriar del todo.",
+          en: "Season the fresh salmon lightly. Steam on parchment at 80 °C for 8 minutes. Core temp 50 °C. Let it cool fully.",
+          es: "Sazona ligero el salmón fresco. Cuécelo al vapor sobre papel a 80 °C durante 8 minutos. Núcleo a 50 °C. Deja enfriar del todo.",
           nl: "Verse zalm op bakpapier, licht kruiden. Stoom 8 minuten op 80 °C tot net gaar (kern 50 °C). Laat afkoelen.",
         },
       },
       {
         position: 2,
         body: {
-          en: "Pluck the cooled salmon into rough flakes with a fork. Don't go for tidy — texture is everything.",
-          es: "Desmiga el salmón frío en escamas groseras con un tenedor. Nada de fino — la textura es todo.",
-          nl: "Pluk de zalm in grove flakes met een vork. Niet pureren — textuur is alles.",
+          en: "Pluck the cooled salmon into rough flakes with a fork. Don't go for tidy. Texture is everything.",
+          es: "Desmiga el salmón frío en escamas groseras con un tenedor. Nada de fino. La textura es todo.",
+          nl: "Pluk de zalm in grove flakes met een vork. Niet pureren. Textuur is alles.",
         },
       },
       {
         position: 3,
         body: {
-          en: "Fold in the smoked salmon, crème fraîche, soft butter, chive, lemon zest and juice. Carefully — no mashing.",
+          en: "Fold in the smoked salmon, crème fraîche, soft butter, chive, lemon zest and juice. Carefully. No mashing.",
           es: "Integra con cuidado el salmón ahumado, la crème fraîche, la mantequilla, el cebollino, la ralladura y el zumo de limón. Sin aplastar.",
           nl: "Vouw gerookte zalm, crème fraîche, zachte boter, bieslook, citroenrasp en -sap erdoor. Voorzichtig, niet pletten.",
         },
@@ -581,7 +581,7 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 4,
         body: {
-          en: "Taste. Salt, white pepper, more lemon if it needs lift. One hour in the fridge — minimum. Ideally six.",
+          en: "Taste. Salt, white pepper, more lemon if it needs lift. One hour in the fridge. Minimum. Ideally six.",
           es: "Prueba. Sal, pimienta blanca, más limón si pide. Una hora en la nevera mínimo. Ideal seis.",
           nl: "Proeven. Zout, witte peper, eventueel meer citroensap. Minimaal 1 uur in de koelkast. Liefst zes.",
         },
@@ -616,24 +616,24 @@ export const recipes: LocalisedRecipe[] = [
     servings: 6,
     heroImage: "/images/recipes/drie-sauzen.jpg",
     pairing: {
-      en: "Bread, charred vegetables, grilled meat or fish — pick a partner.",
-      es: "Pan, verduras a la brasa, carne o pescado a la plancha — elige pareja.",
-      nl: "Brood, gegrilde groente, vlees of vis van het vuur — kies een partner.",
+      en: "Bread, charred vegetables, grilled meat or fish. Pick a partner.",
+      es: "Pan, verduras a la brasa, carne o pescado a la plancha. Elige pareja.",
+      nl: "Brood, gegrilde groente, vlees of vis van het vuur. Kies een partner.",
     },
     body: {
       en: [
-        "Three sauces a cook should be able to make without thinking about it. Mine are not the canonical versions — black-garlic aioli instead of raw, romesco built around hazelnuts not almonds, chimichurri with a green-chilli punch instead of dried oregano carrying the whole flavour.",
-        "The aioli is the one I learned in a Barcelona bar where the owner refused to tell me how. I had to figure it out by ordering it five nights in a row and going home to taste-match. The romesco came from a stop in Tarragona, a chef called Lluís who only added hazelnut because his almond order didn't show that day. He never went back. The chimichurri is half from a Buenos Aires guy in Estepona, half from the one I make at home — the green chilli is mine.",
+        "Three sauces a cook should be able to make without thinking about it. Mine are not the canonical versions. Black-garlic aioli instead of raw, romesco built around hazelnuts not almonds, chimichurri with a green-chilli punch instead of dried oregano carrying the whole flavour.",
+        "The aioli is the one I learned in a Barcelona bar where the owner refused to tell me how. I had to figure it out by ordering it five nights in a row and going home to taste-match. The romesco came from a stop in Tarragona, a chef called Lluís who only added hazelnut because his almond order didn't show that day. He never went back. The chimichurri is half from a Buenos Aires guy in Estepona, half from the one I make at home. The green chilli is mine.",
         "These three keep one week in the fridge if you keep them under a film of olive oil. They turn a sad slice of bread into dinner. They are the difference between cooking and feeding someone.",
       ],
       es: [
-        "Tres salsas que un cocinero debería poder hacer sin pensar. Las mías no son las canónicas — alioli de ajo negro en lugar de crudo, romesco montado sobre avellana y no almendra, chimichurri con un golpe de chile verde en vez de cargar todo en el orégano seco.",
-        "El alioli lo aprendí en un bar de Barcelona donde el dueño no me lo quiso contar. Tuve que adivinarlo pidiéndolo cinco noches seguidas y catando en casa. El romesco vino de una parada en Tarragona, un cocinero llamado Lluís que sólo metía avellana porque ese día no le había llegado la almendra. Nunca volvió atrás. El chimichurri es mitad de un porteño en Estepona, mitad mío — el chile verde es mío.",
+        "Tres salsas que un cocinero debería poder hacer sin pensar. Las mías no son las canónicas. Alioli de ajo negro en lugar de crudo, romesco montado sobre avellana y no almendra, chimichurri con un golpe de chile verde en vez de cargar todo en el orégano seco.",
+        "El alioli lo aprendí en un bar de Barcelona donde el dueño no me lo quiso contar. Tuve que adivinarlo pidiéndolo cinco noches seguidas y catando en casa. El romesco vino de una parada en Tarragona, un cocinero llamado Lluís que sólo metía avellana porque ese día no le había llegado la almendra. Nunca volvió atrás. El chimichurri es mitad de un porteño en Estepona, mitad mío. El chile verde es mío.",
         "Las tres aguantan una semana en la nevera si las tapas con un velo de aceite. Convierten un trozo de pan triste en cena. Son la diferencia entre cocinar y dar de comer.",
       ],
       nl: [
-        "Drie sauzen die een kok zonder na te denken moet kunnen maken. Mijn versies zijn niet de canonieke — aïoli van zwarte knoflook in plaats van rauw, romesco gebouwd rondom hazelnoot en niet amandel, chimichurri met een groene-chili-stoot in plaats van gedroogde oregano die alle smaak draagt.",
-        "De aïoli leerde ik in een bar in Barcelona waar de eigenaar weigerde te vertellen hoe. Ik moest het uitvogelen door 'm vijf avonden achter elkaar te bestellen en thuis te proeven. De romesco kwam uit een stop in Tarragona, een kok met de naam Lluís die alleen hazelnoot deed omdat zijn amandel-bestelling die dag niet aankwam. Hij ging nooit meer terug. De chimichurri is half van een Argentijn in Estepona, half van mezelf — groene chili is van mij.",
+        "Drie sauzen die een kok zonder na te denken moet kunnen maken. Mijn versies zijn niet de canonieke. Aïoli van zwarte knoflook in plaats van rauw, romesco gebouwd rondom hazelnoot en niet amandel, chimichurri met een groene-chili-stoot in plaats van gedroogde oregano die alle smaak draagt.",
+        "De aïoli leerde ik in een bar in Barcelona waar de eigenaar weigerde te vertellen hoe. Ik moest het uitvogelen door 'm vijf avonden achter elkaar te bestellen en thuis te proeven. De romesco kwam uit een stop in Tarragona, een kok met de naam Lluís die alleen hazelnoot deed omdat zijn amandel-bestelling die dag niet aankwam. Hij ging nooit meer terug. De chimichurri is half van een Argentijn in Estepona, half van mezelf. Groene chili is van mij.",
         "Alle drie houden een week in de koelkast, mits afgedekt met een filmpje olijfolie. Ze maken van een treurige snee brood een diner. Ze zijn het verschil tussen koken en iemand te eten geven.",
       ],
     },
@@ -667,9 +667,9 @@ export const recipes: LocalisedRecipe[] = [
         kind: "scrawl",
         anchor: "step-2",
         body: {
-          en: "Romesco loves a 24-hour rest. Make it Saturday, eat it Sunday — different sauce.",
-          es: "El romesco mejora a 24 horas. Hazlo el sábado, cómelo el domingo — es otra salsa.",
-          nl: "Romesco wordt beter na 24 uur rust. Zaterdag maken, zondag eten — andere saus.",
+          en: "Romesco loves a 24-hour rest. Make it Saturday, eat it Sunday. Different sauce.",
+          es: "El romesco mejora a 24 horas. Hazlo el sábado, cómelo el domingo. Es otra salsa.",
+          nl: "Romesco wordt beter na 24 uur rust. Zaterdag maken, zondag eten. Andere saus.",
         },
       },
     ],
@@ -791,17 +791,17 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 2,
         body: {
-          en: "Romesco: blitz the hazelnuts, pepper, tomato, garlic, vinegar and paprika briefly. With the machine running, add the olive oil until you have a thick, spoonable sauce. Taste hard — salt and vinegar.",
-          es: "Romesco: tritura brevemente las avellanas, el pimiento, el tomate, el ajo, el vinagre y el pimentón. Con la máquina en marcha, añade el aceite hasta una salsa espesa de cuchara. Prueba bien — sal y vinagre.",
-          nl: "Romesco: blend hazelnoten, paprika, tomaat, knoflook, azijn en paprikapoeder kort. Met de machine lopend, olijfolie inschenken tot een dikke saus. Streng proeven — zout en azijn.",
+          en: "Romesco: blitz the hazelnuts, pepper, tomato, garlic, vinegar and paprika briefly. With the machine running, add the olive oil until you have a thick, spoonable sauce. Taste hard. Salt and vinegar.",
+          es: "Romesco: tritura brevemente las avellanas, el pimiento, el tomate, el ajo, el vinagre y el pimentón. Con la máquina en marcha, añade el aceite hasta una salsa espesa de cuchara. Prueba bien. Sal y vinagre.",
+          nl: "Romesco: blend hazelnoten, paprika, tomaat, knoflook, azijn en paprikapoeder kort. Met de machine lopend, olijfolie inschenken tot een dikke saus. Streng proeven. Zout en azijn.",
         },
       },
       {
         position: 3,
         body: {
-          en: "Chimichurri: pulse herbs, garlic and chilli briefly — coarse, never paste. Transfer to a bowl, stir in lime zest and juice, oregano, oil, vinegar and salt. Rest 30 minutes minimum.",
-          es: "Chimichurri: pulsa hierbas, ajo y chile brevemente — grueso, jamás pasta. Pasa a un bol, mezcla con ralladura y zumo de lima, orégano, aceite, vinagre y sal. Mínimo 30 minutos de reposo.",
-          nl: "Chimichurri: kruiden, knoflook en chili kort pulsen — grof, geen pesto. Verplaats naar kom, meng met limoenrasp en -sap, oregano, olie, azijn en zout. Minimaal 30 minuten laten staan.",
+          en: "Chimichurri: pulse herbs, garlic and chilli briefly. Coarse, never paste. Transfer to a bowl, stir in lime zest and juice, oregano, oil, vinegar and salt. Rest 30 minutes minimum.",
+          es: "Chimichurri: pulsa hierbas, ajo y chile brevemente. Grueso, jamás pasta. Pasa a un bol, mezcla con ralladura y zumo de lima, orégano, aceite, vinagre y sal. Mínimo 30 minutos de reposo.",
+          nl: "Chimichurri: kruiden, knoflook en chili kort pulsen. Grof, geen pesto. Verplaats naar kom, meng met limoenrasp en -sap, oregano, olie, azijn en zout. Minimaal 30 minuten laten staan.",
         },
       },
       {
@@ -885,9 +885,9 @@ export const recipes: LocalisedRecipe[] = [
         kind: "scrawl",
         anchor: "intro",
         body: {
-          en: "Conference or Doyenné — firm pears only. Soft pears collapse to mush.",
-          es: "Conference o Doyenné — peras firmes. Las blandas se hacen puré.",
-          nl: "Conference of Doyenné — alleen stevige peren. Zachte peren worden moes.",
+          en: "Conference or Doyenné. Firm pears only. Soft pears collapse to mush.",
+          es: "Conference o Doyenné. Peras firmes. Las blandas se hacen puré.",
+          nl: "Conference of Doyenné. Alleen stevige peren. Zachte peren worden moes.",
         },
       },
     ],
@@ -969,17 +969,17 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 3,
         body: {
-          en: "Flip them, spoon the pan sauce over. Into the oven 15-18 minutes — tender but holding their shape.",
-          es: "Vuélvelas, baña con la salsa de la sartén. Al horno 15-18 minutos — tiernas pero con forma.",
+          en: "Flip them, spoon the pan sauce over. Into the oven 15-18 minutes. Tender but holding their shape.",
+          es: "Vuélvelas, baña con la salsa de la sartén. Al horno 15-18 minutos. Tiernas pero con forma.",
           nl: "Draai om, lepel de pansaus eroverheen. 15-18 minuten in de oven tot zacht maar nog vorm.",
         },
       },
       {
         position: 4,
         body: {
-          en: "Whip the mascarpone with cream, honey and vanilla seeds to a thick quenelle texture. Stop early — overdone splits.",
-          es: "Bate el mascarpone con la nata, la miel y las semillas hasta textura espesa para quenelle. Para pronto — pasado se corta.",
-          nl: "Klop mascarpone, room, honing en vanille tot een dikke quenelle-textuur. Stop vroeg — overdoen schift.",
+          en: "Whip the mascarpone with cream, honey and vanilla seeds to a thick quenelle texture. Stop early. Overdone splits.",
+          es: "Bate el mascarpone con la nata, la miel y las semillas hasta textura espesa para quenelle. Para pronto. Pasado se corta.",
+          nl: "Klop mascarpone, room, honing en vanille tot een dikke quenelle-textuur. Stop vroeg. Overdoen schift.",
         },
       },
       {
@@ -1012,9 +1012,9 @@ export const recipes: LocalisedRecipe[] = [
     servings: 2,
     heroImage: "/images/recipes/no-knead-baguette.jpg",
     pairing: {
-      en: "Soft butter, good olive oil, soup — anything.",
-      es: "Mantequilla blanda, buen aceite, sopa — lo que sea.",
-      nl: "Zachte boter, goede olijfolie, soep — alles.",
+      en: "Soft butter, good olive oil, soup. Anything.",
+      es: "Mantequilla blanda, buen aceite, sopa. Lo que sea.",
+      nl: "Zachte boter, goede olijfolie, soep. Alles.",
     },
     body: {
       en: [
@@ -1055,7 +1055,7 @@ export const recipes: LocalisedRecipe[] = [
         body: {
           en: "Rest 20 minutes minimum before cutting. Earlier and the inside turns gummy.",
           es: "Reposo mínimo 20 minutos antes de cortar. Antes y la miga se hace gomosa.",
-          nl: "Laat minstens 20 minuten rusten op een rooster voor het snijden — anders gomt het binnenste.",
+          nl: "Laat minstens 20 minuten rusten op een rooster voor het snijden. Anders gomt het binnenste.",
         },
       },
       {
@@ -1168,8 +1168,8 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 7,
         body: {
-          en: "Bake 22-25 minutes — deeply coloured, blistered, hollow when tapped underneath. Rest 20 minutes on a rack before cutting.",
-          es: "Hornea 22-25 minutos — bien doradas, ampolladas, suenan huecas al golpear el fondo. Reposa 20 minutos sobre rejilla antes de cortar.",
+          en: "Bake 22-25 minutes. Deeply coloured, blistered, hollow when tapped underneath. Rest 20 minutes on a rack before cutting.",
+          es: "Hornea 22-25 minutos. Bien doradas, ampolladas, suenan huecas al golpear el fondo. Reposa 20 minutos sobre rejilla antes de cortar.",
           nl: "Bak 22-25 minuten tot diep gekleurd, geblisterd, en hol klinkend bij tikken op de onderkant. Laat minstens 20 minuten rusten op een rooster voor het snijden.",
         },
       },
@@ -1202,17 +1202,17 @@ export const recipes: LocalisedRecipe[] = [
     body: {
       en: [
         "Chef René, who ran the meat station at Bord'eau in my Amsterdam years, never rushed a braise. He used to stand by the oven with a stopwatch he didn't actually need and tell anyone who'd listen that the cooks who try to shave off an hour are the ones who can't taste the difference.",
-        "He was right. Beef cheek at 130 °C wants six to eight hours. At 160 °C it wants three. The lower one is the better one — the connective tissue has time to turn to silk, the wine has time to lose its alcoholic sharpness and become a sauce. There is no shortcut. Whoever tells you otherwise has never made it well.",
+        "He was right. Beef cheek at 130 °C wants six to eight hours. At 160 °C it wants three. The lower one is the better one. The connective tissue has time to turn to silk, the wine has time to lose its alcoholic sharpness and become a sauce. There is no shortcut. Whoever tells you otherwise has never made it well.",
         "Whole garlic bulb in the pan, cut-side up, is the trick I picked up from a stoof guy in Bruges. Twelve hours later you squeeze the cloves out onto the plate next to the meat and the kitchen has done all the work for you. This is the dish I make the day my best friend visits, because by the time he arrives it's been ready for six hours and the only thing left to do is drink.",
       ],
       es: [
         "El chef René, que llevaba la partida de carne en Bord'eau en mis años de Ámsterdam, nunca aceleraba un guiso. Se quedaba al lado del horno con un cronómetro que en realidad no necesitaba y decía a quien quisiera oírlo que los cocineros que tratan de quitarle una hora son los que no notan la diferencia.",
-        "Tenía razón. La carrillera a 130 °C pide seis u ocho horas. A 160 °C pide tres. La baja es la buena — el tejido conectivo tiene tiempo de hacerse seda, el vino tiene tiempo de perder el filo alcohólico y convertirse en salsa. No hay atajo. Quien diga lo contrario no la ha hecho bien.",
+        "Tenía razón. La carrillera a 130 °C pide seis u ocho horas. A 160 °C pide tres. La baja es la buena. El tejido conectivo tiene tiempo de hacerse seda, el vino tiene tiempo de perder el filo alcohólico y convertirse en salsa. No hay atajo. Quien diga lo contrario no la ha hecho bien.",
         "La cabeza entera de ajo en la cazuela, con el corte hacia arriba, es un truco que pillé de un guisandero en Brujas. Doce horas después aprietas los dientes sobre el plato al lado de la carne y la cocina ha hecho todo el trabajo. Este es el plato que hago el día que viene a verme mi mejor amigo, porque cuando llega lleva seis horas listo y lo único que queda es beber.",
       ],
       nl: [
         "Chef René, die de vleesstand draaide bij Bord'eau in mijn Amsterdamse jaren, haastte nooit een stoof. Hij stond bij de oven met een stopwatch die hij eigenlijk niet nodig had en vertelde iedereen die het wilde horen dat de koks die er een uur vanaf willen halen, juist degenen zijn die het verschil niet proeven.",
-        "Hij had gelijk. Runderwang op 130 °C wil zes tot acht uur. Op 160 °C wil 'ie drie. De lage is de juiste — het bindweefsel krijgt tijd om zijde te worden, de wijn krijgt tijd om z'n scherpe alcohol te verliezen en in saus te veranderen. Er is geen shortcut. Wie iets anders beweert heeft 'm nooit goed gemaakt.",
+        "Hij had gelijk. Runderwang op 130 °C wil zes tot acht uur. Op 160 °C wil 'ie drie. De lage is de juiste. Het bindweefsel krijgt tijd om zijde te worden, de wijn krijgt tijd om z'n scherpe alcohol te verliezen en in saus te veranderen. Er is geen shortcut. Wie iets anders beweert heeft 'm nooit goed gemaakt.",
         "Hele knoflookbol in de pan, snijvlak omhoog, is een truc die ik oppikte van een stooftype in Brugge. Twaalf uur later knijp je de tenen op het bord uit naast het vlees en de keuken heeft alles voor je gedaan. Dit is het gerecht dat ik maak op de dag dat m'n beste vriend komt logeren, want tegen de tijd dat hij arriveert is 'ie al zes uur klaar en hoeven we alleen nog te drinken.",
       ],
     },
@@ -1326,9 +1326,9 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 2,
         body: {
-          en: "Heat olive oil in a cast-iron pan high. Sear the meat deep brown on every side — no hurry. Lift out.",
-          es: "Calienta aceite en una cazuela de hierro a fuego fuerte. Marca la carne bien dorada por todos los lados — sin prisa. Reserva.",
-          nl: "In een gietijzeren pan met olijfolie diepbruin aanbraden op hoog vuur — alle zijden, niet haasten. Eruit, opzij.",
+          en: "Heat olive oil in a cast-iron pan high. Sear the meat deep brown on every side. No hurry. Lift out.",
+          es: "Calienta aceite en una cazuela de hierro a fuego fuerte. Marca la carne bien dorada por todos los lados. Sin prisa. Reserva.",
+          nl: "In een gietijzeren pan met olijfolie diepbruin aanbraden op hoog vuur. Alle zijden, niet haasten. Eruit, opzij.",
         },
       },
       {
@@ -1358,17 +1358,17 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 6,
         body: {
-          en: "Lift the cheeks out, garlic alongside. Strain the braising liquid, defat it, reduce on the hob to a syrupy sauce — about a third.",
-          es: "Saca las carrilleras, el ajo al lado. Cuela el jugo, retira la grasa, reduce al fuego hasta una salsa de jarabe — un tercio aproximadamente.",
+          en: "Lift the cheeks out, garlic alongside. Strain the braising liquid, defat it, reduce on the hob to a syrupy sauce. About a third.",
+          es: "Saca las carrilleras, el ajo al lado. Cuela el jugo, retira la grasa, reduce al fuego hasta una salsa de jarabe. Un tercio aproximadamente.",
           nl: "Vlees voorzichtig uitnemen, knoflookbol ernaast. Zeef het stoofvocht, ontvet, reduceer op het vuur tot een sirupy saus (ongeveer 1/3).",
         },
       },
       {
         position: 7,
         body: {
-          en: "Meat back in the sauce to warm and glaze. Garlic on the plate — guests squeeze the cloves out themselves.",
-          es: "Vuelve la carne a la salsa para calentar y glasear. El ajo al plato — cada uno aprieta los dientes en su sitio.",
-          nl: "Vlees terug in de saus om op te warmen en te glaceren. Knoflook erbij — uit te knijpen op het bord.",
+          en: "Meat back in the sauce to warm and glaze. Garlic on the plate. Guests squeeze the cloves out themselves.",
+          es: "Vuelve la carne a la salsa para calentar y glasear. El ajo al plato. Cada uno aprieta los dientes en su sitio.",
+          nl: "Vlees terug in de saus om op te warmen en te glaceren. Knoflook erbij. Uit te knijpen op het bord.",
         },
       },
     ],
@@ -1399,17 +1399,17 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "There's a chiringuito in Estepona — a wooden shack on the sand that's been there since before I was born — where an old guy called Pepe runs the plancha. He doesn't speak much English, doesn't need to. He grills two things really, with a third sometimes: dorada, lubina, and on Fridays sardines so fresh they still look surprised.",
+        "There's a chiringuito in Estepona. A wooden shack on the sand that's been there since before I was born. Where an old guy called Pepe runs the plancha. He doesn't speak much English, doesn't need to. He grills two things really, with a third sometimes: dorada, lubina, and on Fridays sardines so fresh they still look surprised.",
         "First time I tried to help him I reached for a fish on the plancha after maybe two minutes and got my hand slapped. 'No la toques,' he said. Don't touch it. The fish releases itself when it's ready. Touch it before and you tear the skin and lose what you came for in the first place. That was the whole lesson.",
         "I make this at home now exactly the way Pepe makes it on the beach. Hot iron, oil, salt, fish, wait. Charred lemon next to it because the acid wakes the fat up. A finger-pour of green olive oil to finish, because Andalusia made me believe in olive oil the way Italians believe in olive oil. Nothing else.",
       ],
       es: [
-        "Hay un chiringuito en Estepona — un cobertizo de madera sobre la arena que está allí desde antes de nacer yo — donde un viejo llamado Pepe maneja la plancha. No habla mucho inglés, no le hace falta. Cocina dos cosas en serio, una tercera a veces: dorada, lubina y los viernes sardinas tan frescas que aún parecen sorprendidas.",
+        "Hay un chiringuito en Estepona. Un cobertizo de madera sobre la arena que está allí desde antes de nacer yo. Donde un viejo llamado Pepe maneja la plancha. No habla mucho inglés, no le hace falta. Cocina dos cosas en serio, una tercera a veces: dorada, lubina y los viernes sardinas tan frescas que aún parecen sorprendidas.",
         "La primera vez que traté de ayudarle alargué la mano al pescado en la plancha a los dos minutos y me dio un manotazo. 'No la toques,' dijo. El pescado se suelta solo cuando está. Si lo tocas antes rompes la piel y pierdes lo único por lo que venías. Esa fue toda la lección.",
         "Lo hago en casa exactamente como Pepe lo hace en la playa. Hierro caliente, aceite, sal, pescado, esperar. Limón quemado al lado porque el ácido despierta la grasa. Un hilo de aceite verde por encima al final, porque Andalucía me hizo creer en el aceite como los italianos creen en el suyo. Nada más.",
       ],
       nl: [
-        "Er staat een chiringuito in Estepona — een houten keet op het zand die er al stond voordat ik geboren ben — waar een oude vent met de naam Pepe de plancha bedient. Hij spreekt weinig Engels, hoeft niet. Hij grilt feitelijk twee dingen, soms een derde: dorada, zeebaars en op vrijdag sardientjes zo vers dat ze nog verbaasd kijken.",
+        "Er staat een chiringuito in Estepona. Een houten keet op het zand die er al stond voordat ik geboren ben. Waar een oude vent met de naam Pepe de plancha bedient. Hij spreekt weinig Engels, hoeft niet. Hij grilt feitelijk twee dingen, soms een derde: dorada, zeebaars en op vrijdag sardientjes zo vers dat ze nog verbaasd kijken.",
         "Eerste keer dat ik probeerde te helpen, greep ik na een minuut of twee naar een vis op de plancha en kreeg een tik op m'n hand. 'No la toques,' zei hij. Niet aanraken. De vis laat zichzelf los als 'ie klaar is. Raak hem eerder aan en je trekt het vel kapot en verliest precies waar je voor kwam. Dat was de hele les.",
         "Ik maak 'm thuis nu precies zoals Pepe 'm op het strand maakt. Heet ijzer, olie, zout, vis, wachten. Geroosterde citroen ernaast omdat het zuur het vet wakker maakt. Een straaltje groene olijfolie eroverheen tot slot, omdat Andalusië me net zo in olijfolie heeft laten geloven als Italianen in de hunne. Verder niets.",
       ],
@@ -1426,7 +1426,7 @@ export const recipes: LocalisedRecipe[] = [
         body: {
           en: "Don't touch the fish for 4-5 minutes. It releases when it's ready, not before.",
           es: "No toques el pescado durante 4-5 minutos. Se suelta cuando está, no antes.",
-          nl: "Niet aanraken voor 4-5 minuten — het vel moet vastgrillen en zelf loslaten.",
+          nl: "Niet aanraken voor 4-5 minuten. Het vel moet vastgrillen en zelf loslaten.",
         },
       },
       {
@@ -1509,9 +1509,9 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 3,
         body: {
-          en: "Fish on the iron. Don't touch it for 4-5 minutes — the skin must grip and release itself.",
-          es: "Pescado en la plancha. No lo toques 4-5 minutos — la piel debe agarrarse y soltarse sola.",
-          nl: "Vis op de hete plaat. Niet aanraken voor 4-5 minuten — het vel moet vastgrillen en zelf loslaten.",
+          en: "Fish on the iron. Don't touch it for 4-5 minutes. The skin must grip and release itself.",
+          es: "Pescado en la plancha. No lo toques 4-5 minutos. La piel debe agarrarse y soltarse sola.",
+          nl: "Vis op de hete plaat. Niet aanraken voor 4-5 minuten. Het vel moet vastgrillen en zelf loslaten.",
         },
       },
       {
@@ -1525,9 +1525,9 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 5,
         body: {
-          en: "Flip the fish with two spatulas. Another 3-4 minutes — core temperature 55 °C.",
-          es: "Voltea el pescado con dos espátulas. 3-4 minutos más — núcleo a 55 °C.",
-          nl: "Vis voorzichtig omdraaien met twee spatels. Nog 3-4 minuten — kerntemperatuur 55 °C.",
+          en: "Flip the fish with two spatulas. Another 3-4 minutes. Core temperature 55 °C.",
+          es: "Voltea el pescado con dos espátulas. 3-4 minutos más. Núcleo a 55 °C.",
+          nl: "Vis voorzichtig omdraaien met twee spatels. Nog 3-4 minuten. Kerntemperatuur 55 °C.",
         },
       },
       {
@@ -1567,18 +1567,18 @@ export const recipes: LocalisedRecipe[] = [
     body: {
       en: [
         "I had this dish first in Bologna in 2015, during a week I was supposed to be photographing a wedding and ended up eating my way through the city instead. A guy named Tonino ran a food cart in the Mercato delle Erbe with a pasta machine on a table behind him and a stack of 'nduja jars at his feet. He'd never written down a recipe in his life.",
-        "He explained the squid trick to me as a favour, since I'd been there three lunches in a row. Squid is 90 seconds or 90 minutes — anything in between is rubber. You can either flash-cook it screaming hot, or you can stew it patient and slow until it goes soft again. The middle is a trap. Every time someone gets it wrong, it's because they cooked it for four minutes and got nervous.",
-        "The pasta is black because of the ink. The 'nduja is red because of the Calabrian chillies. The lemon zest is yellow because lemons are yellow. Three colours that scream at each other on the plate, and somehow taste like they were always meant to share the bowl. The bread crumbs on top are not optional — they are the whole crunch the dish is built around.",
+        "He explained the squid trick to me as a favour, since I'd been there three lunches in a row. Squid is 90 seconds or 90 minutes. Anything in between is rubber. You can either flash-cook it screaming hot, or you can stew it patient and slow until it goes soft again. The middle is a trap. Every time someone gets it wrong, it's because they cooked it for four minutes and got nervous.",
+        "The pasta is black because of the ink. The 'nduja is red because of the Calabrian chillies. The lemon zest is yellow because lemons are yellow. Three colours that scream at each other on the plate, and somehow taste like they were always meant to share the bowl. The bread crumbs on top are not optional. They are the whole crunch the dish is built around.",
       ],
       es: [
         "Probé este plato por primera vez en Bolonia en 2015, durante una semana en la que tenía que fotografiar una boda y acabé comiéndome la ciudad. Un tipo llamado Tonino llevaba un puesto en el Mercato delle Erbe con una máquina de pasta sobre una mesa y un montón de tarros de 'nduja a sus pies. Nunca había escrito una receta en su vida.",
-        "Me explicó el truco del calamar como favor, porque ya iba tres días seguidos. El calamar son 90 segundos o 90 minutos — todo lo que hay en medio es goma. O lo haces a fuego brutal y rápido, o lo estofas paciente y lento hasta que vuelva a ablandarse. El medio es una trampa. Cuando alguien lo arruina es porque lo coció cuatro minutos y se puso nervioso.",
-        "La pasta es negra por la tinta. La 'nduja es roja por las guindillas calabresas. La ralladura es amarilla porque los limones son amarillos. Tres colores gritándose en el plato y, sin embargo, sabiendo a que siempre debieron compartir el bol. Las migas tostadas no son opcionales — son el crujido sobre el que se levanta el plato.",
+        "Me explicó el truco del calamar como favor, porque ya iba tres días seguidos. El calamar son 90 segundos o 90 minutos. Todo lo que hay en medio es goma. O lo haces a fuego brutal y rápido, o lo estofas paciente y lento hasta que vuelva a ablandarse. El medio es una trampa. Cuando alguien lo arruina es porque lo coció cuatro minutos y se puso nervioso.",
+        "La pasta es negra por la tinta. La 'nduja es roja por las guindillas calabresas. La ralladura es amarilla porque los limones son amarillos. Tres colores gritándose en el plato y, sin embargo, sabiendo a que siempre debieron compartir el bol. Las migas tostadas no son opcionales. Son el crujido sobre el que se levanta el plato.",
       ],
       nl: [
         "Ik proefde dit voor het eerst in Bologna in 2015, tijdens een week dat ik geacht werd een bruiloft te fotograferen en in plaats daarvan de stad door at. Een vent met de naam Tonino runde een foodtruck op de Mercato delle Erbe met een pastamachine op een tafeltje en een stapel 'nduja-potjes aan z'n voeten. Hij had in z'n leven nog nooit een recept opgeschreven.",
-        "Hij legde me de inktvis-truc uit als een gunst, omdat ik er drie lunches achter elkaar zat. Inktvis is 90 seconden of 90 minuten — alles ertussenin is rubber. Je doet hem flitsend op vuurrood, of je stooft 'm geduldig en langzaam tot 'ie weer zacht wordt. Het midden is een val. Elke keer dat iemand het verprutst, is het omdat ze 'm vier minuten hebben gebakken en zenuwachtig werden.",
-        "De pasta is zwart door de inkt. De nduja is rood door de Calabrische chilies. De citroenrasp is geel omdat citroenen geel zijn. Drie kleuren die elkaar van het bord af schreeuwen, en toch smaken alsof ze altijd al samen in die kom hoorden. De broodkruim erbovenop is geen luxe — het is de hele crunch waarop het gerecht rust.",
+        "Hij legde me de inktvis-truc uit als een gunst, omdat ik er drie lunches achter elkaar zat. Inktvis is 90 seconden of 90 minuten. Alles ertussenin is rubber. Je doet hem flitsend op vuurrood, of je stooft 'm geduldig en langzaam tot 'ie weer zacht wordt. Het midden is een val. Elke keer dat iemand het verprutst, is het omdat ze 'm vier minuten hebben gebakken en zenuwachtig werden.",
+        "De pasta is zwart door de inkt. De nduja is rood door de Calabrische chilies. De citroenrasp is geel omdat citroenen geel zijn. Drie kleuren die elkaar van het bord af schreeuwen, en toch smaken alsof ze altijd al samen in die kom hoorden. De broodkruim erbovenop is geen luxe. Het is de hele crunch waarop het gerecht rust.",
       ],
     },
     nowPlaying: {
@@ -1688,9 +1688,9 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 1,
         body: {
-          en: "Pasta: flour, eggs, ink and a pinch of salt in a stand mixer or processor — 1 minute on the dough setting. Wrap, rest 30 minutes. Roll out to setting 6, cut tagliatelle, dust with flour.",
-          es: "Pasta: harina, huevos, tinta y una pizca de sal en amasadora o procesadora — 1 minuto en modo amasado. Envuelve, reposa 30 minutos. Estira al grosor 6, corta en tagliatelle, espolvorea con harina.",
-          nl: "Pasta: bloem, eieren, inkt en zout in een kneedmachine — 1 minuut op kneedstand. Wikkel in folie, 30 min rusten. Uitrollen tot stand 6, in tagliatelle snijden, met bloem bestrooien.",
+          en: "Pasta: flour, eggs, ink and a pinch of salt in a stand mixer or processor. 1 minute on the dough setting. Wrap, rest 30 minutes. Roll out to setting 6, cut tagliatelle, dust with flour.",
+          es: "Pasta: harina, huevos, tinta y una pizca de sal en amasadora o procesadora. 1 minuto en modo amasado. Envuelve, reposa 30 minutos. Estira al grosor 6, corta en tagliatelle, espolvorea con harina.",
+          nl: "Pasta: bloem, eieren, inkt en zout in een kneedmachine. 1 minuut op kneedstand. Wikkel in folie, 30 min rusten. Uitrollen tot stand 6, in tagliatelle snijden, met bloem bestrooien.",
         },
       },
       {
@@ -1704,17 +1704,17 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 3,
         body: {
-          en: "Pasta into boiling salted water — 2-3 minutes, al dente.",
-          es: "Pasta al agua hirviendo con sal — 2-3 minutos, al dente.",
-          nl: "Pasta in kokend gezouten water — 2-3 minuten, beetgaar.",
+          en: "Pasta into boiling salted water. 2-3 minutes, al dente.",
+          es: "Pasta al agua hirviendo con sal. 2-3 minutos, al dente.",
+          nl: "Pasta in kokend gezouten water. 2-3 minuten, beetgaar.",
         },
       },
       {
         position: 4,
         body: {
-          en: "Big pan: olive oil, garlic soft. 'Nduja in, melt until the oil runs red. Calamari in — 90 seconds on high heat, no longer.",
-          es: "Sartén grande: aceite, ajo a sudar. 'Nduja, deshacer hasta que el aceite se ponga rojo. Calamares — 90 segundos a fuego fuerte, no más.",
-          nl: "In een grote pan: olijfolie, knoflook zacht laten worden. Nduja erbij, smelten tot olie rood kleurt. Inktvis erbij — 90 seconden op hoog vuur, niet langer.",
+          en: "Big pan: olive oil, garlic soft. 'Nduja in, melt until the oil runs red. Calamari in. 90 seconds on high heat, no longer.",
+          es: "Sartén grande: aceite, ajo a sudar. 'Nduja, deshacer hasta que el aceite se ponga rojo. Calamares. 90 segundos a fuego fuerte, no más.",
+          nl: "In een grote pan: olijfolie, knoflook zacht laten worden. Nduja erbij, smelten tot olie rood kleurt. Inktvis erbij. 90 seconden op hoog vuur, niet langer.",
         },
       },
       {
@@ -1769,17 +1769,17 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "Chef Sergio at Bord'eau was Italian, properly Italian, and he had no patience for vitello tonnato done badly. The Dutch versions he'd tasted in his early Amsterdam years had haunted him. He served his with the meat sliced so thin you could read a menu through it, and a tonnato so smooth it sat like a sauce should sit — without ever sliding off the plate.",
+        "Chef Sergio at Bord'eau was Italian, properly Italian, and he had no patience for vitello tonnato done badly. The Dutch versions he'd tasted in his early Amsterdam years had haunted him. He served his with the meat sliced so thin you could read a menu through it, and a tonnato so smooth it sat like a sauce should sit. Without ever sliding off the plate.",
         "He gave me a single rule when I asked him about it: 'non lo modernizzare.' Don't modernize it. Don't add truffle oil, don't swap the tonnato for something clever, don't deconstruct it onto a slate, don't pretend the original is something to be improved upon. Make it the way someone in Piemonte made it in 1950 and you will not be embarrassed by it.",
         "What he didn't tell me is how good fried capers are on top. That I worked out on my own, watching a girl from Liguria do it at a beach bar in Sori one August. She fried them until they bloomed open like little flowers. I have never made vitello tonnato without them since.",
       ],
       es: [
-        "El chef Sergio en Bord'eau era italiano, italiano de verdad, y no tenía paciencia con el vitello tonnato hecho mal. Las versiones holandesas que había probado en sus primeros años en Ámsterdam le perseguían. Servía la suya con la carne cortada tan fina que se podía leer un menú a través, y un tonnato tan liso que se quedaba como debe quedar una salsa — sin escurrirse del plato.",
+        "El chef Sergio en Bord'eau era italiano, italiano de verdad, y no tenía paciencia con el vitello tonnato hecho mal. Las versiones holandesas que había probado en sus primeros años en Ámsterdam le perseguían. Servía la suya con la carne cortada tan fina que se podía leer un menú a través, y un tonnato tan liso que se quedaba como debe quedar una salsa. Sin escurrirse del plato.",
         "Me dio una sola regla cuando le pregunté: 'non lo modernizzare.' No lo modernices. No le pongas aceite de trufa, no cambies el tonnato por algo listillo, no lo descompongas sobre una pizarra, no finjas que el original es algo que hay que mejorar. Hazlo como alguien en Piamonte lo hacía en 1950 y no pasarás vergüenza.",
         "Lo que no me contó es lo buenas que están las alcaparras fritas por encima. Eso lo descubrí solo, viendo a una chica de Liguria hacerlo en un chiringuito de Sori un agosto. Las fríe hasta que se abren como flores pequeñas. No he hecho un vitello sin ellas desde entonces.",
       ],
       nl: [
-        "Chef Sergio bij Bord'eau was Italiaans, echt Italiaans, en hij had geen geduld voor slecht gemaakte vitello tonnato. De Nederlandse versies die hij in z'n eerste Amsterdamse jaren had geproefd achtervolgden hem. Hij serveerde de zijne met het vlees zo dun gesneden dat je er een menu doorheen kon lezen, en een tonnato zo glad dat 'ie stil bleef zitten op het bord — niet wegliep.",
+        "Chef Sergio bij Bord'eau was Italiaans, echt Italiaans, en hij had geen geduld voor slecht gemaakte vitello tonnato. De Nederlandse versies die hij in z'n eerste Amsterdamse jaren had geproefd achtervolgden hem. Hij serveerde de zijne met het vlees zo dun gesneden dat je er een menu doorheen kon lezen, en een tonnato zo glad dat 'ie stil bleef zitten op het bord. Niet wegliep.",
         "Hij gaf me één regel toen ik ernaar vroeg: 'non lo modernizzare.' Niet moderniseren. Geen truffelolie eroverheen, geen slimme alternatieven voor de tonnato, niet deconstrueren op een lei, niet doen alsof het origineel iets is dat verbeterd moet worden. Maak 'm zoals iemand in Piemonte 'm in 1950 maakte en je hoeft je nergens voor te schamen.",
         "Wat hij me niet vertelde is hoe goed gefrituurde kappertjes zijn als topping. Dat ontdekte ik zelf, kijkend hoe een meisje uit Ligurië het deed in een strandtent in Sori, een augustus. Ze frituurde ze tot ze opensloegen als kleine bloemen. Sindsdien maak ik geen vitello tonnato meer zonder.",
       ],
@@ -1894,8 +1894,8 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 1,
         body: {
-          en: "Veal: rub with oil, season, oven at 130 °C — slow-cook 45-60 minutes until core 56 °C. Cool, then chill at least 4 hours.",
-          es: "Ternera: úntala con aceite, salpimenta, horno a 130 °C — cocina lenta 45-60 minutos hasta núcleo 56 °C. Enfría y luego mete en la nevera mínimo 4 horas.",
+          en: "Veal: rub with oil, season, oven at 130 °C. Slow-cook 45-60 minutes until core 56 °C. Cool, then chill at least 4 hours.",
+          es: "Ternera: úntala con aceite, salpimenta, horno a 130 °C. Cocina lenta 45-60 minutos hasta núcleo 56 °C. Enfría y luego mete en la nevera mínimo 4 horas.",
           nl: "Kalfsmuis: bestrijk met olijfolie, kruid, oven op 130 °C. Sous-vide stijl gaarstoven 45-60 minuten tot kerntemperatuur 56 °C. Afkoelen, dan minimaal 4 uur in de koelkast.",
         },
       },
@@ -1904,15 +1904,15 @@ export const recipes: LocalisedRecipe[] = [
         body: {
           en: "Tonnato: blitz yolk, whole egg, mustard, tuna, anchovies, capers and lemon juice for 20 seconds.",
           es: "Tonnato: tritura 20 segundos yema, huevo entero, mostaza, atún, anchoas, alcaparras y zumo de limón.",
-          nl: "Tonnato: dooier, ei, mosterd, tonijn, ansjovis, kappertjes, citroensap blenden — 20 sec.",
+          nl: "Tonnato: dooier, ei, mosterd, tonijn, ansjovis, kappertjes, citroensap blenden. 20 sec.",
         },
       },
       {
         position: 3,
         body: {
-          en: "With the blender running low, add the oils in a thin stream until thick and glossy. Taste — usually no extra salt.",
-          es: "Con la máquina a velocidad baja, añade los aceites en hilo fino hasta espesar y brillar. Prueba — normalmente no necesita más sal.",
-          nl: "Op lage stand, oliën in dunne straal toevoegen tot saus dik en glanzend. Proeven — meestal geen extra zout nodig.",
+          en: "With the blender running low, add the oils in a thin stream until thick and glossy. Taste. Usually no extra salt.",
+          es: "Con la máquina a velocidad baja, añade los aceites en hilo fino hasta espesar y brillar. Prueba. Normalmente no necesita más sal.",
+          nl: "Op lage stand, oliën in dunne straal toevoegen tot saus dik en glanzend. Proeven. Meestal geen extra zout nodig.",
         },
       },
       {
@@ -1968,18 +1968,18 @@ export const recipes: LocalisedRecipe[] = [
     body: {
       en: [
         "First brownie I ever made was for a girlfriend's birthday when I was nineteen. It came out like a hockey puck. She ate a slice anyway, told me it was 'crunchy', smiled, and never asked me to make one again. I think about that brownie more than I should.",
-        "Marc at Bord'eau — the same Marc from the gougère — fixed me later with one rule: underbake. Always. Chocolate continues to set after the tin comes out. A brownie that looked right out of the oven is a brick by the time it cools. A brownie that wobbles in the middle when you pull the tin out is what you actually want.",
-        "The smoked salt I use comes from a tiny operation in Cádiz where they smoke flake salt over old whisky barrels. Don't use commercial smoke flavour — it tastes like wood preservative. Plain fleur de sel is also fine. The point is salt in punctual little crystals on top, not stirred through.",
+        "Marc at Bord'eau. The same Marc from the gougère. Fixed me later with one rule: underbake. Always. Chocolate continues to set after the tin comes out. A brownie that looked right out of the oven is a brick by the time it cools. A brownie that wobbles in the middle when you pull the tin out is what you actually want.",
+        "The smoked salt I use comes from a tiny operation in Cádiz where they smoke flake salt over old whisky barrels. Don't use commercial smoke flavour. It tastes like wood preservative. Plain fleur de sel is also fine. The point is salt in punctual little crystals on top, not stirred through.",
       ],
       es: [
         "El primer brownie que hice en mi vida fue para el cumpleaños de una novia, tenía diecinueve años. Salió como un pisapapeles. Se comió una porción de todas formas, me dijo que estaba 'crujiente', sonrió y no me volvió a pedir otro nunca. Pienso en ese brownie más de lo que debería.",
-        "Marc en Bord'eau — el mismo Marc de la gougère — me arregló más tarde con una sola regla: subhornea. Siempre. El chocolate sigue cuajando después de salir del molde. Un brownie que parece listo al sacarlo es un ladrillo cuando enfría. El brownie que tiembla en el medio cuando sacas el molde es lo que de verdad quieres.",
-        "La sal ahumada que uso viene de una pequeña producción en Cádiz donde ahúman sal en escamas sobre barriles viejos de whisky. No uses aroma de humo comercial — sabe a barniz. La flor de sal sin más también vale. Lo importante es la sal en cristales puntuales arriba, no integrada en la masa.",
+        "Marc en Bord'eau. El mismo Marc de la gougère. Me arregló más tarde con una sola regla: subhornea. Siempre. El chocolate sigue cuajando después de salir del molde. Un brownie que parece listo al sacarlo es un ladrillo cuando enfría. El brownie que tiembla en el medio cuando sacas el molde es lo que de verdad quieres.",
+        "La sal ahumada que uso viene de una pequeña producción en Cádiz donde ahúman sal en escamas sobre barriles viejos de whisky. No uses aroma de humo comercial. Sabe a barniz. La flor de sal sin más también vale. Lo importante es la sal en cristales puntuales arriba, no integrada en la masa.",
       ],
       nl: [
         "De eerste brownie die ik ooit maakte was voor de verjaardag van een vriendinnetje toen ik negentien was. Hij kwam eruit als een ijshockey-puck. Ze at toch een stuk, zei dat 'ie 'knapperig' was, glimlachte, en heeft me er nooit meer eentje gevraagd. Ik denk vaker aan die brownie dan ik zou moeten.",
-        "Marc bij Bord'eau — dezelfde Marc als bij de gougère — leerde me later één regel: onderbakken. Altijd. Chocolade gaart na als de vorm uit de oven komt. Een brownie die er bij het uittillen al goed uitziet, is een baksteen tegen de tijd dat 'ie is afgekoeld. Een brownie die wiebelt in het midden bij het uithalen is wat je wilt.",
-        "Het gerookte zout dat ik gebruik komt van een piepkleine zoutwinning in Cádiz waar ze vlokzout boven oude whisky-vaten roken. Gebruik geen commerciële rookaroma — dat smaakt naar houtbeits. Gewone fleur de sel kan ook prima. Het punt is zout in puntige kristallen erbovenop, niet erdoor.",
+        "Marc bij Bord'eau. Dezelfde Marc als bij de gougère. Leerde me later één regel: onderbakken. Altijd. Chocolade gaart na als de vorm uit de oven komt. Een brownie die er bij het uittillen al goed uitziet, is een baksteen tegen de tijd dat 'ie is afgekoeld. Een brownie die wiebelt in het midden bij het uithalen is wat je wilt.",
+        "Het gerookte zout dat ik gebruik komt van een piepkleine zoutwinning in Cádiz waar ze vlokzout boven oude whisky-vaten roken. Gebruik geen commerciële rookaroma. Dat smaakt naar houtbeits. Gewone fleur de sel kan ook prima. Het punt is zout in puntige kristallen erbovenop, niet erdoor.",
       ],
     },
     nowPlaying: {
@@ -2093,17 +2093,17 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 3,
         body: {
-          en: "Beat in both sugars and the eggs with the vanilla — hard, until glossy and ribbon-thick (2 minutes by hand).",
-          es: "Bate los dos azúcares y los huevos con la vainilla — fuerte, hasta brillante y con punto de cinta (2 minutos a mano).",
-          nl: "Beide suikers en eieren erbij, vanille — krachtig kloppen tot glanzend en pakt (handgarde 2 minuten).",
+          en: "Beat in both sugars and the eggs with the vanilla. Hard, until glossy and ribbon-thick (2 minutes by hand).",
+          es: "Bate los dos azúcares y los huevos con la vainilla. Fuerte, hasta brillante y con punto de cinta (2 minutos a mano).",
+          nl: "Beide suikers en eieren erbij, vanille. Krachtig kloppen tot glanzend en pakt (handgarde 2 minuten).",
         },
       },
       {
         position: 4,
         body: {
-          en: "Sift flour, cocoa and salt over the top. Fold gently with a spatula — stop just before it's fully combined.",
-          es: "Tamiza la harina, el cacao y la sal por encima. Integra con espátula con cuidado — para justo antes de mezclar del todo.",
-          nl: "Bloem, cacao en zout zeven boven het mengsel. Voorzichtig erdoor spatelen — niet roeren, juist net niet helemaal mengen.",
+          en: "Sift flour, cocoa and salt over the top. Fold gently with a spatula. Stop just before it's fully combined.",
+          es: "Tamiza la harina, el cacao y la sal por encima. Integra con espátula con cuidado. Para justo antes de mezclar del todo.",
+          nl: "Bloem, cacao en zout zeven boven het mengsel. Voorzichtig erdoor spatelen. Niet roeren, juist net niet helemaal mengen.",
         },
       },
       {
@@ -2150,17 +2150,17 @@ export const recipes: LocalisedRecipe[] = [
     },
     body: {
       en: [
-        "Last service at Bord'eau before New Year's Eve 2014, chef Sergio called me over to the pass and pointed at a thermidor going out. 'Decadent or nothing', he said. Either you commit to the whole thing — the cognac, the cream, the Gruyère gratinéed dark on top — or you serve sea bass and shut up. There is no halfway lobster.",
+        "Last service at Bord'eau before New Year's Eve 2014, chef Sergio called me over to the pass and pointed at a thermidor going out. 'Decadent or nothing', he said. Either you commit to the whole thing. The cognac, the cream, the Gruyère gratinéed dark on top. Or you serve sea bass and shut up. There is no halfway lobster.",
         "What I learned that night, and what I'm still grateful for, is that some classics don't need updating. Lobster thermidor is one of them. The sauce is cognac, butter, mustard, cream, cheese. The fish is lobster. The technique is the technique people have used since the 1880s. Try to improve it and you'll only make it worse.",
         "I make this once a year. New Year's Eve, in our little house in Coín, candles on the table, the dog asleep under it. It takes the time it takes. Anyone who's in a hurry on New Year's Eve has not understood the assignment.",
       ],
       es: [
-        "Último servicio en Bord'eau antes de Nochevieja 2014, el chef Sergio me llamó al pase y señaló un thermidor que iba a salir. 'Decadente o nada', dijo. O te comprometes con la cosa entera — el coñac, la nata, el Gruyère gratinado oscuro por arriba — o sirves lubina y te callas. No hay bogavante a medias.",
+        "Último servicio en Bord'eau antes de Nochevieja 2014, el chef Sergio me llamó al pase y señaló un thermidor que iba a salir. 'Decadente o nada', dijo. O te comprometes con la cosa entera. El coñac, la nata, el Gruyère gratinado oscuro por arriba. O sirves lubina y te callas. No hay bogavante a medias.",
         "Lo que aprendí esa noche, y lo que sigo agradeciendo, es que algunos clásicos no necesitan actualización. El bogavante thermidor es uno. La salsa es coñac, mantequilla, mostaza, nata, queso. El pescado es bogavante. La técnica es la técnica que se usa desde 1880. Intenta mejorarlo y sólo lo empeorarás.",
         "Lo hago una vez al año. Nochevieja, en nuestra casita de Coín, velas en la mesa, el perro dormido debajo. Tarda lo que tarda. Quien tenga prisa en Nochevieja no ha entendido la tarea.",
       ],
       nl: [
-        "Laatste service bij Bord'eau voor oudejaarsavond 2014, chef Sergio riep me bij de pas en wees naar een thermidor die de deur uitging. 'Decadent of niets,' zei hij. Of je gaat voor het hele ding — de cognac, de room, de donker gegratineerde Gruyère erbovenop — of je serveert zeebaars en houdt je mond. Een halve kreeft bestaat niet.",
+        "Laatste service bij Bord'eau voor oudejaarsavond 2014, chef Sergio riep me bij de pas en wees naar een thermidor die de deur uitging. 'Decadent of niets,' zei hij. Of je gaat voor het hele ding. De cognac, de room, de donker gegratineerde Gruyère erbovenop. Of je serveert zeebaars en houdt je mond. Een halve kreeft bestaat niet.",
         "Wat ik die avond leerde, en waar ik nog dankbaar voor ben, is dat sommige klassiekers geen update nodig hebben. Kreeft thermidor is er een. De saus is cognac, boter, mosterd, room, kaas. De vis is kreeft. De techniek is de techniek die ze sinds 1880 gebruiken. Probeer 'm te verbeteren en je verpest 'm.",
         "Ik maak 'm één keer per jaar. Oudejaarsavond, in ons huisje in Coín, kaarsen op tafel, de hond eronder. Het kost wat het kost. Wie haast heeft op oudejaarsavond heeft de opdracht niet begrepen.",
       ],
@@ -2281,7 +2281,7 @@ export const recipes: LocalisedRecipe[] = [
         body: {
           en: "Boil heavily salted water. Drop the lobster head-first into the rolling water. 7 minutes for 600 g. Straight into ice water. Cool fully.",
           es: "Lleva el agua bien salada a hervir fuerte. Mete el bogavante de cabeza al agua hirviendo. 7 minutos para 600 g. Directo al agua con hielo. Enfría del todo.",
-          nl: "Breng flink gezouten water aan de kook. Levende kreeft kop eerst in kokend water — 7 minuten voor 600 g. Direct in ijswater. Helemaal afkoelen.",
+          nl: "Breng flink gezouten water aan de kook. Levende kreeft kop eerst in kokend water. 7 minuten voor 600 g. Direct in ijswater. Helemaal afkoelen.",
         },
       },
       {
@@ -2295,8 +2295,8 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 3,
         body: {
-          en: "Melt butter, sweat the shallot 5 minutes. Deglaze with cognac — flambé if you like. Add white wine and fumet, reduce by two-thirds.",
-          es: "Funde la mantequilla, sofríe la chalota 5 minutos. Desglasa con coñac — flambea si quieres. Añade vino blanco y fumet, reduce dos tercios.",
+          en: "Melt butter, sweat the shallot 5 minutes. Deglaze with cognac. Flambé if you like. Add white wine and fumet, reduce by two-thirds.",
+          es: "Funde la mantequilla, sofríe la chalota 5 minutos. Desglasa con coñac. Flambea si quieres. Añade vino blanco y fumet, reduce dos tercios.",
           nl: "Boter smelten, sjalot zacht (5 min). Blus met cognac, flambeer indien gewenst. Voeg witte wijn en fumet toe, reduceer tot 1/3.",
         },
       },
@@ -2353,17 +2353,17 @@ export const recipes: LocalisedRecipe[] = [
     body: {
       en: [
         "I learned this from a friend's birthday in Madrid, four or five years ago. He was Argentine, lived in Spain twenty years, missed home loud and often. For his birthday he insisted on cooking, refused all help, walked us to a carnicería near Plaza Mayor and pointed at a single piece of meat: una entraña, 400 g, against the grain, please.",
-        "Back at his flat he gave me one set of rules, in Spanish too fast to argue with. Meat at room temperature an hour before. Pan on the highest heat possible. Three minutes one side, three the other, no moving. Eight to ten minutes rest on a board — not on a plate, not under foil. Then chimichurri, made an hour earlier, and a sharp knife, and bread, and red wine, and the rest is conversation.",
+        "Back at his flat he gave me one set of rules, in Spanish too fast to argue with. Meat at room temperature an hour before. Pan on the highest heat possible. Three minutes one side, three the other, no moving. Eight to ten minutes rest on a board. Not on a plate, not under foil. Then chimichurri, made an hour earlier, and a sharp knife, and bread, and red wine, and the rest is conversation.",
         "Every word of it was true. This is the simplest piece of red meat you can make at home and the easiest one to ruin. Rest is as important as searing. Without rest you get blood on the board and dry meat on the tongue. The chimichurri is the second half of the dish, not a garnish.",
       ],
       es: [
         "Esto lo aprendí en el cumpleaños de un amigo en Madrid, hace cuatro o cinco años. Era argentino, llevaba veinte años en España, echaba de menos su casa en voz alta y a menudo. Para su cumple insistió en cocinar él, no aceptó ayuda, nos llevó a una carnicería cerca de Plaza Mayor y señaló un único trozo de carne: una entraña, 400 g, contra el grano, por favor.",
-        "Ya en su piso me dio una sola tanda de reglas, en español demasiado rápido para discutir. Carne a temperatura ambiente una hora antes. Sartén al máximo. Tres minutos una cara, tres la otra, sin moverla. Ocho o diez minutos de reposo en tabla — no en plato, no bajo papel. Después chimichurri hecho una hora antes, un cuchillo afilado, pan, vino tinto, y el resto es conversación.",
+        "Ya en su piso me dio una sola tanda de reglas, en español demasiado rápido para discutir. Carne a temperatura ambiente una hora antes. Sartén al máximo. Tres minutos una cara, tres la otra, sin moverla. Ocho o diez minutos de reposo en tabla. No en plato, no bajo papel. Después chimichurri hecho una hora antes, un cuchillo afilado, pan, vino tinto, y el resto es conversación.",
         "Cada palabra era verdad. Es la carne roja más simple que puedes hacer en casa y la más fácil de cagarla. El reposo importa tanto como el marcado. Sin reposo tienes sangre en la tabla y carne seca en la lengua. El chimichurri es la mitad del plato, no una guarnición.",
       ],
       nl: [
         "Ik leerde dit op de verjaardag van een vriend in Madrid, vier of vijf jaar geleden. Hij was Argentijn, woonde twintig jaar in Spanje, miste thuis luid en vaak. Voor z'n verjaardag stond hij erop dat hij kookte, hulp werd geweigerd, hij liep met ons mee naar een carniceria bij Plaza Mayor en wees op één stuk vlees: una entraña, 400 g, tegen de draad in, por favor.",
-        "Terug in z'n flat gaf hij me één set regels, in een Spaans te snel om over te discussiëren. Vlees een uur voor de bereiding op kamertemperatuur. Pan op het hoogste vuur dat je hebt. Drie minuten één kant, drie minuten de andere, niet aanraken. Acht tot tien minuten rusten op een snijplank — niet op een bord, niet onder folie. Dan chimichurri, een uur eerder gemaakt, een scherp mes, brood, rode wijn, en de rest is gesprek.",
+        "Terug in z'n flat gaf hij me één set regels, in een Spaans te snel om over te discussiëren. Vlees een uur voor de bereiding op kamertemperatuur. Pan op het hoogste vuur dat je hebt. Drie minuten één kant, drie minuten de andere, niet aanraken. Acht tot tien minuten rusten op een snijplank. Niet op een bord, niet onder folie. Dan chimichurri, een uur eerder gemaakt, een scherp mes, brood, rode wijn, en de rest is gesprek.",
         "Elk woord klopte. Dit is het simpelste stuk rood vlees dat je thuis kunt maken en het makkelijkste om te verprutsen. Rusten is even belangrijk als bakken. Zonder rust krijg je bloed op de plank en droog vlees op de tong. De chimichurri is de tweede helft van het gerecht, geen garnituur.",
       ],
     },
@@ -2463,9 +2463,9 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 1,
         body: {
-          en: "Chimichurri: mix everything in a bowl. Rest at room temperature 30 minutes minimum. Do not blend — coarse is the point.",
-          es: "Chimichurri: mezcla todo en un bol. Reposa a temperatura ambiente 30 minutos mínimo. No tritures — grueso es el punto.",
-          nl: "Chimichurri: alles mengen in een kom, minimaal 30 minuten op kamertemperatuur. Niet pureren — grof hoort.",
+          en: "Chimichurri: mix everything in a bowl. Rest at room temperature 30 minutes minimum. Do not blend. Coarse is the point.",
+          es: "Chimichurri: mezcla todo en un bol. Reposa a temperatura ambiente 30 minutos mínimo. No tritures. Grueso es el punto.",
+          nl: "Chimichurri: alles mengen in een kom, minimaal 30 minuten op kamertemperatuur. Niet pureren. Grof hoort.",
         },
       },
       {
@@ -2479,9 +2479,9 @@ export const recipes: LocalisedRecipe[] = [
       {
         position: 3,
         body: {
-          en: "Pan or grill on flame-red. Meat down — 3 minutes one side, no moving. 3 minutes the other side. Medium-rare = core 52 °C.",
-          es: "Sartén o parrilla a fuego brutal. Carne dentro — 3 minutos una cara, sin moverla. 3 minutos la otra. Poco hecho = núcleo 52 °C.",
-          nl: "Pan of grill op vuurrood. Vlees erin — 3 minuten één kant zonder bewegen voor mooie korst. 3 minuten andere kant. Voor medium-rare: kerntemperatuur 52 °C.",
+          en: "Pan or grill on flame-red. Meat down. 3 minutes one side, no moving. 3 minutes the other side. Medium-rare = core 52 °C.",
+          es: "Sartén o parrilla a fuego brutal. Carne dentro. 3 minutos una cara, sin moverla. 3 minutos la otra. Poco hecho = núcleo 52 °C.",
+          nl: "Pan of grill op vuurrood. Vlees erin. 3 minuten één kant zonder bewegen voor mooie korst. 3 minuten andere kant. Voor medium-rare: kerntemperatuur 52 °C.",
         },
       },
       {
@@ -2489,7 +2489,7 @@ export const recipes: LocalisedRecipe[] = [
         body: {
           en: "Rest on a board 8-10 minutes. Do not cover. The crust must stay dry.",
           es: "Reposa en una tabla 8-10 minutos. No tapar. La corteza debe quedarse seca.",
-          nl: "Op een snijplank, 8-10 minuten laten rusten. Niet afdekken — anders zweet de korst weg.",
+          nl: "Op een snijplank, 8-10 minuten laten rusten. Niet afdekken. Anders zweet de korst weg.",
         },
       },
       {

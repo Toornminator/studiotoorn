@@ -1,7 +1,7 @@
 import type { LocalisedEventItem } from "@/lib/types";
 
 /**
- * Concept events — placeholder upcoming dinners written in Nick's voice.
+ * Concept events. Placeholder upcoming dinners written in Nick's voice.
  * Replace with real bookings (or wire to Supabase) once the calendar is
  * confirmed. Dates are kept in the near future so the grid always feels
  * "upcoming"; bump them when you replace the copy. City stays one string
@@ -11,9 +11,9 @@ export const events: LocalisedEventItem[] = [
   {
     slug: "marbella-velvet-heron",
     title: {
-      en: "Velvet Heron — villa takeover",
-      es: "Velvet Heron — toma de la villa",
-      nl: "Velvet Heron — villa takeover",
+      en: "Velvet Heron. Villa takeover",
+      es: "Velvet Heron. Toma de la villa",
+      nl: "Velvet Heron. Villa takeover",
     },
     date: "2026-06-21",
     startTime: "19:30",
@@ -101,9 +101,9 @@ export const events: LocalisedEventItem[] = [
   {
     slug: "fire-end-of-year",
     title: {
-      en: "Open-fire dinner — year's end",
-      es: "Cena al fuego — fin de año",
-      nl: "Vuurplaats-diner — jaarafsluiting",
+      en: "Open-fire dinner. Year's end",
+      es: "Cena al fuego. Fin de año",
+      nl: "Vuurplaats-diner. Jaarafsluiting",
     },
     date: "2026-12-19",
     startTime: "19:30",
@@ -119,9 +119,9 @@ export const events: LocalisedEventItem[] = [
       nl: "Alles dat avond op een open vuur. Houtskool, dichte vlam, één lange tafel met uitzicht op zee.",
     },
     description: {
-      en: "The last dinner of the year, outside on the beach by an open hearth. Smoked, charred, slow-cooked — an evening with serious wines on the table.",
-      es: "La última cena del año, fuera en la playa junto al hogar. Ahumado, marcado a la llama, cocción lenta — una noche con vinos de cuerpo.",
-      nl: "Het laatste diner van het jaar, buiten op het strand bij een vuurplaats. Gerookt, geblakerd, langzaam gegaard — een avond met dikke wijnen erbij.",
+      en: "The last dinner of the year, outside on the beach by an open hearth. Smoked, charred, slow-cooked. An evening with serious wines on the table.",
+      es: "La última cena del año, fuera en la playa junto al hogar. Ahumado, marcado a la llama, cocción lenta. Una noche con vinos de cuerpo.",
+      nl: "Het laatste diner van het jaar, buiten op het strand bij een vuurplaats. Gerookt, geblakerd, langzaam gegaard. Een avond met dikke wijnen erbij.",
     },
     capacity: 12,
     spotsAvailable: 9,
