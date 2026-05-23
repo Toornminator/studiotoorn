@@ -54,3 +54,38 @@
     # short so a re-upload is visible on next visit instead of being
     # stuck in the browser cache for a year.
     Cache-Control = "public, max-age=300, must-revalidate"
+
+# --------------------------------------------------------------------------
+# Security headers — applied to every response.
+# --------------------------------------------------------------------------
+#
+# Locks down browser surface area without breaking the things the site
+# actually needs (Next.js client hydration, Tailwind + framer-motion
+# inline styles, Netlify Forms POSTs, Supabase API calls, future
+# Spotify/YouTube NowPlaying embeds, the Next image optimiser).
+#
+# Notes on specific values:
+#  - HSTS: 2-year max-age with subdomain + preload eligibility.
+#  - X-Frame-Options keeps legacy browsers covered; modern engines also
+#    honour the frame-ancestors directive in the CSP below.
+#  - Referrer-Policy: keep origin on cross-origin so analytics and
+#    affiliate links still work, strip path/query for privacy.
+#  - Permissions-Policy: explicit deny on every API the site doesn't
+#    actually use. `interest-cohort=()` opts us out of FLoC/Topics.
+#  - CSP: 'unsafe-inline' on script + style is unavoidable while we
+#    don't run a nonce pipeline (Next's hydration script + framer-motion
+#    inline transforms both need it). Tightened by pinning everything
+#    else to 'self' and an allow-list. `upgrade-insecure-requests`
+#    forces any stray http:// URL to upgrade to https://.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(self), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=(), interest-cohort=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    X-DNS-Prefetch-Control = "on"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; media-src 'self' blob:; frame-src 'self' https://open.spotify.com https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
