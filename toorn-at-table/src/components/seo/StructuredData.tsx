@@ -161,7 +161,9 @@ function personSchema() {
     knowsLanguage: ["English", "Spanish", "Dutch"],
     worksFor: { "@id": `${SITE}/#business` },
     sameAs: [
-      // Add personal Instagram / LinkedIn here when they're live.
+      "https://www.linkedin.com/in/nick-toorn-973351195/",
+      "https://www.instagram.com/toornattable",
+      "https://www.tiktok.com/@toornattable",
     ],
   };
 }

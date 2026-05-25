@@ -132,7 +132,9 @@ const businessJsonLd = {
     longitude: -4.88,
   },
   sameAs: [
-    // Add Instagram / TikTok / LinkedIn URLs here once they're live.
+    "https://www.instagram.com/toornattable",
+    "https://www.tiktok.com/@toornattable",
+    "https://www.facebook.com/profile.php?id=61590121961495",
   ],
   contactPoint: {
     "@type": "ContactPoint",
