@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Footer } from "@/components/layout/Footer";
 import { NavBar } from "@/components/layout/NavBar";
@@ -47,6 +48,24 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={cn(fontVariables, "h-full antialiased")}>
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
+        {/* Google Analytics 4 — loaded with `afterInteractive` so it
+            never blocks first paint, never delays Lenis/framer-motion
+            startup, and ships after hydration. The Next <Script>
+            wrapper deduplicates across client-side navigations and
+            keeps the gtag init out of React's render cycle. */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WMXDMHKFCV"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WMXDMHKFCV');
+          `}
+        </Script>
+
         <LocaleProvider initialLocale={locale}>
           <SmoothScroll>
             <PaperBackground />
