@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/server";
 import { NewsletterForm } from "./NewsletterForm";
+import { SocialLinks } from "./SocialLinks";
 
 export async function Footer() {
   const t = await getDictionary();
@@ -77,6 +78,11 @@ export async function Footer() {
                 </a>
               </li>
             </ul>
+
+            {/* Social profile row. Same dark-footer hover language as
+                the mail / WhatsApp links above (cream → tattoo-mustard)
+                so the whole block reads as one. */}
+            <SocialLinks />
 
             <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
               <li><Link href="/#kookboek" className="hover:text-tattoo-mustard">{t.footer.sitemapKookboek}</Link></li>
