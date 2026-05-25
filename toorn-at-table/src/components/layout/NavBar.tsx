@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useT } from "@/i18n/client";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -9,7 +11,18 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 export function NavBar() {
   const t = useT();
   const reduceMotion = useReducedMotion();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  // Nav links point at home-page anchors (#over-nick, #kookboek, …). On
+  // the home page that's a plain in-page scroll; from /privacy or
+  // /terms the same hash would just sit in the URL without doing
+  // anything because the target section isn't on the page. So we
+  // prefix the href with "/" when we're not on home — Next's <Link>
+  // does an SPA hop back to the home route and the browser applies
+  // the hash anchor on arrival.
+  const isHome = pathname === "/";
+  const anchorPrefix = isHome ? "" : "/";
 
   // The mobile sheet must close when a section is picked, and also when
   // the visitor rotates to landscape / resizes up past md where the
@@ -47,8 +60,8 @@ export function NavBar() {
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-md">
       <div className="flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px]">
-        <a
-          href="#hero"
+        <Link
+          href={isHome ? "#hero" : "/"}
           aria-label="TOORN at table · back to top"
           onClick={() => setOpen(false)}
           className="group flex min-w-0 items-center gap-2.5 font-medium text-ink transition-colors hover:text-tattoo-red sm:gap-3"
@@ -62,7 +75,7 @@ export function NavBar() {
             className="h-7 w-auto shrink-0 transition-transform duration-300 group-hover:rotate-[-4deg] sm:h-8"
           />
           <span className="truncate">TOORN at table</span>
-        </a>
+        </Link>
         <div className="flex items-center gap-3 sm:gap-6">
           <ul className="hidden md:flex items-center gap-3 sm:gap-5">
             {links.map((link, i) => (
@@ -75,12 +88,12 @@ export function NavBar() {
                     ·
                   </span>
                 )}
-                <a
-                  href={link.href}
+                <Link
+                  href={`${anchorPrefix}${link.href}`}
                   className="whitespace-nowrap transition-colors hover:text-tattoo-red"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -166,8 +179,8 @@ export function NavBar() {
               <ul className="flex flex-col py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink/80">
                 {links.map((link, i) => (
                   <li key={link.href}>
-                    <a
-                      href={link.href}
+                    <Link
+                      href={`${anchorPrefix}${link.href}`}
                       onClick={() => setOpen(false)}
                       className="flex items-center justify-between px-5 py-3.5 transition-colors hover:bg-cream-warm hover:text-tattoo-red active:bg-cream-warm sm:px-6"
                     >
@@ -178,7 +191,7 @@ export function NavBar() {
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

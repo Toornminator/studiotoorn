@@ -79,10 +79,10 @@ export async function Footer() {
             </ul>
 
             <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
-              <li><a href="#kookboek" className="hover:text-tattoo-mustard">{t.footer.sitemapKookboek}</a></li>
-              <li><a href="#events" className="hover:text-tattoo-mustard">{t.footer.sitemapEvents}</a></li>
-              <li><a href="#contact" className="hover:text-tattoo-mustard">{t.footer.sitemapContact}</a></li>
-              <li><a href="#over-nick" className="hover:text-tattoo-mustard">{t.footer.sitemapAbout}</a></li>
+              <li><Link href="/#kookboek" className="hover:text-tattoo-mustard">{t.footer.sitemapKookboek}</Link></li>
+              <li><Link href="/#events" className="hover:text-tattoo-mustard">{t.footer.sitemapEvents}</Link></li>
+              <li><Link href="/#contact" className="hover:text-tattoo-mustard">{t.footer.sitemapContact}</Link></li>
+              <li><Link href="/#over-nick" className="hover:text-tattoo-mustard">{t.footer.sitemapAbout}</Link></li>
             </ul>
           </div>
         </div>
