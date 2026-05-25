@@ -109,6 +109,22 @@ export async function Footer() {
             </li>
             <li aria-hidden className="text-cream/25">·</li>
             <li>{t.footer.madeWith}</li>
+            <li aria-hidden className="text-cream/25">·</li>
+            <li>
+              {/* Studio Toorn credit. opens the agency site in a new
+                  tab; rel=noopener strips window.opener so the agency
+                  page can't navigate this tab; rel=noreferrer + author
+                  on the link gives the agency proper Google attribution
+                  without leaking the visitor's referer header. */}
+              <a
+                href="https://www.studiotoorn.com"
+                target="_blank"
+                rel="author noopener noreferrer"
+                className="transition-colors hover:text-tattoo-mustard"
+              >
+                Designed by Studio Toorn
+              </a>
+            </li>
           </ul>
         </div>
       </div>

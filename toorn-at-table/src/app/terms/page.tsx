@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal/LegalPage";
 import { getDictionary } from "@/i18n/server";
 
+// Title is bare; the layout template appends "· TOORN at table".
 export const metadata: Metadata = {
-  title: "Terms · TOORN at table",
+  title: "Terms",
   description:
-    "How a booking works, in plain words. Terms of service for TOORN at table.",
+    "How a private dinner, villa week, workshop or event booking with TOORN at table actually works. Booking flow, payment, cancellation tiers, allergy policy, applicable law.",
+  alternates: { canonical: "/terms" },
   robots: { index: true, follow: true },
 };
 
