@@ -178,6 +178,25 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={cn(fontVariables, "h-full antialiased")}>
+      <head>
+        {/* Preconnect to the GA4 endpoints before the gtag script
+            requests them. Saves the DNS lookup + TLS handshake on
+            first contact, ~100-200 ms on a cold mobile cellular
+            connection. dns-prefetch is the fallback for browsers
+            that don't honour preconnect. */}
+        <link
+          rel="preconnect"
+          href="https://www.googletagmanager.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://www.google-analytics.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      </head>
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
         {/* LocalBusiness structured data. Google parses this on first
             crawl and uses it for the Knowledge Panel, rich results in

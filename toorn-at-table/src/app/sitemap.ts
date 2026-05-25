@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { recipes } from "@/content/recipes";
 
 /**
  * Sitemap generator. Next.js App Router serves the output at
@@ -8,6 +9,10 @@ import type { MetadataRoute } from "next";
  *   - / (home)         — the long-scroll landing page, top priority
  *   - /privacy         — legal notice
  *   - /terms           — booking terms
+ *
+ * The home entry also embeds an image sitemap with every recipe hero
+ * photo. That tells Google Images each picture lives on this page so
+ * recipe images can rank independently in Image search results.
  *
  * Note on i18n: the site is multilingual (EN / ES / NL) but every
  * language is served off the same root URL via a locale cookie. Until
@@ -20,12 +25,21 @@ const SITE = "https://toornattable.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const recipeImages = recipes
+    .filter((r) => r.heroImage)
+    .map((r) => `${SITE}${r.heroImage as string}`);
+
   return [
     {
       url: `${SITE}/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+      images: [
+        `${SITE}/images/chef_skull_knife_transparent.png`,
+        `${SITE}/images/nick-portrait.jpg`,
+        ...recipeImages,
+      ],
     },
     {
       url: `${SITE}/privacy`,
