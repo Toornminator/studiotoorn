@@ -115,16 +115,40 @@ export function CustomCursor() {
         {mode === "dot" && (
           <motion.svg
             key="dot"
-            width="14"
-            height="18"
-            viewBox="0 0 14 18"
+            width="20"
+            height="26"
+            viewBox="0 0 20 26"
             fill="none"
             initial={{ scale: 0.4, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.4, opacity: 0 }}
             transition={MODE_TRANSITION}
+            // Warm-grey fork picks up the brand palette but reads on both
+            // the cream body and the ink footer. The doubled drop-shadow
+            // is the trick: the dark shadow lifts it off cream, the
+            // hairline white halo lifts it off the ink footer + the
+            // preloader, so the mark never visually disappears.
+            style={{
+              filter:
+                "drop-shadow(0 1px 1.5px rgba(20,16,12,0.45)) drop-shadow(0 0 1px rgba(244,237,224,0.5))",
+            }}
           >
-            <path d="M7 0 Q14 9 7 18 Q0 9 7 0 Z" fill="#1A1A1A" />
+            <g
+              stroke="#7a756c"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* Four tines */}
+              <line x1="3" y1="2" x2="3" y2="14" />
+              <line x1="8" y1="2" x2="8" y2="14" />
+              <line x1="13" y1="2" x2="13" y2="14" />
+              <line x1="18" y1="2" x2="18" y2="14" />
+              {/* Cross-bar where the tines meet the handle */}
+              <line x1="3" y1="14" x2="18" y2="14" />
+              {/* Handle */}
+              <line x1="10.5" y1="14" x2="10.5" y2="24" />
+            </g>
           </motion.svg>
         )}
         {mode === "link" && (
