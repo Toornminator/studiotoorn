@@ -70,6 +70,25 @@ section[id] {
   opacity: 0;
 }
 
+/* Custom-cursor mode. When the CustomCursor mounts on a fine-pointer
+   device it adds `.custom-cursor-active` to <html>. We then force
+   every descendant to `cursor: none` so the brand fork stays in
+   charge — Tailwind's `cursor-pointer` utility on buttons, the
+   user-agent default on <a>, the text caret on inputs, even the
+   resize cursors on `<textarea>` corners. Without !important they
+   each win their own specificity battle and the system pointer
+   keeps flickering back on hover.
+   The custom cursor switches mode (dot / link / grab) via its own
+   pointermove handler so visitors still get the interactivity
+   signal — just rendered as the fork lifting / outlining instead of
+   the OS swapping cursor sprites. */
+html.custom-cursor-active,
+html.custom-cursor-active *,
+html.custom-cursor-active *::before,
+html.custom-cursor-active *::after {
+  cursor: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none;

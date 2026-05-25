@@ -40,8 +40,13 @@ export function CustomCursor() {
   useEffect(() => {
     if (isCoarsePointer) return;
 
-    const previousCursor = document.body.style.cursor;
-    document.body.style.cursor = "none";
+    // `cursor: none` on body alone is not enough: Tailwind's
+    // `cursor-pointer` utility and the user-agent default on
+    // <a>/<button> both win the CSS cascade and the system pointer
+    // pops back over interactive elements. Adding a class to <html>
+    // lets a global rule in globals.css force `cursor: none
+    // !important` on every element + pseudo-element underneath.
+    document.documentElement.classList.add("custom-cursor-active");
 
     const setModeIfChanged = (next: CursorMode) => {
       if (modeRef.current === next) return;
@@ -99,7 +104,7 @@ export function CustomCursor() {
     return () => {
       window.removeEventListener("pointermove", handleMove);
       window.removeEventListener("pointerleave", handleLeave);
-      document.body.style.cursor = previousCursor;
+      document.documentElement.classList.remove("custom-cursor-active");
     };
   }, [isCoarsePointer, x, y]);
 
