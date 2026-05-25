@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Footer } from "@/components/layout/Footer";
 import { NavBar } from "@/components/layout/NavBar";
@@ -48,6 +49,25 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={cn(fontVariables, "h-full antialiased")}>
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
+        {/* Google Consent Mode v2 — runs BEFORE gtag.js so the default
+            state is `denied` for every storage category. GA4 will load
+            but stay inert until the CookieConsent banner posts an
+            update. EU visitors land on an analytics-silent site by
+            default, matching AEPD + EDPB guidance. */}
+        <Script id="ga-consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500,
+            });
+          `}
+        </Script>
         {/* Google Analytics 4 — loaded with `afterInteractive` so it
             never blocks first paint, never delays Lenis/framer-motion
             startup, and ships after hydration. The Next <Script>
@@ -62,7 +82,7 @@ export default async function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-WMXDMHKFCV');
+            gtag('config', 'G-WMXDMHKFCV', { anonymize_ip: true });
           `}
         </Script>
 
@@ -76,6 +96,7 @@ export default async function RootLayout({
             <CustomCursor />
           </SmoothScroll>
           <Preloader />
+          <CookieConsent />
         </LocaleProvider>
       </body>
     </html>

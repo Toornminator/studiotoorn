@@ -299,4 +299,143 @@ export const es: Dictionary = {
       "Reservas abiertas",
     ],
   },
+  cookies: {
+    eyebrow: "Cookies",
+    body: "Usamos cookies para contar cuántas personas llegan al sitio y qué páginas leen. Nada más. Acepta y vemos los totales. Rechaza y no vemos nada.",
+    linkLabel: "Lee la política de privacidad completa",
+    accept: "Aceptar",
+    reject: "Rechazar",
+  },
+  legal: {
+    columnHeading: "Legal",
+    privacyLabel: "Privacidad",
+    termsLabel: "Términos",
+  },
+  privacy: {
+    eyebrow: "Política de privacidad",
+    title: "Lo que sabemos de ti, y lo que no.",
+    lastUpdated: "Última actualización: 25 de mayo de 2026",
+    intro:
+      "Versión corta: usamos este sitio para hablar con gente que quizá quiera una cena privada. No vendemos datos. No los compartimos con anunciantes. Usamos lo mínimo que necesitamos para responderte y para saber cuántos visitantes encuentran el sitio. Versión larga abajo.",
+    sections: [
+      {
+        heading: "Quién está detrás de este sitio",
+        body: [
+          "TOORN at table lo lleva Nick Toorn, trabajando como chef privado desde la Costa del Sol, España. Para cualquier consulta o solicitud de privacidad escríbeme a info@toornattable.com o por WhatsApp al +31 6 14412102.",
+          "Soy el responsable del tratamiento de todo lo descrito a continuación.",
+        ],
+      },
+      {
+        heading: "Lo que tú nos das",
+        body: [
+          "Formulario de contacto: nombre, email, teléfono opcional, la fecha y el formato de lo que planeas, y lo que escribas en el mensaje. Lo uso para responderte y redactar una primera propuesta.",
+          "Newsletter: solo tu email y el idioma en el que lees el sitio. Lo uso para mandar el ocasional despacho y nada más.",
+          "Nunca pido datos de pago en este sitio. La facturación se hace por canales aparte cuando una reserva está firme.",
+        ],
+      },
+      {
+        heading: "Lo que el sitio recoge por su cuenta",
+        body: [
+          "Analítica: uso Google Analytics 4 para contar visitas y ver qué secciones se leen. Solo se activa después de que pulses Aceptar en el banner de cookies. Si rechazas, no se coloca cookie de analítica y no se registra ningún evento. Las direcciones IP se anonimizan antes de llegar a Google.",
+          "Logs del servidor: mi proveedor de hosting, Netlify, guarda logs de acceso a corto plazo por seguridad y rendimiento, como todo hosting web. No se usan para perfilarte.",
+        ],
+      },
+      {
+        heading: "Quién más lo ve",
+        body: [
+          "Netlify aloja el sitio y procesa los envíos de formularios. Sus servidores europeos manejan los datos. Política de privacidad: netlify.com/privacy.",
+          "Supabase guarda las altas de newsletter en Postgres europeo. Política: supabase.com/privacy.",
+          "Resend entrega los correos transaccionales (confirmaciones, newsletter). Política: resend.com/legal/privacy-policy.",
+          "Google Analytics recibe datos anonimizados solo tras consentimiento. Política: policies.google.com/privacy.",
+        ],
+      },
+      {
+        heading: "Cuánto tiempo lo guardamos",
+        body: [
+          "Las respuestas del formulario viven en mi bandeja mientras una conversación esté activa, más un año extra por si vuelves a reservar. Después fuera.",
+          "Las altas a newsletter se quedan hasta que te das de baja.",
+          "Los datos de analítica se guardan 14 meses en Google Analytics, el periodo más corto que ofrecen.",
+        ],
+      },
+      {
+        heading: "Tus derechos",
+        body: [
+          "Bajo el RGPD europeo puedes pedirme que: te enseñe lo que tengo sobre ti, corrija errores, lo borre, te lo mande en un formato portable, o deje de tratarlo. Escribe a info@toornattable.com y respondo dentro de treinta días.",
+          "Si crees que he tratado tus datos mal puedes también reclamar a tu autoridad nacional de protección de datos. En España es la AEPD (aepd.es); en Países Bajos la AP (autoriteitpersoonsgegevens.nl).",
+        ],
+      },
+      {
+        heading: "Cambios",
+        body: [
+          "Si esta política cambia de forma relevante, la fecha de arriba se actualiza y el cambio aparece en la siguiente newsletter. Los typos menores no.",
+        ],
+      },
+    ],
+    contactNote:
+      "¿Preguntas sobre algo de arriba? Escribe a info@toornattable.com o manda un mensaje al +31 6 14412102.",
+  },
+  terms: {
+    eyebrow: "Términos",
+    title: "Cómo funciona una reserva, en palabras claras.",
+    lastUpdated: "Última actualización: 25 de mayo de 2026",
+    intro:
+      "Estas son las reglas de trabajo entre tú y yo cuando reservas una cena, una semana en villa, un workshop, o plazas en uno de mis eventos. Están escritas para que las leas una vez y sepas a qué atenerte.",
+    sections: [
+      {
+        heading: "El servicio",
+        body: [
+          "Soy Nick Toorn, chef privado en la Costa del Sol. Cocino cenas privadas en tu casa o villa, semanas más largas en residencia, workshops pequeños, y las cenas de inscripción abierta que organizo yo mismo. Todo a medida. No hay menú fijo ni lista de precios fija.",
+        ],
+      },
+      {
+        heading: "Reserva y confirmación",
+        body: [
+          "Mándame la forma aproximada de lo que tienes en mente por el formulario, WhatsApp o email. Respondo en 24 horas con una primera propuesta: dirección del menú, timing, un precio.",
+          "Una reserva queda firme solo después de que aceptes la propuesta por escrito y pagues la señal. Hasta entonces no hay nada bloqueado en mi agenda.",
+        ],
+      },
+      {
+        heading: "Pago",
+        body: [
+          "Reparto estándar: 30% de señal al confirmar, el resto dentro de los siete días posteriores a la cena. Para semanas en villa o formatos mayores acordamos el calendario juntos al inicio.",
+          "Los pagos van por transferencia bancaria o, bajo petición, con tarjeta. Las facturas se emiten desde un número de autónomo español.",
+        ],
+      },
+      {
+        heading: "Cambios y cancelación",
+        body: [
+          "Puedes mover la fecha una vez sin coste hasta 14 días antes de la reserva, sujeto a mi agenda.",
+          "Cancelación a más de 30 días: devolución completa de la señal menos perecederos ya comprados. Entre 14 y 30 días: 50% de la señal. Dentro de 14 días: la señal no se devuelve, ya está hecha la compra y la plaza está bloqueada.",
+          "Si yo tengo que cancelar por cualquier motivo de mi lado, recibes la señal completa de vuelta. Aún no ha pasado y pienso mantenerlo así.",
+        ],
+      },
+      {
+        heading: "Alergias y dieta",
+        body: [
+          "Dime las alergias, intolerancias o preferencias dietéticas fuertes al reservar. Las integro, o si un comensal tiene una alergia severa que no puedo garantizar con seguridad, te lo digo claro en lugar de correr el riesgo.",
+          "Si las alergias no se comunican al reservar y solo aparecen la noche misma, hago lo que puedo pero no puedo asumir responsabilidad por el resultado.",
+        ],
+      },
+      {
+        heading: "Responsabilidad",
+        body: [
+          "Tengo seguro de responsabilidad profesional para el trabajo de cocina en sí. Más allá de eso, no soy responsable de: el consumo de alcohol de los invitados, cualquier cosa que pase fuera de la ventana acordada, daños a la propiedad causados por un invitado, o pérdidas que estén razonablemente fuera de mi control.",
+        ],
+      },
+      {
+        heading: "Fuerza mayor",
+        body: [
+          "Ambas partes pueden aplazar sin penalización si pasa algo realmente fuera de nuestro control: una enfermedad seria, una huelga de transporte, una orden gubernamental, un evento natural. Reservamos de nuevo en la próxima fecha viable.",
+        ],
+      },
+      {
+        heading: "Ley aplicable",
+        body: [
+          "Estos términos se rigen por la ley española. Cualquier disputa que no podamos resolver amistosamente se someterá a los juzgados de Málaga, España.",
+        ],
+      },
+    ],
+    contactNote:
+      "¿Algo aquí que necesite más claridad? Escribe a info@toornattable.com o manda un mensaje al +31 6 14412102 y lo explico.",
+  },
 };

@@ -243,6 +243,38 @@ export type Dictionary = {
     primary: string[];
     secondary: string[];
   };
+  cookies: {
+    /** Top-line eyebrow on the consent banner. */
+    eyebrow: string;
+    /** Single-paragraph explanation shown above the buttons. */
+    body: string;
+    /** Inline link label that opens the privacy page. */
+    linkLabel: string;
+    accept: string;
+    reject: string;
+  };
+  legal: {
+    /** Footer column heading and section title used on the legal pages. */
+    columnHeading: string;
+    privacyLabel: string;
+    termsLabel: string;
+  };
+  privacy: LegalPage;
+  terms: LegalPage;
+};
+
+type LegalSection = {
+  heading: string;
+  body: string[];
+};
+
+type LegalPage = {
+  eyebrow: string;
+  title: string;
+  lastUpdated: string;
+  intro: string;
+  sections: LegalSection[];
+  contactNote: string;
 };
 
 type ServiceCard = {

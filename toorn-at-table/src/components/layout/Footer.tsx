@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getDictionary } from "@/i18n/server";
 import { NewsletterForm } from "./NewsletterForm";
 
@@ -86,9 +87,29 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-cream/15 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45 md:flex-row md:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-cream/15 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45 md:flex-row md:items-center">
           <p>© {year} TOORN at table · {t.footer.copyright}</p>
-          <p>{t.footer.madeWith}</p>
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <li>
+              <Link
+                href="/privacy"
+                className="transition-colors hover:text-tattoo-mustard"
+              >
+                {t.legal.privacyLabel}
+              </Link>
+            </li>
+            <li aria-hidden className="text-cream/25">·</li>
+            <li>
+              <Link
+                href="/terms"
+                className="transition-colors hover:text-tattoo-mustard"
+              >
+                {t.legal.termsLabel}
+              </Link>
+            </li>
+            <li aria-hidden className="text-cream/25">·</li>
+            <li>{t.footer.madeWith}</li>
+          </ul>
         </div>
       </div>
     </footer>

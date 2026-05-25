@@ -297,4 +297,143 @@ export const nl: Dictionary = {
       "Boekingen open",
     ],
   },
+  cookies: {
+    eyebrow: "Cookies",
+    body: "We gebruiken cookies om bij te houden hoeveel mensen op de site landen en welke pagina's ze lezen. Meer niet. Accepteer en we zien de aantallen. Weiger en we zien niets.",
+    linkLabel: "Lees de volledige privacyverklaring",
+    accept: "Accepteren",
+    reject: "Weigeren",
+  },
+  legal: {
+    columnHeading: "Juridisch",
+    privacyLabel: "Privacy",
+    termsLabel: "Voorwaarden",
+  },
+  privacy: {
+    eyebrow: "Privacyverklaring",
+    title: "Wat we van je weten, en wat niet.",
+    lastUpdated: "Laatst bijgewerkt: 25 mei 2026",
+    intro:
+      "Korte versie: we gebruiken deze site om te praten met mensen die misschien een private dinner willen. We verkopen geen data. We delen niks met adverteerders. We gebruiken het minimum dat we nodig hebben om je terug te schrijven en om te zien hoeveel bezoekers de site vinden. Lange versie hieronder.",
+    sections: [
+      {
+        heading: "Wie achter deze site zit",
+        body: [
+          "TOORN at table wordt gerund door Nick Toorn, werkzaam als private chef vanaf de Costa del Sol, Spanje. Voor elke privacyvraag of -verzoek kun je me bereiken op info@toornattable.com of via WhatsApp op +31 6 14412102.",
+          "Ik ben de verwerkingsverantwoordelijke voor alles wat hieronder staat.",
+        ],
+      },
+      {
+        heading: "Wat jij ons geeft",
+        body: [
+          "Contactformulier: naam, e-mail, optioneel telefoonnummer, de datum en vorm van wat je in gedachten hebt, en wat je in het bericht schrijft. Ik gebruik dat om je terug te schrijven en een eerste voorstel op te stellen.",
+          "Nieuwsbrief: alleen je e-mailadres en de taal waarin je de site leest. Ik gebruik het om af en toe een dispatch te sturen, en verder niks.",
+          "Ik vraag op deze site nooit betaalgegevens. Eventuele facturatie gebeurt via aparte kanalen zodra een boeking definitief is.",
+        ],
+      },
+      {
+        heading: "Wat de site zelf verzamelt",
+        body: [
+          "Analytics: ik gebruik Google Analytics 4 om bezoeken te tellen en te zien welke secties mensen lezen. Het draait pas nadat je op Accepteer klikt in de cookiebanner. Weiger je, dan wordt er geen analytics-cookie gezet en geen event gelogd. IP-adressen worden geanonimiseerd voor ze bij Google aankomen.",
+          "Serverlogs: mijn hosting (Netlify) houdt kortdurende toegangslogs bij voor security en performance, zoals elke webhost doet. Die worden niet gebruikt om jou te profileren.",
+        ],
+      },
+      {
+        heading: "Wie het verder ziet",
+        body: [
+          "Netlify host de site en verwerkt formulier-inzendingen. Hun EU-servers behandelen de data. Privacyverklaring: netlify.com/privacy.",
+          "Supabase bewaart nieuwsbrief-aanmeldingen in EU-Postgres. Privacyverklaring: supabase.com/privacy.",
+          "Resend stuurt transactionele e-mail (boekingsbevestigingen, nieuwsbrief). Privacyverklaring: resend.com/legal/privacy-policy.",
+          "Google Analytics ontvangt geanonimiseerde bezoekdata, alleen na toestemming. Privacyverklaring: policies.google.com/privacy.",
+        ],
+      },
+      {
+        heading: "Hoe lang we het bewaren",
+        body: [
+          "Antwoorden op het contactformulier leven in m'n inbox zolang een gesprek loopt, plus een jaar erna voor het geval je opnieuw boekt. Daarna weg.",
+          "Nieuwsbrief-aanmeldingen blijven tot je je uitschrijft.",
+          "Analytics-data wordt 14 maanden bewaard in Google Analytics, de kortste instelling die ze bieden.",
+        ],
+      },
+      {
+        heading: "Jouw rechten",
+        body: [
+          "Onder de EU-AVG kun je me vragen om: te laten zien wat ik van je heb, fouten te corrigeren, het te verwijderen, het in een overdraagbaar formaat te sturen, of te stoppen met verwerken. Mail info@toornattable.com en ik reageer binnen dertig dagen.",
+          "Als je vindt dat ik je data slecht heb behandeld kun je ook klagen bij je nationale toezichthouder. In Nederland is dat de Autoriteit Persoonsgegevens (autoriteitpersoonsgegevens.nl); in Spanje de AEPD (aepd.es).",
+        ],
+      },
+      {
+        heading: "Wijzigingen",
+        body: [
+          "Als deze verklaring verandert op een manier die ertoe doet, wordt de datum bovenaan bijgewerkt en wordt de wijziging in de eerstvolgende nieuwsbrief vermeld. Kleine typfoutjes niet.",
+        ],
+      },
+    ],
+    contactNote:
+      "Vragen over iets hierboven? Mail info@toornattable.com of stuur een bericht naar +31 6 14412102.",
+  },
+  terms: {
+    eyebrow: "Voorwaarden",
+    title: "Hoe een boeking werkt, in gewone taal.",
+    lastUpdated: "Laatst bijgewerkt: 25 mei 2026",
+    intro:
+      "Dit zijn de werkafspraken tussen jou en mij als je een dinner, een villa-week, een workshop, of plekken bij een van mijn eigen events boekt. Eén keer doorlezen en je weet waar je staat.",
+    sections: [
+      {
+        heading: "De dienst",
+        body: [
+          "Ik ben Nick Toorn, werkzaam als private chef vanaf de Costa del Sol. Ik kook private dinners bij jou thuis of in een villa, langere weken op locatie, kleine workshops, en de open-inschrijving events die ik zelf organiseer. Alles is op maat. Geen vast menu en geen vaste prijslijst.",
+        ],
+      },
+      {
+        heading: "Boeking en bevestiging",
+        body: [
+          "Stuur de ruwe vorm van wat je in gedachten hebt via het contactformulier, WhatsApp, of e-mail. Ik reageer binnen 24 uur met een eerste voorstel: menu-richting, timing, een prijs.",
+          "Een boeking staat pas vast nadat je het voorstel schriftelijk accepteert en de aanbetaling hebt gedaan. Tot dat moment is er niks in mijn agenda gereserveerd.",
+        ],
+      },
+      {
+        heading: "Betaling",
+        body: [
+          "Standaard verdeling: 30% aanbetaling bij bevestiging, de rest binnen zeven dagen na het dinner. Voor villa-weken of grotere formats spreken we het schema vooraf samen af.",
+          "Betalingen per bankoverschrijving of, op verzoek, per kaart. Facturen worden uitgereikt vanuit een Spaans autonomo-nummer.",
+        ],
+      },
+      {
+        heading: "Wijzigingen en annulering",
+        body: [
+          "Je kunt de datum één keer kosteloos verschuiven tot 14 dagen voor de boeking, mits mijn agenda het toelaat.",
+          "Annulering meer dan 30 dagen vooraf: volledige terugbetaling van de aanbetaling minus al ingekochte verse producten. Tussen 14 en 30 dagen: 50% terugbetaling van de aanbetaling. Binnen 14 dagen: de aanbetaling is niet meer terug te krijgen, omdat de inkoop al gedaan is en de plek vergeven is.",
+          "Als ik om welke reden dan ook van mijn kant moet annuleren, krijg je de volledige aanbetaling terug. Dat is nog niet gebeurd en ik wil het zo houden.",
+        ],
+      },
+      {
+        heading: "Allergieën en dieet",
+        body: [
+          "Vertel me over allergieën, intoleranties, of sterke dieet-voorkeuren bij het boeken. Ik werk ze in, of als een gast een ernstige allergie heeft waar ik niet veilig omheen kan garanderen, dan zeg ik dat eerlijk in plaats van het risico te nemen.",
+          "Als allergieën niet bij het boeken worden gedeeld en pas op de avond zelf naar boven komen, doe ik wat ik kan maar kan ik er geen verantwoordelijkheid voor dragen.",
+        ],
+      },
+      {
+        heading: "Aansprakelijkheid",
+        body: [
+          "Ik heb een beroepsaansprakelijkheidsverzekering voor het kookwerk zelf. Daarbuiten ben ik niet aansprakelijk voor: alcoholgebruik van gasten, dingen die buiten het afgesproken servicevenster gebeuren, schade aan eigendom veroorzaakt door een gast, of verliezen die redelijkerwijs buiten mijn controle vallen.",
+        ],
+      },
+      {
+        heading: "Overmacht",
+        body: [
+          "Beide kanten mogen kosteloos verschuiven als er iets gebeurt dat echt buiten onze controle ligt: een serieuze ziekte, een vervoersstaking, een overheidsbevel, een natuurgebeurtenis. We boeken opnieuw op de eerstvolgende werkbare datum.",
+        ],
+      },
+      {
+        heading: "Toepasselijk recht",
+        body: [
+          "Op deze voorwaarden is Spaans recht van toepassing. Elk geschil dat we niet in der minne kunnen oplossen wordt voorgelegd aan de rechtbank van Málaga, Spanje.",
+        ],
+      },
+    ],
+    contactNote:
+      "Iets hier dat duidelijker mag? Mail info@toornattable.com of stuur een bericht naar +31 6 14412102 en ik leg het uit.",
+  },
 };
