@@ -93,9 +93,54 @@ export function CookieConsent() {
       // Re-push the prior decision so GA picks it up on this page-load too.
       pushConsent(stored.choice);
       setVisible(false);
-    } else {
-      setVisible(true);
+      return;
     }
+
+    // Hold the banner until the preloader is out of the way. The
+    // Preloader component toggles a `preloader-active` class on the
+    // <html> element while it's on screen and removes it when its exit
+    // animation finishes. We wait one animation frame so Preloader's
+    // own useEffect has had a chance to apply the class on first
+    // session-visits, then either reveal immediately (subsequent
+    // visits — sessionStorage suppresses the preloader, no class ever
+    // added) or watch for the class to disappear before sliding the
+    // banner in.
+    //
+    // A final 600 ms grace after the preloader leaves lets the hero's
+    // letter-by-letter reveal land before the banner steals attention.
+    // The MAX_WAIT_MS escape hatch ensures the banner shows even if
+    // the class somehow never clears (defensive — shouldn't happen).
+    const root = document.documentElement;
+    const REVEAL_DELAY_MS = 600;
+    const MAX_WAIT_MS = 8000;
+    let revealTimer: number | undefined;
+    let safetyTimer: number | undefined;
+    let observer: MutationObserver | undefined;
+
+    const reveal = () => {
+      observer?.disconnect();
+      if (safetyTimer) window.clearTimeout(safetyTimer);
+      revealTimer = window.setTimeout(() => setVisible(true), REVEAL_DELAY_MS);
+    };
+
+    const frame = window.requestAnimationFrame(() => {
+      if (!root.classList.contains("preloader-active")) {
+        reveal();
+        return;
+      }
+      observer = new MutationObserver(() => {
+        if (!root.classList.contains("preloader-active")) reveal();
+      });
+      observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+      safetyTimer = window.setTimeout(reveal, MAX_WAIT_MS);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+      if (revealTimer) window.clearTimeout(revealTimer);
+      if (safetyTimer) window.clearTimeout(safetyTimer);
+    };
   }, []);
 
   const accept = () => {
