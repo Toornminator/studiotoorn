@@ -297,4 +297,45 @@ export type LocalisedTimelineChapter = {
   marginalia?: LocalisedString;
 };
 
+/**
+ * A guest testimonial. The single most important trust signal on a
+ * private-chef site: a wealthy stranger will not hand over their kitchen
+ * (and €3k+) without seeing that other people like them already loved it.
+ *
+ * NEVER fabricate these. Every entry must be a real quote from a real
+ * guest, used with permission. The `quote` and `context` are trios so the
+ * site can show them in the reader's language while keeping the original
+ * intent; store the guest's own wording in their language and translate
+ * the other two locales faithfully (no embellishment).
+ */
+export type LocalisedTestimonial = {
+  slug: string;
+  /** The review itself, in the guest's words. */
+  quote: LocalisedString;
+  /** Name as the guest agreed to be shown (e.g. "Charlotte M."). */
+  author: string;
+  /** Short occasion + place line, e.g. "Private dinner · La Zagaleta". */
+  context?: LocalisedString;
+  /** Language-neutral place name shown as a small tag (e.g. "Marbella"). */
+  location?: string;
+  /** 1–5 stars. Defaults to 5 when omitted. */
+  rating?: number;
+  /** ISO date (YYYY-MM-DD) the dinner happened. Drives schema datePublished. */
+  date: string;
+  /** Optional provenance marker shown as a tag (e.g. "Google", "Direct"). */
+  source?: string;
+};
+
+/** Resolved testimonial consumed by components (single active locale). */
+export type Testimonial = {
+  slug: string;
+  quote: string;
+  author: string;
+  context?: string;
+  location?: string;
+  rating: number;
+  date: string;
+  source?: string;
+};
+
 export type { Locale };

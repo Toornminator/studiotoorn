@@ -37,7 +37,7 @@ export const nl: Dictionary = {
       "Pas op mijn zesentwintigste ben ik voluit gegaan. Begonnen aan de koude kant van een keuken. Daarna een jaar in de patisserie van Bord'eau, Hotel de L'Europe, onder Bas van Kranen. Het jaar dat me leerde wat discipline echt is. De camera was er al eerder, achttien. Dezelfde discipline, ander gereedschap.",
     body3:
       "Sinds 2023 kook ik privé aan de Costa del Sol. Discipline uit het uniform. Precisie uit de sterrenkeuken. Rust uit Andalusië. Alles samen aan één tafel. Geen catering. Een herinnering.",
-    chip1: "Sterrenkeuken-getraind",
+    chip1: "Sterrenkeuken-getraind · Bord'eau, Amsterdam",
     chip2: "Portret- en straatfotograaf",
     chip3: "Private chef sinds 2023",
     portraitCaption: "Nick Toorn · 36",
@@ -280,6 +280,99 @@ export const nl: Dictionary = {
     cursorClose: "Sluit",
     cursorPrev: "Vorige",
     cursorNext: "Volgende",
+  },
+  testimonials: {
+    eyebrow: "Aan tafel · Gasten",
+    title: "Hoe het is om aan te schuiven.",
+    intro:
+      "Een handvol avonden, in de woorden van de mensen die er waren. Elke quote is echt, getoond met toestemming van de gast.",
+    tablesServed: "privétafels",
+    cta: "Plan jouw avond",
+    invitation: "En die van jou? De volgende tafel staat klaar.",
+  },
+  faq: {
+    eyebrow: "Voordat je schrijft · Vragen",
+    title: "Wat mensen het eerst vragen.",
+    intro:
+      "Rechttoe rechtaan antwoorden, zodat je weet waar je staat voor je een woord stuurt.",
+    items: [
+      {
+        q: "Wat kost het?",
+        a: "Alles is op maat, dus er is geen vaste prijslijst. Vertel me de vorm van je avond en ik stuur binnen een dag een eerste voorstel, met een prijs. Daarna geen verrassingen.",
+      },
+      {
+        q: "Waar kook je?",
+        a: "Bij jou thuis of in je villa, overal aan de Costa del Sol. Marbella, Estepona, Sotogrande, Benahavís, Mijas, Málaga en omstreken. Verder weg op aanvraag.",
+      },
+      {
+        q: "Allergieën en diëten?",
+        a: "Laat het weten bij de boeking en ik bouw het menu eromheen. Heeft een gast een allergie die ik niet veilig kan garanderen, dan zeg ik het eerlijk in plaats van het risico te nemen.",
+      },
+      {
+        q: "Moet ik zelf iets voorbereiden?",
+        a: "Nee. De boodschappen, het koken, het uitserveren, de afwas, allemaal van mij. Jij ontvangt je gasten en houdt je glas vast. Je wordt wakker met een schonere keuken dan je 'm achterliet.",
+      },
+      {
+        q: "Hoe boek ik, en hoe ver van tevoren?",
+        a: "Stuur de vorm ervan via het formulier, WhatsApp of mail. Ik reageer binnen een dag met een voorstel. De datum staat vast zodra je schriftelijk akkoord gaat en de aanbetaling doet. Goede data gaan snel, dus eerder is veiliger.",
+      },
+      {
+        q: "Aanbetaling en betaling?",
+        a: "Dertig procent bij bevestiging, de rest binnen een week na het diner. Bankoverschrijving of kaart. Nette bonnen vanuit een Spaans autónomo-nummer.",
+      },
+      {
+        q: "En als plannen veranderen?",
+        a: "Je mag de datum één keer kosteloos verzetten tot 14 dagen ervoor. De volledige annuleringsvoorwaarden staan, in gewone woorden, op de voorwaarden-pagina.",
+      },
+      {
+        q: "Ben je verzekerd?",
+        a: "Ja. Ik heb een beroepsaansprakelijkheidsverzekering voor het kookwerk. Jaren in een sterrenkeuken leerden me dat hygiëne en veiligheid niet optioneel zijn.",
+      },
+      {
+        q: "Welke talen spreek je?",
+        a: "Engels, Spaans en Nederlands. De avond verloopt in de taal waar jouw tafel, en jouw personeel, zich het prettigst bij voelen.",
+      },
+    ],
+  },
+  theEvening: {
+    eyebrow: "De avond · Hoe een avond is",
+    title: "Een avond aan jouw tafel.",
+    intro:
+      "Geen bezorging, geen buffet. Eén menu, gemaakt voor de mensen in de kamer, voor hun ogen gekookt.",
+    flowHeading: "Hoe de avond loopt",
+    flow: [
+      {
+        title: "We bespreken het",
+        body: "Eerst geven we de avond samen vorm. De tafel, de mensen, wat ze geweldig vinden en wat ze niet aanraken.",
+      },
+      {
+        title: "Ik doe die ochtend de markt",
+        body: "'s Ochtends naar de markt, wat er die dag uitspringt. Het menu maakt zichzelf af bij de kraam, niet een week ervoor.",
+      },
+      {
+        title: "Open keuken, bij jou thuis",
+        body: "Ik kook in het volle zicht. Niet weggestopt achter een deur. De keuken hoort bij de avond, geen achterkamer.",
+      },
+      {
+        title: "Gang na gang, jouw tempo",
+        body: "Niets gehaast. De avond beweegt met de tafel, niet met de klok. We stoppen als je vol zit, niet eerder.",
+      },
+      {
+        title: "Je wordt wakker met een schone keuken",
+        body: "De boodschappen, het uitserveren, de afwas. Jij houdt je glas vast en ontvangt je gasten. De rest doe ik.",
+      },
+    ],
+    menuHeading: "Een voorbeeldavond",
+    menuNote:
+      "Een voorbeeld, geen vaste kaart. Elk menu wordt gebouwd rond jouw tafel en de ochtendmarkt.",
+    cta: "Plan jouw avond",
+    courses: {
+      aperitivo: "Om te beginnen",
+      starter: "Voorgerecht",
+      sea: "Uit de zee",
+      main: "Hoofdgerecht",
+      dessert: "Om af te sluiten",
+    },
   },
   marquee: {
     primary: [

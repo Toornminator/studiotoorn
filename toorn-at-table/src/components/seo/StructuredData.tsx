@@ -1,5 +1,9 @@
 import type { Recipe } from "@/lib/types";
 import type { EventItem } from "@/lib/types";
+import {
+  getTestimonialReviews,
+  getTestimonialStats,
+} from "@/lib/content/testimonials";
 
 /**
  * Home-page structured data.
@@ -143,6 +147,48 @@ function websiteSchema() {
   };
 }
 
+/**
+ * Review + AggregateRating attached to the LocalBusiness node, emitted
+ * ONLY on the home page (where the testimonials are actually visible, per
+ * Google's review-snippet guidelines). Same `@id` as the site-wide
+ * LocalBusiness in layout.tsx, so Google merges this rating onto the
+ * business entity when it parses the home page — that's what lights up the
+ * star rating under the brand's search result.
+ *
+ * Returns null when there are no testimonials, so we never ship empty or
+ * fabricated rating markup.
+ */
+function businessReviewSchema() {
+  const stats = getTestimonialStats();
+  if (stats.count === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE}/#business`,
+    name: "TOORN at table",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: stats.average,
+      reviewCount: stats.count,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    review: getTestimonialReviews().map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      datePublished: r.date,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      reviewBody: r.body,
+    })),
+  };
+}
+
 function personSchema() {
   // Nick as a standalone Person entity (separately from the
   // founder embed in LocalBusiness). Lets Google build a richer
@@ -178,9 +224,10 @@ export function HomeStructuredData({
   const graphs = [
     websiteSchema(),
     personSchema(),
+    businessReviewSchema(),
     ...recipes.map(recipeToSchema),
     ...events.map(eventToSchema),
-  ];
+  ].filter(Boolean);
   // Schema.org allows wrapping multiple entities in a single
   // `@graph` for terser output — Google parses both styles fine.
   const payload = {

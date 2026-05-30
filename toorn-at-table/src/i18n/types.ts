@@ -239,6 +239,46 @@ export type Dictionary = {
     cursorPrev: string;
     cursorNext: string;
   };
+  testimonials: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    /** Plural noun after the count in the aggregate line ("12 private tables"). */
+    tablesServed: string;
+    /** Link label under the grid, sends the reader to the booking form. */
+    cta: string;
+    /** Soft prompt that fills the trailing grid cell on an odd count. */
+    invitation: string;
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    /** Question + answer pairs. Drives both the accordion and FAQ schema. */
+    items: { q: string; a: string }[];
+  };
+  theEvening: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    /** Heading above the step-by-step flow of the night. */
+    flowHeading: string;
+    /** Ordered beats of how the evening unfolds. */
+    flow: { title: string; body: string }[];
+    /** Heading above the illustrative tasting menu. */
+    menuHeading: string;
+    /** Honesty note: the menu is a sample, not a fixed card. */
+    menuNote: string;
+    cta: string;
+    /** Course labels, keyed to the sample-menu course order. */
+    courses: {
+      aperitivo: string;
+      starter: string;
+      sea: string;
+      main: string;
+      dessert: string;
+    };
+  };
   marquee: {
     primary: string[];
     secondary: string[];

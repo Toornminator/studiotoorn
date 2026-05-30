@@ -37,7 +37,7 @@ export const es: Dictionary = {
       "Veintiséis años antes de lanzarme del todo. Empecé por la partida fría de un restaurante. Después un año en la pastelería de Bord'eau, Hotel de L'Europe, bajo Bas van Kranen. El año que me enseñó qué es la disciplina. La cámara llegó antes, a los dieciocho. La misma disciplina, otra herramienta.",
     body3:
       "Desde 2023 cocino en privado en la Costa del Sol. Disciplina del uniforme. Precisión de la estrella. Calma de Andalucía. Todo a la misma mesa. No es catering. Es un recuerdo.",
-    chip1: "Formado en estrella Michelin",
+    chip1: "Formado en estrella Michelin · Bord'eau, Ámsterdam",
     chip2: "Fotógrafo de retrato y calle",
     chip3: "Chef privado desde 2023",
     portraitCaption: "Nick Toorn · 36",
@@ -282,6 +282,99 @@ export const es: Dictionary = {
     cursorClose: "Cerrar",
     cursorPrev: "Anterior",
     cursorNext: "Siguiente",
+  },
+  testimonials: {
+    eyebrow: "A la mesa · Invitados",
+    title: "Cómo es sentarse a la mesa.",
+    intro:
+      "Unas cuantas noches, en palabras de quienes estuvieron allí. Cada reseña es real, mostrada con el permiso del invitado.",
+    tablesServed: "mesas privadas",
+    cta: "Planifica tu noche",
+    invitation: "¿Y la tuya? La próxima mesa está libre.",
+  },
+  faq: {
+    eyebrow: "Antes de escribir · Preguntas",
+    title: "Lo que preguntan primero.",
+    intro:
+      "Respuestas claras, para que sepas a qué atenerte antes de escribir una palabra.",
+    items: [
+      {
+        q: "¿Cuánto cuesta?",
+        a: "Todo es a medida, así que no hay lista de precios fija. Cuéntame la forma de tu velada y te envío una primera propuesta, con precio, en un día. Después, sin sorpresas.",
+      },
+      {
+        q: "¿Dónde cocinas?",
+        a: "En tu casa o villa por toda la Costa del Sol. Marbella, Estepona, Sotogrande, Benahavís, Mijas, Málaga y alrededores. Más lejos, bajo consulta.",
+      },
+      {
+        q: "¿Alergias y dietas?",
+        a: "Dímelo al reservar y construyo el menú en torno a ellas. Si un invitado tiene una alergia que no puedo garantizar con seguridad, te lo digo claro antes que arriesgar.",
+      },
+      {
+        q: "¿Tengo que preparar algo?",
+        a: "No. La compra, la cocina, el emplatado, la limpieza, todo mío. Tú recibes a tus invitados y sostienes tu copa. Despiertas con la cocina más limpia de como la dejaste.",
+      },
+      {
+        q: "¿Cómo reservo y con cuánta antelación?",
+        a: "Mándame la forma de la velada por el formulario, WhatsApp o email. Respondo en un día con una propuesta. La fecha queda firme cuando la aceptas por escrito y pagas la señal. Las fechas buenas vuelan, así que antes es mejor.",
+      },
+      {
+        q: "¿Señal y pago?",
+        a: "Treinta por ciento al confirmar, el resto en la semana posterior a la cena. Transferencia o tarjeta. Recibos en regla con número de autónomo español.",
+      },
+      {
+        q: "¿Y si cambian los planes?",
+        a: "Puedes mover la fecha una vez sin coste hasta 14 días antes. Las condiciones de cancelación completas están, en palabras claras, en la página de términos.",
+      },
+      {
+        q: "¿Estás asegurado?",
+        a: "Sí. Tengo seguro de responsabilidad civil profesional para el trabajo de cocina. Años en una cocina con estrella me enseñaron que la higiene y la seguridad no son opcionales.",
+      },
+      {
+        q: "¿Qué idiomas hablas?",
+        a: "Inglés, español y holandés. La velada transcurre en el idioma con el que tu mesa, y tu personal, estén más cómodos.",
+      },
+    ],
+  },
+  theEvening: {
+    eyebrow: "La noche · Cómo es una velada",
+    title: "Una noche en tu mesa.",
+    intro:
+      "Ni un reparto ni un bufé. Un menú, hecho para quienes están en la sala, cocinado ante ellos.",
+    flowHeading: "Cómo transcurre la noche",
+    flow: [
+      {
+        title: "Lo hablamos",
+        body: "Antes de nada damos forma a la noche juntos. La mesa, la gente, lo que adoran y lo que no tocan.",
+      },
+      {
+        title: "Compro esa mañana",
+        body: "Al mercado por la mañana, lo que destaque ese día. El menú se termina en el puesto, no una semana antes.",
+      },
+      {
+        title: "Cocina abierta, en tu casa",
+        body: "Cocino a la vista. Sin esconderme tras una puerta. La cocina es parte de la noche, no un cuarto trasero.",
+      },
+      {
+        title: "Plato a plato, a tu ritmo",
+        body: "Sin prisa. La noche va con la mesa, no con el reloj. Paramos cuando estás lleno, no antes.",
+      },
+      {
+        title: "Despiertas con la cocina limpia",
+        body: "La compra, el emplatado, la limpieza. Tú sostienes tu copa y recibes a tus invitados. Del resto me encargo yo.",
+      },
+    ],
+    menuHeading: "Una velada de ejemplo",
+    menuNote:
+      "Un ejemplo, no una carta fija. Cada menú se construye en torno a tu mesa y al mercado de la mañana.",
+    cta: "Planifica tu noche",
+    courses: {
+      aperitivo: "Para empezar",
+      starter: "Entrante",
+      sea: "Del mar",
+      main: "Principal",
+      dessert: "Para terminar",
+    },
   },
   marquee: {
     primary: [

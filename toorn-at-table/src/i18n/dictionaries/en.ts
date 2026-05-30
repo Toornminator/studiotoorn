@@ -37,7 +37,7 @@ export const en: Dictionary = {
       "Twenty-six before I went all in. Started on the cold side of a kitchen. Then a year in the patisserie at Bord'eau, Hotel de L'Europe, under Bas van Kranen. The year that taught me what discipline looks like. The camera came earlier, eighteen. Same discipline, different tool.",
     body3:
       "Since 2023 I cook privately on the Costa del Sol. Uniform discipline. Michelin precision. Andalusian calm. All of it at one table. Not catering. A memory.",
-    chip1: "Michelin-trained",
+    chip1: "Michelin-trained · Bord'eau, Amsterdam",
     chip2: "Portrait and street photographer",
     chip3: "Private chef since 2023",
     portraitCaption: "Nick Toorn · 36",
@@ -276,6 +276,99 @@ export const en: Dictionary = {
     cursorClose: "Close",
     cursorPrev: "Previous",
     cursorNext: "Next",
+  },
+  testimonials: {
+    eyebrow: "At the table · Guests",
+    title: "What it's like to sit down.",
+    intro:
+      "A handful of evenings, in the words of the people who were there. Every quote real, shown with the guest's blessing.",
+    tablesServed: "private tables",
+    cta: "Plan your evening",
+    invitation: "And yours? The next table is open.",
+  },
+  faq: {
+    eyebrow: "Before you write · Questions",
+    title: "The things people ask first.",
+    intro:
+      "Straight answers, so you know where you stand before you send a word.",
+    items: [
+      {
+        q: "What does it cost?",
+        a: "Everything is bespoke, so there's no fixed price list. Tell me the shape of your evening and I send a first proposal, with a price, within a day. No surprises after that.",
+      },
+      {
+        q: "Where do you cook?",
+        a: "At your home or villa across the Costa del Sol. Marbella, Estepona, Sotogrande, Benahavís, Mijas, Málaga and around. Further afield on request.",
+      },
+      {
+        q: "Allergies and diets?",
+        a: "Tell me at booking and I build the menu around them. If a guest has an allergy I can't safely guarantee around, I'll tell you straight rather than risk it.",
+      },
+      {
+        q: "Do I need to prepare anything?",
+        a: "No. Shopping, cooking, plating, clean-up, all mine. You welcome your guests and hold your glass. You wake to a kitchen cleaner than you left it.",
+      },
+      {
+        q: "How do I book, and how far ahead?",
+        a: "Send the shape of it through the form, WhatsApp or email. I reply within a day with a proposal. The date is firm once you accept in writing and pay the deposit. Popular dates go early, so sooner is safer.",
+      },
+      {
+        q: "Deposit and payment?",
+        a: "Thirty percent on confirmation, the rest within a week of the dinner. Bank transfer or card. Proper receipts from a Spanish autónomo number.",
+      },
+      {
+        q: "What if plans change?",
+        a: "You can move the date once at no cost up to 14 days before. The full cancellation terms are written in plain words on the booking terms page.",
+      },
+      {
+        q: "Are you insured?",
+        a: "Yes. I carry professional liability insurance for the cooking work. Years in a Michelin kitchen taught me that hygiene and safety are not optional.",
+      },
+      {
+        q: "Which languages do you speak?",
+        a: "English, Spanish and Dutch. The evening runs in whatever your table, and your staff, are most comfortable with.",
+      },
+    ],
+  },
+  theEvening: {
+    eyebrow: "The evening · What a night is",
+    title: "A night at your table.",
+    intro:
+      "Not a delivery, not a buffet. One menu, built for the people in the room, cooked in front of them.",
+    flowHeading: "How the night runs",
+    flow: [
+      {
+        title: "We talk it through",
+        body: "Before anything, we shape the night together. The table, the people, what they love and what they won't touch.",
+      },
+      {
+        title: "I shop that morning",
+        body: "Market in the morning, whatever stands out that day. The menu finishes itself at the stall, not a week before.",
+      },
+      {
+        title: "Open kitchen, your home",
+        body: "I cook in full view. No hiding behind a door. The kitchen is part of the evening, not a back room.",
+      },
+      {
+        title: "Course after course, your pace",
+        body: "Nothing rushed. The night moves with the table, not a clock. We stop when you're full, not before.",
+      },
+      {
+        title: "You wake to a clean kitchen",
+        body: "Shopping, plating, clean-up. You hold your glass and welcome your guests. I handle the rest.",
+      },
+    ],
+    menuHeading: "A sample evening",
+    menuNote:
+      "An example, not a fixed card. Every menu is built around your table and the morning market.",
+    cta: "Plan your evening",
+    courses: {
+      aperitivo: "To start",
+      starter: "Starter",
+      sea: "From the sea",
+      main: "Main",
+      dessert: "To finish",
+    },
   },
   marquee: {
     primary: [

@@ -4,11 +4,14 @@ import { Stats } from "@/components/about/Stats";
 import { Timeline } from "@/components/about/Timeline";
 import { Contact } from "@/components/contact/Contact";
 import { NetlifyFormSchema } from "@/components/contact/NetlifyFormSchema";
+import { TheEvening } from "@/components/evening/TheEvening";
 import { Events } from "@/components/events/Events";
+import { Faq } from "@/components/faq/Faq";
 import { Gallery } from "@/components/gallery/Gallery";
 import { Hero } from "@/components/hero/Hero";
 import { Kookboek } from "@/components/kookboek/Kookboek";
 import { Services } from "@/components/services/Services";
+import { Testimonials } from "@/components/testimonials/Testimonials";
 import { Travel } from "@/components/travel/Travel";
 import { Marquee } from "@/components/ui/Marquee";
 import { HomeStructuredData } from "@/components/seo/StructuredData";
@@ -35,6 +38,7 @@ export default async function Home() {
       <About />
       <Timeline />
       <Services />
+      <TheEvening recipes={recipes} />
       <Marquee items={t.marquee.primary} />
       <Travel />
       <Stats />
@@ -43,6 +47,8 @@ export default async function Home() {
       <Marquee items={t.marquee.secondary} duration={44} />
       <Events />
       <ClosingPanel />
+      <Testimonials />
+      <Faq />
       <Contact />
       <NetlifyFormSchema />
     </>

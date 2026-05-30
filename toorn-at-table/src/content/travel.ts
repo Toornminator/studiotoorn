@@ -10,7 +10,7 @@ import type { LocalisedTravelLocation } from "@/lib/types";
  * anchored). `mapX` 0 = far west, 100 = far east; `mapY` 0 = north pole,
  * 100 = antarctic.
  *
- * Voice: Bourdain raw-edge, direct, em-dashes welcome. Honest about the
+ * Voice: Bourdain raw-edge, direct, no em-dashes. Honest about the
  * ugly moments. Food is the spine of every entry. Spanish skews
  * Andalusian; English stays intimate for the Marbella ear.
  */
@@ -227,6 +227,11 @@ export const travelLocations: LocalisedTravelLocation[] = [
       es: "Es una cocina que parece pesada y lo es. Pero en noviembre tiene sentido. Knedlíky, svíčková, un vaso de pilsner que en lugar de quitar sed te da más.\n\nAllí aprendí que un caldo oscuro de verdad no solo se cuece más tiempo. Se ahuma a medio camino, en un hornito de leña.",
       nl: "Het is een keuken die heel zwaar lijkt en het ook is, maar in november klopt het. Knedlíky, svíčková, een goed glas pilsner waar je werkelijk dorst van krijgt in plaats van het tegenovergestelde.\n\nIk leerde er dat een echte donkere bouillon niet alleen langer trekt. Je rookt 'm in een houtoventje ergens halverwege.",
     },
+    pullQuote: {
+      en: "A real dark stock isn't drawn longer. It's smoked.",
+      es: "Un caldo oscuro de verdad no se cuece más. Se ahuma.",
+      nl: "Een echte donkere bouillon trekt niet langer. Hij rookt.",
+    },
   },
   {
     slug: "hongarije",
@@ -244,6 +249,11 @@ export const travelLocations: LocalisedTravelLocation[] = [
       en: "Real paprika comes from Kalocsa or Szeged. Sweet, smoked, with a depth I've never come across in any supermarket tin. I still stop in when I'm passing.\n\nHungarian cooking is surprisingly tender for everything it carries. A halászlé in a csárda on the Danube, on a windy evening. I'd happily sit there more often.",
       es: "El verdadero pimentón viene de Kalocsa o Szeged. Dulce, ahumado, con una profundidad que no he encontrado en ninguna lata de supermercado. Sigo pasándome cuando estoy cerca.\n\nLa cocina húngara es sorprendentemente suave para todo el sabor que lleva dentro. Un halászlé en una csárda a la orilla del Danubio, en una noche de viento. Me sentaría ahí más a menudo.",
       nl: "De échte paprika komt uit Kalocsa of Szeged. Zoet, gerookt, met een rangschikking die ik in geen enkel supermarktblik ben tegengekomen. Ik ga er nog steeds langs als ik in de buurt ben.\n\nHongaarse keuken is verrassend zacht voor wat er allemaal aan smaak in zit. Een halászlé in een csárda aan de Donau, op een avond dat het waait. Daar zou ik vaker willen zitten.",
+    },
+    pullQuote: {
+      en: "Tender for everything it carries.",
+      es: "Tierna a pesar de todo lo que lleva dentro.",
+      nl: "Zacht voor wat-ie aan smaak draagt.",
     },
   },
   {
@@ -486,9 +496,14 @@ export const travelLocations: LocalisedTravelLocation[] = [
       nl: "Lissabon, Porto, daarna langs de oostkust naar een dorpje waar bacalhau geserieerd werd op vijf manieren in vijf dagen.",
     },
     body: {
-      en: "Portugal is a kitchen of deep simplicity and I'll go to bat for it. Sardines on bread, a good caldo verde, a glass of vinho verde so light you almost forget it. And the pastéis, of course. I've made a few serious attempts and never quite hit the real thing.\n\nThe Atlantic coast is also rougher than I expected. A day on the Alentejo coast ended with grilled squid on the beach at sunset. No menu, no booking, my fingers still smelling of the sea.",
-      es: "Portugal es una cocina de sencillez profunda y la defiendo a capa y espada. Sardinas sobre pan, un buen caldo verde, una copa de vinho verde tan ligera que casi se te olvida. Y los pastéis, claro. He hecho intentos serios y nunca he llegado al de verdad.\n\nLa costa atlántica también es más bravía de lo que pensaba. Un día en la costa alentejana acabó con calamares a la brasa en la playa al atardecer. Sin menú, sin reserva, los dedos aún con olor a mar.",
-      nl: "Portugal is een keuken van diepe simpelheid en die hou ik vol. Sardines op brood, een goede caldo verde, een glas vinho verde dat zo licht is dat je 'm bijna vergeet. En de pastéis natuurlijk. Ik heb er zelf een paar serieuze pogingen op gedaan en nooit de échte gehaald.\n\nDe Atlantische kust is ook ruwer dan ik dacht. Een dag op de Alentejo-kust eindigde met geroosterde inktvis op het strand bij zonsondergang. Geen menu, geen reservering, mijn vingers nog naar zee.",
+      en: "Portugal is a kitchen of deep simplicity. I'll go to bat for it. Sardines on bread, a good caldo verde, a glass of vinho verde so light you almost forget it. And the pastéis, of course. I've made a few serious attempts and never quite hit the real thing.\n\nThe Atlantic coast is also rougher than I expected. A day on the Alentejo coast ended with grilled squid on the beach at sunset. No menu, no booking, my fingers still smelling of the sea.",
+      es: "Portugal es una cocina de sencillez profunda. La defiendo a capa y espada. Sardinas sobre pan, un buen caldo verde, una copa de vinho verde tan ligera que casi se te olvida. Y los pastéis, claro. He hecho intentos serios y nunca he llegado al de verdad.\n\nLa costa atlántica también es más bravía de lo que pensaba. Un día en la costa alentejana acabó con calamares a la brasa en la playa al atardecer. Sin menú, sin reserva, los dedos aún con olor a mar.",
+      nl: "Portugal is een keuken van diepe simpelheid. Die hou ik vol. Sardines op brood, een goede caldo verde, een glas vinho verde dat zo licht is dat je 'm bijna vergeet. En de pastéis natuurlijk. Ik heb er zelf een paar serieuze pogingen op gedaan en nooit de échte gehaald.\n\nDe Atlantische kust is ook ruwer dan ik dacht. Een dag op de Alentejo-kust eindigde met geroosterde inktvis op het strand bij zonsondergang. Geen menu, geen reservering, mijn vingers nog naar zee.",
+    },
+    pullQuote: {
+      en: "Deep simplicity. Defend it.",
+      es: "Sencillez profunda. Defiéndela.",
+      nl: "Diepe simpelheid. Verdedig 'm.",
     },
     polaroids: [
       {
@@ -546,6 +561,11 @@ export const travelLocations: LocalisedTravelLocation[] = [
       en: "Not much to say about the kitchen here. Plenty to say about the walk around it. The real place for pasta is a few streets away.",
       es: "Poco que decir de la cocina de aquí. Mucho del paseo alrededor. El sitio bueno de pasta está unas calles más allá.",
       nl: "Niet veel te zeggen over de keuken hier. Wel veel over de wandeling eromheen. De échte plek voor pasta zit een paar straten verder.",
+    },
+    pullQuote: {
+      en: "The real pasta is two streets away.",
+      es: "La pasta de verdad está dos calles más allá.",
+      nl: "De échte pasta zit twee straten verder.",
     },
   },
   {
