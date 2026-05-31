@@ -5,8 +5,8 @@ import type { LocalisedRecipe } from "@/lib/types";
  * cookbook copy lands. Every translatable field is a `{ en, es, nl }` trio;
  * `src/lib/content/recipes.ts` flattens it to the active locale.
  *
- * Voice notes: raw-edge, direct, no fluff. Em-dashes welcome, italics where
- * Nick's voice asks for them. Spanish skews Andalusian (warm, diminutives
+ * Voice notes: raw-edge, direct, no fluff. No em-dashes (brand rule), italics
+ * where Nick's voice asks for them. Spanish skews Andalusian (warm, diminutives
  * where natural), English is intimate-but-clean for the Marbella expat ear.
  */
 export const recipes: LocalisedRecipe[] = [
@@ -2501,5 +2501,284 @@ export const recipes: LocalisedRecipe[] = [
         },
       },
     ],
+  },
+  {
+    slug: "slanke-focaccia",
+    title: {
+      en: "Skinny focaccia with rosemary and sea salt",
+      es: "Focaccia ligera con romero y sal gruesa",
+      nl: "Slanke focaccia met rozemarijn en zeezout",
+    },
+    intro: {
+      en: "Airy inside, crackling outside, all its flavour kneaded in. The lean one nobody believes is lean.",
+      es: "Aireada por dentro, crujiente por fuera, con todo el sabor amasado dentro. La ligera que nadie cree que es ligera.",
+      nl: "Luchtig van binnen, krokant van buiten, alle smaak erin gekneed. De slanke waar niemand gelooft dat ie slank is.",
+    },
+    category: "bij",
+    seasons: ["altijd"],
+    difficulty: 2,
+    prepMinutes: 40,
+    cookMinutes: 25,
+    servings: 8,
+    heroImage: "/images/recipes/slanke-focaccia.jpg",
+    pairing: {
+      en: "A bowl of good olive oil for dipping and a glass of cheap, honest red. Nothing fancy. The bread is the star.",
+      es: "Un cuenco de buen aceite de oliva para mojar y una copa de tinto honesto y barato. Nada de lujos. El pan es la estrella.",
+      nl: "Een kommetje goede olijfolie om in te dopen en een glas eerlijke, goedkope rode wijn. Niets chics. Het brood is de ster.",
+    },
+    body: {
+      en: [
+        "I learned to love bread in a kitchen in Veendam, up in Groningen, at a friend's house. His mother, Angela, was a cook who taught kids how to cook, and she more or less adopted me into it. She made focaccia constantly, herbs pulled straight from her own garden, still smelling of dirt and sun. Fantastic. The kind of taste that ruins you for the supermarket version forever. I have been baking my own bread ever since.",
+        "But real focaccia, the old way, is basically a delivery system for olive oil. They drown it. Pools sitting in the dimples, running down your wrist. Glorious, but you cannot feed people like that every night on the coast. Not villa guests who want bread on the table and still want to fit into what they bought for dinner. So I stripped it back. The oil that used to sit on top in a puddle goes into the dough now. Ten grams. The herbs do the rest, the way Angela's garden did. Oregano, basil, thyme, rosemary, garlic, all kneaded straight in, a heavy hand of black pepper.",
+        "The flour does what is left. Harina de fuerza, the strong stuff in the black bag from the Spanish supermarket, the one that costs almost nothing and behaves like it costs ten times more. It drinks the water and gives you the open crumb, the holes, the chew. Let the flour and water get to know each other before the yeast turns up. Do not rush the rise. Wet fingers for the dimples. And when it comes out golden and crackling and smelling of a garden, nobody at the table believes it is the lean one. Angela would have approved.",
+      ],
+      es: [
+        "Aprendí a querer el pan en una cocina de Veendam, allá en Groninga, en casa de un amigo. Su madre, Angela, era cocinera y enseñaba a cocinar a los niños, y a mí me acabó adoptando en eso. Hacía focaccia sin parar, con hierbas arrancadas de su propio huerto, que aún olían a tierra y a sol. Fantástica. Ese sabor que te arruina para siempre la versión del súper. Desde entonces hago mi propio pan.",
+        "Pero la focaccia de verdad, a la antigua, es básicamente un sistema para repartir aceite de oliva. La ahogan. Charcos en los hoyitos, chorreando por la muñeca. Una gloria, pero no puedes dar de comer así cada noche en la costa. No a invitados de villa que quieren pan en la mesa y aún caber en lo que se compraron para cenar. Así que la pelé hasta el hueso. El aceite que antes se quedaba arriba en un charco ahora va dentro de la masa. Diez gramos. Las hierbas hacen el resto, como hacía el huerto de Angela. Orégano, albahaca, tomillo, romero, ajo, todo amasado dentro, una mano generosa de pimienta negra.",
+        "La harina hace lo que queda. Harina de fuerza, la del saco negro del súper español, la que no cuesta casi nada y se comporta como si costara diez veces más. Bebe el agua y te da la miga abierta, los agujeros, el bocado. Deja que la harina y el agua se conozcan antes de que llegue la levadura. No metas prisa al levado. Dedos mojados para los hoyitos. Y cuando sale dorada y crujiente y oliendo a huerto, nadie en la mesa cree que es la ligera. A Angela le habría gustado.",
+      ],
+      nl: [
+        "Ik leerde van brood houden in een keuken in Veendam, boven in Groningen, bij een vriend thuis. Zijn moeder, Angela, was kok en gaf kookles aan kinderen, en mij nam ze er zo'n beetje bij. Ze maakte aan de lopende band focaccia, met kruiden zo uit haar eigen tuin, die nog naar aarde en zon roken. Fantastisch. Zo'n smaak die je voor altijd verpest voor de supermarktversie. Sindsdien bak ik mijn eigen brood.",
+        "Maar echte focaccia, op de oude manier, is eigenlijk een bezorgsysteem voor olijfolie. Ze verzuipen 'm. Plassen in de kuiltjes, langs je pols naar beneden. Goddelijk, maar zo kun je niet elke avond mensen voeren aan de kust. Geen villagasten die brood op tafel willen en ook nog passen in wat ze voor het diner hadden gekocht. Dus ik kleedde 'm uit. De olie die vroeger bovenop in een plas lag gaat nu in het deeg. Tien gram. De kruiden doen de rest, zoals de tuin van Angela dat deed. Oregano, basilicum, tijm, rozemarijn, knoflook, alles er meteen ingekneed, een zware hand zwarte peper.",
+        "De bloem doet wat overblijft. Harina de fuerza, het sterke spul uit de zwarte zak van de Spaanse supermarkt, dat bijna niets kost en zich gedraagt alsof het tien keer zoveel kost. Het drinkt het water en geeft je de open kruim, de gaten, de beet. Laat de bloem en het water elkaar leren kennen voordat de gist langskomt. Jaag de rijs niet op. Natte vingers voor de kuiltjes. En als ie eruit komt, goudbruin en knapperig en geurend naar een tuin, gelooft niemand aan tafel dat het de slanke is. Angela zou het goedgekeurd hebben.",
+      ],
+    },
+    nowPlaying: {
+      track: "Azzurro",
+      artist: "Adriano Celentano",
+    },
+    marginalia: [
+      {
+        id: "foc-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Harina de fuerza, not plain flour. The extra protein is what gives you the big holes.",
+          es: "Harina de fuerza, no harina normal. La proteína de más es la que te da los agujeros grandes.",
+          nl: "Harina de fuerza, geen gewone bloem. Het extra eiwit geeft je de grote gaten.",
+        },
+      },
+      {
+        id: "foc-2",
+        kind: "warning",
+        anchor: "step-2",
+        body: {
+          en: "Lukewarm water, never hot. Above 40 °C you cook the yeast dead before it starts.",
+          es: "Agua templada, nunca caliente. Por encima de 40 °C matas la levadura antes de que arranque.",
+          nl: "Lauw water, nooit heet. Boven 40 °C kook je de gist dood voordat hij begint.",
+        },
+      },
+      {
+        id: "foc-3",
+        kind: "wrong",
+        anchor: "step-7",
+        body: {
+          en: "First time I pressed it flat like a pizza. Pushed all the air out. Flat, sad bread. Press soft, leave the bubbles.",
+          es: "La primera vez la aplasté como una pizza. Saqué todo el aire. Pan plano y triste. Aprieta suave, deja las burbujas.",
+          nl: "Eerste keer drukte ik 'm plat als een pizza. Alle lucht eruit. Plat, treurig brood. Druk zacht, laat de bellen zitten.",
+        },
+      },
+      {
+        id: "foc-4",
+        kind: "scrawl",
+        anchor: "step-9",
+        body: {
+          en: "Wet fingers for the dimples or the dough climbs up your hand and the craters close again.",
+          es: "Dedos mojados para los hoyitos o la masa se te sube a la mano y los cráteres se cierran.",
+          nl: "Natte vingers voor de kuiltjes, anders kruipt het deeg langs je hand omhoog en sluiten de kraters weer.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "500 g", es: "500 g", nl: "500 g" },
+        ingredient: {
+          en: "harina de fuerza (strong bread flour)",
+          es: "harina de fuerza",
+          nl: "harina de fuerza (sterke broodbloem)",
+        },
+        note: {
+          en: "the black bag from the Spanish supermarket",
+          es: "el saco negro del súper",
+          nl: "de zwarte zak uit de Spaanse supermarkt",
+        },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "375 g", es: "375 g", nl: "375 g" },
+        ingredient: { en: "lukewarm water", es: "agua templada", nl: "lauwwarm water" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "7 g", es: "7 g", nl: "7 g" },
+        ingredient: { en: "dry yeast", es: "levadura seca", nl: "droge gist" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "honey", es: "miel", nl: "honing" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "50 ml", es: "50 ml", nl: "50 ml" },
+        ingredient: {
+          en: "lukewarm water, for the yeast",
+          es: "agua templada, para la levadura",
+          nl: "lauwwarm water, voor de gist",
+        },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "10 g", es: "10 g", nl: "10 g" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "10 g", es: "10 g", nl: "10 g" },
+        ingredient: { en: "olive oil", es: "aceite de oliva", nl: "olijfolie" },
+      },
+      {
+        group: { en: "Herbs in the dough", es: "Hierbas en la masa", nl: "Kruiden in het deeg" },
+        quantity: { en: "2 tsp", es: "2 cdtas", nl: "2 tl" },
+        ingredient: { en: "dried oregano", es: "orégano seco", nl: "gedroogde oregano" },
+      },
+      {
+        group: { en: "Herbs in the dough", es: "Hierbas en la masa", nl: "Kruiden in het deeg" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "dried basil", es: "albahaca seca", nl: "gedroogde basilicum" },
+      },
+      {
+        group: { en: "Herbs in the dough", es: "Hierbas en la masa", nl: "Kruiden in het deeg" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "dried thyme", es: "tomillo seco", nl: "gedroogde tijm" },
+      },
+      {
+        group: { en: "Herbs in the dough", es: "Hierbas en la masa", nl: "Kruiden in het deeg" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "dried rosemary", es: "romero seco", nl: "gedroogde rozemarijn" },
+      },
+      {
+        group: { en: "Herbs in the dough", es: "Hierbas en la masa", nl: "Kruiden in het deeg" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "garlic powder", es: "ajo en polvo", nl: "knoflookpoeder" },
+      },
+      {
+        group: { en: "Herbs in the dough", es: "Hierbas en la masa", nl: "Kruiden in het deeg" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: { en: "black pepper", es: "pimienta negra", nl: "zwarte peper" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Voor bovenop" },
+        quantity: { en: "5 g", es: "5 g", nl: "5 g" },
+        ingredient: { en: "olive oil", es: "aceite de oliva", nl: "olijfolie" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Voor bovenop" },
+        quantity: { en: "a few sprigs", es: "unas ramitas", nl: "een paar takjes" },
+        ingredient: { en: "fresh rosemary", es: "romero fresco", nl: "verse rozemarijn" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Voor bovenop" },
+        quantity: { en: "a pinch", es: "una pizca", nl: "een snuf" },
+        ingredient: { en: "oregano", es: "orégano", nl: "oregano" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Voor bovenop" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: { en: "coarse sea salt", es: "sal gruesa", nl: "grof zeezout" },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Mix the 500 g flour with 375 g lukewarm water. Stir to a rough, shaggy dough. Cover and rest 30 to 60 minutes. This is the flour drinking. Do not skip it.",
+          es: "Mezcla los 500 g de harina con 375 g de agua templada. Remueve hasta una masa basta y desigual. Tapa y reposa de 30 a 60 minutos. Aquí la harina bebe. No te lo saltes.",
+          nl: "Meng de 500 g bloem met 375 g lauwwarm water. Roer tot een ruw, rafelig deeg. Dek af en laat 30 tot 60 minuten staan. Dit is de bloem die drinkt. Sla het niet over.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Stir 7 g dry yeast into 50 ml lukewarm water with 1 tsp honey. Leave 5 to 10 minutes until it foams and smells like beer. If nothing happens, the yeast is dead. Start again.",
+          es: "Disuelve 7 g de levadura seca en 50 ml de agua templada con 1 cdta de miel. Deja de 5 a 10 minutos hasta que espume y huela a cerveza. Si no pasa nada, la levadura está muerta. Empieza de nuevo.",
+          nl: "Los 7 g droge gist op in 50 ml lauwwarm water met 1 tl honing. Laat 5 tot 10 minuten staan tot het schuimt en naar bier ruikt. Gebeurt er niets, dan is de gist dood. Begin opnieuw.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Add the yeast to the dough and knead 3 to 4 minutes, until it is one thing and not two.",
+          es: "Añade la levadura a la masa y amasa de 3 a 4 minutos, hasta que sea una sola cosa y no dos.",
+          nl: "Voeg de gist toe aan het deeg en kneed 3 tot 4 minuten, tot het één geheel is en geen twee.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Add 10 g salt, the oregano, basil, thyme, rosemary, garlic powder and a heavy hand of black pepper. Knead 5 minutes more. This is where the bread gets its soul.",
+          es: "Añade 10 g de sal, el orégano, la albahaca, el tomillo, el romero, el ajo en polvo y una mano generosa de pimienta negra. Amasa 5 minutos más. Aquí el pan coge su alma.",
+          nl: "Voeg 10 g zout toe, de oregano, basilicum, tijm, rozemarijn, knoflookpoeder en een zware hand zwarte peper. Kneed nog 5 minuten. Hier krijgt het brood z'n ziel.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Work in 10 g olive oil and keep kneading until the dough turns smooth and elastic and stops fighting you.",
+          es: "Incorpora 10 g de aceite de oliva y sigue amasando hasta que la masa quede lisa y elástica y deje de pelear contigo.",
+          nl: "Kneed 10 g olijfolie erdoor en blijf kneden tot het deeg glad en elastisch wordt en niet meer tegenstribbelt.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Cover and let it rise 1.5 to 2 hours, until doubled in volume.",
+          es: "Tapa y deja levar de 1,5 a 2 horas, hasta que doble su volumen.",
+          nl: "Dek af en laat 1,5 tot 2 uur rijzen, tot het in volume is verdubbeld.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Tip the dough onto a tray lined with baking paper. Press and stretch it gently to fill the tray. Gently. You spent hours building those bubbles.",
+          es: "Vuelca la masa en una bandeja con papel de horno. Presiona y estírala con cuidado para llenar la bandeja. Con cuidado. Llevas horas construyendo esas burbujas.",
+          nl: "Stort het deeg op een met bakpapier beklede bakplaat. Druk en rek het voorzichtig uit tot de plaat vol is. Voorzichtig. Je hebt uren aan die bellen gebouwd.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Leave it another 30 minutes to relax and puff back up.",
+          es: "Déjala otros 30 minutos para que se relaje y vuelva a hincharse.",
+          nl: "Laat het nog 30 minuten narijzen zodat het ontspant en weer opbolt.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Wet your fingers and drive them into the dough, all the way down. Those craters are the signature.",
+          es: "Mójate los dedos y húndelos en la masa, hasta el fondo. Esos cráteres son la firma.",
+          nl: "Maak je vingers nat en duw ze in het deeg, helemaal tot onderaan. Die kraters zijn het handtekeningetje.",
+        },
+      },
+      {
+        position: 10,
+        body: {
+          en: "Brush with 5 g olive oil and scatter fresh rosemary, a little oregano and coarse sea salt.",
+          es: "Pincela con 5 g de aceite de oliva y esparce romero fresco, un poco de orégano y sal gruesa.",
+          nl: "Bestrijk met 5 g olijfolie en bestrooi met verse rozemarijn, wat oregano en grof zeezout.",
+        },
+      },
+      {
+        position: 11,
+        body: {
+          en: "Bake 20 to 25 minutes at 220 °C until golden and cooked through. Eat it warm, the day you make it.",
+          es: "Hornea de 20 a 25 minutos a 220 °C hasta que esté dorada y hecha. Cómela templada, el mismo día.",
+          nl: "Bak 20 tot 25 minuten op 220 °C tot goudbruin en gaar. Eet 'm warm, de dag dat je 'm maakt.",
+        },
+      },
+    ],
+    publishedAt: "2026-05-31",
   },
 ];
