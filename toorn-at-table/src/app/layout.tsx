@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { ContactNudge } from "@/components/layout/ContactNudge";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Footer } from "@/components/layout/Footer";
@@ -257,6 +258,7 @@ export default async function RootLayout({
           </SmoothScroll>
           <Preloader />
           <CookieConsent />
+          <ContactNudge />
         </LocaleProvider>
       </body>
     </html>

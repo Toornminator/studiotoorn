@@ -475,6 +475,11 @@ export const nl: Dictionary = {
       },
     ],
   },
+  nudge: {
+    message: "Een avond in gedachten?",
+    cta: "Even praten",
+    dismiss: "Sluiten",
+  },
   marquee: {
     primary: [
       "Costa del Sol",

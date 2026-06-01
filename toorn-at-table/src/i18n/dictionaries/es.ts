@@ -477,6 +477,11 @@ export const es: Dictionary = {
       },
     ],
   },
+  nudge: {
+    message: "¿Tienes una noche en mente?",
+    cta: "Hablamos",
+    dismiss: "Cerrar",
+  },
   marquee: {
     primary: [
       "Costa del Sol",

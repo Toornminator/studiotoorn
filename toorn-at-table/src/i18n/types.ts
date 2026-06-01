@@ -348,6 +348,14 @@ export type Dictionary = {
     faqTitle: string;
     faqItems: { q: string; a: string }[];
   };
+  nudge: {
+    /** Short hand-written hook in the corner balloon. */
+    message: string;
+    /** CTA button label; scrolls to the contact form. */
+    cta: string;
+    /** Accessible label for the dismiss button. */
+    dismiss: string;
+  };
   marquee: {
     primary: string[];
     secondary: string[];
