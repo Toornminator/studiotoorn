@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 
 type CursorMode = "dot" | "link" | "grab";
 
-const SPRING = { damping: 40, stiffness: 1100, mass: 0.18 };
 const MODE_TRANSITION = { duration: 0.18, ease: "easeOut" } as const;
 
 function subscribeCoarsePointer(callback: () => void) {
@@ -32,10 +31,10 @@ export function CustomCursor() {
   const [label, setLabel] = useState<string | null>(null);
   const modeRef = useRef<CursorMode>("dot");
   const labelRef = useRef<string | null>(null);
+  // Bound directly to the pointer (no spring): the cursor must track 1:1
+  // with zero perceived lag. A spring here reads as a delay.
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
-  const sx = useSpring(x, SPRING);
-  const sy = useSpring(y, SPRING);
 
   useEffect(() => {
     if (isCoarsePointer) return;
@@ -114,7 +113,7 @@ export function CustomCursor() {
     <motion.div
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[9999]"
-      style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%" }}
+      style={{ x, y, translateX: "-50%", translateY: "-50%" }}
     >
       <AnimatePresence initial={false} mode="popLayout">
         {mode === "dot" && (
