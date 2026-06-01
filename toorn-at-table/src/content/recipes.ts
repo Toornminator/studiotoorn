@@ -2781,4 +2781,249 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-05-31",
   },
+  {
+    slug: "finca-fire-pickles",
+    title: {
+      en: "Finca fire pickles",
+      es: "Finca fire pickles",
+      nl: "Finca fire pickles",
+    },
+    intro: {
+      en: "Crisp cucumber, sour, sweet, and a slow burn. Surprisingly hard to stop eating.",
+      es: "Pepino crujiente, ácido, dulce y un picor lento. Sorprendentemente difícil de parar.",
+      nl: "Knapperige komkommer, zuur, zoet en een trage hitte. Verrassend moeilijk om mee te stoppen.",
+    },
+    category: "bij",
+    seasons: ["zomer"],
+    difficulty: 1,
+    prepMinutes: 20,
+    cookMinutes: 5,
+    heroImage: "/images/recipes/finca-fire-pickles.jpg",
+    pairing: {
+      en: "A cold beer and anything off the grill. They cut through fat like nothing else.",
+      es: "Una cerveza fría y cualquier cosa de la parrilla. Cortan la grasa como nada.",
+      nl: "Een koud biertje en alles van de grill. Ze snijden door vet als niets anders.",
+    },
+    body: {
+      en: [
+        "There is a moment at the finca, somewhere around the third skewer off the grill, when the food turns heavy. Too much fat, too much smoke, too much of a good thing. A jar of these is the answer. You eat one and the plate resets. Sour, cold, sharp, a slow chili heat behind it, and suddenly you can go another hour.",
+        "The trick is the salt and the half hour of waiting. Most pickles go soft because people drown raw cucumber in hot brine and hope. Salt the cucumber first, let it weep in a colander, and it stays loud and crisp no matter how long it sits. Apple cider vinegar over plain white, because it has a backbone. Then ginger, garlic, a red chili in rings, and lime. The lime is the secret. It goes soft and almost candied in the jar and is the best thing in there.",
+        "Give them a night. Twenty-four hours and they are fresh and bright. Forty-eight and they hit the balance you actually want, sour and sweet and warm all at once. I put them out with smashburgers, tacos, grilled chicken, a charcuterie board, anything that needs cutting. A few flakes of pyramid salt right before they go down, for the crunch. Then watch the jar empty faster than you believe.",
+      ],
+      es: [
+        "Hay un momento en la finca, sobre la tercera brocheta de la parrilla, en que la comida se vuelve pesada. Demasiada grasa, demasiado humo, demasiado de algo bueno. Un bote de estos es la respuesta. Te comes uno y el plato se reinicia. Ácido, frío, cortante, con un picor lento de chili detrás, y de repente puedes seguir una hora más.",
+        "El truco está en la sal y en la media hora de espera. La mayoría de los encurtidos quedan blandos porque la gente ahoga el pepino crudo en salmuera caliente y reza. Sala el pepino primero, deja que sude en un colador, y se queda crujiente por mucho que repose. Vinagre de manzana antes que el blanco normal, porque tiene carácter. Luego jengibre, ajo, un chili rojo en aros, y lima. La lima es el secreto. Se ablanda y casi se confita en el bote y es lo mejor que hay dentro.",
+        "Dales una noche. Veinticuatro horas y están frescos y vivos. Cuarenta y ocho y llegan al equilibrio que de verdad quieres, ácido, dulce y cálido a la vez. Los saco con smashburgers, tacos, pollo a la brasa, una tabla de embutidos, cualquier cosa que pida un corte. Unas escamas de sal en pirámide justo antes de servir, para el crujido. Y mira cómo se vacía el bote más rápido de lo que crees.",
+      ],
+      nl: [
+        "Er is een moment op de finca, ergens rond de derde spies van de grill, dat het eten zwaar wordt. Te veel vet, te veel rook, te veel van iets goeds. Een pot van deze is het antwoord. Je eet er één en het bord reset. Zuur, koud, scherp, met een trage chilihitte erachter, en opeens kun je nog een uur door.",
+        "De truc zit in het zout en het halfuur wachten. De meeste pickles worden zacht omdat mensen rauwe komkommer verzuipen in hete pekel en hopen. Zout de komkommer eerst, laat 'm uitlekken in een vergiet, en hij blijft luid en knapperig hoe lang hij ook staat. Appelazijn boven gewone witte, want die heeft een ruggengraat. Daarna gember, knoflook, een rode chili in ringen, en limoen. De limoen is het geheim. Die wordt zacht en bijna gekonfijt in de pot en is het lekkerste wat erin zit.",
+        "Geef ze een nacht. Vierentwintig uur en ze zijn fris en helder. Achtenveertig en ze raken de balans die je echt wil, zuur en zoet en warm tegelijk. Ik zet ze erbij met smashburgers, taco's, gegrilde kip, een charcuterieplank, alles wat een tegenwicht nodig heeft. Een paar vlokken piramidezout vlak voordat ze de deur uitgaan, voor de crunch. En kijk dan hoe de pot sneller leeg raakt dan je gelooft.",
+      ],
+    },
+    nowPlaying: {
+      track: "Bamboleo",
+      artist: "Gipsy Kings",
+    },
+    marginalia: [
+      {
+        id: "fire-1",
+        kind: "tip",
+        anchor: "step-2",
+        body: {
+          en: "The 30-minute salt drain is the whole game. Skip it and the pickles go soggy. Do it and they stay loud for a week.",
+          es: "La media hora de sal escurriendo lo es todo. Sáltatelo y los encurtidos quedan blandos. Hazlo y aguantan crujientes una semana.",
+          nl: "Dat halfuur uitlekken met zout is het hele spel. Sla het over en de pickles worden slap. Doe het en ze blijven een week knapperig.",
+        },
+      },
+      {
+        id: "fire-2",
+        kind: "warning",
+        anchor: "step-6",
+        body: {
+          en: "Warm brine, not boiling, when it goes over the cucumber. Boiling water cooks the snap right out of it.",
+          es: "Salmuera templada, no hirviendo, al verterla sobre el pepino. El agua hirviendo le quita el crujido.",
+          nl: "Warme pekel, niet kokend, als 't over de komkommer gaat. Kokend water kookt de knapperigheid eruit.",
+        },
+      },
+      {
+        id: "fire-3",
+        kind: "wrong",
+        anchor: "step-8",
+        body: {
+          en: "First batch I cracked open after six hours. Salty, flat, no depth. They need a night. Forty-eight hours is the sweet spot.",
+          es: "El primer bote lo abrí a las seis horas. Salado, plano, sin fondo. Necesitan una noche. Cuarenta y ocho horas es el punto.",
+          nl: "Eerste pot maakte ik na zes uur open. Zout, plat, geen diepte. Ze hebben een nacht nodig. Achtenveertig uur is het punt.",
+        },
+      },
+      {
+        id: "fire-4",
+        kind: "scrawl",
+        anchor: "ingredients",
+        body: {
+          en: "Don't leave the lime out. It softens and candies in the jar and disappears first.",
+          es: "No te dejes la lima. Se ablanda y se confita en el bote y desaparece la primera.",
+          nl: "Laat de limoen er niet uit. Die wordt zacht en gekonfijt in de pot en is als eerste op.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Cucumber", es: "Pepino", nl: "Komkommer" },
+        quantity: { en: "1.5", es: "1,5", nl: "1,5" },
+        ingredient: { en: "cucumber", es: "pepino", nl: "komkommer" },
+      },
+      {
+        group: { en: "Cucumber", es: "Pepino", nl: "Komkommer" },
+        quantity: { en: "1 level tsp", es: "1 cdta rasa", nl: "1 afgestreken tl" },
+        ingredient: {
+          en: "Kalahari salt (or any flaky salt)",
+          es: "sal de Kalahari (o cualquier sal en escamas)",
+          nl: "Kalahari-zout (of ander vlokzout)",
+        },
+        note: {
+          en: "for drawing the water out",
+          es: "para sacar el agua",
+          nl: "om het vocht eruit te trekken",
+        },
+      },
+      {
+        group: { en: "Brine", es: "Salmuera", nl: "Pekel" },
+        quantity: { en: "300 ml", es: "300 ml", nl: "300 ml" },
+        ingredient: {
+          en: "apple cider vinegar",
+          es: "vinagre de manzana",
+          nl: "appelazijn",
+        },
+      },
+      {
+        group: { en: "Brine", es: "Salmuera", nl: "Pekel" },
+        quantity: { en: "300 ml", es: "300 ml", nl: "300 ml" },
+        ingredient: { en: "water", es: "agua", nl: "water" },
+      },
+      {
+        group: { en: "Brine", es: "Salmuera", nl: "Pekel" },
+        quantity: { en: "1 tbsp", es: "1 cda", nl: "1 el" },
+        ingredient: { en: "sugar", es: "azúcar", nl: "suiker" },
+      },
+      {
+        group: { en: "Aromatics", es: "Aromáticos", nl: "Aroma's" },
+        quantity: { en: "20 g", es: "20 g", nl: "20 g" },
+        ingredient: {
+          en: "fresh ginger, finely sliced",
+          es: "jengibre fresco, en láminas finas",
+          nl: "verse gember, fijn gesneden",
+        },
+      },
+      {
+        group: { en: "Aromatics", es: "Aromáticos", nl: "Aroma's" },
+        quantity: { en: "1 clove", es: "1 diente", nl: "1 teen" },
+        ingredient: {
+          en: "garlic, thinly sliced",
+          es: "ajo, en láminas finas",
+          nl: "knoflook, in dunne plakjes",
+        },
+      },
+      {
+        group: { en: "Aromatics", es: "Aromáticos", nl: "Aroma's" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: {
+          en: "red chili, in rings",
+          es: "chili rojo, en aros",
+          nl: "rode chilipeper, in ringetjes",
+        },
+      },
+      {
+        group: { en: "Aromatics", es: "Aromáticos", nl: "Aroma's" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: { en: "lime, in wedges", es: "lima, en gajos", nl: "limoen, in partjes" },
+      },
+      {
+        group: { en: "Aromatics", es: "Aromáticos", nl: "Aroma's" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: { en: "bay leaf", es: "hoja de laurel", nl: "laurierblad" },
+      },
+      {
+        group: { en: "Aromatics", es: "Aromáticos", nl: "Aroma's" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "black peppercorns",
+          es: "pimienta negra en grano",
+          nl: "zwarte peperkorrels",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Voor het serveren" },
+        quantity: { en: "a few flakes", es: "unas escamas", nl: "een paar vlokken" },
+        ingredient: { en: "pyramid salt", es: "sal en pirámide", nl: "piramidezout" },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Cut the cucumber into rough diagonal slices, or thick ribbons with a peeler.",
+          es: "Corta el pepino en lonchas gruesas al bies, o en cintas anchas con un pelador.",
+          nl: "Snijd de komkommer in grove schuine plakken, of in dikke linten met een dunschiller.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Toss the cucumber with the salt and leave it to drain in a colander for 30 minutes. This is what keeps it crisp.",
+          es: "Mezcla el pepino con la sal y déjalo escurrir en un colador 30 minutos. Esto es lo que lo mantiene crujiente.",
+          nl: "Meng de komkommer met het zout en laat 'm 30 minuten uitlekken in een vergiet. Dit houdt 'm knapperig.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Meanwhile, bring the apple cider vinegar, water and sugar to a boil. The moment the sugar dissolves, kill the heat.",
+          es: "Mientras, lleva a ebullición el vinagre de manzana, el agua y el azúcar. En cuanto se disuelva el azúcar, apaga el fuego.",
+          nl: "Breng ondertussen de appelazijn, het water en de suiker aan de kook. Zodra de suiker is opgelost, vuur uit.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Split the ginger, garlic, chili, peppercorns, bay and lime between the jars.",
+          es: "Reparte el jengibre, el ajo, el chili, la pimienta, el laurel y la lima entre los botes.",
+          nl: "Verdeel de gember, knoflook, chili, peperkorrels, laurier en limoen over de potten.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Pack the cucumber in tight. Two jars, roughly 750 ml and 500 ml.",
+          es: "Rellena bien con el pepino. Dos botes, de unos 750 ml y 500 ml.",
+          nl: "Vul de potten stevig met de komkommer. Twee potten, ongeveer 750 ml en 500 ml.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Pour the warm brine over until everything is fully submerged.",
+          es: "Vierte la salmuera templada hasta que todo quede cubierto.",
+          nl: "Giet de warme pekel erover tot alles onderstaat.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Seal the jars and let them cool to room temperature.",
+          es: "Cierra los botes y deja que se enfríen a temperatura ambiente.",
+          nl: "Sluit de potten en laat ze afkoelen tot kamertemperatuur.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Then into the fridge for at least 24 hours. 48 is better, three to five days is best. Finish with pyramid salt just before serving.",
+          es: "Luego a la nevera al menos 24 horas. 48 es mejor, de tres a cinco días es lo ideal. Termina con sal en pirámide justo antes de servir.",
+          nl: "Dan minimaal 24 uur in de koelkast. 48 is beter, drie tot vijf dagen is het best. Werk vlak voor het serveren af met piramidezout.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-01",
+  },
 ];
