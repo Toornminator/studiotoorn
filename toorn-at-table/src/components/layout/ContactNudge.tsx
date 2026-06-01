@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useT } from "@/i18n/client";
 
@@ -46,7 +45,6 @@ function persistDismiss() {
 export function ContactNudge() {
   const t = useT();
   const reduceMotion = useReducedMotion();
-  const pathname = usePathname();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -82,7 +80,9 @@ export function ContactNudge() {
     setShow(false);
   };
 
-  const contactHref = pathname === "/" ? "#contact" : "/#contact";
+  // Absolute "/#contact" so Next replaces the whole hash instead of
+  // appending to an existing one (which produced /#contact#contact).
+  const contactHref = "/#contact";
 
   return (
     <AnimatePresence>

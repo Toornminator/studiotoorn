@@ -45,7 +45,7 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
 
   return (
     <section
-      id="de-avond"
+      id="the-evening"
       aria-labelledby="evening-heading"
       className="relative w-full"
     >
@@ -160,7 +160,7 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
 
             <Reveal delay={0.25} className="mt-7">
               <a
-                href="#contact"
+                href="/#contact"
                 data-cursor={copy.cta}
                 className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70 transition-colors hover:text-tattoo-red"
               >

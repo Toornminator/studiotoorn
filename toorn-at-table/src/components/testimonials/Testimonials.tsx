@@ -23,7 +23,7 @@ export async function Testimonials() {
 
   return (
     <section
-      id="gasten"
+      id="guests"
       aria-labelledby="testimonials-heading"
       className="relative w-full"
     >
@@ -78,7 +78,7 @@ export async function Testimonials() {
           {testimonials.length % 2 === 1 && (
             <li className="bg-cream">
               <a
-                href="#contact"
+                href="/#contact"
                 data-cursor={copy.cta}
                 className="group flex h-full flex-col justify-center gap-4 p-7 transition-colors hover:bg-cream-warm/40 md:p-12"
               >
@@ -117,7 +117,7 @@ export async function Testimonials() {
         {testimonials.length % 2 === 0 && (
         <Reveal delay={0.15} className="mt-10 md:mt-14">
           <a
-            href="#contact"
+            href="/#contact"
             data-cursor={copy.cta}
             className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70 transition-colors hover:text-tattoo-red"
           >

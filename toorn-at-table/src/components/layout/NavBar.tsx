@@ -14,15 +14,14 @@ export function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Nav links point at home-page anchors (#over-nick, #kookboek, …). On
-  // the home page that's a plain in-page scroll; from /privacy or
-  // /terms the same hash would just sit in the URL without doing
-  // anything because the target section isn't on the page. So we
-  // prefix the href with "/" when we're not on home — Next's <Link>
-  // does an SPA hop back to the home route and the browser applies
-  // the hash anchor on arrival.
+  // Nav links use absolute "/#section" hrefs. An absolute (leading-slash)
+  // href lets Next's <Link> replace the whole path + hash, so it behaves
+  // the same on the home page (in-page scroll) and from /privacy, /terms,
+  // /the-table (SPA hop home, then scroll to the section). Relative
+  // "#section" hrefs are avoided on purpose: Next appends them to the
+  // current hash and produces a broken doubled fragment like
+  // /#contact#contact that scrolls nowhere.
   const isHome = pathname === "/";
-  const anchorPrefix = isHome ? "" : "/";
 
   // The mobile sheet must close when a section is picked, and also when
   // the visitor rotates to landscape / resizes up past md where the
@@ -51,25 +50,23 @@ export function NavBar() {
   const links: {
     href: string;
     label: string;
-    /** Route links (e.g. /the-table) skip the home-anchor prefix. */
-    isRoute?: boolean;
     /** Highlighted as the primary "order" action. */
     highlight?: boolean;
   }[] = [
-    { href: "#over-nick", label: t.nav.aboutNick },
-    { href: "#diensten", label: t.nav.services },
-    { href: "#reizen", label: t.nav.travels },
-    { href: "#kookboek", label: t.nav.cookbook },
-    { href: "#events", label: t.nav.events },
-    { href: "/the-table", label: t.nav.theTable, isRoute: true, highlight: true },
-    { href: "#contact", label: t.nav.contact },
+    { href: "/#about", label: t.nav.aboutNick },
+    { href: "/#services", label: t.nav.services },
+    { href: "/#travels", label: t.nav.travels },
+    { href: "/#cookbook", label: t.nav.cookbook },
+    { href: "/#events", label: t.nav.events },
+    { href: "/the-table", label: t.nav.theTable, highlight: true },
+    { href: "/#contact", label: t.nav.contact },
   ];
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-md">
       <div className="flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px]">
         <Link
-          href={isHome ? "#hero" : "/"}
+          href={isHome ? "/#hero" : "/"}
           aria-label="TOORN at table · back to top"
           onClick={() => setOpen(false)}
           className="group flex min-w-0 items-center gap-2.5 font-medium text-ink transition-colors hover:text-tattoo-red sm:gap-3"
@@ -97,7 +94,7 @@ export function NavBar() {
                   </span>
                 )}
                 <Link
-                  href={link.isRoute ? link.href : `${anchorPrefix}${link.href}`}
+                  href={link.href}
                   className={`whitespace-nowrap transition-colors ${
                     link.highlight
                       ? "font-medium text-tattoo-red hover:text-ink"
@@ -192,7 +189,7 @@ export function NavBar() {
                 {links.map((link, i) => (
                   <li key={link.href}>
                     <Link
-                      href={link.isRoute ? link.href : `${anchorPrefix}${link.href}`}
+                      href={link.href}
                       onClick={() => setOpen(false)}
                       className={`flex items-center justify-between px-5 py-3.5 transition-colors hover:bg-cream-warm active:bg-cream-warm sm:px-6 ${
                         link.highlight

@@ -10,7 +10,7 @@ export async function Kookboek() {
 
   return (
     <section
-      id="kookboek"
+      id="cookbook"
       aria-labelledby="kookboek-heading"
       className="relative w-full"
     >

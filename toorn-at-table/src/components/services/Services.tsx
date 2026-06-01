@@ -11,15 +11,15 @@ export async function Services() {
   const t = await getDictionary();
 
   const cards = [
-    { ...t.services.cards.privateDinner, href: "#contact" },
-    { ...t.services.cards.villaTakeover, href: "#contact" },
-    { ...t.services.cards.workshops, href: "#contact" },
-    { ...t.services.cards.events, href: "#events" },
+    { ...t.services.cards.privateDinner, href: "/#contact" },
+    { ...t.services.cards.villaTakeover, href: "/#contact" },
+    { ...t.services.cards.workshops, href: "/#contact" },
+    { ...t.services.cards.events, href: "/#events" },
   ] as const;
 
   return (
     <section
-      id="diensten"
+      id="services"
       aria-labelledby="services-heading"
       className="relative w-full"
     >

@@ -13,7 +13,7 @@ export async function Travel() {
 
   return (
     <section
-      id="reizen"
+      id="travels"
       aria-labelledby="travel-heading"
       className="relative w-full"
     >

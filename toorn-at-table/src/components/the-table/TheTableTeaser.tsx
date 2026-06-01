@@ -37,7 +37,7 @@ export async function TheTableTeaser() {
 
   return (
     <section
-      id="aan-de-deur"
+      id="to-your-door"
       aria-labelledby="table-teaser-heading"
       className="relative w-full"
     >

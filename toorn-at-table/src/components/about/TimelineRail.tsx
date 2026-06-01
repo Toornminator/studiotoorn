@@ -340,7 +340,7 @@ export function TimelineRail({
 
   return (
     <section
-      id="tijdlijn"
+      id="timeline"
       aria-labelledby="timeline-heading"
       className="relative w-full bg-cream"
     >

@@ -40,7 +40,7 @@ export async function Gallery() {
 
   return (
     <section
-      id="in-de-keuken"
+      id="in-the-kitchen"
       aria-labelledby="gallery-heading"
       className="relative w-full"
     >

@@ -13,7 +13,7 @@ export async function About() {
 
   return (
     <section
-      id="over-nick"
+      id="about"
       aria-labelledby="about-heading"
       className="relative w-full"
     >

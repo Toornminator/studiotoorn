@@ -13,7 +13,7 @@ export function ClosingPanel() {
 
   return (
     <section
-      id="afsluiting"
+      id="closing"
       aria-labelledby="closing-heading"
       className="relative w-full"
     >
@@ -91,7 +91,7 @@ export function ClosingPanel() {
           </p>
           <Magnetic strength={0.45}>
             <a
-              href="#contact"
+              href="/#contact"
               data-cursor={t.contact.cursorReserve}
               className="group relative inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
