@@ -279,6 +279,73 @@ export type Dictionary = {
       dessert: string;
     };
   };
+  theTable: {
+    /** Brand sub-label for the local weekly service, per locale. */
+    serviceName: string;
+    /** Homepage teaser. */
+    teaserEyebrow: string;
+    teaserSpotsLeft: string;
+    teaserSoldOut: string;
+    teaserDeliveryPrefix: string;
+    teaserCta: string;
+    /** Page metadata. */
+    metaTitle: string;
+    metaDescription: string;
+    /** Page hero. */
+    heroEyebrow: string;
+    heroTitle: string;
+    heroIntro: string;
+    /** This week's menu block. */
+    menuEyebrow: string;
+    perPerson: string;
+    deliveryDayLabel: string;
+    orderByLabel: string;
+    spotsLeftLabel: string;
+    soldOutLabel: string;
+    allergensLabel: string;
+    /** How it works. */
+    howEyebrow: string;
+    howTitle: string;
+    steps: { title: string; body: string }[];
+    /** Delivery area. */
+    areaEyebrow: string;
+    areaTitle: string;
+    areaBody: string;
+    /** Order form. */
+    form: {
+      eyebrow: string;
+      title: string;
+      intro: string;
+      nameLabel: string;
+      phoneLabel: string;
+      emailLabel: string;
+      emailOptional: string;
+      addressLabel: string;
+      addressHint: string;
+      portionsLabel: string;
+      timeLabel: string;
+      timePlaceholder: string;
+      allergiesLabel: string;
+      totalLabel: string;
+      cashNote: string;
+      submit: string;
+      submitting: string;
+      success: string;
+      closedTitle: string;
+      closedBody: string;
+      errors: {
+        nameRequired: string;
+        phoneRequired: string;
+        addressRequired: string;
+        portionsRange: string;
+        backendDown: string;
+      };
+    };
+    /** Mini-FAQ. */
+    faqEyebrow: string;
+    faqTitle: string;
+    faqItems: { q: string; a: string }[];
+  };
   marquee: {
     primary: string[];
     secondary: string[];

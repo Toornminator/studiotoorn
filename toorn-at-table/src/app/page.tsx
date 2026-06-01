@@ -5,6 +5,7 @@ import { Timeline } from "@/components/about/Timeline";
 import { Contact } from "@/components/contact/Contact";
 import { NetlifyFormSchema } from "@/components/contact/NetlifyFormSchema";
 import { TheEvening } from "@/components/evening/TheEvening";
+import { TheTableTeaser } from "@/components/the-table/TheTableTeaser";
 import { Events } from "@/components/events/Events";
 import { Faq } from "@/components/faq/Faq";
 import { Gallery } from "@/components/gallery/Gallery";
@@ -39,6 +40,7 @@ export default async function Home() {
       <Timeline />
       <Services />
       <TheEvening recipes={recipes} />
+      <TheTableTeaser />
       <Marquee items={t.marquee.primary} />
       <Travel />
       <Stats />

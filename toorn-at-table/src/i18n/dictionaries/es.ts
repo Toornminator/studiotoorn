@@ -24,7 +24,7 @@ export const es: Dictionary = {
     establishedLine: "Chef privado · Costa del Sol · Est. 2023",
     tagline:
       "Ojo de fotógrafo. Años en uniforme. Una cocina de estrella para la precisión. Una mesa al sol, y nada más.",
-    handwrittenNote: "no es catering. es un recuerdo",
+    handwrittenNote: "comida de verdad, hecha a mano, a tu mesa",
   },
   about: {
     eyebrow: "Capítulo 01 · Sobre Nick",
@@ -36,7 +36,7 @@ export const es: Dictionary = {
     body2:
       "Veintiséis años antes de lanzarme del todo. Empecé por la partida fría de un restaurante. Después un año en la pastelería de Bord'eau, Hotel de L'Europe, bajo Bas van Kranen. El año que me enseñó qué es la disciplina. La cámara llegó antes, a los dieciocho. La misma disciplina, otra herramienta.",
     body3:
-      "Desde 2023 cocino en privado en la Costa del Sol. Disciplina del uniforme. Precisión de la estrella. Calma de Andalucía. Todo a la misma mesa. No es catering. Es un recuerdo.",
+      "Desde 2023 cocino en privado en la Costa del Sol. Disciplina del uniforme. Precisión de la estrella. Calma de Andalucía. Todo a la misma mesa. Comida de verdad, hecha a mano.",
     chip1: "Formado en estrella Michelin · Bord'eau, Ámsterdam",
     chip2: "Fotógrafo de retrato y calle",
     chip3: "Chef privado desde 2023",
@@ -174,8 +174,8 @@ export const es: Dictionary = {
   },
   closing: {
     eyebrow: "Pausa",
-    quoteLine1: "No es catering.",
-    quoteLine2: "Es un recuerdo.",
+    quoteLine1: "Comida de verdad, hecha a mano,",
+    quoteLine2: "a tu mesa.",
     signature: " Nick",
     ctaIntro: "¿Te sientas a la mesa?",
     ctaButton: "Planea una cena",
@@ -375,6 +375,106 @@ export const es: Dictionary = {
       main: "Principal",
       dessert: "Para terminar",
     },
+  },
+  theTable: {
+    serviceName: "Toorn a domicilio",
+    teaserEyebrow: "Esta semana · Arroyo de la Miel",
+    teaserSpotsLeft: "plazas libres",
+    teaserSoldOut: "Agotado esta semana",
+    teaserDeliveryPrefix: "Se entrega el",
+    teaserCta: "Ver el menú de esta semana",
+    metaTitle: "Toorn a domicilio · Arroyo de la Miel",
+    metaDescription:
+      "Alta cocina a domicilio en Arroyo de la Miel. Un menú nuevo cada semana, recién hecho, pago en efectivo. Pide hasta dos días antes.",
+    heroEyebrow: "Toorn a domicilio · Arroyo de la Miel",
+    heroTitle: "Alta cocina en tu puerta.",
+    heroIntro:
+      "Un menú nuevo cada semana, recién cocinado y llevado a tu puerta en Arroyo de la Miel. Pide hasta dos días antes, pagas en efectivo en la puerta.",
+    menuEyebrow: "El menú de esta semana",
+    perPerson: "por persona",
+    deliveryDayLabel: "Entrega",
+    orderByLabel: "Pide antes del",
+    spotsLeftLabel: "plazas libres",
+    soldOutLabel: "Agotado esta semana",
+    allergensLabel: "Alérgenos",
+    howEyebrow: "Cómo funciona",
+    howTitle: "De mi puerta a tu mesa, cada semana.",
+    steps: [
+      {
+        title: "Un menú nuevo cada semana",
+        body: "Publico el menú de la semana pronto. Un menú, cocinado una vez, bien hecho.",
+      },
+      {
+        title: "Pide hasta dos días antes",
+        body: "Dime cuántas raciones y dónde. Los pedidos cierran dos días antes de la entrega.",
+      },
+      {
+        title: "Lo cocino recién hecho",
+        body: "Todo hecho el día que sale. Sin recalentar, sin atajos.",
+      },
+      {
+        title: "A tu puerta, en efectivo",
+        body: "Te lo llevo a tu puerta en Arroyo de la Miel. Pagas en efectivo al recibirlo.",
+      },
+    ],
+    areaEyebrow: "Dónde reparto",
+    areaTitle: "Solo Arroyo de la Miel.",
+    areaBody:
+      "Esta es la mesa local. Reparto dentro de Arroyo de la Miel, nada más lejos. Vivir aquí o estar de visita valen igual, mientras tengas una dirección en el pueblo.",
+    form: {
+      eyebrow: "Pedido",
+      title: "Pide el menú de esta semana.",
+      intro:
+        "Rellena esto y te confirmo por WhatsApp en el día. El pago es en efectivo en la puerta.",
+      nameLabel: "Tu nombre",
+      phoneLabel: "Teléfono (WhatsApp)",
+      emailLabel: "Email",
+      emailOptional: "opcional",
+      addressLabel: "Dirección de entrega",
+      addressHint: "Solo repartimos dentro de Arroyo de la Miel.",
+      portionsLabel: "Número de raciones",
+      timeLabel: "Hora de entrega preferida",
+      timePlaceholder: "p. ej. sobre las 19:00",
+      allergiesLabel: "Alergias o notas",
+      totalLabel: "Total",
+      cashNote: "El pago es en efectivo contra entrega.",
+      submit: "Enviar pedido",
+      submitting: "Enviando...",
+      success: "Recibido. Te confirmo por WhatsApp en el día.",
+      closedTitle: "Los pedidos de esta semana están cerrados.",
+      closedBody: "El próximo menú se publica a principios de la semana que viene. Vuelve entonces.",
+      errors: {
+        nameRequired: "Tu nombre, por favor",
+        phoneRequired: "Un teléfono, para poder confirmar",
+        addressRequired: "Una dirección en Arroyo de la Miel",
+        portionsRange: "Entre 1 y las plazas libres",
+        backendDown: "Algo salió mal. Inténtalo de nuevo o escríbeme por WhatsApp.",
+      },
+    },
+    faqEyebrow: "Bueno saber",
+    faqTitle: "Preguntas rápidas.",
+    faqItems: [
+      {
+        q: "¿Repartís a mi dirección?",
+        a: "Solo dentro de Arroyo de la Miel. Si tienes una dirección en el pueblo, residente o de visita, estás dentro.",
+      },
+      {
+        q: "¿Cómo pago?",
+        a: "En efectivo en la puerta al entregarlo. Sin tarjetas, sin transferencias, sin apps.",
+      },
+      {
+        q: "¿Cuándo cierran los pedidos?",
+        a: "Dos días antes de la entrega. Después la semana queda cerrada para poder comprar y cocinar bien.",
+      },
+      {
+        q: "¿Y si pone agotado?",
+        a: "Limito cada semana para que la comida salga como debe. Agotado quiere decir lleno. El próximo menú sale a principios de la semana que viene.",
+      },
+      {
+        q: "¿Alergias?",
+        a: "Dímelo en las notas del pedido. Adapto lo que puedo con seguridad y te lo digo claro si no puedo.",
+      },
+    ],
   },
   marquee: {
     primary: [

@@ -24,7 +24,7 @@ export const en: Dictionary = {
     establishedLine: "Private chef · Costa del Sol · Est. 2023",
     tagline:
       "An eye for light. Years in uniform. A Michelin kitchen for the precision. One table in the sun, and that's it.",
-    handwrittenNote: "not catering. a memory",
+    handwrittenNote: "real food, by hand, to your table",
   },
   about: {
     eyebrow: "Chapter 01 · About Nick",
@@ -36,7 +36,7 @@ export const en: Dictionary = {
     body2:
       "Twenty-six before I went all in. Started on the cold side of a kitchen. Then a year in the patisserie at Bord'eau, Hotel de L'Europe, under Bas van Kranen. The year that taught me what discipline looks like. The camera came earlier, eighteen. Same discipline, different tool.",
     body3:
-      "Since 2023 I cook privately on the Costa del Sol. Uniform discipline. Michelin precision. Andalusian calm. All of it at one table. Not catering. A memory.",
+      "Since 2023 I cook privately on the Costa del Sol. Uniform discipline. Michelin precision. Andalusian calm. All of it at one table. Real food, by hand.",
     chip1: "Michelin-trained · Bord'eau, Amsterdam",
     chip2: "Portrait and street photographer",
     chip3: "Private chef since 2023",
@@ -171,8 +171,8 @@ export const en: Dictionary = {
   },
   closing: {
     eyebrow: "Interlude",
-    quoteLine1: "Not catering.",
-    quoteLine2: "A memory.",
+    quoteLine1: "Real food, by hand,",
+    quoteLine2: "to your table.",
     signature: " Nick",
     ctaIntro: "Want to sit at the table?",
     ctaButton: "Plan a dinner",
@@ -369,6 +369,106 @@ export const en: Dictionary = {
       main: "Main",
       dessert: "To finish",
     },
+  },
+  theTable: {
+    serviceName: "Toorn to your door",
+    teaserEyebrow: "This week · Arroyo de la Miel",
+    teaserSpotsLeft: "spots left",
+    teaserSoldOut: "Sold out this week",
+    teaserDeliveryPrefix: "Delivered",
+    teaserCta: "See this week's menu",
+    metaTitle: "Toorn to your door · Arroyo de la Miel",
+    metaDescription:
+      "Fine dining delivered to your door in Arroyo de la Miel. One new menu every week, cooked fresh, cash on delivery. Order up to two days ahead.",
+    heroEyebrow: "Toorn to your door · Arroyo de la Miel",
+    heroTitle: "Fine dining to your door.",
+    heroIntro:
+      "One new menu every week, cooked fresh and brought to your door in Arroyo de la Miel. Order up to two days ahead, pay cash at the door.",
+    menuEyebrow: "This week's menu",
+    perPerson: "per person",
+    deliveryDayLabel: "Delivery",
+    orderByLabel: "Order by",
+    spotsLeftLabel: "spots left",
+    soldOutLabel: "Sold out this week",
+    allergensLabel: "Allergens",
+    howEyebrow: "How it works",
+    howTitle: "Door to table, every week.",
+    steps: [
+      {
+        title: "A new menu every week",
+        body: "I post the week's menu early. One menu, cooked once, done properly.",
+      },
+      {
+        title: "Order up to two days ahead",
+        body: "Tell me how many portions and where. Orders close two days before delivery.",
+      },
+      {
+        title: "I cook it fresh",
+        body: "Everything made the day it goes out. No reheating, no shortcuts.",
+      },
+      {
+        title: "To your door, pay cash",
+        body: "I bring it to your door in Arroyo de la Miel. You pay cash when it lands.",
+      },
+    ],
+    areaEyebrow: "Where I deliver",
+    areaTitle: "Arroyo de la Miel only.",
+    areaBody:
+      "This is the local table. I deliver inside Arroyo de la Miel, nothing further. Living here or just visiting both count, as long as you have an address in town.",
+    form: {
+      eyebrow: "Order",
+      title: "Get this week's menu.",
+      intro:
+        "Fill this in and I confirm by WhatsApp within the day. Payment is cash at the door.",
+      nameLabel: "Your name",
+      phoneLabel: "Phone (WhatsApp)",
+      emailLabel: "Email",
+      emailOptional: "optional",
+      addressLabel: "Delivery address",
+      addressHint: "We only deliver within Arroyo de la Miel.",
+      portionsLabel: "Number of portions",
+      timeLabel: "Preferred delivery time",
+      timePlaceholder: "e.g. around 19:00",
+      allergiesLabel: "Allergies or notes",
+      totalLabel: "Total",
+      cashNote: "Payment is cash on delivery.",
+      submit: "Send order",
+      submitting: "Sending...",
+      success: "Got it. I'll confirm by WhatsApp within the day.",
+      closedTitle: "Ordering is closed for this week.",
+      closedBody: "The next menu goes up early next week. Check back then.",
+      errors: {
+        nameRequired: "Your name, please",
+        phoneRequired: "A phone number, so I can confirm",
+        addressRequired: "An address in Arroyo de la Miel",
+        portionsRange: "Between 1 and the spots left",
+        backendDown: "Something went wrong. Try again, or message me on WhatsApp.",
+      },
+    },
+    faqEyebrow: "Good to know",
+    faqTitle: "Quick questions.",
+    faqItems: [
+      {
+        q: "Do you deliver to me?",
+        a: "Only inside Arroyo de la Miel. If you have an address in town, resident or visitor, you are in.",
+      },
+      {
+        q: "How do I pay?",
+        a: "Cash at the door when I deliver. No cards, no transfers, no apps.",
+      },
+      {
+        q: "When do orders close?",
+        a: "Two days before delivery. After that the week is locked so I can shop and cook properly.",
+      },
+      {
+        q: "What if it says sold out?",
+        a: "I cap each week so the food stays right. Sold out means full. The next menu goes up early next week.",
+      },
+      {
+        q: "Allergies?",
+        a: "Tell me in the order notes. I work around what I safely can and tell you straight if I cannot.",
+      },
+    ],
   },
   marquee: {
     primary: [

@@ -97,7 +97,7 @@ def make_card() -> Image.Image:
     draw.text((text_x + 80, 340), "at table", font=alfa_60, fill=CREAM, anchor="lt")
 
     # Tagline in Special Elite, same metric as the in-site eyebrows.
-    tagline = "Art on a plate. Not catering. A memory."
+    tagline = "Art on a plate. Real food, by hand."
     cursor_x = text_x
     tagline_y = 440
     for ch in tagline:

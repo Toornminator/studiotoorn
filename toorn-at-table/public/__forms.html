@@ -33,6 +33,19 @@
       <textarea name="message"></textarea>
     </form>
 
+    <form name="order" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="order" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="address" />
+      <input type="number" name="portions" />
+      <input type="text" name="deliveryTime" />
+      <textarea name="allergies"></textarea>
+      <input type="text" name="menu" />
+    </form>
+
     <form name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="newsletter" />
       <input type="text" name="bot-field" />

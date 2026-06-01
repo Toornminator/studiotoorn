@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "TOORN at table",
     title: "TOORN at table · Art on a plate",
     description:
-      "Michelin-trained precision, Andalusian sun, one table. Not catering. A memory.",
+      "Michelin-trained precision, Andalusian sun. Real food, by hand, to your table.",
     url: SITE_URL,
     // The OG image itself is the 1200x630 card composed in
     // scripts/build-og-image.py and dropped at src/app/opengraph-image.png.
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TOORN at table · Art on a plate",
     description:
-      "Michelin-trained precision, Andalusian sun, one table. Not catering. A memory.",
+      "Michelin-trained precision, Andalusian sun. Real food, by hand, to your table.",
     // Same story for Twitter — src/app/twitter-image.png is picked up
     // automatically and overrides the openGraph image for Twitter cards.
   },

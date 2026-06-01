@@ -24,7 +24,7 @@ export const nl: Dictionary = {
     establishedLine: "Private chef · Costa del Sol · Est. 2023",
     tagline:
       "Een fotografenoog. Jaren in dienst. Een sterrenkeuken voor de precisie. Eén tafel in de zon, meer niet.",
-    handwrittenNote: "geen catering. een herinnering",
+    handwrittenNote: "echt eten, met de hand, aan jouw tafel",
   },
   about: {
     eyebrow: "Hoofdstuk 01 · Over Nick",
@@ -36,7 +36,7 @@ export const nl: Dictionary = {
     body2:
       "Pas op mijn zesentwintigste ben ik voluit gegaan. Begonnen aan de koude kant van een keuken. Daarna een jaar in de patisserie van Bord'eau, Hotel de L'Europe, onder Bas van Kranen. Het jaar dat me leerde wat discipline echt is. De camera was er al eerder, achttien. Dezelfde discipline, ander gereedschap.",
     body3:
-      "Sinds 2023 kook ik privé aan de Costa del Sol. Discipline uit het uniform. Precisie uit de sterrenkeuken. Rust uit Andalusië. Alles samen aan één tafel. Geen catering. Een herinnering.",
+      "Sinds 2023 kook ik privé aan de Costa del Sol. Discipline uit het uniform. Precisie uit de sterrenkeuken. Rust uit Andalusië. Alles samen aan één tafel. Echt eten, met de hand gemaakt.",
     chip1: "Sterrenkeuken-getraind · Bord'eau, Amsterdam",
     chip2: "Portret- en straatfotograaf",
     chip3: "Private chef sinds 2023",
@@ -173,8 +173,8 @@ export const nl: Dictionary = {
   },
   closing: {
     eyebrow: "Tussenrust",
-    quoteLine1: "Geen catering.",
-    quoteLine2: "Een herinnering.",
+    quoteLine1: "Echt eten, met de hand,",
+    quoteLine2: "aan jouw tafel.",
     signature: " Nick",
     ctaIntro: "Wil je aan tafel?",
     ctaButton: "Plan een diner",
@@ -373,6 +373,106 @@ export const nl: Dictionary = {
       main: "Hoofdgerecht",
       dessert: "Om af te sluiten",
     },
+  },
+  theTable: {
+    serviceName: "Toorn aan de deur",
+    teaserEyebrow: "Deze week · Arroyo de la Miel",
+    teaserSpotsLeft: "plekken over",
+    teaserSoldOut: "Deze week vol",
+    teaserDeliveryPrefix: "Bezorgd op",
+    teaserCta: "Bekijk het menu van deze week",
+    metaTitle: "Toorn aan de deur · Arroyo de la Miel",
+    metaDescription:
+      "Fine dining aan je deur in Arroyo de la Miel. Elke week een nieuw menu, vers gekookt, contant bij levering. Bestel tot twee dagen van tevoren.",
+    heroEyebrow: "Toorn aan de deur · Arroyo de la Miel",
+    heroTitle: "Fine dining aan je deur.",
+    heroIntro:
+      "Elke week een nieuw menu, vers gekookt en bij je thuisbezorgd in Arroyo de la Miel. Bestel tot twee dagen van tevoren, betaal contant aan de deur.",
+    menuEyebrow: "Het menu van deze week",
+    perPerson: "per persoon",
+    deliveryDayLabel: "Bezorging",
+    orderByLabel: "Bestel voor",
+    spotsLeftLabel: "plekken over",
+    soldOutLabel: "Deze week vol",
+    allergensLabel: "Allergenen",
+    howEyebrow: "Hoe het werkt",
+    howTitle: "Van mijn deur naar jouw tafel, elke week.",
+    steps: [
+      {
+        title: "Elke week een nieuw menu",
+        body: "Ik plaats het menu van de week vroeg. Eén menu, één keer gekookt, goed gedaan.",
+      },
+      {
+        title: "Bestel tot twee dagen ervoor",
+        body: "Zeg me hoeveel porties en waar. Bestellen sluit twee dagen voor de bezorging.",
+      },
+      {
+        title: "Ik kook het vers",
+        body: "Alles gemaakt op de dag dat het de deur uitgaat. Niets opgewarmd, geen shortcuts.",
+      },
+      {
+        title: "Aan je deur, contant",
+        body: "Ik breng het naar je deur in Arroyo de la Miel. Je betaalt contant bij levering.",
+      },
+    ],
+    areaEyebrow: "Waar ik bezorg",
+    areaTitle: "Alleen Arroyo de la Miel.",
+    areaBody:
+      "Dit is de lokale tafel. Ik bezorg binnen Arroyo de la Miel, niet verder. Of je hier nu woont of op bezoek bent maakt niet uit, zolang je een adres in het dorp hebt.",
+    form: {
+      eyebrow: "Bestellen",
+      title: "Bestel het menu van deze week.",
+      intro:
+        "Vul dit in en ik bevestig binnen de dag via WhatsApp. Betaling is contant aan de deur.",
+      nameLabel: "Je naam",
+      phoneLabel: "Telefoon (WhatsApp)",
+      emailLabel: "E-mail",
+      emailOptional: "optioneel",
+      addressLabel: "Bezorgadres",
+      addressHint: "We bezorgen alleen binnen Arroyo de la Miel.",
+      portionsLabel: "Aantal porties",
+      timeLabel: "Gewenst bezorgmoment",
+      timePlaceholder: "bijv. rond 19:00",
+      allergiesLabel: "Allergieën of opmerkingen",
+      totalLabel: "Totaal",
+      cashNote: "Betaling is contant bij levering.",
+      submit: "Verstuur bestelling",
+      submitting: "Versturen...",
+      success: "Ontvangen. Ik bevestig binnen de dag via WhatsApp.",
+      closedTitle: "Bestellen is gesloten voor deze week.",
+      closedBody: "Het volgende menu komt begin volgende week online. Kom dan terug.",
+      errors: {
+        nameRequired: "Je naam, graag",
+        phoneRequired: "Een telefoonnummer, zodat ik kan bevestigen",
+        addressRequired: "Een adres in Arroyo de la Miel",
+        portionsRange: "Tussen 1 en het aantal plekken over",
+        backendDown: "Er ging iets mis. Probeer opnieuw, of stuur me een WhatsApp.",
+      },
+    },
+    faqEyebrow: "Goed om te weten",
+    faqTitle: "Korte vragen.",
+    faqItems: [
+      {
+        q: "Bezorg je bij mij?",
+        a: "Alleen binnen Arroyo de la Miel. Heb je een adres in het dorp, bewoner of op bezoek, dan kan het.",
+      },
+      {
+        q: "Hoe betaal ik?",
+        a: "Contant aan de deur bij levering. Geen kaart, geen overschrijving, geen apps.",
+      },
+      {
+        q: "Wanneer sluit bestellen?",
+        a: "Twee dagen voor de bezorging. Daarna zit de week op slot zodat ik goed kan inkopen en koken.",
+      },
+      {
+        q: "En als het vol is?",
+        a: "Ik zet elke week een max zodat het eten goed blijft. Vol is vol. Het volgende menu komt begin volgende week online.",
+      },
+      {
+        q: "Allergieën?",
+        a: "Zet het bij de opmerkingen van je bestelling. Ik werk eromheen wat ik veilig kan en zeg het eerlijk als het niet kan.",
+      },
+    ],
   },
   marquee: {
     primary: [

@@ -338,4 +338,56 @@ export type Testimonial = {
   source?: string;
 };
 
+/**
+ * A weekly fine-dining menu for the local "Toorn aan de deur" service:
+ * one menu a week, delivered to the door in Arroyo de la Miel, cash on
+ * delivery. Hand-curated like the travel content (static, no Supabase).
+ * Capacity is tracked manually: Nick sets the cap and lowers
+ * `spotsAvailable` as orders land, the same way he edits events.
+ */
+export type LocalisedWeeklyMenu = {
+  slug: string;
+  /** Menu name shown as the headline. */
+  title: LocalisedString;
+  /** Ordered course lines (one string per course, per locale). */
+  courses: LocalisedParagraphs;
+  /** One Bourdain-voice line under the title. */
+  description: LocalisedString;
+  /** EUR per portion. Falls back to the house price when omitted. */
+  pricePerPortion?: number;
+  /** ISO date of the delivery day (a Saturday). */
+  deliveryDate: string;
+  /** ISO datetime the order window closes. Defaults to Thursday 23:59 before. */
+  orderCutoff?: string;
+  /** Max portions this week. Falls back to the house cap when omitted. */
+  capacity?: number;
+  /** Portions still available. Nick updates this by hand. */
+  spotsAvailable?: number;
+  /** Hard override to close ordering regardless of the count. */
+  soldOut?: boolean;
+  /** Optional allergen line. */
+  allergens?: LocalisedString;
+  /** Set false to keep a draft menu out of the live picker. Defaults true. */
+  active?: boolean;
+};
+
+/** Resolved weekly menu consumed by components (single active locale). */
+export type WeeklyMenu = {
+  slug: string;
+  title: string;
+  courses: string[];
+  description: string;
+  pricePerPortion: number;
+  deliveryDate: string;
+  orderCutoff: string;
+  capacity: number;
+  spotsAvailable: number;
+  soldOut: boolean;
+  allergens?: string;
+  /** Derived: now is before the cutoff and there are spots and not sold out. */
+  orderingOpen: boolean;
+  /** Derived: clamped spots remaining (never negative). */
+  spotsLeft: number;
+};
+
 export type { Locale };
