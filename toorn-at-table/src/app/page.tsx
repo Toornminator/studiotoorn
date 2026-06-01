@@ -40,7 +40,6 @@ export default async function Home() {
       <Timeline />
       <Services />
       <TheEvening recipes={recipes} />
-      <TheTableTeaser />
       <Marquee items={t.marquee.primary} />
       <Travel />
       <Stats />
@@ -48,6 +47,7 @@ export default async function Home() {
       <Gallery />
       <Marquee items={t.marquee.secondary} duration={44} />
       <Events />
+      <TheTableTeaser />
       <ClosingPanel />
       <Testimonials />
       <Faq />

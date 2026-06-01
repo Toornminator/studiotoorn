@@ -21,41 +21,44 @@ import type { LocalisedWeeklyMenu } from "@/lib/types";
  */
 export const weeklyMenus: LocalisedWeeklyMenu[] = [
   {
-    slug: "2026-06-06-early-summer",
+    slug: "2026-06-06-june-night",
     title: {
-      en: "Early summer on the coast",
-      es: "Inicio de verano en la costa",
-      nl: "Vroege zomer aan de kust",
+      en: "A June night on the coast",
+      es: "Una noche de junio en la costa",
+      nl: "Een juni-avond aan de kust",
     },
     description: {
-      en: "The first proper heat of the year, on a plate. Cold almond soup, fish off the grill, a cake that tastes of the orange trees down the road.",
-      es: "El primer calor de verdad del año, en un plato. Sopa fría de almendra, pescado a la brasa, y un bizcocho que sabe a los naranjos de la esquina.",
-      nl: "De eerste echte hitte van het jaar, op een bord. Koude amandelsoep, vis van de grill, en een cake die smaakt naar de sinaasappelbomen verderop.",
+      en: "Four courses that taste like a June night down here. Cold almond soup with muscat grapes, prawns loud with garlic and sherry, Iberico over coals, and a torrija drunk on Pedro Ximénez to finish.",
+      es: "Cuatro pases que saben a una noche de junio aquí abajo. Sopa fría de almendra con uva moscatel, gambas a gritos de ajo y jerez, ibérico a las brasas, y una torrija borracha de Pedro Ximénez para terminar.",
+      nl: "Vier gangen die smaken naar een juni-avond hier beneden. Koude amandelsoep met muscaatdruiven, gambas luid van knoflook en sherry, ibérico op kolen, en een torrija dronken van Pedro Ximénez om af te sluiten.",
     },
     courses: {
       en: [
-        "Ajo blanco, Málaga grapes, toasted almond",
-        "Grilled dorada, charred lemon, summer tomato salad",
-        "Olive oil and orange cake, almond cream",
+        "Ajo blanco, Málaga muscat grapes, Marcona almond",
+        "Gambas al ajillo, dry fino, charred bread",
+        "Iberico presa over coals, smoked aubergine, romesco",
+        "Torrija soaked in Pedro Ximénez, vanilla cream",
       ],
       es: [
-        "Ajo blanco, uvas de Málaga, almendra tostada",
-        "Dorada a la brasa, limón quemado, ensalada de tomate de verano",
-        "Bizcocho de aceite y naranja, crema de almendra",
+        "Ajo blanco, uva moscatel de Málaga, almendra Marcona",
+        "Gambas al ajillo, fino seco, pan a la brasa",
+        "Presa ibérica a las brasas, berenjena ahumada, romesco",
+        "Torrija empapada en Pedro Ximénez, crema de vainilla",
       ],
       nl: [
-        "Ajo blanco, Málaga-druiven, geroosterde amandel",
-        "Gegrilde dorada, gebrande citroen, zomerse tomatensalade",
-        "Cake van olijfolie en sinaasappel, amandelroom",
+        "Ajo blanco, Málaga-muscaatdruiven, Marcona-amandel",
+        "Gambas al ajillo, droge fino, geroosterd brood",
+        "Presa ibérico op kolen, gerookte aubergine, romesco",
+        "Torrija gedrenkt in Pedro Ximénez, vanilleroom",
       ],
     },
     deliveryDate: "2026-06-06",
     orderCutoff: "2026-06-04T23:59:00+02:00",
     spotsAvailable: 20,
     allergens: {
-      en: "Contains fish and nuts. Tell me about any allergy when you order and I work around it.",
-      es: "Contiene pescado y frutos secos. Dime cualquier alergia al pedir y lo adapto.",
-      nl: "Bevat vis en noten. Geef bij je bestelling allergieën door, dan pas ik het aan.",
+      en: "Contains shellfish, nuts and gluten. Tell me about any allergy when you order and I work around it.",
+      es: "Contiene marisco, frutos secos y gluten. Dime cualquier alergia al pedir y lo adapto.",
+      nl: "Bevat schaaldieren, noten en gluten. Geef bij je bestelling allergieën door, dan pas ik het aan.",
     },
   },
 ];
