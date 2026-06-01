@@ -13,6 +13,7 @@ export const en: Dictionary = {
     travels: "Travels",
     cookbook: "Cookbook",
     events: "Events",
+    theTable: "To your door",
     contact: "Contact",
     menuOpen: "Open menu",
     menuClose: "Close menu",

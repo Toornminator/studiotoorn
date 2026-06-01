@@ -11,6 +11,8 @@ export type Dictionary = {
     travels: string;
     cookbook: string;
     events: string;
+    /** Local weekly delivery page (a route, not a home-page anchor). */
+    theTable: string;
     contact: string;
     /** Accessible label for the mobile menu trigger when closed. */
     menuOpen: string;

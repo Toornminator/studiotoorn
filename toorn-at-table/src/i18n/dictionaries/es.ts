@@ -13,6 +13,7 @@ export const es: Dictionary = {
     travels: "Viajes",
     cookbook: "Recetario",
     events: "Eventos",
+    theTable: "A domicilio",
     contact: "Contacto",
     menuOpen: "Abrir menú",
     menuClose: "Cerrar menú",

@@ -34,7 +34,7 @@ export function NavBar() {
       if (e.key === "Escape") setOpen(false);
     };
     const onResize = () => {
-      if (window.innerWidth >= 768) setOpen(false);
+      if (window.innerWidth >= 1024) setOpen(false);
     };
     window.addEventListener("keydown", onKey);
     window.addEventListener("resize", onResize);
@@ -48,12 +48,20 @@ export function NavBar() {
   // it lives behind a hamburger that slides a sheet down from the
   // bottom of the bar. Touch visitors get the same direct-jump
   // navigation desktop users have.
-  const links = [
+  const links: {
+    href: string;
+    label: string;
+    /** Route links (e.g. /the-table) skip the home-anchor prefix. */
+    isRoute?: boolean;
+    /** Highlighted as the primary "order" action. */
+    highlight?: boolean;
+  }[] = [
     { href: "#over-nick", label: t.nav.aboutNick },
     { href: "#diensten", label: t.nav.services },
     { href: "#reizen", label: t.nav.travels },
     { href: "#kookboek", label: t.nav.cookbook },
     { href: "#events", label: t.nav.events },
+    { href: "/the-table", label: t.nav.theTable, isRoute: true, highlight: true },
     { href: "#contact", label: t.nav.contact },
   ];
 
@@ -77,7 +85,7 @@ export function NavBar() {
           <span className="truncate">TOORN at table</span>
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
-          <ul className="hidden md:flex items-center gap-3 sm:gap-5">
+          <ul className="hidden lg:flex items-center gap-3 sm:gap-5">
             {links.map((link, i) => (
               <li
                 key={link.href}
@@ -89,8 +97,12 @@ export function NavBar() {
                   </span>
                 )}
                 <Link
-                  href={`${anchorPrefix}${link.href}`}
-                  className="whitespace-nowrap transition-colors hover:text-tattoo-red"
+                  href={link.isRoute ? link.href : `${anchorPrefix}${link.href}`}
+                  className={`whitespace-nowrap transition-colors ${
+                    link.highlight
+                      ? "font-medium text-tattoo-red hover:text-ink"
+                      : "hover:text-tattoo-red"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -104,7 +116,7 @@ export function NavBar() {
             aria-expanded={open}
             aria-controls="mobile-nav-sheet"
             onClick={() => setOpen((v) => !v)}
-            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm md:hidden"
+            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm lg:hidden"
           >
             {/* Two crossing strokes that morph between bars and an X.
                 Pure SVG so it never animates the DOM, only paint. */}
@@ -155,7 +167,7 @@ export function NavBar() {
               key="backdrop"
               role="presentation"
               onClick={() => setOpen(false)}
-              className="fixed inset-0 top-[3.25rem] z-40 bg-ink/30 backdrop-blur-[2px] md:hidden"
+              className="fixed inset-0 top-[3.25rem] z-40 bg-ink/30 backdrop-blur-[2px] lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -167,7 +179,7 @@ export function NavBar() {
               role="dialog"
               aria-modal="true"
               aria-label={t.nav.menuOpen}
-              className="absolute left-0 right-0 top-full z-50 border-b border-ink/10 bg-cream shadow-[0_18px_36px_-18px_rgba(20,16,12,0.35)] md:hidden"
+              className="absolute left-0 right-0 top-full z-50 border-b border-ink/10 bg-cream shadow-[0_18px_36px_-18px_rgba(20,16,12,0.35)] lg:hidden"
               initial={{ y: -12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -12, opacity: 0 }}
@@ -180,9 +192,13 @@ export function NavBar() {
                 {links.map((link, i) => (
                   <li key={link.href}>
                     <Link
-                      href={`${anchorPrefix}${link.href}`}
+                      href={link.isRoute ? link.href : `${anchorPrefix}${link.href}`}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between px-5 py-3.5 transition-colors hover:bg-cream-warm hover:text-tattoo-red active:bg-cream-warm sm:px-6"
+                      className={`flex items-center justify-between px-5 py-3.5 transition-colors hover:bg-cream-warm active:bg-cream-warm sm:px-6 ${
+                        link.highlight
+                          ? "text-tattoo-red"
+                          : "hover:text-tattoo-red"
+                      }`}
                     >
                       <span className="truncate">{link.label}</span>
                       <span
