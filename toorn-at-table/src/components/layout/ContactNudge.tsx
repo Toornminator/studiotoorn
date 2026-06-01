@@ -51,9 +51,10 @@ export function ContactNudge() {
     if (recentlyDismissed()) return;
 
     let done = false;
+    let reached = false;
     let timer: number | undefined;
     const reveal = () => {
-      if (done) return;
+      if (done || reached) return;
       done = true;
       setShow(true);
       window.removeEventListener("scroll", onScroll);
@@ -62,6 +63,24 @@ export function ContactNudge() {
     const onScroll = () => {
       if (window.scrollY > SCROLL_TRIGGER) reveal();
     };
+
+    // Suppress the nudge once the contact section is in view: a
+    // "let's talk -> contact" balloon floating over the contact form
+    // itself is redundant. (#contact only exists on the home page; on
+    // other routes the observer is simply never created.)
+    const contact = document.getElementById("contact");
+    const io = contact
+      ? new IntersectionObserver(
+          (entries) => {
+            if (entries.some((e) => e.isIntersecting)) {
+              reached = true;
+              setShow(false);
+            }
+          },
+          { rootMargin: "0px 0px -15% 0px" },
+        )
+      : null;
+    if (contact && io) io.observe(contact);
 
     window.addEventListener("scroll", onScroll, { passive: true });
     // Fallback so it still appears for visitors who don't scroll (e.g. on a
@@ -72,6 +91,7 @@ export function ContactNudge() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (timer) window.clearTimeout(timer);
+      io?.disconnect();
     };
   }, []);
 
@@ -94,7 +114,7 @@ export function ContactNudge() {
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.8, y: 12 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="pointer-events-auto relative max-w-[270px] rotate-[-1.5deg] rounded-2xl border-2 border-ink bg-cream px-5 pb-4 pt-4 shadow-[0_14px_30px_-12px_rgba(20,16,12,0.5)]">
+          <div className="pointer-events-auto relative max-w-[200px] rotate-[-1.5deg] rounded-2xl border-2 border-ink bg-cream px-4 py-3.5 shadow-[0_14px_30px_-12px_rgba(20,16,12,0.5)] sm:max-w-[270px] sm:px-5 sm:py-4">
             <button
               type="button"
               onClick={dismiss}
@@ -111,10 +131,7 @@ export function ContactNudge() {
               </svg>
             </button>
 
-            <p
-              className="font-hand text-tattoo-red"
-              style={{ fontSize: 23, lineHeight: 1.12 }}
-            >
+            <p className="font-hand text-tattoo-red text-[18px] leading-[1.12] sm:text-[23px]">
               {t.nudge.message}
             </p>
 
