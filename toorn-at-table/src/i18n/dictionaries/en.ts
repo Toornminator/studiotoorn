@@ -144,6 +144,8 @@ export const en: Dictionary = {
     overlayDifficulty: "Difficulty",
     overlayPairing: "Pair with",
     cursorOpen: "Open recipe",
+    share: "Share",
+    shareCopied: "Link copied",
   },
   events: {
     eyebrow: "Chapter 05 · Events",

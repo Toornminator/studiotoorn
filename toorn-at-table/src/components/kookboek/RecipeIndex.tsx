@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useT } from "@/i18n/client";
@@ -41,6 +41,29 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
     useState<RecipeCategory | "all">("all");
   const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
   const [openSlug, setOpenSlug] = useState<string | null>(null);
+
+  // Deep-linking, so a shared recipe link actually opens that recipe.
+  // On first load, open whatever ?recipe=<slug> points at.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("recipe");
+    if (slug && recipes.some((r) => r.slug === slug)) setOpenSlug(slug);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Reflect the open recipe in the URL (without a history entry or scroll),
+  // so the visitor can copy it straight from the address bar too. Skips the
+  // very first run so it never wipes the param the loader just read.
+  const firstSync = useRef(true);
+  useEffect(() => {
+    if (firstSync.current) {
+      firstSync.current = false;
+      return;
+    }
+    const url = new URL(window.location.href);
+    if (openSlug) url.searchParams.set("recipe", openSlug);
+    else url.searchParams.delete("recipe");
+    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }, [openSlug]);
 
   const CATEGORIES: { id: RecipeCategory | "all"; label: string }[] = [
     { id: "all", label: t.cookbook.categoryAll },

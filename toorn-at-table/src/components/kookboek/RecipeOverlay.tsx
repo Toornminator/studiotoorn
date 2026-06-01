@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n/client";
@@ -85,6 +85,37 @@ export function RecipeOverlay({
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  // Share the recipe. Native share sheet (WhatsApp, Messages, ...) where the
+  // browser supports it, copy-the-link fallback everywhere else. The shared
+  // URL deep-links back into this recipe via the ?recipe= param.
+  const [copied, setCopied] = useState(false);
+  const handleShare = async () => {
+    const url =
+      typeof window !== "undefined"
+        ? `${window.location.origin}/?recipe=${recipe.slug}`
+        : "";
+    const shareData = {
+      title: `${recipe.title} · TOORN at table`,
+      text: recipe.intro ?? recipe.title,
+      url,
+    };
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch {
+        // cancelled or unsupported payload — fall through to copy
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
+    } catch {
+      /* clipboard blocked, nothing graceful to do */
+    }
+  };
+
   const totalTime = (recipe.prepMinutes ?? 0) + (recipe.cookMinutes ?? 0);
   const grouped = groupIngredients(recipe.ingredients);
 
@@ -121,21 +152,65 @@ export function RecipeOverlay({
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close */}
-        <button
-          onClick={onClose}
-          aria-label={t.gallery.cursorClose}
-          className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-cream-warm text-ink transition-colors hover:bg-tattoo-red hover:text-cream md:right-6 md:top-6"
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-            <path
-              d="M2 2 L12 12 M12 2 L2 12"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
+        {/* Top-right actions: share + close */}
+        <div className="absolute right-4 top-4 z-10 flex items-center gap-2 md:right-6 md:top-6">
+          <button
+            onClick={handleShare}
+            aria-label={t.cookbook.share}
+            data-cursor={copied ? t.cookbook.shareCopied : t.cookbook.share}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-cream-warm text-ink transition-colors hover:bg-tattoo-red hover:text-cream"
+          >
+            {copied ? (
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden>
+                <path
+                  d="M3 8.5 L6.5 12 L13 4.5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ) : (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="18" cy="5" r="2.2" />
+                <circle cx="6" cy="12" r="2.2" />
+                <circle cx="18" cy="19" r="2.2" />
+                <line x1="8" y1="11" x2="16" y2="6.5" />
+                <line x1="8" y1="13" x2="16" y2="17.5" />
+              </svg>
+            )}
+          </button>
+          <button
+            onClick={onClose}
+            aria-label={t.gallery.cursorClose}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-cream-warm text-ink transition-colors hover:bg-tattoo-red hover:text-cream"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+              <path
+                d="M2 2 L12 12 M12 2 L2 12"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+
+          {copied && (
+            <span className="pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-full bg-ink px-3 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-cream">
+              {t.cookbook.shareCopied}
+            </span>
+          )}
+        </div>
 
         {recipe.heroImage && (
           <div className="relative -mx-5 -mt-16 mb-10 aspect-[16/10] w-[calc(100%+2.5rem)] overflow-hidden bg-ink/5 md:-mx-12 md:-mt-20 md:mb-12 md:w-[calc(100%+6rem)]">

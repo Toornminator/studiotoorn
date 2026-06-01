@@ -120,6 +120,9 @@ export type Dictionary = {
     overlayDifficulty: string;
     overlayPairing: string;
     cursorOpen: string;
+    /** Share button label + the "link copied" confirmation. */
+    share: string;
+    shareCopied: string;
   };
   events: {
     eyebrow: string;

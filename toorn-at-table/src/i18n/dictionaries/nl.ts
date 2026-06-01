@@ -145,6 +145,8 @@ export const nl: Dictionary = {
     overlayDifficulty: "Moeilijkheid",
     overlayPairing: "Erbij",
     cursorOpen: "Open recept",
+    share: "Delen",
+    shareCopied: "Link gekopieerd",
   },
   events: {
     eyebrow: "Hoofdstuk 05 · Events",
