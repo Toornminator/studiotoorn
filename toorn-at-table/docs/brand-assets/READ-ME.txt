@@ -1,0 +1,26 @@
+TOORN at table — brand assets
+=============================
+
+LOGOS / ICONS
+  logo-chef-skull-knife.png   main monogram (transparent, 785x800)
+  icon-512.png                app icon (512)
+  apple-icon-180.png          apple touch icon (180)
+  share-card-og.png           social share card (1200x630)
+
+BRAND BOARD
+  brand-board.png / .pdf      one-page visual brand guide
+
+FONTS (all 400, free on Google Fonts)
+  AlfaSlabOne-Regular.ttf     DISPLAY  (hero, headings)
+  SpecialElite-Regular.ttf    MONO     (eyebrows, meta, labels)
+  PermanentMarker-Regular.ttf HAND     (red scrawled notes)
+  IM Fell English             BODY/SERIF -> not bundled, get it free at
+                              fonts.google.com/specimen/IM+Fell+English
+                              (regular + italic)
+
+COLOURS  cream #F4EDE0 - cream-warm #E8DCC4 - ink #1A1A1A
+         tattoo-red #C8202A - tattoo-mustard #E5A823
+         tattoo-jade #2E7D5B - tattoo-navy #1E3A5F
+         share card: og-ink #0A0A0A - og-gold #C9A86A
+
+Full guide: ../../BRAND.md
