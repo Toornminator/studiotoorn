@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>TOORN at table — Brand board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IM+Fell+English:ital@0;1&family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F4EDE0; --cream-warm:#E8DCC4; --ink:#1A1A1A;
+    --red:#C8202A; --mustard:#E5A823; --jade:#2E7D5B; --navy:#1E3A5F;
+    --og-ink:#0A0A0A; --gold:#C9A86A;
+    --display:'Alfa Slab One', serif;
+    --serif:'IM Fell English', Georgia, serif;
+    --mono:'Special Elite', monospace;
+    --hand:'Permanent Marker', cursive;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    width:1280px; background:var(--cream); color:var(--ink);
+    font-family:var(--serif); -webkit-font-smoothing:antialiased;
+    padding:64px 72px 56px;
+  }
+  .eyebrow{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.32em; color:var(--red);}
+  .rule{height:1px; background:rgba(26,26,26,.15); margin:34px 0;}
+  /* masthead */
+  .top{display:flex; align-items:flex-start; gap:26px;}
+  .top img{height:96px; width:auto;}
+  .top h1{font-family:var(--display); font-style:italic; font-size:74px; line-height:.92; letter-spacing:-.01em;}
+  .top .sub{font-family:var(--display); font-size:36px; color:rgba(26,26,26,.6); margin-top:-2px;}
+  .top .meta{margin-left:auto; text-align:right;}
+  .top .meta .tag{font-family:var(--hand); color:var(--red); font-size:26px; transform:rotate(-3deg); display:inline-block;}
+  .top .meta .loc{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.26em; color:rgba(26,26,26,.55); margin-top:14px;}
+  .section-h{font-family:var(--display); font-size:30px; margin:6px 0 22px;}
+  /* swatches */
+  .swatch-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .sw{border:1px solid rgba(26,26,26,.12); border-radius:5px; overflow:hidden;}
+  .sw .chip{height:104px; display:flex; align-items:flex-end; padding:12px;}
+  .sw .chip .nm{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.18em;}
+  .sw .info{padding:11px 12px 13px; background:var(--cream);}
+  .sw .hex{font-family:var(--mono); font-size:13px; letter-spacing:.04em;}
+  .sw .rgb{font-family:var(--mono); font-size:10px; color:rgba(26,26,26,.5); margin-top:3px;}
+  .sw .role{font-family:var(--serif); font-style:italic; font-size:12.5px; color:rgba(26,26,26,.6); margin-top:6px; line-height:1.35;}
+  .lbl-cream{color:var(--ink);} .lbl-dark{color:var(--cream);}
+  /* type specimens */
+  .type-row{display:flex; align-items:baseline; gap:26px; padding:18px 0; border-top:1px solid rgba(26,26,26,.1);}
+  .type-row:first-of-type{border-top:0;}
+  .type-row .spec{flex:1; line-height:.95;}
+  .type-row .desc{width:300px; flex:none;}
+  .type-row .desc .role{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.22em; color:var(--red);}
+  .type-row .desc .name{font-family:var(--serif); font-size:18px; margin-top:5px;}
+  .type-row .desc .use{font-family:var(--serif); font-style:italic; font-size:13px; color:rgba(26,26,26,.6); margin-top:5px; line-height:1.4;}
+  .type-row .desc .var{font-family:var(--mono); font-size:10px; color:rgba(26,26,26,.45); margin-top:6px; letter-spacing:.04em;}
+  .sp-display{font-family:var(--display); font-style:italic; font-size:62px;}
+  .sp-serif{font-family:var(--serif); font-size:34px;}
+  .sp-serif i{font-style:italic;}
+  .sp-mono{font-family:var(--mono); font-size:30px; text-transform:uppercase; letter-spacing:.06em;}
+  .sp-hand{font-family:var(--hand); font-size:40px; color:var(--red); transform:rotate(-2deg);}
+  /* bottom split */
+  .cols{display:grid; grid-template-columns:1.3fr 1fr; gap:40px;}
+  .voice li{font-family:var(--serif); font-size:15px; line-height:1.5; margin:9px 0; padding-left:18px; position:relative;}
+  .voice li::before{content:''; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--red);}
+  .voice .quote{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.3; color:rgba(26,26,26,.8); margin-top:16px; border-left:3px solid var(--red); padding-left:14px;}
+  .donts li{font-family:var(--serif); font-size:14.5px; line-height:1.45; margin:8px 0; color:rgba(26,26,26,.78);}
+  .donts li b{color:var(--red); font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; margin-right:6px;}
+  .foot{margin-top:40px; display:flex; justify-content:space-between; align-items:center;}
+  .foot .src{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.18em; color:rgba(26,26,26,.45); line-height:1.7;}
+  .foot .credit{font-family:var(--hand); color:var(--red); font-size:22px; transform:rotate(-2deg);}
+</style>
+</head>
+<body>
+  <div class="top">
+    <img src="/images/chef_skull_knife_transparent.png" alt="" />
+    <div>
+      <h1>TOORN</h1>
+      <div class="sub">at table</div>
+    </div>
+    <div class="meta">
+      <div class="eyebrow">Brand guide · 2026</div>
+      <div class="tag" style="margin-top:14px;">Real food, by hand, to your table</div>
+      <div class="loc">Private chef · Costa del Sol · Est. 2023</div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="eyebrow">Colour</div>
+  <div class="section-h">A warm paper base, tattoo-ink accents.</div>
+  <div class="swatch-grid">
+    <div class="sw"><div class="chip" style="background:#F4EDE0"><span class="nm lbl-cream">Cream</span></div><div class="info"><div class="hex">#F4EDE0</div><div class="rgb">244 · 237 · 224</div><div class="role">Page background</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E8DCC4"><span class="nm lbl-cream">Cream-warm</span></div><div class="info"><div class="hex">#E8DCC4</div><div class="rgb">232 · 220 · 196</div><div class="role">Cards, panels, surfaces</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1A1A1A"><span class="nm lbl-dark">Ink</span></div><div class="info"><div class="hex">#1A1A1A</div><div class="rgb">26 · 26 · 26</div><div class="role">Text, buttons, borders</div></div></div>
+    <div class="sw"><div class="chip" style="background:#C8202A"><span class="nm lbl-dark">Tattoo-red</span></div><div class="info"><div class="hex">#C8202A</div><div class="rgb">200 · 32 · 42</div><div class="role">Primary accent: eyebrows, notes, CTAs</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E5A823"><span class="nm lbl-cream">Tattoo-mustard</span></div><div class="info"><div class="hex">#E5A823</div><div class="rgb">229 · 168 · 35</div><div class="role">Gold: review stars, highlights</div></div></div>
+    <div class="sw"><div class="chip" style="background:#2E7D5B"><span class="nm lbl-dark">Tattoo-jade</span></div><div class="info"><div class="hex">#2E7D5B</div><div class="rgb">46 · 125 · 91</div><div class="role">Success / positive</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1E3A5F"><span class="nm lbl-dark">Tattoo-navy</span></div><div class="info"><div class="hex">#1E3A5F</div><div class="rgb">30 · 58 · 95</div><div class="role">Rare deep accent</div></div></div>
+    <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#0A0A0A 60%,#C9A86A 60%)"><span class="nm lbl-dark">Share card</span></div><div class="info"><div class="hex">#0A0A0A · #C9A86A</div><div class="rgb">OG ink · OG gold</div><div class="role">Social share card only</div></div></div>
+  </div>
+  <div style="font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.16em; color:rgba(26,26,26,.5); margin-top:16px;">No blue/purple, no tech gradients. Greys are ink at lower alpha: ink/85 · /70 · /55 · /45 · /15.</div>
+
+  <div class="rule"></div>
+
+  <div class="eyebrow">Type</div>
+  <div class="section-h">Four cuts. Slab, old serif, typewriter, marker.</div>
+
+  <div class="type-row">
+    <div class="spec sp-display">TOORN</div>
+    <div class="desc"><div class="role">Display</div><div class="name">Alfa Slab One</div><div class="use">Hero wordmark, section headings, big numbers. 400 only, never faked italic/bold.</div><div class="var">--font-display</div></div>
+  </div>
+  <div class="type-row">
+    <div class="spec sp-serif">Art on a plate. <i>Not a screen.</i></div>
+    <div class="desc"><div class="role">Body / serif</div><div class="name">IM Fell English</div><div class="use">Running text, intros, pull quotes. Carries a real italic.</div><div class="var">--font-serif</div></div>
+  </div>
+  <div class="type-row">
+    <div class="spec sp-mono">Private chef · Costa del Sol</div>
+    <div class="desc"><div class="role">Mono</div><div class="name">Special Elite</div><div class="use">Eyebrows, meta, form labels, nav. Upper-case, wide tracking.</div><div class="var">--font-mono</div></div>
+  </div>
+  <div class="type-row">
+    <div class="spec sp-hand">first time it split, here&rsquo;s why</div>
+    <div class="desc"><div class="role">Hand</div><div class="name">Permanent Marker</div><div class="use">Nick&rsquo;s red scrawled notes and signature.</div><div class="var">--font-hand</div></div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="cols">
+    <div>
+      <div class="eyebrow">Voice &amp; tone</div>
+      <div class="section-h" style="font-size:24px;">Bourdain. Direct, honest, intimate.</div>
+      <ul class="voice">
+        <li>Short sentences. Fragments welcome. Food is the spine of every story.</li>
+        <li><b style="color:var(--red);">No em-dashes, anywhere.</b> A full stop and a new sentence instead. Enforced on every change.</li>
+        <li>Always trilingual together: { en, es, nl }. English canonical, Spanish Andalusian, Dutch plain.</li>
+      </ul>
+      <div class="quote">&ldquo;A tomato doesn&rsquo;t sit at the side of the plate. A tomato is the plate.&rdquo;</div>
+    </div>
+    <div>
+      <div class="eyebrow">Don&rsquo;t</div>
+      <div class="section-h" style="font-size:24px;">Keep it hand-made.</div>
+      <ul class="donts">
+        <li><b>No</b> blue/purple, tech gradients, glassmorphism or neon glow.</li>
+        <li><b>No</b> fake bold/italic on the slab display font.</li>
+        <li><b>No</b> over-lit, over-styled stock food photos.</li>
+        <li><b>No</b> corporate &ldquo;catering&rdquo; tone. One chef, one table, a memory.</li>
+      </ul>
+      <div style="font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.16em; color:rgba(26,26,26,.5); margin-top:14px; line-height:1.7;">Motifs: tattoo-flash stickers · polaroids · paper grain · a warm-grey fork cursor.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="src">Tokens: src/styles/tokens.css · Fonts: src/lib/fonts.ts · Share card: scripts/build-og-image.py</div>
+    <div class="credit">TOORN at table &hearts;</div>
+  </div>
+</body>
+</html>

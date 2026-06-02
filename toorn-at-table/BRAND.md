@@ -9,6 +9,12 @@ here is pulled straight from the live codebase, so it is exact and current.
 
 _Last updated: June 2026_
 
+**Visual one-pager:** [`docs/brand-board.png`](docs/brand-board.png) (rendered
+from [`docs/brand-board.html`](docs/brand-board.html), which uses the real
+fonts and exact hex values, so it can be re-exported any time).
+
+![TOORN at table brand board](docs/brand-board.png)
+
 ---
 
 ## 1. The idea in one line
