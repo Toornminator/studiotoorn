@@ -10,13 +10,12 @@ LOGOS / ICONS
 BRAND BOARD
   brand-board.png / .pdf      one-page visual brand guide
 
-FONTS (all 400, free on Google Fonts)
-  AlfaSlabOne-Regular.ttf     DISPLAY  (hero, headings)
-  SpecialElite-Regular.ttf    MONO     (eyebrows, meta, labels)
-  PermanentMarker-Regular.ttf HAND     (red scrawled notes)
-  IM Fell English             BODY/SERIF -> not bundled, get it free at
-                              fonts.google.com/specimen/IM+Fell+English
-                              (regular + italic)
+FONTS (all weight 400, free / OFL + Apache)
+  AlfaSlabOne-Regular.ttf       DISPLAY    hero, section headings, big numbers
+  IMFellEnglish-Regular.ttf     BODY/SERIF running text, intros, pull quotes
+  IMFellEnglish-Italic.ttf      BODY/SERIF the italic cut
+  SpecialElite-Regular.ttf      MONO       eyebrows, meta, form labels, nav
+  PermanentMarker-Regular.ttf   HAND       red scrawled notes + signature
 
 COLOURS  cream #F4EDE0 - cream-warm #E8DCC4 - ink #1A1A1A
          tattoo-red #C8202A - tattoo-mustard #E5A823
