@@ -3026,4 +3026,245 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-01",
   },
+  {
+    slug: "berenjenas-miel-de-cana",
+    title: {
+      en: "Berenjenas con miel de caña",
+      es: "Berenjenas con miel de caña",
+      nl: "Berenjenas con miel de caña",
+    },
+    intro: {
+      en: "Fried aubergine drowned in cane syrup. Crisp, soft, sweet, salty. The first thing you order in a Málaga bar.",
+      es: "Berenjenas fritas ahogadas en miel de caña. Crujientes, blandas, dulces, saladas. Lo primero que pides en un bar de Málaga.",
+      nl: "Gefrituurde aubergine verdronken in rietsuikersiroop. Krokant, zacht, zoet, zout. Het eerste dat je bestelt in een Málaga-bar.",
+    },
+    category: "voor",
+    seasons: ["altijd"],
+    difficulty: 2,
+    prepMinutes: 25,
+    cookMinutes: 15,
+    servings: 4,
+    heroImage: "/images/recipes/berenjenas-con-miel.jpg",
+    pairing: {
+      en: "An ice-cold beer, or if you are doing it properly, a small glass of sweet Málaga wine.",
+      es: "Una cerveza bien fría o, si lo haces como toca, una copita de vino dulce de Málaga.",
+      nl: "Een ijskoud biertje of, als je het netjes doet, een glaasje zoete Málaga-wijn.",
+    },
+    body: {
+      en: [
+        "Every bar in Málaga worth sitting in puts these out. Aubergine, fried hard, then drowned in dark cane syrup that looks like motor oil and tastes like the inside of a sugar cane. The first time it confused me. Sweet, on a fried vegetable, in a bar, with a cold beer. By the second plate I understood, and I have been ordering it ever since.",
+        "Two things make or break it. The salt soak, which pulls the bitterness and the water out so the aubergine fries crisp instead of greasy. And the syrup, which you cook to the thickness of runny honey and then leave alone. Do not stir it past the boil or it grabs and crystallises. Drop a bit on a cold plate. Runs like water, keep going. Stringy like honey, you are there. Going to caramel, off the heat right now.",
+        "The trick nobody tells you is the temperature of the syrup. Hot syrup on hot aubergine vanishes into the crust and you lose the gloss. Let it cool to blood-warm, then spoon it over so it sits on top and shines, the way it does in the bars on Calle Granada. Fleur de sel on top. A little lime zest if you want it sharp. Eat them while the aubergine is still hot and the syrup still cool.",
+      ],
+      es: [
+        "Todo bar de Málaga que merezca la pena las saca. Berenjena, frita fuerte, y luego ahogada en miel de caña oscura que parece aceite de motor y sabe al interior de una caña de azúcar. La primera vez me lió. Dulce, sobre una verdura frita, en un bar, con una cerveza fría. Al segundo plato lo entendí, y desde entonces no he parado de pedirlas.",
+        "Dos cosas la hacen o la rompen. El remojo en sal, que saca el amargor y el agua para que la berenjena fría crujiente y no grasienta. Y la miel, que cueces hasta el grosor de una miel líquida y luego dejas en paz. No la remuevas pasado el hervor o agarra y cristaliza. Echa un poco en un plato frío. Corre como agua, sigue. Hila como miel, ya está. Va a caramelo, fuera del fuego ya.",
+        "El truco que nadie cuenta es la temperatura de la miel. Caliente sobre berenjena caliente desaparece en la corteza y pierdes el brillo. Déjala templar, y entonces napa por encima para que quede arriba y brille, como en los bares de la Calle Granada. Flor de sal por encima. Un poco de ralladura de lima si la quieres viva. Cómelas con la berenjena aún caliente y la miel aún fresca.",
+      ],
+      nl: [
+        "Elke bar in Málaga die het waard is zet ze op tafel. Aubergine, hard gefrituurd, en dan verdronken in donkere rietsuikersiroop die eruitziet als motorolie en smaakt naar de binnenkant van een suikerriet. De eerste keer verwarde het me. Zoet, op een gefrituurde groente, in een bar, met een koud biertje. Bij het tweede bordje snapte ik het, en sindsdien blijf ik ze bestellen.",
+        "Twee dingen maken of breken het. Het zoutbad, dat de bitterheid en het vocht eruit trekt zodat de aubergine knapperig frituurt in plaats van vettig. En de siroop, die je inkookt tot de dikte van vloeibare honing en dan met rust laat. Roer niet meer na het koken of hij grijpt en kristalliseert. Druppel wat op een koud bord. Loopt als water, doorgaan. Draadt als honing, je bent er. Gaat richting karamel, meteen van het vuur.",
+        "De truc die niemand je vertelt is de temperatuur van de siroop. Heet op hete aubergine verdwijnt in de korst en je verliest de glans. Laat 'm lauw worden, en lepel 'm dan eroverheen zodat hij bovenop blijft liggen en glanst, zoals in de bars aan de Calle Granada. Fleur de sel erover. Een beetje limoenrasp als je 't scherp wil. Eet ze terwijl de aubergine nog warm is en de siroop nog koel.",
+      ],
+    },
+    nowPlaying: {
+      track: "Entre dos aguas",
+      artist: "Paco de Lucía",
+    },
+    marginalia: [
+      {
+        id: "ber-1",
+        kind: "warning",
+        anchor: "step-2",
+        body: {
+          en: "Dry the aubergine like you mean it. Wet slices in hot oil spit, steam, and fry soggy instead of crisp.",
+          es: "Seca la berenjena en serio. Las láminas mojadas en aceite caliente saltan, echan vapor y salen blandas, no crujientes.",
+          nl: "Dep de aubergine echt droog. Natte plakken in hete olie spatten, stomen en worden slap in plaats van krokant.",
+        },
+      },
+      {
+        id: "ber-2",
+        kind: "tip",
+        anchor: "step-4",
+        body: {
+          en: "Stop stirring the moment it boils. Stir a sugar syrup too long and it seizes into crystals on you.",
+          es: "Deja de remover en cuanto hierva. Remueve un almíbar de más y se te cuaja en cristales.",
+          nl: "Stop met roeren zodra het kookt. Roer een suikersiroop te lang en hij schiet aan in kristallen.",
+        },
+      },
+      {
+        id: "ber-3",
+        kind: "wrong",
+        anchor: "step-7",
+        body: {
+          en: "First time I poured the syrup straight off the heat. It soaked in and went dull. Let it cool to blood-warm so it sits on top and shines.",
+          es: "La primera vez eché la miel recién salida del fuego. Se empapó y quedó mate. Déjala templar para que quede arriba y brille.",
+          nl: "Eerste keer goot ik de siroop direct van het vuur. Hij trok in en werd dof. Laat 'm lauw worden zodat hij bovenop blijft liggen en glanst.",
+        },
+      },
+      {
+        id: "ber-4",
+        kind: "scrawl",
+        anchor: "step-6",
+        body: {
+          en: "Small batches. Crowd the pan and the oil temperature drops and they drink it. Give them room.",
+          es: "Tandas pequeñas. Llena la sartén y baja la temperatura del aceite y se lo beben. Dales sitio.",
+          nl: "Kleine porties. Prop de pan vol en de olietemperatuur zakt en ze zuigen 'm op. Geef ze ruimte.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Aubergine", es: "Berenjena", nl: "Aubergine" },
+        quantity: { en: "2 large", es: "2 grandes", nl: "2 grote" },
+        ingredient: {
+          en: "aubergines (about 700 g)",
+          es: "berenjenas (unos 700 g)",
+          nl: "aubergines (ongeveer 700 g)",
+        },
+      },
+      {
+        group: { en: "Aubergine", es: "Berenjena", nl: "Aubergine" },
+        quantity: { en: "1 litre", es: "1 litro", nl: "1 liter" },
+        ingredient: { en: "cold water", es: "agua fría", nl: "koud water" },
+      },
+      {
+        group: { en: "Aubergine", es: "Berenjena", nl: "Aubergine" },
+        quantity: { en: "25 g", es: "25 g", nl: "25 g" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+        note: {
+          en: "for the soak",
+          es: "para el remojo",
+          nl: "voor het zoutbad",
+        },
+      },
+      {
+        group: { en: "Aubergine", es: "Berenjena", nl: "Aubergine" },
+        quantity: { en: "150 g", es: "150 g", nl: "150 g" },
+        ingredient: { en: "flour", es: "harina", nl: "bloem" },
+      },
+      {
+        group: { en: "Aubergine", es: "Berenjena", nl: "Aubergine" },
+        quantity: { en: "to fry", es: "para freír", nl: "om te frituren" },
+        ingredient: { en: "sunflower oil", es: "aceite de girasol", nl: "zonnebloemolie" },
+      },
+      {
+        group: { en: "Cane syrup", es: "Miel de caña", nl: "Rietsuikersiroop" },
+        quantity: { en: "200 g", es: "200 g", nl: "200 g" },
+        ingredient: {
+          en: "brown cane sugar (azúcar de caña moreno)",
+          es: "azúcar de caña moreno",
+          nl: "bruine rietsuiker (azúcar de caña moreno)",
+        },
+      },
+      {
+        group: { en: "Cane syrup", es: "Miel de caña", nl: "Rietsuikersiroop" },
+        quantity: { en: "100 ml", es: "100 ml", nl: "100 ml" },
+        ingredient: { en: "water", es: "agua", nl: "water" },
+      },
+      {
+        group: { en: "Cane syrup", es: "Miel de caña", nl: "Rietsuikersiroop" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "apple cider vinegar",
+          es: "vinagre de manzana",
+          nl: "appelazijn",
+        },
+      },
+      {
+        group: { en: "Cane syrup", es: "Miel de caña", nl: "Rietsuikersiroop" },
+        quantity: { en: "1 pinch", es: "1 pizca", nl: "1 snuf" },
+        ingredient: {
+          en: "Kalahari or sea salt",
+          es: "sal de Kalahari o sal marina",
+          nl: "Kalahari- of zeezout",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afwerking" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "fleur de sel or Kalahari salt",
+          es: "flor de sal o sal de Kalahari",
+          nl: "fleur de sel of Kalahari-zout",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afwerking" },
+        quantity: { en: "optional", es: "opcional", nl: "optioneel" },
+        ingredient: {
+          en: "grated lime or orange zest",
+          es: "ralladura de lima o naranja",
+          nl: "geraspte limoen- of sinaasappelrasp",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Slice the aubergines about 5 mm thick. Dissolve the 25 g salt in the litre of cold water and soak the slices for 30 minutes.",
+          es: "Corta las berenjenas en láminas de unos 5 mm. Disuelve los 25 g de sal en el litro de agua fría y deja las láminas en remojo 30 minutos.",
+          nl: "Snijd de aubergines in plakken van ongeveer 5 mm. Los de 25 g zout op in de liter koud water en leg de plakken 30 minuten in het zoute water.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Drain and pat them very dry with paper towel. Wet aubergine will never crisp.",
+          es: "Escurre y sécalas muy bien con papel de cocina. La berenjena mojada no queda crujiente nunca.",
+          nl: "Giet af en dep ze zeer goed droog met keukenpapier. Natte aubergine wordt nooit knapperig.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "For the syrup, put the cane sugar, water, vinegar and a pinch of salt in a small pan. Bring it gently to a boil, then drop the heat right down.",
+          es: "Para la miel, pon el azúcar de caña, el agua, el vinagre y una pizca de sal en un cazo. Lleva a ebullición suave y baja el fuego al mínimo.",
+          nl: "Voor de siroop: doe de rietsuiker, het water, de azijn en een snuf zout in een steelpan. Breng rustig aan de kook en zet het vuur dan laag.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Let it reduce softly for 10 to 15 minutes, without stirring, until it has the thickness of runny honey. Test a drop on a cold plate. Then take it off and let it cool.",
+          es: "Deja reducir despacio de 10 a 15 minutos, sin remover, hasta que tenga el grosor de una miel líquida. Prueba una gota en un plato frío. Retira y deja enfriar.",
+          nl: "Laat 10 tot 15 minuten zacht inkoken, zonder roeren, tot het de dikte heeft van vloeibare honing. Test een druppel op een koud bord. Haal van het vuur en laat afkoelen.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Heat the sunflower oil to 180 °C. Just before frying, dredge the dry aubergine through the flour and knock off the excess.",
+          es: "Calienta el aceite de girasol a 180 °C. Justo antes de freír, pasa la berenjena seca por la harina y sacude el exceso.",
+          nl: "Verhit de zonnebloemolie tot 180 °C. Haal de droge aubergine vlak voor het bakken door de bloem en klop de overtollige bloem eraf.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Fry in small batches, 2.5 to 3 minutes, until golden and crisp outside, soft and creamy inside. Drain on paper.",
+          es: "Fríe en tandas pequeñas, de 2,5 a 3 minutos, hasta que esté dorada y crujiente por fuera, blanda y cremosa por dentro. Escurre en papel.",
+          nl: "Frituur in kleine porties, 2,5 tot 3 minuten, tot goudbruin en krokant van buiten, zacht en romig van binnen. Laat uitlekken op keukenpapier.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Lay the warm aubergine on a plate. Let the syrup cool to blood-warm, then spoon it over so it sits on top and shines.",
+          es: "Coloca la berenjena templada en un plato. Deja templar la miel y nápala por encima para que quede arriba y brille.",
+          nl: "Leg de warme aubergine op een schaal. Laat de siroop lauw worden en lepel hem er dan overheen zodat hij bovenop blijft liggen en glanst.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Finish with a few flakes of fleur de sel and, if you want it sharp, a little grated lime or orange zest.",
+          es: "Termina con unas escamas de flor de sal y, si la quieres viva, un poco de ralladura de lima o naranja.",
+          nl: "Werk af met een paar vlokken fleur de sel en, als je 't scherp wil, een beetje geraspte limoen- of sinaasappelrasp.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-02",
+  },
 ];
