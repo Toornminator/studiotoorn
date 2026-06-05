@@ -222,7 +222,7 @@ export const en: Dictionary = {
         guestsRange: "Enter a number between 1 and 200.",
         dateInvalid: "That date isn't valid.",
         backendDown:
-          "Couldn't send automatically. Mail me directly at info@toornattable.com or WhatsApp +31 6 14 41 21 02.",
+          "Couldn't send automatically. Mail me directly at info@studiotoorn.com or WhatsApp +31 6 14 41 21 02.",
       },
       success:
         "Thank you. Your request is in. I'll reply within 24 hours. Check your inbox for the confirmation.",
@@ -245,7 +245,7 @@ export const en: Dictionary = {
     },
     newsletterMessages: {
       backendDown:
-        "Newsletter is still being wired up. Email me at info@toornattable.com to be added now.",
+        "Newsletter is still being wired up. Email me at info@studiotoorn.com to be added now.",
       invalidEmail: "Please enter a valid email address.",
       genericError:
         "Something went wrong on our side. Try again or email me directly.",
@@ -256,7 +256,7 @@ export const en: Dictionary = {
     brandEyebrow: "TOORN at table",
     brandLine1: "Private chef",
     brandLine2: "Costa del Sol",
-    contactEmail: "info@toornattable.com",
+    contactEmail: "info@studiotoorn.com",
     contactPhone: "+31 6 14 41 21 02",
     sitemapKookboek: "Cookbook",
     sitemapEvents: "Events",
@@ -516,7 +516,7 @@ export const en: Dictionary = {
       {
         heading: "Who's behind this site",
         body: [
-          "TOORN at table is run by Nick Toorn, working as a private chef from the Costa del Sol, Spain. For any privacy question or request you can reach me at info@toornattable.com or via WhatsApp on +31 6 14412102.",
+          "TOORN at table is run by Nick Toorn, working as a private chef from the Costa del Sol, Spain. For any privacy question or request you can reach me at info@studiotoorn.com or via WhatsApp on +31 6 14412102.",
           "I am the data controller for everything described below.",
         ],
       },
@@ -555,7 +555,7 @@ export const en: Dictionary = {
       {
         heading: "Your rights",
         body: [
-          "Under the EU GDPR you can ask me to: show you what I have on you, correct anything that's wrong, delete it, send it to you in a portable format, or stop processing it. Email info@toornattable.com and I will respond within thirty days.",
+          "Under the EU GDPR you can ask me to: show you what I have on you, correct anything that's wrong, delete it, send it to you in a portable format, or stop processing it. Email info@studiotoorn.com and I will respond within thirty days.",
           "If you think I've handled your data badly you can also complain to your national data-protection authority. For Spain that's the AEPD (aepd.es); for the Netherlands the AP (autoriteitpersoonsgegevens.nl).",
         ],
       },
@@ -567,7 +567,7 @@ export const en: Dictionary = {
       },
     ],
     contactNote:
-      "Questions about anything above? Write to info@toornattable.com or message +31 6 14412102.",
+      "Questions about anything above? Write to info@studiotoorn.com or message +31 6 14412102.",
   },
   terms: {
     eyebrow: "Terms",
@@ -631,6 +631,6 @@ export const en: Dictionary = {
       },
     ],
     contactNote:
-      "Anything here that needs more clarity? Write to info@toornattable.com or message +31 6 14412102 and I'll explain.",
+      "Anything here that needs more clarity? Write to info@studiotoorn.com or message +31 6 14412102 and I'll explain.",
   },
 };

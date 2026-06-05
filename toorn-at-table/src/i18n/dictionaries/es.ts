@@ -227,7 +227,7 @@ export const es: Dictionary = {
         guestsRange: "Pon un número entre 1 y 200.",
         dateInvalid: "Esa fecha no es válida.",
         backendDown:
-          "El envío automático ha fallado. Escríbeme a info@toornattable.com o por WhatsApp al +31 6 14 41 21 02.",
+          "El envío automático ha fallado. Escríbeme a info@studiotoorn.com o por WhatsApp al +31 6 14 41 21 02.",
       },
       success:
         "Gracias. Tu consulta ha llegado. Te respondo en 24 horas. Mira tu bandeja de entrada para la confirmación.",
@@ -250,7 +250,7 @@ export const es: Dictionary = {
     },
     newsletterMessages: {
       backendDown:
-        "La newsletter aún está en montaje. Escríbeme a info@toornattable.com para entrar ya.",
+        "La newsletter aún está en montaje. Escríbeme a info@studiotoorn.com para entrar ya.",
       invalidEmail: "Pon un email válido.",
       genericError:
         "Algo falló por nuestro lado. Inténtalo de nuevo o escríbeme directamente.",
@@ -262,7 +262,7 @@ export const es: Dictionary = {
     brandEyebrow: "TOORN at table",
     brandLine1: "Chef privado",
     brandLine2: "Costa del Sol",
-    contactEmail: "info@toornattable.com",
+    contactEmail: "info@studiotoorn.com",
     contactPhone: "+31 6 14 41 21 02",
     sitemapKookboek: "Recetario",
     sitemapEvents: "Eventos",
@@ -522,7 +522,7 @@ export const es: Dictionary = {
       {
         heading: "Quién está detrás de este sitio",
         body: [
-          "TOORN at table lo lleva Nick Toorn, trabajando como chef privado desde la Costa del Sol, España. Para cualquier consulta o solicitud de privacidad escríbeme a info@toornattable.com o por WhatsApp al +31 6 14412102.",
+          "TOORN at table lo lleva Nick Toorn, trabajando como chef privado desde la Costa del Sol, España. Para cualquier consulta o solicitud de privacidad escríbeme a info@studiotoorn.com o por WhatsApp al +31 6 14412102.",
           "Soy el responsable del tratamiento de todo lo descrito a continuación.",
         ],
       },
@@ -561,7 +561,7 @@ export const es: Dictionary = {
       {
         heading: "Tus derechos",
         body: [
-          "Bajo el RGPD europeo puedes pedirme que: te enseñe lo que tengo sobre ti, corrija errores, lo borre, te lo mande en un formato portable, o deje de tratarlo. Escribe a info@toornattable.com y respondo dentro de treinta días.",
+          "Bajo el RGPD europeo puedes pedirme que: te enseñe lo que tengo sobre ti, corrija errores, lo borre, te lo mande en un formato portable, o deje de tratarlo. Escribe a info@studiotoorn.com y respondo dentro de treinta días.",
           "Si crees que he tratado tus datos mal puedes también reclamar a tu autoridad nacional de protección de datos. En España es la AEPD (aepd.es); en Países Bajos la AP (autoriteitpersoonsgegevens.nl).",
         ],
       },
@@ -573,7 +573,7 @@ export const es: Dictionary = {
       },
     ],
     contactNote:
-      "¿Preguntas sobre algo de arriba? Escribe a info@toornattable.com o manda un mensaje al +31 6 14412102.",
+      "¿Preguntas sobre algo de arriba? Escribe a info@studiotoorn.com o manda un mensaje al +31 6 14412102.",
   },
   terms: {
     eyebrow: "Términos",
@@ -637,6 +637,6 @@ export const es: Dictionary = {
       },
     ],
     contactNote:
-      "¿Algo aquí que necesite más claridad? Escribe a info@toornattable.com o manda un mensaje al +31 6 14412102 y lo explico.",
+      "¿Algo aquí que necesite más claridad? Escribe a info@studiotoorn.com o manda un mensaje al +31 6 14412102 y lo explico.",
   },
 };

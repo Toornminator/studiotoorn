@@ -55,11 +55,11 @@ export async function Contact() {
           <div>
             <p className="text-ink/40">{t.contact.directEyebrow}</p>
             <a
-              href="mailto:info@toornattable.com"
+              href="mailto:info@studiotoorn.com"
               className="mt-1 block normal-case tracking-normal text-ink hover:text-tattoo-red"
               style={{ fontFamily: "var(--font-serif), serif", fontSize: 16, fontStyle: "italic" }}
             >
-              info@toornattable.com
+              info@studiotoorn.com
             </a>
           </div>
           <div>

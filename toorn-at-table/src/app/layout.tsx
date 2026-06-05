@@ -100,7 +100,7 @@ const businessJsonLd = {
   logo: `${SITE_URL}/icon.png`,
   image: `${SITE_URL}/opengraph-image.png`,
   telephone: "+31614412102",
-  email: "info@toornattable.com",
+  email: "info@studiotoorn.com",
   priceRange: "€€€",
   foundingDate: "2023",
   founder: {
@@ -141,7 +141,7 @@ const businessJsonLd = {
     "@type": "ContactPoint",
     telephone: "+31614412102",
     contactType: "customer service",
-    email: "info@toornattable.com",
+    email: "info@studiotoorn.com",
     availableLanguage: ["English", "Spanish", "Dutch"],
   },
   makesOffer: [

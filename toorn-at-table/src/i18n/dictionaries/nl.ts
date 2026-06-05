@@ -225,7 +225,7 @@ export const nl: Dictionary = {
         guestsRange: "Vul een getal tussen 1 en 200 in.",
         dateInvalid: "Geen geldige datum.",
         backendDown:
-          "Het versturen lukte niet automatisch. Kun je me direct mailen op info@toornattable.com of bellen op +31 6 14 41 21 02?",
+          "Het versturen lukte niet automatisch. Kun je me direct mailen op info@studiotoorn.com of bellen op +31 6 14 41 21 02?",
       },
       success:
         "Bedankt. Je aanvraag is binnen. Ik reageer binnen 24 uur. Check intussen je inbox voor de bevestiging.",
@@ -248,7 +248,7 @@ export const nl: Dictionary = {
     },
     newsletterMessages: {
       backendDown:
-        "Nieuwsbrief wordt nog opgezet. Mail me direct op info@toornattable.com om alvast op de lijst te komen.",
+        "Nieuwsbrief wordt nog opgezet. Mail me direct op info@studiotoorn.com om alvast op de lijst te komen.",
       invalidEmail: "Vul een geldig emailadres in.",
       genericError:
         "Er ging iets mis aan onze kant. Probeer het zo nog eens of mail me direct.",
@@ -260,7 +260,7 @@ export const nl: Dictionary = {
     brandEyebrow: "TOORN at table",
     brandLine1: "Private chef",
     brandLine2: "Costa del Sol",
-    contactEmail: "info@toornattable.com",
+    contactEmail: "info@studiotoorn.com",
     contactPhone: "+31 6 14 41 21 02",
     sitemapKookboek: "Kookboek",
     sitemapEvents: "Events",
@@ -520,7 +520,7 @@ export const nl: Dictionary = {
       {
         heading: "Wie achter deze site zit",
         body: [
-          "TOORN at table wordt gerund door Nick Toorn, werkzaam als private chef vanaf de Costa del Sol, Spanje. Voor elke privacyvraag of -verzoek kun je me bereiken op info@toornattable.com of via WhatsApp op +31 6 14412102.",
+          "TOORN at table wordt gerund door Nick Toorn, werkzaam als private chef vanaf de Costa del Sol, Spanje. Voor elke privacyvraag of -verzoek kun je me bereiken op info@studiotoorn.com of via WhatsApp op +31 6 14412102.",
           "Ik ben de verwerkingsverantwoordelijke voor alles wat hieronder staat.",
         ],
       },
@@ -559,7 +559,7 @@ export const nl: Dictionary = {
       {
         heading: "Jouw rechten",
         body: [
-          "Onder de EU-AVG kun je me vragen om: te laten zien wat ik van je heb, fouten te corrigeren, het te verwijderen, het in een overdraagbaar formaat te sturen, of te stoppen met verwerken. Mail info@toornattable.com en ik reageer binnen dertig dagen.",
+          "Onder de EU-AVG kun je me vragen om: te laten zien wat ik van je heb, fouten te corrigeren, het te verwijderen, het in een overdraagbaar formaat te sturen, of te stoppen met verwerken. Mail info@studiotoorn.com en ik reageer binnen dertig dagen.",
           "Als je vindt dat ik je data slecht heb behandeld kun je ook klagen bij je nationale toezichthouder. In Nederland is dat de Autoriteit Persoonsgegevens (autoriteitpersoonsgegevens.nl); in Spanje de AEPD (aepd.es).",
         ],
       },
@@ -571,7 +571,7 @@ export const nl: Dictionary = {
       },
     ],
     contactNote:
-      "Vragen over iets hierboven? Mail info@toornattable.com of stuur een bericht naar +31 6 14412102.",
+      "Vragen over iets hierboven? Mail info@studiotoorn.com of stuur een bericht naar +31 6 14412102.",
   },
   terms: {
     eyebrow: "Voorwaarden",
@@ -635,6 +635,6 @@ export const nl: Dictionary = {
       },
     ],
     contactNote:
-      "Iets hier dat duidelijker mag? Mail info@toornattable.com of stuur een bericht naar +31 6 14412102 en ik leg het uit.",
+      "Iets hier dat duidelijker mag? Mail info@studiotoorn.com of stuur een bericht naar +31 6 14412102 en ik leg het uit.",
   },
 };
