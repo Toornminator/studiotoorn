@@ -3267,4 +3267,261 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-02",
   },
+  {
+    slug: "castellano-tomatensoep",
+    title: {
+      en: "Roasted Castellano tomato soup",
+      es: "Sopa de tomate Castellano asado",
+      nl: "Geroosterde Castellano-tomatensoep",
+    },
+    intro: {
+      en: "Roasted tomatoes, sweet onion, garlic, blitzed and strained to silk. The bay goes in the blender. Velvet.",
+      es: "Tomates asados, cebolla dulce, ajo, triturados y colados hasta la seda. El laurel va a la batidora. Terciopelo.",
+      nl: "Geroosterde tomaten, zoete ui, knoflook, gladgedraaid en gezeefd tot zijde. De laurier gaat de blender in. Fluweel.",
+    },
+    category: "voor",
+    seasons: ["zomer"],
+    difficulty: 1,
+    prepMinutes: 15,
+    cookMinutes: 30,
+    servings: 4,
+    heroImage: "/images/recipes/castellano-tomatensoep.jpg",
+    pairing: {
+      en: "A heel of crusty sourdough to drag through it, and a glass of cold Spanish rosado.",
+      es: "Un buen trozo de pan de masa madre para mojar, y una copa de rosado español bien frío.",
+      nl: "Een stuk knapperig zuurdesembrood om door te halen, en een glas koude Spaanse rosado.",
+    },
+    body: {
+      en: [
+        "The tomatoes make this, so I get them at the market. Castellano. Ugly, ribbed, heavy in the hand, sold by a woman who has stood at the same stall longer than I have been alive. Nothing beats a Spanish tomato in season. They taste of sun and dirt and a sweetness a supermarket tomato can only dream about. Out of season, do not bother with this soup. Wait.",
+        "Everything goes in the oven first. Tomatoes in wedges, sweet onion in chunks, garlic left whole and crushed so it turns soft and sweet instead of sharp. Good Arbequina oil, oregano, thyme, rosemary, pepper. You roast it until the edges catch and the tomatoes start to caramelise. That browning is the whole flavour. Boil tomatoes and you get juice. Roast them and you get depth.",
+        "Then stock, the bay leaves, fifteen minutes on a low flame. The trick is to blend the bay right in with everything else, then strain the lot through a fine sieve. The bay gives its perfume to the whole pot and the sieve takes out every seed and skin, and what is left is silk. A drizzle of Arbequina on top, a few drops of sherry vinegar, and a piece of bread to drag through it.",
+      ],
+      es: [
+        "Los tomates lo son todo aquí, así que los cojo en el mercado. Castellanos. Feos, acanalados, pesados en la mano, los vende una señora que lleva en el mismo puesto más tiempo del que yo llevo vivo. No hay nada como un tomate español en temporada. Saben a sol y a tierra y a una dulzura que un tomate de súper solo puede soñar. Fuera de temporada, ni te molestes con esta sopa. Espera.",
+        "Todo va al horno primero. Tomate en gajos, cebolla dulce en trozos, ajo entero y aplastado para que salga blando y dulce en vez de fuerte. Buen aceite Arbequina, orégano, tomillo, romero, pimienta. Lo asas hasta que los bordes se tuestan y el tomate empieza a caramelizar. Ese dorado es todo el sabor. Hierve el tomate y sacas zumo. Ásalo y sacas fondo.",
+        "Luego caldo, el laurel, quince minutos a fuego suave. El truco es triturar el laurel con todo lo demás y después colarlo por un chino fino. El laurel le da su perfume a toda la olla y el colador quita cada pepita y cada piel, y lo que queda es seda. Un chorrito de Arbequina por encima, unas gotas de vinagre de Jerez, y un trozo de pan para mojar.",
+      ],
+      nl: [
+        "De tomaten maken dit, dus die haal ik op de markt. Castellano. Lelijk, geribbeld, zwaar in de hand, verkocht door een vrouw die al langer op dezelfde kraam staat dan ik leef. Er gaat niets boven een Spaanse tomaat op het juiste moment. Ze smaken naar zon en aarde en een zoetheid waar een supermarkttomaat alleen van kan dromen. Buiten het seizoen: begin er niet aan. Wacht.",
+        "Alles gaat eerst de oven in. Tomaten in parten, zoete ui in stukken, knoflook heel en platgedrukt zodat hij zacht en zoet wordt in plaats van scherp. Goede Arbequina-olie, oregano, tijm, rozemarijn, peper. Je roostert tot de randen kleuren en de tomaten beginnen te karamelliseren. Dat bruinen is de hele smaak. Kook tomaten en je krijgt sap. Rooster ze en je krijgt diepte.",
+        "Dan bouillon, de laurierblaadjes, vijftien minuten op een zacht vuur. De truc is de laurier mee te blenden met de rest, en dan alles door een fijne zeef te halen. De laurier geeft zijn parfum aan de hele pan en de zeef haalt elke pit en elk velletje eruit, en wat overblijft is zijde. Een scheutje Arbequina erover, een paar druppels sherryazijn, en een stuk brood om door te halen.",
+      ],
+    },
+    nowPlaying: {
+      track: "Mediterráneo",
+      artist: "Joan Manuel Serrat",
+    },
+    marginalia: [
+      {
+        id: "tom-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Market tomatoes only, in season. A pale winter supermarket tomato makes a pale winter soup, and there is no fixing it later.",
+          es: "Solo tomate de mercado, de temporada. Un tomate pálido de invierno de súper hace una sopa pálida de invierno, y no hay arreglo después.",
+          nl: "Alleen markttomaten, op seizoen. Een bleke wintertomaat uit de super maakt een bleke wintersoep, en daar valt achteraf niets aan te redden.",
+        },
+      },
+      {
+        id: "tom-2",
+        kind: "tip",
+        anchor: "step-5",
+        body: {
+          en: "Let the edges actually catch colour. The caramelised bits are where the whole flavour lives.",
+          es: "Deja que los bordes cojan color de verdad. Lo caramelizado es donde vive todo el sabor.",
+          nl: "Laat de randen echt kleuren. Het gekaramelliseerde is waar de hele smaak zit.",
+        },
+      },
+      {
+        id: "tom-3",
+        kind: "scrawl",
+        anchor: "step-7",
+        body: {
+          en: "Blend the bay leaves right in. They give the soup its perfume, and the sieve catches the bits after.",
+          es: "Tritura el laurel con todo. Le da el perfume a la sopa, y luego el colador atrapa los trozos.",
+          nl: "Blend de laurier gewoon mee. Die geeft de soep zijn parfum, en daarna vangt de zeef de stukjes.",
+        },
+      },
+      {
+        id: "tom-4",
+        kind: "wrong",
+        anchor: "step-8",
+        body: {
+          en: "Do not skip the sieve. I have served it unstrained and rustic and it was fine. Strained, it is another thing entirely. Silk.",
+          es: "No te saltes el colador. La he servido sin colar, rústica, y estaba bien. Colada, es otra cosa. Seda.",
+          nl: "Sla de zeef niet over. Ik heb 'm ongezeefd en rustiek geserveerd en prima. Gezeefd is het iets heel anders. Zijde.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "500 g", es: "500 g", nl: "500 g" },
+        ingredient: {
+          en: "Castellano tomatoes, in wedges",
+          es: "tomates Castellano, en gajos",
+          nl: "Castellano-tomaten, in parten",
+        },
+        note: {
+          en: "from the market, in season",
+          es: "del mercado, de temporada",
+          nl: "van de markt, op seizoen",
+        },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: {
+          en: "sweet onion, in chunks",
+          es: "cebolla dulce, en trozos",
+          nl: "zoete ui, in grove stukken",
+        },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "5", es: "5", nl: "5" },
+        ingredient: {
+          en: "small garlic cloves, whole, lightly crushed",
+          es: "dientes de ajo pequeños, enteros, aplastados",
+          nl: "kleine tenen knoflook, heel, licht platgedrukt",
+        },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "1 tbsp", es: "1 cda", nl: "1 el" },
+        ingredient: {
+          en: "Arbequina olive oil, plus extra to drizzle",
+          es: "aceite de oliva Arbequina, más para rociar",
+          nl: "Arbequina olijfolie, plus extra om te drizzelen",
+        },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "dried oregano", es: "orégano seco", nl: "gedroogde oregano" },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "dried thyme", es: "tomillo seco", nl: "gedroogde tijm" },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: { en: "dried rosemary", es: "romero seco", nl: "gedroogde rozemarijn" },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Roosteren" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "freshly ground black pepper",
+          es: "pimienta negra recién molida",
+          nl: "versgemalen zwarte peper",
+        },
+      },
+      {
+        group: { en: "Soup", es: "Sopa", nl: "Soep" },
+        quantity: { en: "500 ml", es: "500 ml", nl: "500 ml" },
+        ingredient: {
+          en: "vegetable stock (1 cube)",
+          es: "caldo de verduras (1 pastilla)",
+          nl: "groentebouillon (1 blokje)",
+        },
+      },
+      {
+        group: { en: "Soup", es: "Sopa", nl: "Soep" },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: {
+          en: "fresh bay leaves",
+          es: "hojas de laurel frescas",
+          nl: "verse laurierbladeren",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afwerking" },
+        quantity: { en: "a few drops", es: "unas gotas", nl: "een paar druppels" },
+        ingredient: {
+          en: "sherry vinegar or good balsamic",
+          es: "vinagre de Jerez o buen balsámico",
+          nl: "sherryazijn of goede balsamico",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Heat the oven to 200 °C, top and bottom heat.",
+          es: "Calienta el horno a 200 °C, calor arriba y abajo.",
+          nl: "Verwarm de oven voor op 200 °C, boven- en onderwarmte.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Cut the tomatoes into wedges. Peel and roughly chop the onion. Leave the garlic cloves whole and crush them lightly with the side of a knife.",
+          es: "Corta los tomates en gajos. Pela y pica la cebolla en trozos. Deja los dientes de ajo enteros y aplástalos un poco con el lado de un cuchillo.",
+          nl: "Snijd de tomaten in parten. Pel de ui en snijd in grove stukken. Laat de knoflooktenen heel en druk ze licht plat met de zijkant van een mes.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Spread the tomatoes, onion and garlic on a lined tray. Drizzle with the Arbequina, a little extra over the tomatoes.",
+          es: "Reparte los tomates, la cebolla y el ajo en una bandeja con papel. Rocía con la Arbequina, un poco más sobre los tomates.",
+          nl: "Verdeel de tomaten, ui en knoflook over een met bakpapier beklede bakplaat. Besprenkel met de Arbequina, een beetje extra over de tomaten.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Scatter over the oregano, thyme, rosemary and a good grind of black pepper.",
+          es: "Espolvorea el orégano, el tomillo, el romero y una buena vuelta de pimienta negra.",
+          nl: "Bestrooi met de oregano, tijm, rozemarijn en een flinke draai zwarte peper.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Roast 25 to 30 minutes, until the vegetables are soft and the tomatoes start to caramelise at the edges.",
+          es: "Asa de 25 a 30 minutos, hasta que las verduras estén blandas y el tomate empiece a caramelizar por los bordes.",
+          nl: "Rooster 25 tot 30 minuten, tot de groenten zacht zijn en de tomaten aan de randen beginnen te karamelliseren.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Tip everything into a pot. Add the stock and the bay leaves. Bring to a boil, then simmer gently for 15 minutes.",
+          es: "Vuelca todo en una olla. Añade el caldo y las hojas de laurel. Lleva a ebullición y cuece suave 15 minutos.",
+          nl: "Doe alles in een soeppan. Voeg de bouillon en de laurierblaadjes toe. Breng aan de kook en laat 15 minuten zachtjes trekken.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Blend it all, bay leaves and all, until smooth.",
+          es: "Tritura todo, con el laurel y todo, hasta que quede liso.",
+          nl: "Blend alles, laurier en al, tot een gladde massa.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Pass it through a fine sieve for a silky texture.",
+          es: "Pásalo por un colador fino para una textura sedosa.",
+          nl: "Zeef de soep door een fijne zeef voor een zijdezachte structuur.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Taste and adjust with black pepper. Finish each bowl with a drizzle of Arbequina and a few drops of sherry vinegar.",
+          es: "Prueba y ajusta de pimienta negra. Termina cada plato con un chorrito de Arbequina y unas gotas de vinagre de Jerez.",
+          nl: "Proef en breng op smaak met zwarte peper. Werk elk bord af met een scheutje Arbequina en een paar druppels sherryazijn.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-02",
+  },
 ];
