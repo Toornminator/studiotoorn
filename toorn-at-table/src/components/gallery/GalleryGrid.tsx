@@ -97,7 +97,7 @@ function Lightbox({
     <motion.div
       role="dialog"
       aria-modal="true"
-      aria-label="Foto vergroot"
+      aria-label="Enlarged photo"
       className="fixed inset-0 z-[210] flex items-center justify-center bg-ink/92 p-4 backdrop-blur-md sm:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

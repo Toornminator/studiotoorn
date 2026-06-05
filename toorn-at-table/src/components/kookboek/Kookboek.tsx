@@ -11,7 +11,7 @@ export async function Kookboek() {
   return (
     <section
       id="cookbook"
-      aria-labelledby="kookboek-heading"
+      aria-labelledby="cookbook-heading"
       className="relative w-full"
     >
       <Polaroid
@@ -36,7 +36,7 @@ export async function Kookboek() {
             {t.cookbook.eyebrow}
           </Reveal>
           <h2
-            id="kookboek-heading"
+            id="cookbook-heading"
             className="mt-4 max-w-3xl font-display italic leading-[0.95] text-ink"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >

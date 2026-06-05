@@ -225,7 +225,7 @@ export const nl: Dictionary = {
         guestsRange: "Vul een getal tussen 1 en 200 in.",
         dateInvalid: "Geen geldige datum.",
         backendDown:
-          "Het versturen lukte niet automatisch. Kun je me direct mailen op info@studiotoorn.com of bellen op +31 6 14 41 21 02?",
+          "Het versturen lukte niet automatisch. Kun je me direct mailen op info@toornattable.com of bellen op +31 6 14 41 21 02?",
       },
       success:
         "Bedankt. Je aanvraag is binnen. Ik reageer binnen 24 uur. Check intussen je inbox voor de bevestiging.",
@@ -248,7 +248,7 @@ export const nl: Dictionary = {
     },
     newsletterMessages: {
       backendDown:
-        "Nieuwsbrief wordt nog opgezet. Mail me direct op info@studiotoorn.com om alvast op de lijst te komen.",
+        "Nieuwsbrief wordt nog opgezet. Mail me direct op info@toornattable.com om alvast op de lijst te komen.",
       invalidEmail: "Vul een geldig emailadres in.",
       genericError:
         "Er ging iets mis aan onze kant. Probeer het zo nog eens of mail me direct.",
@@ -260,7 +260,7 @@ export const nl: Dictionary = {
     brandEyebrow: "TOORN at table",
     brandLine1: "Private chef",
     brandLine2: "Costa del Sol",
-    contactEmail: "info@studiotoorn.com",
+    contactEmail: "info@toornattable.com",
     contactPhone: "+31 6 14 41 21 02",
     sitemapKookboek: "Kookboek",
     sitemapEvents: "Events",

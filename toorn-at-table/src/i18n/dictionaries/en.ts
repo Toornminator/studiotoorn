@@ -222,7 +222,7 @@ export const en: Dictionary = {
         guestsRange: "Enter a number between 1 and 200.",
         dateInvalid: "That date isn't valid.",
         backendDown:
-          "Couldn't send automatically. Mail me directly at info@studiotoorn.com or WhatsApp +31 6 14 41 21 02.",
+          "Couldn't send automatically. Mail me directly at info@toornattable.com or WhatsApp +31 6 14 41 21 02.",
       },
       success:
         "Thank you. Your request is in. I'll reply within 24 hours. Check your inbox for the confirmation.",
@@ -245,7 +245,7 @@ export const en: Dictionary = {
     },
     newsletterMessages: {
       backendDown:
-        "Newsletter is still being wired up. Email me at info@studiotoorn.com to be added now.",
+        "Newsletter is still being wired up. Email me at info@toornattable.com to be added now.",
       invalidEmail: "Please enter a valid email address.",
       genericError:
         "Something went wrong on our side. Try again or email me directly.",
@@ -256,7 +256,7 @@ export const en: Dictionary = {
     brandEyebrow: "TOORN at table",
     brandLine1: "Private chef",
     brandLine2: "Costa del Sol",
-    contactEmail: "info@studiotoorn.com",
+    contactEmail: "info@toornattable.com",
     contactPhone: "+31 6 14 41 21 02",
     sitemapKookboek: "Cookbook",
     sitemapEvents: "Events",

@@ -14,7 +14,7 @@ export function Stats() {
   const t = useT();
 
   return (
-    <section aria-label="Statistieken" className="relative w-full">
+    <section aria-label="By the numbers" className="relative w-full">
       <div className="mx-auto w-full max-w-6xl px-5 pb-24 md:px-12 md:pb-32">
         <div className="grid grid-cols-1 gap-12 border-y border-ink/15 py-16 sm:grid-cols-3 md:gap-16 md:py-24">
           <Reveal className="flex flex-col items-start gap-3">

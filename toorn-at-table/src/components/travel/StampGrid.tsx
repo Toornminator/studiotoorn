@@ -178,7 +178,7 @@ export function StampGrid({ locations }: { locations: TravelLocation[] }) {
         <button
           type="button"
           onClick={() => scrollByStamp(-1)}
-          aria-label="Vorige stempel"
+          aria-label="Previous stamp"
           className="absolute left-1 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-ink/15 bg-cream/95 text-ink shadow-[0_4px_14px_-4px_rgba(20,16,12,0.25)] transition-colors hover:bg-tattoo-red hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red md:inline-flex"
         >
           <svg
@@ -200,7 +200,7 @@ export function StampGrid({ locations }: { locations: TravelLocation[] }) {
         <button
           type="button"
           onClick={() => scrollByStamp(1)}
-          aria-label="Volgende stempel"
+          aria-label="Next stamp"
           className="absolute right-1 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-ink/15 bg-cream/95 text-ink shadow-[0_4px_14px_-4px_rgba(20,16,12,0.25)] transition-colors hover:bg-tattoo-red hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red md:inline-flex"
         >
           <svg
