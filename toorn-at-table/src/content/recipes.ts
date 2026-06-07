@@ -3524,4 +3524,326 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-02",
   },
+  {
+    slug: "smashed-beef-wraps",
+    title: {
+      en: "Smashed beef wraps with pico de gallo and lime-yogurt",
+      es: "Wraps de carne smasheada con pico de gallo y yogur de lima",
+      nl: "Smashed beef wraps met pico de gallo en limoen-yoghurt",
+    },
+    intro: {
+      en: "Raw beef pressed thin onto a fresh tortilla and slammed face-down in a screaming-hot dry pan until the meat becomes the bread. Cold pico, lime-yogurt, a hit of chipotle. Eat it standing up.",
+      es: "Carne picada extendida fina sobre una tortilla fresca y estampada boca abajo en una sartén seca ardiendo hasta que la carne se vuelve pan. Pico frío, yogur con lima, un toque de chipotle. Cómetela de pie.",
+      nl: "Rauw gehakt dun uitgesmeerd op een verse wrap en met de vleeskant naar beneden in een gloeiend hete droge pan gekwakt tot het vlees het brood wordt. Koude pico, limoen-yoghurt, een mep chipotle. Staand opeten.",
+    },
+    category: "hoofd",
+    seasons: ["altijd"],
+    difficulty: 2,
+    prepMinutes: 50,
+    cookMinutes: 15,
+    servings: 4,
+    heroImage: "/images/recipes/smashed-beef-wraps.jpg",
+    pairing: {
+      en: "An ice-cold Mexican lager with a wedge of lime, or whatever cold caña is in the fridge. Nothing fancy. This is hands-and-napkins food.",
+      es: "Una cerveza mexicana bien fría con un gajo de lima, o la caña que haya en la nevera. Nada de pretensiones. Esto es comida de manos y servilletas.",
+      nl: "Een ijskoud Mexicaans pils met een partje limoen, of welke koude caña er ook in de koelkast staat. Niks chics. Dit is eten voor handen en servetten.",
+    },
+    body: {
+      en: [
+        "Make the tortilla yourself. I know, I know. There is a stack of them at the supermarket and nobody is going to arrest you for buying them. But a tortilla you rolled out twenty minutes ago, blistered in a dry pan, soft and warm under a towel, is a different animal, and it is the whole point of this dish. Flour, salt, a little oil, warm water, eight minutes of kneading until it stops fighting you. Then it rests. Dough always rests. Push it and it pushes back.",
+        "Here is the move, the only thing that matters: you press a thin layer of seasoned raw beef onto one side of the tortilla, press it in hard, and you lay it meat-side down in a screaming-hot dry pan. The meat fries directly against the steel and welds itself to the bread. No oil, no fuss, just heat and pressure. Three, four minutes, and you do not touch it. You are building a crust. Move it too early and you tear the meat off the tortilla and stand there cursing. Patience. Then a flip, thirty seconds on the bread side, done.",
+        "Everything else is contrast. Cold, sharp pico de gallo straight over the hot meat. Tomato, red onion, lime, salt, sitting ten minutes until it turns into something. A cool drizzle of lime-yogurt to put out the fire. A few drops of chipotle to light it again. Fold it, roll it, whatever. Eat it standing at the counter with the juice running down your wrist. This is not plated food. It is food you make for the people who wander into the kitchen hungry, and it is gone before it ever sees a table.",
+      ],
+      es: [
+        "Haz la tortilla tú mismo. Ya, ya lo sé. Hay un paquete en el súper y nadie te va a detener por comprarlo. Pero una tortilla que estiraste hace veinte minutos, ampollada en una sartén seca, blanda y caliente bajo un trapo, es otro animal, y es justo de lo que va este plato. Harina, sal, un poco de aceite, agua templada, ocho minutos de amasado hasta que deje de pelear contigo. Después descansa. La masa siempre descansa. La aprietas y te aprieta de vuelta.",
+        "Aquí está el truco, lo único que importa: extiendes una capa fina de carne picada aliñada sobre una cara de la tortilla, la aprietas bien, y la pones con la carne hacia abajo en una sartén seca ardiendo. La carne se fríe directa contra el metal y se suelda al pan. Sin aceite, sin lío, solo calor y presión. Tres, cuatro minutos, y no la tocas. Estás creando una costra. La mueves antes de tiempo y arrancas la carne de la tortilla y te quedas ahí maldiciendo. Paciencia. Luego le das la vuelta, treinta segundos por el lado del pan, listo.",
+        "Todo lo demás es contraste. Pico de gallo frío y ácido directo sobre la carne caliente. Tomate, cebolla roja, lima, sal, reposando diez minutos hasta que se convierte en algo. Un hilo fresco de yogur con lima para apagar el fuego. Unas gotas de chipotle para encenderlo otra vez. La doblas, la enrollas, lo que sea. Te la comes de pie en la encimera con el jugo cayéndote por la muñeca. Esto no es comida de plato. Es comida que haces para los que entran en la cocina con hambre, y desaparece antes de ver una mesa.",
+      ],
+      nl: [
+        "Maak de wrap zelf. Ja, ik weet het. Er ligt een stapel in de supermarkt en niemand pakt je op als je ze koopt. Maar een wrap die je twintig minuten geleden hebt uitgerold, geblutst in een droge pan, zacht en warm onder een theedoek, is een heel ander beest, en dat is het hele punt van dit gerecht. Bloem, zout, een beetje olie, lauw water, acht minuten kneden tot het deeg ophoudt met tegenwerken. Dan rust het. Deeg rust altijd. Duw je het, dan duwt het terug.",
+        "Dit is de beweging, het enige dat telt: je drukt een dunne laag gekruid rauw gehakt op één kant van de wrap, drukt het stevig aan, en legt hem met de vleeskant naar beneden in een gloeiend hete droge pan. Het vlees bakt direct tegen het staal en last zich vast aan het brood. Geen olie, geen gedoe, alleen hitte en druk. Drie, vier minuten, en je komt er niet aan. Je bouwt een korst. Beweeg hem te vroeg en je trekt het vlees van de wrap en staat daar te vloeken. Geduld. Dan omdraaien, dertig seconden op de broodkant, klaar.",
+        "Al het andere is contrast. Koude, scherpe pico de gallo zo over het hete vlees. Tomaat, rode ui, limoen, zout, tien minuten laten staan tot het iets wordt. Een koele streep limoen-yoghurt om het vuur te blussen. Een paar druppels chipotle om het weer aan te steken. Vouw hem, rol hem, maakt niet uit. Je eet hem staand aan het aanrecht met het sap langs je pols. Dit is geen bordgerecht. Het is eten dat je maakt voor de mensen die hongerig de keuken in lopen, en het is weg voordat het ooit een tafel ziet.",
+      ],
+    },
+    nowPlaying: {
+      track: "Search and Destroy",
+      artist: "The Stooges",
+    },
+    marginalia: [
+      {
+        id: "sbw-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Lean mince, and keep it cold. Fat is flavour, but here you want the meat to sear into a crust against the dry pan, not stew in its own grease.",
+          es: "Carne magra, y bien fría. La grasa es sabor, pero aquí quieres que la carne haga costra contra la sartén seca, no que se cueza en su propia grasa.",
+          nl: "Mager gehakt, en hou het koud. Vet is smaak, maar hier wil je dat het vlees een korst bakt tegen de droge pan, niet dat het in z'n eigen vet staat te sudderen.",
+        },
+      },
+      {
+        id: "sbw-2",
+        kind: "warning",
+        anchor: "step-1",
+        body: {
+          en: "Knead until the dough is smooth and elastic, then actually let it rest. Skip the rest and the gluten is too tight to roll. It snaps back at you like a rubber band.",
+          es: "Amasa hasta que la masa esté lisa y elástica, y luego déjala reposar de verdad. Sáltate el reposo y el gluten está demasiado tenso para estirar. Se te encoge como una goma.",
+          nl: "Kneed tot het deeg glad en elastisch is, en laat het dan ook echt rusten. Sla de rust over en het gluten is te strak om uit te rollen. Het krimpt terug als een elastiek.",
+        },
+      },
+      {
+        id: "sbw-3",
+        kind: "tip",
+        anchor: "step-3",
+        body: {
+          en: "Roll them genuinely thin. A thick tortilla steams and goes leathery. A thin one blisters, crisps at the edges and takes the weight of the meat.",
+          es: "Estíralas finas de verdad. Una tortilla gruesa se cuece al vapor y queda correosa. Una fina se ampolla, cruje por los bordes y aguanta el peso de la carne.",
+          nl: "Rol ze echt dun uit. Een dikke wrap stoomt en wordt taai. Een dunne blutst, wordt knapperig aan de randen en draagt het gewicht van het vlees.",
+        },
+      },
+      {
+        id: "sbw-4",
+        kind: "wrong",
+        anchor: "step-7",
+        body: {
+          en: "Press the meat on thin and hard. Everyone goes too thick, the layer balls up, never fuses to the bread, and you get a sad pancake with a meatball on top. Thin and pressed is the whole trick: the meat becomes the tortilla.",
+          es: "Aprieta la carne fina y fuerte. Todo el mundo la pone demasiado gruesa, la capa se abulta, no se suelda al pan, y te queda una triste tortita con una albóndiga encima. Fina y bien apretada es todo el truco: la carne se vuelve la tortilla.",
+          nl: "Druk het vlees dun en stevig aan. Iedereen doet het te dik, de laag balt samen, last zich niet vast aan het brood, en je houdt een treurige pannenkoek met een gehaktbal erop over. Dun en aangedrukt is de hele truc: het vlees wordt de wrap.",
+        },
+      },
+      {
+        id: "sbw-5",
+        kind: "scrawl",
+        anchor: "step-8",
+        body: {
+          en: "Lay it down and walk away. Three minutes, no poking, no peeking. You are welding meat to bread and that takes contact and heat. Lift it early and it tears.",
+          es: "Ponla y aléjate. Tres minutos, sin tocar, sin mirar. Estás soldando carne al pan y eso necesita contacto y calor. La levantas antes y se rompe.",
+          nl: "Leg hem neer en loop weg. Drie minuten, niet porren, niet gluren. Je last vlees aan brood en dat vraagt contact en hitte. Til je hem te vroeg op, dan scheurt hij.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Wraps", es: "Tortillas", nl: "Wraps" },
+        quantity: { en: "210 g", es: "210 g", nl: "210 g" },
+        ingredient: { en: "plain flour", es: "harina", nl: "bloem" },
+      },
+      {
+        group: { en: "Wraps", es: "Tortillas", nl: "Wraps" },
+        quantity: { en: "3.5 g", es: "3,5 g", nl: "3,5 g" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "Wraps", es: "Tortillas", nl: "Wraps" },
+        quantity: { en: "21 ml", es: "21 ml", nl: "21 ml" },
+        ingredient: { en: "olive oil", es: "aceite de oliva", nl: "olijfolie" },
+      },
+      {
+        group: { en: "Wraps", es: "Tortillas", nl: "Wraps" },
+        quantity: { en: "118 ml", es: "118 ml", nl: "118 ml" },
+        ingredient: { en: "lukewarm water", es: "agua templada", nl: "lauwwarm water" },
+      },
+      {
+        group: { en: "Beef", es: "Carne", nl: "Gehakt" },
+        quantity: { en: "300 g", es: "300 g", nl: "300 g" },
+        ingredient: {
+          en: "lean ground beef",
+          es: "carne picada de ternera magra",
+          nl: "mager rundergehakt",
+        },
+        note: { en: "kept cold", es: "bien fría", nl: "koud gehouden" },
+      },
+      {
+        group: { en: "Beef", es: "Carne", nl: "Gehakt" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "ground cumin", es: "comino molido", nl: "komijnpoeder" },
+      },
+      {
+        group: { en: "Beef", es: "Carne", nl: "Gehakt" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "sweet paprika", es: "pimentón dulce", nl: "paprikapoeder" },
+      },
+      {
+        group: { en: "Beef", es: "Carne", nl: "Gehakt" },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "Beef", es: "Carne", nl: "Gehakt" },
+        quantity: { en: "¼ tsp", es: "¼ cdta", nl: "¼ tl" },
+        ingredient: { en: "black pepper", es: "pimienta negra", nl: "zwarte peper" },
+      },
+      {
+        group: { en: "Pico de gallo", es: "Pico de gallo", nl: "Pico de gallo" },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: {
+          en: "ripe tomatoes, finely diced",
+          es: "tomates maduros, en daditos",
+          nl: "rijpe tomaten, in kleine blokjes",
+        },
+      },
+      {
+        group: { en: "Pico de gallo", es: "Pico de gallo", nl: "Pico de gallo" },
+        quantity: { en: "½", es: "½", nl: "½" },
+        ingredient: {
+          en: "red onion, very finely chopped",
+          es: "cebolla roja, muy picada",
+          nl: "rode ui, zeer fijn gesnipperd",
+        },
+      },
+      {
+        group: { en: "Pico de gallo", es: "Pico de gallo", nl: "Pico de gallo" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: {
+          en: "lime, juiced",
+          es: "lima, exprimida",
+          nl: "limoen, uitgeperst",
+        },
+      },
+      {
+        group: { en: "Pico de gallo", es: "Pico de gallo", nl: "Pico de gallo" },
+        quantity: { en: "a pinch", es: "una pizca", nl: "een snuf" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: {
+          en: "Lime-yogurt sauce",
+          es: "Salsa de yogur y lima",
+          nl: "Limoen-yoghurtsaus",
+        },
+        quantity: { en: "100 g", es: "100 g", nl: "100 g" },
+        ingredient: {
+          en: "low-fat yogurt",
+          es: "yogur desnatado",
+          nl: "magere yoghurt",
+        },
+      },
+      {
+        group: {
+          en: "Lime-yogurt sauce",
+          es: "Salsa de yogur y lima",
+          nl: "Limoen-yoghurtsaus",
+        },
+        quantity: { en: "½", es: "½", nl: "½" },
+        ingredient: {
+          en: "lime, juiced",
+          es: "lima, exprimida",
+          nl: "limoen, uitgeperst",
+        },
+      },
+      {
+        group: {
+          en: "Lime-yogurt sauce",
+          es: "Salsa de yogur y lima",
+          nl: "Limoen-yoghurtsaus",
+        },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "black pepper",
+          es: "pimienta negra",
+          nl: "zwarte peper",
+        },
+      },
+      {
+        group: {
+          en: "Lime-yogurt sauce",
+          es: "Salsa de yogur y lima",
+          nl: "Limoen-yoghurtsaus",
+        },
+        quantity: { en: "a pinch", es: "una pizca", nl: "een snuf" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afwerking" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "chipotle sauce",
+          es: "salsa de chipotle",
+          nl: "chipotlesaus",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Mix the flour and salt in a bowl. Add the olive oil and the lukewarm water and knead for about 8 minutes into a smooth, supple dough.",
+          es: "Mezcla la harina y la sal en un bol. Añade el aceite de oliva y el agua templada y amasa unos 8 minutos hasta una masa lisa y elástica.",
+          nl: "Meng de bloem en het zout in een kom. Voeg de olijfolie en het lauwwarme water toe en kneed ongeveer 8 minuten tot een soepel, glad deeg.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Cover and rest for 30 minutes. Divide into 4 equal balls and rest another 10 minutes.",
+          es: "Tapa y deja reposar 30 minutos. Divide en 4 bolas iguales y deja reposar otros 10 minutos.",
+          nl: "Dek af en laat 30 minuten rusten. Verdeel in 4 gelijke bolletjes en laat nog 10 minuten rusten.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Roll each ball into a thin wrap, about 20 to 22 cm across. Heat a dry pan over medium-high and cook each wrap about 30 seconds per side. Stack them under a clean tea towel so they stay supple.",
+          es: "Estira cada bola en una tortilla fina, de unos 20 a 22 cm. Calienta una sartén seca a fuego medio-alto y haz cada tortilla unos 30 segundos por lado. Apílalas bajo un paño limpio para que se mantengan blandas.",
+          nl: "Rol ieder bolletje uit tot een dunne wrap van ongeveer 20 tot 22 cm doorsnede. Verhit een droge koekenpan op middelhoog vuur en bak iedere wrap ongeveer 30 seconden per kant. Stapel ze onder een schone theedoek zodat ze soepel blijven.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Make the pico de gallo: combine the diced tomato, red onion, lime juice and a pinch of salt. Leave to sit at least 10 minutes so the flavours come together.",
+          es: "Haz el pico de gallo: mezcla el tomate en daditos, la cebolla roja, el zumo de lima y una pizca de sal. Deja reposar al menos 10 minutos para que se integren los sabores.",
+          nl: "Maak de pico de gallo: meng de tomaat, rode ui, het limoensap en een snuf zout. Laat minstens 10 minuten staan zodat de smaken zich mengen.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Make the sauce: stir the yogurt with the lime juice, a pinch of salt and a good amount of black pepper. Chill until needed.",
+          es: "Haz la salsa: mezcla el yogur con el zumo de lima, una pizca de sal y bastante pimienta negra. Reserva en frío hasta usar.",
+          nl: "Maak de saus: roer de yoghurt met het limoensap, een snuf zout en royaal zwarte peper. Zet koud weg tot gebruik.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Mix the ground beef with the cumin, paprika, salt and pepper.",
+          es: "Mezcla la carne picada con el comino, el pimentón, la sal y la pimienta.",
+          nl: "Meng het rundergehakt met de komijn, het paprikapoeder, het zout en de peper.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Spread a thin layer of beef over one side of each wrap. Press it on firmly and evenly so it bonds to the dough.",
+          es: "Extiende una capa fina de carne sobre una cara de cada tortilla. Aprieta bien y de manera uniforme para que se pegue a la masa.",
+          nl: "Verdeel een dunne laag gehakt over één zijde van iedere wrap. Druk het stevig en gelijkmatig aan zodat het zich aan het deeg hecht.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Heat a dry pan over medium-high to high. Lay the wrap beef-side down and cook 3 to 4 minutes, until the meat is well browned and cooked through.",
+          es: "Calienta una sartén seca a fuego medio-alto o alto. Pon la tortilla con la carne hacia abajo y cocina de 3 a 4 minutos, hasta que la carne esté bien dorada y hecha.",
+          nl: "Verhit een droge koekenpan op middelhoog tot hoog vuur. Leg de wrap met de gehaktkant naar beneden en bak 3 tot 4 minuten, tot het vlees mooi gebruind en gaar is.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Flip and cook the bread side for another 30 seconds or so.",
+          es: "Dale la vuelta y cocina el lado del pan otros 30 segundos más o menos.",
+          nl: "Draai om en bak de broodkant nog ongeveer 30 seconden.",
+        },
+      },
+      {
+        position: 10,
+        body: {
+          en: "Build it: warm wrap on a plate, a generous spoon of pico over the meat, a drizzle of lime-yogurt, a few drops of chipotle. Fold or roll and serve at once.",
+          es: "Móntalo: tortilla caliente en un plato, una buena cucharada de pico sobre la carne, un hilo de yogur con lima, unas gotas de chipotle. Dobla o enrolla y sirve enseguida.",
+          nl: "Bouw hem op: warme wrap op een bord, een royale lepel pico over het vlees, een streep limoen-yoghurt, een paar druppels chipotle. Vouw dubbel of rol op en serveer direct.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-07",
+  },
 ];
