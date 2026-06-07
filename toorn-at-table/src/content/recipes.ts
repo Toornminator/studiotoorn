@@ -3846,4 +3846,309 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-07",
   },
+  {
+    slug: "cinnamon-rolls-kwark",
+    title: {
+      en: "Light cinnamon rolls with quark",
+      es: "Rollos de canela ligeros con quark",
+      nl: "Light cinnamon rolls met kwark",
+    },
+    intro: {
+      en: "Cinnamon rolls that won't put you in a coma. Quark in the dough instead of a stick of butter, quark in the glaze instead of a brick of cream cheese. Still soft, still tangy, gone in two bites. Eat them warm.",
+      es: "Rollos de canela que no te dejan en coma. Quark en la masa en vez de una barra de mantequilla, quark en el glaseado en vez de un ladrillo de queso crema. Igual de blandos, igual de ácidos, fuera en dos bocados. Cómelos calientes.",
+      nl: "Cinnamon rolls die je niet in coma helpen. Kwark in het deeg in plaats van een pak boter, kwark in het glazuur in plaats van een baksteen roomkaas. Net zo zacht, net zo fris, in twee happen op. Eet ze warm.",
+    },
+    category: "dessert",
+    seasons: ["altijd"],
+    difficulty: 2,
+    prepMinutes: 120,
+    cookMinutes: 20,
+    servings: 12,
+    heroImage: "/images/recipes/cinnamon-rolls-kwark.jpg",
+    pairing: {
+      en: "Strong black coffee. That is the whole pairing. A cortado if you want to be Spanish about it, but the point is bitter and hot against sweet and warm.",
+      es: "Café solo y fuerte. Ese es todo el maridaje. Un cortado si quieres ponerte español, pero la idea es amargo y caliente contra dulce y tibio.",
+      nl: "Sterke zwarte koffie. Dat is de hele combinatie. Een cortado als je het Spaans wil houden, maar het gaat om bitter en heet tegen zoet en warm.",
+    },
+    body: {
+      en: [
+        "I have a built-in distrust of the word 'light' stamped on anything baked. It usually means dry, sad, and apologising for existing. These are not that. The trick is quark, that thick tangy fresh curd cheese, doing the job a stick of butter usually does in the dough and the job a brick of cream cheese usually does in the glaze. It carries the moisture and the tang at a fraction of the weight, and nobody at the table is going to ask where the butter went.",
+        "The dough should be soft and a little sticky, and you have to trust that. Everyone panics at sticky dough and dumps in more flour, and what you get is a hockey puck. Don't. Knead it eight, ten minutes, let it stay tacky, let it rise until it is clearly lighter and puffier even if it does not quite double. Roll it into a rectangle, butter, cinnamon sugar, and roll it up tight from the long side. Cut it with a length of dental floss slipped under the roll and crossed over the top. It shears clean through without crushing the spiral the way a knife does.",
+        "Second rise, then into a moderate oven until the tops are gold. The glaze is just quark, a little icing sugar, vanilla, spread over them while they are still warm so it half-melts into the cracks. And here is the move that takes them from nice to memorable: half a teaspoon of cardamom and the zest of half an orange stirred into the cinnamon sugar. Suddenly they taste almost Scandinavian, like something from a bakery in Stockholm at seven in the morning. Eat them warm. They are never as good cold, and you will not have to worry about leftovers anyway.",
+      ],
+      es: [
+        "Tengo una desconfianza de serie hacia la palabra 'light' estampada en cualquier cosa horneada. Suele significar seca, triste y pidiendo perdón por existir. Estos no son eso. El truco es el quark, ese queso fresco espeso y ácido, haciendo el trabajo que normalmente hace una barra de mantequilla en la masa y el que hace un ladrillo de queso crema en el glaseado. Aporta la humedad y la acidez con una fracción del peso, y nadie en la mesa va a preguntar dónde está la mantequilla.",
+        "La masa debe quedar blanda y un poco pegajosa, y tienes que fiarte de eso. Todo el mundo se asusta con la masa pegajosa y le echa más harina, y lo que sacas es una piedra. No lo hagas. Amásala ocho, diez minutos, deja que quede pegajosa, deja que leve hasta que esté claramente más ligera y esponjosa aunque no llegue a doblar. Estírala en un rectángulo, mantequilla, azúcar con canela, y enróllala bien apretada desde el lado largo. Córtala con un hilo dental pasado por debajo del rollo y cruzado por arriba. Corta limpio sin aplastar la espiral como hace un cuchillo.",
+        "Segundo levado, y al horno medio hasta que las copas estén doradas. El glaseado es solo quark, un poco de azúcar glas, vainilla, repartido por encima mientras aún están calientes para que se funda a medias en las grietas. Y aquí está la jugada que las lleva de buenas a memorables: media cucharadita de cardamomo y la ralladura de media naranja en el azúcar con canela. De repente saben casi escandinavas, como algo de una panadería de Estocolmo a las siete de la mañana. Cómelas calientes. Nunca están tan buenas frías, y de todos modos no vas a tener que preocuparte por las sobras.",
+      ],
+      nl: [
+        "Ik heb een ingebakken wantrouwen tegen het woord 'light' op alles wat gebakken is. Meestal betekent het droog, triest en zich verontschuldigend voor zijn bestaan. Dit is dat niet. De truc is kwark, die dikke frisse verse kaas, die het werk doet dat normaal een pak roomboter in het deeg doet en het werk dat normaal een baksteen roomkaas in het glazuur doet. Hij draagt het vocht en de frisheid op een fractie van het gewicht, en niemand aan tafel vraagt waar de boter is gebleven.",
+        "Het deeg hoort zacht en een beetje plakkerig te zijn, en daar moet je op durven vertrouwen. Iedereen raakt in paniek van plakkerig deeg en gooit er meer bloem bij, en wat je overhoudt is een steen. Niet doen. Kneed acht, tien minuten, laat het plakkerig blijven, laat het rijzen tot het duidelijk luchtiger en boller is ook al verdubbelt het niet helemaal. Rol uit tot een rechthoek, boter, kaneelsuiker, en rol strak op vanaf de lange kant. Snijd hem met een stuk flosdraad dat je onder de rol door haalt en bovenlangs kruist. Dat snijdt schoon door zonder de spiraal plat te drukken zoals een mes dat doet.",
+        "Tweede rijs, dan een matige oven in tot de bovenkanten goudbruin zijn. Het glazuur is gewoon kwark, een beetje poedersuiker, vanille, eroverheen verdeeld terwijl ze nog warm zijn zodat het half wegsmelt in de barstjes. En dit is de zet die ze van lekker naar onvergetelijk tilt: een halve theelepel kardemom en de rasp van een halve sinaasappel door de kaneelsuiker. Ineens smaken ze bijna Scandinavisch, als iets uit een bakkerij in Stockholm om zeven uur 's ochtends. Eet ze warm. Koud zijn ze nooit zo goed, en over restjes hoef je je toch geen zorgen te maken.",
+      ],
+    },
+    nowPlaying: {
+      track: "Sunday Morning",
+      artist: "The Velvet Underground",
+    },
+    marginalia: [
+      {
+        id: "cin-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Quark, kwark, requesón, whatever your shop calls it: thick fresh curd cheese, not yogurt. It is doing the heavy lifting here in place of all the butter and cream cheese, so use the real thing, drained if it is watery.",
+          es: "Quark, kwark, requesón, como lo llame tu tienda: queso fresco espeso, no yogur. Es lo que hace el trabajo pesado aquí en lugar de toda la mantequilla y el queso crema, así que usa el de verdad, escurrido si está aguado.",
+          nl: "Kwark, quark, requesón, hoe je winkel het ook noemt: dikke verse kwark, geen yoghurt. Dit doet hier het zware werk in plaats van alle boter en roomkaas, dus gebruik het echte spul, uitgelekt als het waterig is.",
+        },
+      },
+      {
+        id: "cin-2",
+        kind: "warning",
+        anchor: "step-1",
+        body: {
+          en: "A soft tacky dough bakes light. A dough you have choked with extra flour bakes dense. Resist the urge to add more, it firms up as it proves.",
+          es: "Una masa blanda y pegajosa hornea ligera. Una masa que has ahogado con harina de más hornea densa. Resiste la tentación de añadir más, se firma al levar.",
+          nl: "Een zacht, plakkerig deeg bakt licht. Een deeg dat je hebt verstikt met extra bloem bakt zwaar. Weersta de neiging om meer toe te voegen, het wordt vanzelf steviger tijdens het rijzen.",
+        },
+      },
+      {
+        id: "cin-3",
+        kind: "scrawl",
+        anchor: "step-4",
+        body: {
+          en: "Half a teaspoon of cardamom and the zest of half an orange through the cinnamon sugar. This is the upgrade. Almost Scandinavian, and worth the two extra minutes.",
+          es: "Media cucharadita de cardamomo y la ralladura de media naranja en el azúcar con canela. Esta es la mejora. Casi escandinavo, y merece los dos minutos extra.",
+          nl: "Een halve theelepel kardemom en de rasp van een halve sinaasappel door de kaneelsuiker. Dit is de upgrade. Bijna Scandinavisch, en de twee extra minuten waard.",
+        },
+      },
+      {
+        id: "cin-4",
+        kind: "tip",
+        anchor: "step-5",
+        body: {
+          en: "Cut them with dental floss, not a knife. Slide it under the roll, cross the ends over the top, and pull. Clean spirals every time. A knife just squashes them flat.",
+          es: "Córtalos con hilo dental, no con cuchillo. Pásalo por debajo del rollo, cruza las puntas por arriba y tira. Espirales limpias siempre. El cuchillo solo los aplasta.",
+          nl: "Snijd ze met flosdraad, niet met een mes. Schuif het onder de rol, kruis de uiteinden bovenlangs en trek aan. Elke keer schone spiralen. Een mes drukt ze gewoon plat.",
+        },
+      },
+      {
+        id: "cin-5",
+        kind: "wrong",
+        anchor: "step-7",
+        body: {
+          en: "Pull them at gold, not brown. These are lighter and lower in fat than a classic roll, which means they dry out faster. Thirty seconds too long and they go from pillowy to papery.",
+          es: "Sácalos cuando estén dorados, no marrones. Son más ligeros y con menos grasa que un rollo clásico, así que se secan antes. Treinta segundos de más y pasan de esponjosos a resecos.",
+          nl: "Haal ze eruit bij goudbruin, niet bruin. Deze zijn lichter en magerder dan een klassieke roll, dus ze drogen sneller uit. Dertig seconden te lang en ze gaan van luchtig naar droog.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "200 g", es: "200 g", nl: "200 g" },
+        ingredient: {
+          en: "plain wheat flour",
+          es: "harina de trigo",
+          nl: "gewone tarwebloem",
+        },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "100 g", es: "100 g", nl: "100 g" },
+        ingredient: {
+          en: "cake/pastry flour",
+          es: "harina de repostería",
+          nl: "fijne tarwebloem voor gebak (repostería)",
+        },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "100 g", es: "100 g", nl: "100 g" },
+        ingredient: {
+          en: "low-fat quark",
+          es: "quark desnatado",
+          nl: "magere kwark",
+        },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "90-100 ml", es: "90-100 ml", nl: "90-100 ml" },
+        ingredient: {
+          en: "semi-skimmed milk, lukewarm",
+          es: "leche semidesnatada, templada",
+          nl: "halfvolle melk, lauwwarm",
+        },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "7 g", es: "7 g", nl: "7 g" },
+        ingredient: { en: "dried yeast", es: "levadura seca", nl: "droge gist" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: { en: "egg", es: "huevo", nl: "ei" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "20 g", es: "20 g", nl: "20 g" },
+        ingredient: { en: "sugar", es: "azúcar", nl: "suiker" },
+      },
+      {
+        group: { en: "Dough", es: "Masa", nl: "Deeg" },
+        quantity: { en: "5 g", es: "5 g", nl: "5 g" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "Filling", es: "Relleno", nl: "Vulling" },
+        quantity: { en: "30 g", es: "30 g", nl: "30 g" },
+        ingredient: {
+          en: "soft butter",
+          es: "mantequilla blanda",
+          nl: "zachte roomboter",
+        },
+      },
+      {
+        group: { en: "Filling", es: "Relleno", nl: "Vulling" },
+        quantity: { en: "40 g", es: "40 g", nl: "40 g" },
+        ingredient: {
+          en: "light brown soft sugar",
+          es: "azúcar moreno claro",
+          nl: "lichtbruine basterdsuiker",
+        },
+      },
+      {
+        group: { en: "Filling", es: "Relleno", nl: "Vulling" },
+        quantity: { en: "2 tbsp", es: "2 cdas", nl: "2 el" },
+        ingredient: { en: "ground cinnamon", es: "canela molida", nl: "kaneel" },
+      },
+      {
+        group: { en: "Filling", es: "Relleno", nl: "Vulling" },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: {
+          en: "ground cardamom",
+          es: "cardamomo molido",
+          nl: "kardemom",
+        },
+        note: { en: "optional", es: "opcional", nl: "optioneel" },
+      },
+      {
+        group: { en: "Filling", es: "Relleno", nl: "Vulling" },
+        quantity: { en: "½", es: "½", nl: "½" },
+        ingredient: {
+          en: "orange, zested",
+          es: "naranja, su ralladura",
+          nl: "sinaasappel, de rasp",
+        },
+        note: { en: "optional", es: "opcional", nl: "optioneel" },
+      },
+      {
+        group: {
+          en: "Quark glaze",
+          es: "Glaseado de quark",
+          nl: "Kwarkglazuur",
+        },
+        quantity: { en: "100 g", es: "100 g", nl: "100 g" },
+        ingredient: {
+          en: "low-fat quark",
+          es: "quark desnatado",
+          nl: "magere kwark",
+        },
+      },
+      {
+        group: {
+          en: "Quark glaze",
+          es: "Glaseado de quark",
+          nl: "Kwarkglazuur",
+        },
+        quantity: { en: "25 g", es: "25 g", nl: "25 g" },
+        ingredient: {
+          en: "icing sugar",
+          es: "azúcar glas",
+          nl: "poedersuiker",
+        },
+      },
+      {
+        group: {
+          en: "Quark glaze",
+          es: "Glaseado de quark",
+          nl: "Kwarkglazuur",
+        },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: {
+          en: "vanilla extract",
+          es: "extracto de vainilla",
+          nl: "vanille-extract",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Warm the milk to about 35 °C (lukewarm) and stir in the yeast and sugar. Leave 5 minutes. Put both flours and the salt in a large bowl, add the yeast mix, the quark and the egg, and knead 8 to 10 minutes. The dough should be soft and a little sticky. Do not add extra flour straight away.",
+          es: "Calienta la leche a unos 35 °C (templada) y mezcla la levadura y el azúcar. Deja 5 minutos. Pon las dos harinas y la sal en un bol grande, añade la mezcla de levadura, el quark y el huevo, y amasa de 8 a 10 minutos. La masa debe quedar blanda y un poco pegajosa. No añadas harina extra de inmediato.",
+          nl: "Verwarm de melk tot ongeveer 35 °C (lauwwarm) en roer de gist en suiker erdoor. Laat 5 minuten staan. Doe beide bloemsoorten en het zout in een grote kom, voeg het gistmengsel, de kwark en het ei toe, en kneed 8 tot 10 minuten. Het deeg mag zacht en licht plakkerig zijn. Voeg niet direct extra bloem toe.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Shape the dough into a ball, put it in a lightly oiled bowl, cover with a damp cloth or film, and leave to rise about 60 minutes in a warm spot. It does not need to double exactly, but should be clearly airier.",
+          es: "Forma una bola con la masa, ponla en un bol ligeramente engrasado, tápala con un paño húmedo o film, y deja levar unos 60 minutos en un sitio cálido. No tiene que doblar exactamente, pero debe estar claramente más esponjosa.",
+          nl: "Vorm een bal van het deeg, leg deze in een licht ingevette kom, dek af met een vochtige doek of folie, en laat ongeveer 60 minuten rijzen op een warme plek. Het hoeft niet precies te verdubbelen, maar moet duidelijk luchtiger zijn geworden.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Flour the work surface, tip the dough out gently, dust the top lightly, and roll it into a rectangle of about 35 x 25 cm. If it still sticks a little, that is fine.",
+          es: "Enharina la encimera, vuelca la masa con cuidado, espolvorea un poco por encima y estírala en un rectángulo de unos 35 x 25 cm. Si todavía se pega un poco, no pasa nada.",
+          nl: "Bestrooi je werkblad met een beetje bloem, stort het deeg voorzichtig uit de kom, bestuif de bovenkant licht en rol uit tot een rechthoek van ongeveer 35 x 25 cm. Als het nog wat plakt is dat geen probleem.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Spread the dough with the soft butter. Mix the sugar and cinnamon (and the cardamom and orange zest if using) and scatter it evenly over the dough.",
+          es: "Unta la masa con la mantequilla blanda. Mezcla el azúcar y la canela (y el cardamomo y la ralladura de naranja si los usas) y repártelo de manera uniforme sobre la masa.",
+          nl: "Bestrijk het deeg met de zachte boter. Meng de suiker en kaneel (en de kardemom en sinaasappelrasp als je die gebruikt) en verdeel dit gelijkmatig over het deeg.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Roll the dough up tightly from the long side. Cut into 12 equal pieces, ideally with a length of dental floss slid under the roll and crossed over the top so they stay round.",
+          es: "Enrolla la masa bien apretada desde el lado largo. Córtala en 12 trozos iguales, mejor con un hilo dental pasado por debajo del rollo y cruzado por arriba para que queden redondos.",
+          nl: "Rol het deeg vanaf de lange zijde strak op. Snijd de rol in 12 gelijke stukken, het handigst met een stuk flosdraad dat je onder de rol door haalt en bovenlangs kruist zodat ze mooi rond blijven.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Place the rolls in a greased baking dish with a little space between them, cover, and leave to rise another 30 to 45 minutes.",
+          es: "Coloca los rollos en una fuente engrasada con un poco de espacio entre ellos, tápalos y deja levar otros 30 a 45 minutos.",
+          nl: "Leg de rollen in een ingevette ovenschaal met een beetje ruimte ertussen, dek af, en laat nog 30 tot 45 minuten rijzen.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Heat the oven to 180 °C, top and bottom heat. Bake the rolls 18 to 22 minutes, until the tops are golden brown.",
+          es: "Calienta el horno a 180 °C, calor arriba y abajo. Hornea los rollos de 18 a 22 minutos, hasta que las copas estén doradas.",
+          nl: "Verwarm de oven voor op 180 °C, boven- en onderwarmte. Bak de cinnamon rolls 18 tot 22 minuten, tot de bovenkant goudbruin is.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Mix the quark, icing sugar and vanilla. Let the rolls cool for about 10 minutes, then spread the glaze over them while they are still warm. Best served warm.",
+          es: "Mezcla el quark, el azúcar glas y la vainilla. Deja enfriar los rollos unos 10 minutos y reparte el glaseado por encima aún tibios. Mejor servidos calientes.",
+          nl: "Meng de kwark, poedersuiker en vanille. Laat de rolls ongeveer 10 minuten afkoelen en verdeel het glazuur erover terwijl ze nog warm zijn. Het lekkerst nog een beetje warm geserveerd.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-07",
+  },
 ];
