@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useT } from "@/i18n/client";
+import { useLocale, useT } from "@/i18n/client";
+import { localizedHref } from "@/i18n/config";
 
 /**
  * GDPR cookie banner with Google Consent Mode v2 wiring.
@@ -83,6 +84,7 @@ function writeStored(choice: Choice) {
 
 export function CookieConsent() {
   const t = useT();
+  const locale = useLocale();
   const reduceMotion = useReducedMotion();
   // `null` = haven't read storage yet → render nothing to avoid SSR/hydration mismatch
   const [visible, setVisible] = useState<boolean | null>(null);
@@ -183,7 +185,7 @@ export function CookieConsent() {
             >
               {t.cookies.body}{" "}
               <Link
-                href="/privacy"
+                href={localizedHref("/privacy", locale)}
                 className="underline decoration-ink/30 underline-offset-2 transition-colors hover:text-tattoo-red hover:decoration-tattoo-red"
               >
                 {t.cookies.linkLabel}

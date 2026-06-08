@@ -3,12 +3,14 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { Clip } from "@/components/video/Clip";
-import { useT } from "@/i18n/client";
+import { useLocale, useT } from "@/i18n/client";
+import { localizedHref } from "@/i18n/config";
 
 const REVEAL_EASE = [0.16, 1, 0.3, 1] as const;
 
 export function ClosingPanel() {
   const t = useT();
+  const locale = useLocale();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -91,7 +93,7 @@ export function ClosingPanel() {
           </p>
           <Magnetic strength={0.45}>
             <a
-              href="/#contact"
+              href={localizedHref("/#contact", locale)}
               data-cursor={t.contact.cursorReserve}
               className="group relative inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >

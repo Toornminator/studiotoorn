@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { localizedHref } from "@/i18n/config";
 
 /**
  * Route error boundary. Catches a thrown render/runtime error in the page
@@ -99,7 +100,7 @@ export default function Error({
           {t.retry}
         </button>
         <Link
-          href="/"
+          href={localizedHref("/", locale)}
           className="font-mono text-[11px] uppercase tracking-[0.28em] text-ink/60 underline-offset-4 transition-colors hover:text-tattoo-red hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           {t.home}

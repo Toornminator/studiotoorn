@@ -17,9 +17,16 @@ import { Testimonials } from "@/components/testimonials/Testimonials";
 import { Travel } from "@/components/travel/Travel";
 import { Marquee } from "@/components/ui/Marquee";
 import { HomeStructuredData } from "@/components/seo/StructuredData";
+import type { Metadata } from "next";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { buildAlternates } from "@/i18n/config";
 import { getEvents } from "@/lib/content/events";
 import { getRecipes } from "@/lib/content/recipes";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getCurrentLocale();
+  return { alternates: buildAlternates("/", locale) };
+}
 
 export default async function Home() {
   const locale = await getCurrentLocale();

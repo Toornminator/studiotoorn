@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { useT } from "@/i18n/client";
+import { useLocale, useT } from "@/i18n/client";
+import { localizedHref } from "@/i18n/config";
 import { NowPlayingBadge } from "@/components/now-playing/NowPlaying";
 import type { Recipe, RecipeCategory, Season } from "@/lib/types";
 import { RecipeOverlay } from "./RecipeOverlay";
@@ -37,6 +38,7 @@ function DifficultyDots({ level = 0 }: { level?: number }) {
 
 export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
   const t = useT();
+  const locale = useLocale();
   const [activeCategory, setActiveCategory] =
     useState<RecipeCategory | "all">("all");
   const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
@@ -137,7 +139,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
             <motion.a
               key={recipe.slug}
               layout
-              href={`/recipes/${recipe.slug}`}
+              href={localizedHref(`/recipes/${recipe.slug}`, locale)}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}

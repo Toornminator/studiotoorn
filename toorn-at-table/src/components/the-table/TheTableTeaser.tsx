@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { getCurrentWeeklyMenu } from "@/lib/content/weekly-menu";
-import type { Locale } from "@/i18n/config";
+import { localizedHref, type Locale } from "@/i18n/config";
 
 const LOCALE_TAG: Record<Locale, string> = {
   en: "en-GB",
@@ -80,7 +80,7 @@ export async function TheTableTeaser() {
               </span>
             </div>
             <Link
-              href="/the-table"
+              href={localizedHref("/the-table", locale)}
               data-cursor={copy.teaserCta}
               className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70 transition-colors hover:text-tattoo-red"
             >

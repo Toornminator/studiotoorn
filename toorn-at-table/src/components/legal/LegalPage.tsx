@@ -23,6 +23,8 @@ export type LegalPageProps = {
   sections: LegalSection[];
   contactNote: string;
   backLabel: string;
+  /** Locale-aware home href ("/", "/es", "/nl"). */
+  homeHref: string;
 };
 
 export function LegalPage({
@@ -33,6 +35,7 @@ export function LegalPage({
   sections,
   contactNote,
   backLabel,
+  homeHref,
 }: LegalPageProps) {
   return (
     <section className="relative w-full">
@@ -91,7 +94,7 @@ export function LegalPage({
         </p>
 
         <Link
-          href="/"
+          href={homeHref}
           className="mt-12 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/55 transition-colors hover:text-tattoo-red"
         >
           <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden>

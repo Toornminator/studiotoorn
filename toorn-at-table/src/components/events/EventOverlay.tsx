@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { useT, useLocale } from "@/i18n/client";
+import { localizedHref } from "@/i18n/config";
 import type { EventItem } from "@/lib/types";
 
 function formatLongDate(iso: string, locale: string) {
@@ -167,7 +168,7 @@ export function EventOverlay({
             <>
               <Magnetic strength={0.4}>
                 <a
-                  href={`/?event=${event.slug}#contact`}
+                  href={localizedHref(`/?event=${event.slug}#contact`, locale)}
                   onClick={onClose}
                   data-cursor={t.contact.cursorReserve}
                   className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red"

@@ -3,7 +3,7 @@ import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { OrderForm } from "@/components/the-table/OrderForm";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { getCurrentWeeklyMenu } from "@/lib/content/weekly-menu";
-import type { Locale } from "@/i18n/config";
+import { buildAlternates, type Locale } from "@/i18n/config";
 
 const LOCALE_TAG: Record<Locale, string> = {
   en: "en-GB",
@@ -23,11 +23,11 @@ function formatDay(iso: string, locale: Locale): string {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getDictionary();
+  const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   return {
     title: t.theTable.serviceName,
     description: t.theTable.metaDescription,
-    alternates: { canonical: "/the-table" },
+    alternates: buildAlternates("/the-table", locale),
     robots: { index: true, follow: true },
     openGraph: {
       title: t.theTable.metaTitle,

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
-import { getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { localizedHref } from "@/i18n/config";
 import type { Recipe } from "@/lib/types";
 
 /**
@@ -41,7 +42,7 @@ function pickFeatured(recipes: Recipe[]): Recipe[] {
 }
 
 export async function CookbookTeaser({ recipes }: { recipes: Recipe[] }) {
-  const t = await getDictionary();
+  const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   const picks = pickFeatured(recipes);
   if (picks.length === 0) return null;
 
@@ -70,7 +71,7 @@ export async function CookbookTeaser({ recipes }: { recipes: Recipe[] }) {
 
           <Reveal as="div" delay={0.15} className="shrink-0">
             <a
-              href="/#cookbook"
+              href={localizedHref("/#cookbook", locale)}
               className="group inline-flex items-center gap-2 rounded-[2px] font-mono text-[11px] uppercase tracking-[0.26em] text-ink/70 transition-colors hover:text-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
               {t.cookbookTeaser.cta}
@@ -93,7 +94,7 @@ export async function CookbookTeaser({ recipes }: { recipes: Recipe[] }) {
             <li key={r.slug}>
               <Reveal delay={0.1 + i * 0.08}>
                 <a
-                  href={`/recipes/${r.slug}`}
+                  href={localizedHref(`/recipes/${r.slug}`, locale)}
                   data-cursor={t.cookbookTeaser.cta}
                   className="group block rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
                 >

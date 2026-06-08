@@ -1,9 +1,14 @@
 "use client";
 
-import { useTransition } from "react";
-import { useRouter } from "next/navigation";
-import { setLocale as persistLocaleCookie } from "@/app/actions/locale";
-import { LOCALES, LOCALE_LABELS, LOCALE_LONG_LABELS, type Locale } from "@/i18n/config";
+import { useRouter, usePathname } from "next/navigation";
+import {
+  LOCALES,
+  LOCALE_LABELS,
+  LOCALE_LONG_LABELS,
+  localizedHref,
+  stripLocalePrefix,
+  type Locale,
+} from "@/i18n/config";
 import { useLocale, useSetLocale, useT } from "@/i18n/client";
 
 /**
@@ -22,18 +27,17 @@ export function LanguageSwitcher() {
   const setLocale = useSetLocale();
   const dict = useT();
   const router = useRouter();
-  const [, startTransition] = useTransition();
+  const pathname = usePathname();
 
   const onSelect = (locale: Locale) => {
     if (locale === current) return;
-    // 1. Instant client swap — pill + every useT() consumer flips now.
+    // 1. Instant client swap — pill + every useT() consumer flips this frame.
     setLocale(locale);
-    // 2. Background: write the cookie and let the next server render
-    //    catch up. Not awaited — the button never feels blocked.
-    startTransition(() => {
-      void persistLocaleCookie(locale);
-      router.refresh();
-    });
+    // 2. Soft-navigate to the same page under the new locale's URL (/, /es,
+    //    /nl) so server components re-render and the address bar matches the
+    //    language. The instant swap above keeps it feeling immediate.
+    const base = stripLocalePrefix(pathname);
+    router.push(localizedHref(base, locale));
   };
 
   return (

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { localizedHref } from "@/i18n/config";
 import { getCurrentLocale } from "@/i18n/server";
 
 /**
@@ -67,7 +68,7 @@ export default async function NotFound() {
       </p>
 
       <Link
-        href="/"
+        href={localizedHref("/", locale)}
         className="group mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
       >
         {t.cta}

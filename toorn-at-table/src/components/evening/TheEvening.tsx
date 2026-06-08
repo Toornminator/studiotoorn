@@ -1,5 +1,6 @@
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
-import { getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { localizedHref } from "@/i18n/config";
 import type { Recipe } from "@/lib/types";
 
 /**
@@ -27,7 +28,7 @@ const SAMPLE_MENU = [
 type CourseKey = (typeof SAMPLE_MENU)[number]["course"];
 
 export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
-  const t = await getDictionary();
+  const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   const copy = t.theEvening;
 
   const bySlug = new Map(recipes.map((r) => [r.slug, r]));
@@ -160,7 +161,7 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
 
             <Reveal delay={0.25} className="mt-7">
               <a
-                href="/#contact"
+                href={localizedHref("/#contact", locale)}
                 data-cursor={copy.cta}
                 className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70 transition-colors hover:text-tattoo-red"
               >

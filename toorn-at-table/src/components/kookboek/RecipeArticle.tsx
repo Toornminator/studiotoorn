@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MarginNotesForAnchor } from "@/components/marginalia/MarginNote";
 import { NowPlaying } from "@/components/now-playing/NowPlaying";
+import { localizedHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import type { EssayImage, Recipe, RecipeIngredient } from "@/lib/types";
 
@@ -56,9 +57,11 @@ function EssayPhoto({ img, slug }: { img: EssayImage; slug: string }) {
 export function RecipeArticle({
   recipe,
   t,
+  locale,
 }: {
   recipe: Recipe;
   t: Dictionary;
+  locale: Locale;
 }) {
   const CATEGORY_LABEL: Record<Recipe["category"], string> = {
     voor: t.cookbook.categoryStarter,
@@ -89,7 +92,7 @@ export function RecipeArticle({
   return (
     <article className="mx-auto w-full max-w-4xl px-5 pb-28 pt-24 md:px-12 md:pb-40 md:pt-28">
       <Link
-        href="/#cookbook"
+        href={localizedHref("/#cookbook", locale)}
         className="group inline-flex items-center gap-2 rounded-[2px] font-mono text-[10px] uppercase tracking-[0.26em] text-ink/55 transition-colors hover:text-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
       >
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
@@ -291,7 +294,7 @@ export function RecipeArticle({
 
       <div className="mt-16 border-t border-ink/15 pt-10">
         <Link
-          href="/#cookbook"
+          href={localizedHref("/#cookbook", locale)}
           className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.26em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           {t.cookbookTeaser.cta}

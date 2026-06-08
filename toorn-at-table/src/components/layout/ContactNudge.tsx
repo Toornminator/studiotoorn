@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useT } from "@/i18n/client";
+import { useLocale, useT } from "@/i18n/client";
+import { localizedHref } from "@/i18n/config";
 
 /**
  * Contact nudge: a hand-drawn speech balloon pinned to the bottom-right
@@ -44,6 +45,7 @@ function persistDismiss() {
 
 export function ContactNudge() {
   const t = useT();
+  const locale = useLocale();
   const reduceMotion = useReducedMotion();
   const [show, setShow] = useState(false);
 
@@ -102,7 +104,7 @@ export function ContactNudge() {
 
   // Absolute "/#contact" so Next replaces the whole hash instead of
   // appending to an existing one (which produced /#contact#contact).
-  const contactHref = "/#contact";
+  const contactHref = localizedHref("/#contact", locale);
 
   return (
     <AnimatePresence>
