@@ -4,6 +4,7 @@ import { ContactNudge } from "@/components/layout/ContactNudge";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Footer } from "@/components/layout/Footer";
+import { GrainOverlay } from "@/components/layout/GrainOverlay";
 import { NavBar } from "@/components/layout/NavBar";
 import { PaperBackground } from "@/components/layout/PaperBackground";
 import { Preloader } from "@/components/layout/Preloader";
@@ -263,6 +264,7 @@ export default async function RootLayout({
         <LocaleProvider initialLocale={locale}>
           <SmoothScroll>
             <PaperBackground />
+            <GrainOverlay />
             <NavBar />
             <main id="main-content" className="relative z-10 flex flex-1 flex-col">{children}</main>
             <Footer />
