@@ -68,6 +68,13 @@ export function RecipeArticle({
     borrel: t.cookbook.categoryDrink,
     basis: t.cookbook.categoryBasic,
   };
+  const SEASON_LABEL: Record<string, string> = {
+    lente: t.cookbook.seasonSpring,
+    zomer: t.cookbook.seasonSummer,
+    herfst: t.cookbook.seasonAutumn,
+    winter: t.cookbook.seasonWinter,
+    altijd: t.cookbook.seasonAll,
+  };
 
   const totalTime = (recipe.prepMinutes ?? 0) + (recipe.cookMinutes ?? 0);
   const grouped = groupIngredients(recipe.ingredients);
@@ -114,7 +121,10 @@ export function RecipeArticle({
       <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red">
         {CATEGORY_LABEL[recipe.category]}
         {recipe.seasons.length > 0 && (
-          <span className="text-ink/35"> · {recipe.seasons.join(" / ")}</span>
+          <span className="text-ink/35">
+            {" "}
+            · {recipe.seasons.map((s) => SEASON_LABEL[s] ?? s).join(" / ")}
+          </span>
         )}
       </p>
 
