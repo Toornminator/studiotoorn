@@ -26,6 +26,15 @@ const nextConfig: NextConfig = {
       exclude: ["error", "warn"],
     },
   },
+  // Wrap client-side navigations in the View Transitions API: every route
+  // change cross-fades instead of hard-cutting, and elements that share a
+  // `view-transition-name` (the cookbook teaser photo and the recipe page
+  // hero) morph from one into the other. Degrades to an instant nav where
+  // the browser lacks support, and is silenced under prefers-reduced-motion
+  // via globals.css.
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 export default nextConfig;

@@ -116,6 +116,8 @@ export function RecipeArticle({
             fill
             sizes="(max-width: 768px) 100vw, 896px"
             priority
+            // Matches the cookbook teaser photo's name so it morphs in.
+            style={{ viewTransitionName: `recipe-img-${recipe.slug}` }}
             className="object-cover"
           />
         </div>

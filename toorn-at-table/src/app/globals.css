@@ -103,3 +103,22 @@ html.custom-cursor-active *::after {
     animation: none;
   }
 }
+
+/* View Transitions (next.config experimental.viewTransition). A calm
+   cross-fade on every client-side route change; elements that share a
+   view-transition-name (a cookbook teaser photo and the recipe page hero)
+   morph from one into the other. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Honour motion preferences: no cross-fade, no morph, instant swap. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

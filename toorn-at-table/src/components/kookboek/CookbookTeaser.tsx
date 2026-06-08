@@ -104,6 +104,12 @@ export async function CookbookTeaser({ recipes }: { recipes: Recipe[] }) {
                       alt={r.title}
                       fill
                       sizes="(max-width: 768px) 50vw, 22vw"
+                      // Shared name with the recipe page hero so this photo
+                      // morphs into it on navigation. Unique per slug, and the
+                      // teaser is the only place these names appear on the home
+                      // page (the cookbook grid below opens an overlay instead),
+                      // so there's no name collision.
+                      style={{ viewTransitionName: `recipe-img-${r.slug}` }}
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                   </div>
