@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { AnimatePresence, motion, useMotionValue } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+} from "framer-motion";
 
 type CursorMode = "dot" | "link" | "grab";
 
@@ -27,6 +32,11 @@ export function CustomCursor() {
     getCoarsePointer,
     getCoarsePointerServer,
   );
+  // Visitors who ask for reduced motion keep their own system cursor — the
+  // animated fork (and its mode/label springs) is exactly the kind of
+  // incidental motion that preference is meant to silence.
+  const prefersReducedMotion = useReducedMotion();
+  const disabled = isCoarsePointer || prefersReducedMotion;
   const [mode, setMode] = useState<CursorMode>("dot");
   const [label, setLabel] = useState<string | null>(null);
   const modeRef = useRef<CursorMode>("dot");
@@ -37,7 +47,7 @@ export function CustomCursor() {
   const y = useMotionValue(-200);
 
   useEffect(() => {
-    if (isCoarsePointer) return;
+    if (disabled) return;
 
     // `cursor: none` on body alone is not enough: Tailwind's
     // `cursor-pointer` utility and the user-agent default on
@@ -105,14 +115,17 @@ export function CustomCursor() {
       window.removeEventListener("pointerleave", handleLeave);
       document.documentElement.classList.remove("custom-cursor-active");
     };
-  }, [isCoarsePointer, x, y]);
+  }, [disabled, x, y]);
 
-  if (isCoarsePointer) return null;
+  if (disabled) return null;
 
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[9999]"
+      // z-[1000]: sits above the Preloader (z-[300]) and cookie/nudge
+      // layers (z-[400]) so the fork is never occluded, without resorting
+      // to an arbitrary nine-thousand sentinel.
+      className="pointer-events-none fixed left-0 top-0 z-[1000]"
       style={{ x, y, translateX: "-50%", translateY: "-50%" }}
     >
       <AnimatePresence initial={false} mode="popLayout">

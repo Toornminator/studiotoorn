@@ -201,6 +201,19 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body className="relative min-h-full flex flex-col bg-cream text-ink font-serif">
+        {/* Skip link — first focusable element on the page. Hidden until a
+            keyboard user tabs to it, then it drops in at top-left and jumps
+            past the nav straight to <main>. */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[1000] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:font-mono focus:text-[11px] focus:uppercase focus:tracking-[0.22em] focus:text-cream"
+        >
+          {locale === "es"
+            ? "Saltar al contenido"
+            : locale === "nl"
+              ? "Naar de inhoud"
+              : "Skip to content"}
+        </a>
         {/* LocalBusiness structured data. Google parses this on first
             crawl and uses it for the Knowledge Panel, rich results in
             SERP, and the AI-overview answer card. Inlined here so it
@@ -251,7 +264,7 @@ export default async function RootLayout({
           <SmoothScroll>
             <PaperBackground />
             <NavBar />
-            <main className="relative z-10 flex flex-1 flex-col">{children}</main>
+            <main id="main-content" className="relative z-10 flex flex-1 flex-col">{children}</main>
             <Footer />
             <StickerProvider />
             <CustomCursor />

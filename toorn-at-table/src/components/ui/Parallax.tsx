@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 /**
  * Vertical parallax — child translates with scroll progress through its
@@ -19,11 +19,18 @@ export function Parallax({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [intensity, -intensity]);
+  // Honour the visitor's motion preference: when reduce-motion is on, the
+  // drift collapses to zero so the element sits still instead of sliding.
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduceMotion ? [0, 0] : [intensity, -intensity],
+  );
 
   return (
     <div ref={ref} className={className}>

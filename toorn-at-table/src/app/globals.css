@@ -29,6 +29,10 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
+  /* Smarter line-breaking for running copy: nudges the last line so a
+     single orphan word doesn't dangle alone. Silently ignored by browsers
+     that don't support it (e.g. Firefox today), so it only ever helps. */
+  text-wrap: pretty;
 }
 
 /* Alfa Slab One (--font-display) ships only a single 400 Roman cut.
@@ -38,6 +42,11 @@ body {
    a proper italic cut. */
 .font-display {
   font-synthesis: none;
+  /* Balance multi-line slab headlines so the lines come out even instead
+     of leaving a short, lonely last line. Only affects auto-wrapped
+     headings; explicit breaks are untouched. Degrades to normal wrapping
+     where unsupported. */
+  text-wrap: balance;
 }
 
 /* Sections targeted by anchor links sit beneath the sticky NavBar; offset

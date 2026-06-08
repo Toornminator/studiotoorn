@@ -6,6 +6,7 @@ import {
   motion,
   useInView,
   useMotionValue,
+  useReducedMotion,
   useTransform,
 } from "framer-motion";
 
@@ -25,17 +26,23 @@ export function Counter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const reduceMotion = useReducedMotion();
   const mv = useMotionValue(0);
   const rounded = useTransform(mv, (latest) => Math.floor(latest));
 
   useEffect(() => {
     if (!inView) return;
+    // Reduce-motion visitors get the final figure instantly, no count-up.
+    if (reduceMotion) {
+      mv.set(value);
+      return;
+    }
     const controls = animate(mv, value, {
       duration,
       ease: [0.16, 1, 0.3, 1],
     });
     return controls.stop;
-  }, [inView, value, duration, mv]);
+  }, [inView, value, duration, mv, reduceMotion]);
 
   return (
     <motion.span ref={ref} className={`tabular-nums ${className ?? ""}`}>

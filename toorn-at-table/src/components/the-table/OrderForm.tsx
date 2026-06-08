@@ -36,7 +36,7 @@ type FormState =
 const INITIAL: FormState = { status: "idle" };
 
 function inputClass(error?: string) {
-  return `mt-2 w-full border-b bg-transparent pb-2 font-serif text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink ${
+  return `mt-2 w-full border-b bg-transparent pb-2 font-serif text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink focus-visible:rounded-[2px] focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${
     error ? "border-tattoo-red" : "border-ink/25"
   }`;
 }
@@ -280,7 +280,7 @@ export function OrderForm({
           <button
             type="submit"
             disabled={pending}
-            className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red disabled:opacity-60"
+            className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-5 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-60"
           >
             {pending ? f.submitting : f.submit}
             {!pending && (

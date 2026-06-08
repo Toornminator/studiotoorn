@@ -37,11 +37,12 @@ export function Hero() {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-heading"
       className="relative flex flex-col"
       style={{ minHeight: "max(100svh, 640px)" }}
     >
       <div className="relative flex flex-1 flex-col items-center justify-center px-5 pb-24 pt-6 text-center sm:px-12">
-        <h1 className="font-display italic text-ink">
+        <h1 id="hero-heading" className="font-display italic text-ink">
           <span
             className="block leading-[0.9] tracking-[-0.02em]"
             style={{ fontSize: "clamp(72px, 14vw, 220px)" }}

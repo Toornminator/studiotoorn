@@ -51,7 +51,7 @@ export function LanguageSwitcher() {
             onClick={() => onSelect(locale)}
             aria-current={active ? "true" : undefined}
             aria-label={LOCALE_LONG_LABELS[locale]}
-            className={`px-2.5 py-1 transition-colors duration-150 ${
+            className={`px-2.5 py-1 transition-colors duration-150 focus:outline-none focus-visible:shadow-[inset_0_0_0_2px_#c8202a] ${
               active
                 ? "bg-ink text-cream"
                 : "text-ink/65 hover:text-ink"

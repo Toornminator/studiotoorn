@@ -63,7 +63,7 @@ function SubmitArrow({
     <button
       type="submit"
       disabled={pending}
-      className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-cream transition-colors hover:bg-tattoo-red disabled:opacity-60"
+      className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-cream transition-colors hover:bg-tattoo-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream disabled:opacity-60"
       aria-label={t.footer.newsletterButton}
     >
       {pending ? (
@@ -164,7 +164,7 @@ export function NewsletterForm() {
           required
           placeholder={t.footer.newsletterPlaceholder}
           defaultValue={defaultEmail}
-          className="w-full rounded-full border border-ink/20 bg-cream-warm/40 py-3 pl-5 pr-14 font-serif text-ink placeholder:text-ink/35 focus:border-ink focus:outline-none"
+          className="w-full rounded-full border border-ink/20 bg-cream-warm/40 py-3 pl-5 pr-14 font-serif text-ink placeholder:text-ink/35 focus:border-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           style={{ fontSize: 16, fontStyle: "italic" }}
         />
         <SubmitArrow pending={pending} t={t} />

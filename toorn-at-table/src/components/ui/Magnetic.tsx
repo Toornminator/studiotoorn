@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
 /**
  * Magnetic wrapper — translates its child toward the cursor while it's
@@ -23,12 +23,15 @@ export function Magnetic({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
+  const reduceMotion = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 180, damping: 14, mass: 0.6 });
   const sy = useSpring(y, { stiffness: 180, damping: 14, mass: 0.6 });
 
   const onMove = (e: React.MouseEvent) => {
+    // Reduce-motion visitors keep a still, non-magnetic button.
+    if (reduceMotion) return;
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;

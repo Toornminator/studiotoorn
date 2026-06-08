@@ -113,7 +113,7 @@ export function NavBar() {
             aria-expanded={open}
             aria-controls="mobile-nav-sheet"
             onClick={() => setOpen((v) => !v)}
-            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm lg:hidden"
+            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:hidden"
           >
             {/* Two crossing strokes that morph between bars and an X.
                 Pure SVG so it never animates the DOM, only paint. */}
