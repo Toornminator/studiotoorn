@@ -214,6 +214,46 @@ function personSchema() {
   };
 }
 
+/**
+ * Structured data for a standalone /recipes/[slug] page. Re-keys the Recipe
+ * entity to its own canonical URL (instead of the home-page anchor) so Google
+ * treats this page as the recipe's home for rich results + Image search, and
+ * adds a BreadcrumbList (Home › Cookbook › Recipe) for the breadcrumb snippet.
+ */
+export function RecipeStructuredData({ recipe }: { recipe: Recipe }) {
+  const url = `${SITE}/recipes/${recipe.slug}`;
+  const recipeNode = {
+    ...recipeToSchema(recipe),
+    "@id": url,
+    url,
+    mainEntityOfPage: url,
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Cookbook",
+        item: `${SITE}/#cookbook`,
+      },
+      { "@type": "ListItem", position: 3, name: recipe.title, item: url },
+    ],
+  };
+  const payload = {
+    "@context": "https://schema.org",
+    "@graph": [recipeNode, breadcrumb],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
+    />
+  );
+}
+
 export function HomeStructuredData({
   recipes,
   events,

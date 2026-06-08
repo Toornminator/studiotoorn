@@ -134,14 +134,22 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout" initial={false}>
           {filtered.map((recipe) => (
-            <motion.button
+            <motion.a
               key={recipe.slug}
               layout
+              href={`/recipes/${recipe.slug}`}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              onClick={() => setOpenSlug(recipe.slug)}
+              onClick={(e) => {
+                // Plain click opens the in-page quick-view overlay; modified
+                // clicks (cmd/ctrl/shift) fall through to the real recipe page
+                // so "open in new tab" works and the href stays crawlable.
+                if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+                e.preventDefault();
+                setOpenSlug(recipe.slug);
+              }}
               data-cursor={t.cookbook.cursorOpen}
               className="group relative flex flex-col items-start overflow-hidden border border-ink/12 bg-cream-warm/60 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
               style={{ borderRadius: 4 }}
@@ -204,7 +212,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
                 </span>
               </div>
               </div>
-            </motion.button>
+            </motion.a>
           ))}
         </AnimatePresence>
       </div>

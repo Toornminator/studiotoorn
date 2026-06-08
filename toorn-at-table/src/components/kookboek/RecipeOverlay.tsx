@@ -86,13 +86,14 @@ export function RecipeOverlay({
   }, [onClose]);
 
   // Share the recipe. Native share sheet (WhatsApp, Messages, ...) where the
-  // browser supports it, copy-the-link fallback everywhere else. The shared
-  // URL deep-links back into this recipe via the ?recipe= param.
+  // browser supports it, copy-the-link fallback everywhere else. Shares the
+  // recipe's own canonical page so the link is crawlable + opens a real page
+  // (not just a home-page overlay deep-link).
   const [copied, setCopied] = useState(false);
   const handleShare = async () => {
     const url =
       typeof window !== "undefined"
-        ? `${window.location.origin}/?recipe=${recipe.slug}`
+        ? `${window.location.origin}/recipes/${recipe.slug}`
         : "";
     const shareData = {
       title: `${recipe.title} · TOORN at table`,

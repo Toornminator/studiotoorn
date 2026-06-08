@@ -93,7 +93,7 @@ export async function CookbookTeaser({ recipes }: { recipes: Recipe[] }) {
             <li key={r.slug}>
               <Reveal delay={0.1 + i * 0.08}>
                 <a
-                  href="/#cookbook"
+                  href={`/recipes/${r.slug}`}
                   data-cursor={t.cookbookTeaser.cta}
                   className="group block rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
                 >

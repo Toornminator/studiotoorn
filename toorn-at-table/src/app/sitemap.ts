@@ -29,6 +29,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((r) => r.heroImage)
     .map((r) => `${SITE}${r.heroImage as string}`);
 
+  // Every recipe now has its own crawlable, indexable page at
+  // /recipes/[slug] — list each one (with its hero photo) so Google can
+  // surface them in Search, Image search and recipe rich results.
+  const recipeRoutes: MetadataRoute.Sitemap = recipes.map((r) => ({
+    url: `${SITE}/recipes/${r.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+    images: r.heroImage ? [`${SITE}${r.heroImage}`] : undefined,
+  }));
+
   return [
     {
       url: `${SITE}/`,
@@ -59,5 +70,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    ...recipeRoutes,
   ];
 }

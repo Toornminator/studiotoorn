@@ -87,6 +87,20 @@ function resolveRecipe(r: LocalisedRecipe, locale: Locale): Recipe {
   };
 }
 
+/** Every recipe slug, for generateStaticParams on the /recipes/[slug] route. */
+export function getRecipeSlugs(): string[] {
+  return staticRecipes.map((r) => r.slug);
+}
+
+/** A single resolved recipe by slug, or null if it doesn't exist. */
+export async function getRecipe(
+  slug: string,
+  locale: Locale,
+): Promise<Recipe | null> {
+  const all = await getRecipes(locale);
+  return all.find((r) => r.slug === slug) ?? null;
+}
+
 export async function getRecipes(locale: Locale): Promise<Recipe[]> {
   const supabase = getSupabaseServer();
   if (!supabase) return staticRecipes.map((r) => resolveRecipe(r, locale));
