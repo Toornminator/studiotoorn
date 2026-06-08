@@ -114,6 +114,11 @@ export const nl: Dictionary = {
     stampAlt: "{name} reisstempel",
     visitedInYear: ", bezocht {year}",
   },
+  cookbookTeaser: {
+    eyebrow: "Vers uit de keuken",
+    title: "Een voorproefje van wat ik maak.",
+    cta: "Bekijk het hele kookboek",
+  },
   cookbook: {
     eyebrow: "Hoofdstuk 04 · Het Kookboek",
     title:

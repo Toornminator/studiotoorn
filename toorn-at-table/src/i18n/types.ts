@@ -91,6 +91,13 @@ export type Dictionary = {
     /** Suffix in the stamp aria-label. `{year}` is replaced with the year. */
     visitedInYear: string;
   };
+  /** Compact food-photo teaser that sits high on the page (between About
+   *  and the Timeline) and links down to the full cookbook section. */
+  cookbookTeaser: {
+    eyebrow: string;
+    title: string;
+    cta: string;
+  };
   cookbook: {
     eyebrow: string;
     title: string;

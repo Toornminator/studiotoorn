@@ -3,6 +3,7 @@ import { ClosingPanel } from "@/components/about/ClosingPanel";
 import { Stats } from "@/components/about/Stats";
 import { Timeline } from "@/components/about/Timeline";
 import { Contact } from "@/components/contact/Contact";
+import { CookbookTeaser } from "@/components/kookboek/CookbookTeaser";
 import { NetlifyFormSchema } from "@/components/contact/NetlifyFormSchema";
 import { TheEvening } from "@/components/evening/TheEvening";
 import { TheTableTeaser } from "@/components/the-table/TheTableTeaser";
@@ -37,6 +38,7 @@ export default async function Home() {
 
       <Hero />
       <About />
+      <CookbookTeaser recipes={recipes} />
       <Timeline />
       <Services />
       <TheEvening recipes={recipes} />

@@ -114,6 +114,11 @@ export const es: Dictionary = {
     stampAlt: "Sello de viaje de {name}",
     visitedInYear: ", visitado en {year}",
   },
+  cookbookTeaser: {
+    eyebrow: "Recién salido de la cocina",
+    title: "Una muestra de lo que cocino.",
+    cta: "Ver el recetario completo",
+  },
   cookbook: {
     eyebrow: "Capítulo 04 · El Recetario",
     title:
