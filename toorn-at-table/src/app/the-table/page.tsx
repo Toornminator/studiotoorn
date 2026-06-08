@@ -28,10 +28,12 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t.theTable.serviceName,
     description: t.theTable.metaDescription,
     alternates: { canonical: "/the-table" },
+    robots: { index: true, follow: true },
     openGraph: {
       title: t.theTable.metaTitle,
       description: t.theTable.metaDescription,
       url: "https://toornattable.com/the-table",
+      images: ["/opengraph-image.png"],
     },
   };
 }

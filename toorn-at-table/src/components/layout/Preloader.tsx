@@ -6,8 +6,12 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useT } from "@/i18n/client";
 
 const SESSION_KEY = "toorn-preloader-shown";
-const TOTAL_MS = 3300;
-const REDUCED_MS = 1400;
+// Held just long enough to land the brand moment, then out of the way: the
+// curtain is on the LCP critical path for first-time visitors, so every
+// 100 ms here is first-paint time. Internal reveal delays below are timed
+// to all settle before this fires.
+const TOTAL_MS = 2200;
+const REDUCED_MS = 1000;
 
 const COLORS = {
   bg: "#000000",
@@ -129,7 +133,7 @@ export function Preloader() {
               }}
               transition={{
                 duration: reduce ? 0.5 : 1.1,
-                delay: reduce ? 0.2 : 1.55,
+                delay: reduce ? 0.2 : 1.05,
                 ease: EASE,
               }}
             />
@@ -146,12 +150,12 @@ export function Preloader() {
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.8,
-                delay: reduce ? 0.3 : 1.95,
+                delay: reduce ? 0.3 : 1.3,
                 ease: EASE,
               }}
             >
               {t.preloader.loadingMessage}
-              <Dots reduce={reduce} startDelay={reduce ? 0.6 : 2.45} />
+              <Dots reduce={reduce} startDelay={reduce ? 0.6 : 1.6} />
             </motion.p>
           </div>
 
@@ -165,7 +169,7 @@ export function Preloader() {
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: reduce ? 0.4 : 2.2 }}
+            transition={{ duration: 0.9, delay: reduce ? 0.4 : 1.45 }}
           >
             {t.preloader.locationCaption}
           </motion.p>
@@ -214,7 +218,7 @@ function Logo({ reduce }: { reduce: boolean }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.7, 1, 0.85, 1, 0.9] }}
           transition={{
-            duration: 3.2,
+            duration: 1.7,
             delay: 0.45,
             ease: "easeInOut",
             times: [0, 0.25, 0.5, 0.65, 0.85, 1],
@@ -323,7 +327,7 @@ function CornerMark({
       className={`absolute ${className ?? ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.7, delay: reduce ? 0.2 : 1.8, ease: EASE }}
+      transition={{ duration: 0.7, delay: reduce ? 0.2 : 1.15, ease: EASE }}
     >
       <path
         d="M1 1 H10 M1 1 V10"

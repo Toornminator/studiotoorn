@@ -50,7 +50,10 @@ export function LanguageSwitcher() {
             type="button"
             onClick={() => onSelect(locale)}
             aria-current={active ? "true" : undefined}
-            aria-label={LOCALE_LONG_LABELS[locale]}
+            // Accessible name must contain the visible "EN"/"ES"/"NL" label
+            // (WCAG 2.5.3 Label in Name), so screen-reader and voice-control
+            // users hear "Nederlands (NL)", not a name that omits what they see.
+            aria-label={`${LOCALE_LONG_LABELS[locale]} (${LOCALE_LABELS[locale]})`}
             className={`px-2.5 py-1 transition-colors duration-150 focus:outline-none focus-visible:shadow-[inset_0_0_0_2px_#c8202a] ${
               active
                 ? "bg-ink text-cream"

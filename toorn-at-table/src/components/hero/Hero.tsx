@@ -82,6 +82,10 @@ export function Hero() {
           >
             at table
           </motion.span>
+          {/* Visually-hidden, localized descriptor so the page h1 carries the
+              core keyword ("private chef · Costa del Sol") for crawlers and
+              screen readers, while the visible mark stays the clean wordmark. */}
+          <span className="sr-only"> — {t.hero.establishedLine}</span>
         </h1>
 
         <motion.p
