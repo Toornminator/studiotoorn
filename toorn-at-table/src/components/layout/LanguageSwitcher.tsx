@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   LOCALES,
   LOCALE_LABELS,
@@ -12,32 +12,36 @@ import {
 import { useLocale, useSetLocale, useT } from "@/i18n/client";
 
 /**
- * Tiny three-letter pill — EN / ES / NL — that swaps the active locale.
+ * Tiny three-letter pill — EN / ES / NL — that swaps the active locale by
+ * navigating to that locale's URL (root = English, /es, /nl).
  *
- * Two-phase swap so the button feels instant:
- *  1. Synchronous client flip via the LocaleProvider — every `useT()`
- *     consumer re-renders this frame, the pill highlights the new
- *     choice immediately, no awaiting anything.
- *  2. Fire-and-forget background: persist the choice in a year-long
- *     cookie + `router.refresh()` so server-rendered sections (Hero,
- *     About, Footer, …) catch up to the new dictionary shortly after.
+ *  1. Synchronous client flip via the LocaleProvider so the pill + every
+ *     `useT()` consumer re-render this frame and the change reads as instant.
+ *  2. A full navigation to the locale's URL. It has to be a hard navigation,
+ *     not a soft router.push: the locale prefixes rewrite to the same route,
+ *     so Next would otherwise reuse the already-rendered server components and
+ *     leave the page in the old language until a manual refresh.
  */
 export function LanguageSwitcher() {
   const current = useLocale();
   const setLocale = useSetLocale();
   const dict = useT();
-  const router = useRouter();
   const pathname = usePathname();
 
   const onSelect = (locale: Locale) => {
     if (locale === current) return;
-    // 1. Instant client swap — pill + every useT() consumer flips this frame.
+    // 1. Flip the client dictionary immediately — every useT() consumer
+    //    re-renders this frame, so the change reads as instant while the load
+    //    below is in flight.
     setLocale(locale);
-    // 2. Soft-navigate to the same page under the new locale's URL (/, /es,
-    //    /nl) so server components re-render and the address bar matches the
-    //    language. The instant swap above keeps it feeling immediate.
+    // 2. Full navigation to the locale's URL. A soft router.push is NOT
+    //    enough: /es and / (and /es/x and /x) rewrite to the same route, so
+    //    Next's client router reuses the already-rendered server components
+    //    and the page stays in the old language until a hard refresh. A real
+    //    navigation re-runs the proxy and re-renders the server tree in the
+    //    right language.
     const base = stripLocalePrefix(pathname);
-    router.push(localizedHref(base, locale));
+    window.location.assign(localizedHref(base, locale));
   };
 
   return (
