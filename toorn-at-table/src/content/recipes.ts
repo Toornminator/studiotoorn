@@ -4151,4 +4151,302 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-07",
   },
+  {
+    slug: "cottage-cheese-pizza-bolognese",
+    title: {
+      en: "Cottage cheese sheet-pan pizza with bolognese",
+      es: "Pizza de bandeja de requesón con boloñesa",
+      nl: "Cottage cheese plaatpizza met bolognese",
+    },
+    intro: {
+      en: "A pizza crust made of cottage cheese and eggs. Put the eye-roll down. Baked thin and gold, topped with a real bolognese built on roasted vegetables and your own stock, it stops being a fitness fad and turns into dinner.",
+      es: "Una masa de pizza hecha de requesón y huevos. Guarda los ojos en blanco. Horneada fina y dorada, con una boloñesa de verdad sobre verduras asadas y tu propio caldo, deja de ser una moda fitness y se convierte en cena.",
+      nl: "Een pizzabodem van cottage cheese en eieren. Hou dat ogen-rollen even in. Dun en goudbruin gebakken, belegd met een échte bolognese van geroosterde groenten en je eigen fond, houdt het op een fitnesshype te zijn en wordt het avondeten.",
+    },
+    category: "hoofd",
+    seasons: ["altijd"],
+    difficulty: 2,
+    prepMinutes: 25,
+    cookMinutes: 40,
+    servings: 2,
+    heroImage: "/images/recipes/cottage-cheese-pizza-bolognese.jpg",
+    pairing: {
+      en: "A glass of cheap, cold, honest red. A Spanish tempranillo with no pretensions. It is a weeknight, not a wine tasting.",
+      es: "Una copa de tinto barato, frío y honesto. Un tempranillo español sin pretensiones. Es un día entre semana, no una cata.",
+      nl: "Een glas goedkope, koude, eerlijke rode. Een Spaanse tempranillo zonder pretenties. Het is doordeweeks, geen wijnproeverij.",
+    },
+    body: {
+      en: [
+        "A pizza crust made of cottage cheese and eggs. I can hear the eye-roll from here. It is the kind of thing that lives on a fitness influencer's feed, photographed in good light, tasting of nothing. This one is different, and the reason is simple: you treat it like food, not like a punishment. Cottage cheese, eggs, a little flour, salt, oregano, thyme, blitzed smooth and spread thin on a sheet pan, baked until it sets gold and firm. Do not expect Naples. Expect a sturdy, honest base that actually holds a topping and does not fall apart in your hand.",
+        "The bolognese is where this stops being a diet hack and becomes dinner. Roast the vegetables first, the onion, carrot, celery, garlic, tomatoes, until the edges catch and caramelise, because browning is flavour and boiling is just wet. Brown the mince hard. Cook the tomato paste out until it darkens. Then the roasted veg and a cube of your own stock, and you let it reduce, slow, until it is thick enough to sit on a spoon. That stock is the whole game. It is the difference between something that tastes of effort and something that tastes of a restaurant.",
+        "Sauce over the base, torn mozzarella, more oregano, back into a hot oven until the cheese blisters and browns. A sharp green salad, some torn basil, and that is it. Here is the thing nobody selling you 'guilt-free' wants to say: there is no guilt in dinner. This is not a confession, it is a plate of food, and it happens to be light and full of protein and cost almost nothing to make. That is not a compromise. That is just cooking well. Eat it warm, the day it is made.",
+      ],
+      es: [
+        "Una masa de pizza hecha de requesón y huevos. Ya oigo los ojos en blanco desde aquí. Es de esas cosas que viven en el feed de un influencer del fitness, fotografiadas con buena luz y con sabor a nada. Esta es distinta, y la razón es simple: la tratas como comida, no como un castigo. Requesón, huevos, un poco de harina, sal, orégano, tomillo, triturado hasta quedar liso y extendido fino en una bandeja, horneado hasta que cuaja dorado y firme. No esperes Nápoles. Espera una base sólida y honesta que de verdad aguanta el relleno y no se deshace en la mano.",
+        "La boloñesa es donde esto deja de ser un truco de dieta y se convierte en cena. Asa primero las verduras, la cebolla, la zanahoria, el apio, el ajo, los tomates, hasta que los bordes se tuesten y caramelicen, porque dorar es sabor y hervir es solo agua. Dora bien la carne. Cocina el concentrado de tomate hasta que oscurezca. Luego las verduras asadas y una pastilla de tu propio caldo, y dejas que reduzca, lento, hasta que esté espeso, de los que se sostienen en la cuchara. Ese caldo es todo. Es la diferencia entre algo que sabe a esfuerzo y algo que sabe a restaurante.",
+        "Salsa sobre la base, mozzarella desgarrada, más orégano, de vuelta al horno caliente hasta que el queso ampolle y se dore. Una ensalada verde con punto, algo de albahaca rota, y ya está. Aquí va lo que nadie que te vende 'sin culpa' quiere decir: no hay culpa en una cena. Esto no es una confesión, es un plato de comida, y resulta que es ligero, lleno de proteína y cuesta casi nada. Eso no es un sacrificio. Eso es simplemente cocinar bien. Cómelo caliente, el día que lo haces.",
+      ],
+      nl: [
+        "Een pizzabodem van cottage cheese en eieren. Ik hoor je nu al met je ogen rollen. Het is het soort ding dat op de feed van een fitnessinfluencer leeft, mooi uitgelicht, smakend naar niets. Deze is anders, en de reden is simpel: je behandelt 'm als eten, niet als straf. Cottage cheese, eieren, een beetje bloem, zout, oregano, tijm, glad gedraaid en dun uitgesmeerd op een bakplaat, gebakken tot hij goudbruin en stevig opstijft. Verwacht geen Napels. Verwacht een stevige, eerlijke bodem die echt een belegje draagt en niet uit elkaar valt in je hand.",
+        "De bolognese is waar dit ophoudt een dieettruc te zijn en avondeten wordt. Rooster eerst de groenten, de ui, wortel, bleekselderij, knoflook, tomaten, tot de randen kleuren en karamelliseren, want bruinen is smaak en koken is alleen maar nat. Bak het gehakt stevig rul. Bak de tomatenpuree tot hij donker wordt. Dan de geroosterde groenten en een blokje van je eigen fond, en je laat het inkoken, langzaam, tot het dik genoeg is om op een lepel te blijven liggen. Die fond is het hele spel. Het is het verschil tussen iets dat naar moeite smaakt en iets dat naar restaurant smaakt.",
+        "Saus over de bodem, gescheurde mozzarella, nog wat oregano, terug in een hete oven tot de kaas blaast en bruint. Een frisse groene salade, wat gescheurde basilicum, en dat is het. Dit is wat niemand die je 'zonder schuldgevoel' verkoopt wil zeggen: er is geen schuld in avondeten. Dit is geen bekentenis, het is een bord eten, en het is toevallig licht, vol eiwit en kost bijna niets. Dat is geen compromis. Dat is gewoon goed koken. Eet het warm, de dag dat je het maakt.",
+      ],
+    },
+    nowPlaying: {
+      track: "Tu vuò fà l'americano",
+      artist: "Renato Carosone",
+    },
+    marginalia: [
+      {
+        id: "ccp-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "If the cottage cheese is swimming, tip it into a sieve for ten minutes first. A wet tub means a wet batter and a soft, weepy base.",
+          es: "Si el requesón está muy líquido, échalo en un colador diez minutos antes. Un requesón aguado da una masa aguada y una base blanda que llora.",
+          nl: "Als de cottage cheese erg nat is, laat hem dan eerst tien minuten uitlekken in een zeef. Een natte bak betekent een nat beslag en een slappe, huilende bodem.",
+        },
+      },
+      {
+        id: "ccp-2",
+        kind: "warning",
+        anchor: "step-2",
+        body: {
+          en: "Blitz the batter genuinely smooth, blender or hand-blender. Lumpy cottage cheese bakes into a lumpy, weepy base. You want a batter, not curds.",
+          es: "Tritura el beslag bien liso, con batidora o de mano. El requesón con grumos hornea una base grumosa que suelta agua. Quieres una mezcla lisa, no cuajada.",
+          nl: "Draai het beslag echt glad, met een blender of staafmixer. Klonterige cottage cheese bakt tot een klonterige, huilende bodem. Je wilt een beslag, geen wrongel.",
+        },
+      },
+      {
+        id: "ccp-3",
+        kind: "wrong",
+        anchor: "step-3",
+        body: {
+          en: "Do not pull the base early. Underbaked it stays wet and floppy and collapses under the sauce. Gold and firm, set all the way through, or it is a sad open sandwich.",
+          es: "No saques la base antes de tiempo. Poco hecha queda húmeda y blanda y se hunde bajo la salsa. Dorada y firme, cuajada hasta el centro, o será un triste sándwich abierto.",
+          nl: "Haal de bodem niet te vroeg uit de oven. Onvoldoende gebakken blijft hij nat en slap en zakt hij in onder de saus. Goudbruin en stevig, helemaal gestold, of het wordt een treurige open boterham.",
+        },
+      },
+      {
+        id: "ccp-4",
+        kind: "scrawl",
+        anchor: "step-4",
+        body: {
+          en: "Roast the veg, do not just soften it. Caramelised edges are flavour. Boiled vegetables in a 'light' sauce taste like a diet; roasted ones taste like food.",
+          es: "Asa las verduras, no solo las ablandes. Los bordes caramelizados son sabor. Las verduras hervidas en una salsa 'light' saben a dieta; las asadas saben a comida.",
+          nl: "Rooster de groenten, niet alleen zacht maken. Gekaramelliseerde randen zijn smaak. Gekookte groenten in een 'lichte' saus smaken naar dieet; geroosterde naar eten.",
+        },
+      },
+      {
+        id: "ccp-5",
+        kind: "tip",
+        anchor: "step-5",
+        body: {
+          en: "Got a batch of homemade stock in the freezer? Always drop a cube into the bolognese. That deep, savoury hit is the thing you usually only taste in a restaurant, and it is what makes this good instead of a gimmick.",
+          es: "¿Tienes una tanda de caldo casero en el congelador? Echa siempre una pastilla a la boloñesa. Ese golpe profundo y sabroso es lo que normalmente solo pruebas en un restaurante, y es lo que hace esto bueno en vez de un truco.",
+          nl: "Heb je een batch zelfgemaakte fond in de vriezer? Voeg altijd een blokje toe aan de bolognese. Die diepe, hartige klap proef je normaal alleen in een restaurant, en het is wat dit goed maakt in plaats van een trucje.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Base", es: "Base", nl: "Bodem" },
+        quantity: { en: "400 g", es: "400 g", nl: "400 g" },
+        ingredient: {
+          en: "cottage cheese",
+          es: "requesón",
+          nl: "cottage cheese",
+        },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Bodem" },
+        quantity: { en: "3", es: "3", nl: "3" },
+        ingredient: { en: "eggs", es: "huevos", nl: "eieren" },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Bodem" },
+        quantity: { en: "150 g", es: "150 g", nl: "150 g" },
+        ingredient: {
+          en: "pizza (bread) flour",
+          es: "harina de fuerza (de pizza)",
+          nl: "pizzabloem",
+        },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Bodem" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Bodem" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "dried oregano",
+          es: "orégano seco",
+          nl: "gedroogde oregano",
+        },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Bodem" },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: {
+          en: "dried thyme",
+          es: "tomillo seco",
+          nl: "gedroogde tijm",
+        },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "250 g", es: "250 g", nl: "250 g" },
+        ingredient: {
+          en: "ground beef",
+          es: "carne picada de ternera",
+          nl: "rundergehakt",
+        },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: { en: "sweet onion", es: "cebolla dulce", nl: "zoete ui" },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: { en: "carrot", es: "zanahoria", nl: "wortel" },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: {
+          en: "celery stalk",
+          es: "rama de apio",
+          nl: "stengel bleekselderij",
+        },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "3", es: "3", nl: "3" },
+        ingredient: {
+          en: "garlic cloves",
+          es: "dientes de ajo",
+          nl: "tenen knoflook",
+        },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "250 g", es: "250 g", nl: "250 g" },
+        ingredient: { en: "tomatoes", es: "tomates", nl: "tomaten" },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "1 tbsp", es: "1 cda", nl: "1 el" },
+        ingredient: {
+          en: "tomato paste",
+          es: "concentrado de tomate",
+          nl: "tomatenpuree",
+        },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "1 cube", es: "1 pastilla", nl: "1 blokje" },
+        ingredient: {
+          en: "homemade stock",
+          es: "caldo casero",
+          nl: "zelfgemaakte fond",
+        },
+        note: {
+          en: "or a good shop one",
+          es: "o uno bueno de tienda",
+          nl: "of een goede uit de winkel",
+        },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "to cook", es: "para cocinar", nl: "om te bakken" },
+        ingredient: { en: "olive oil", es: "aceite de oliva", nl: "olijfolie" },
+      },
+      {
+        group: { en: "Bolognese", es: "Boloñesa", nl: "Bolognese" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "salt and pepper",
+          es: "sal y pimienta",
+          nl: "zout en peper",
+        },
+      },
+      {
+        group: { en: "Topping", es: "Cobertura", nl: "Topping" },
+        quantity: { en: "125 g", es: "125 g", nl: "125 g" },
+        ingredient: { en: "mozzarella", es: "mozzarella", nl: "mozzarella" },
+      },
+      {
+        group: { en: "Topping", es: "Cobertura", nl: "Topping" },
+        quantity: { en: "to finish", es: "para terminar", nl: "afwerking" },
+        ingredient: {
+          en: "extra oregano",
+          es: "orégano extra",
+          nl: "extra oregano",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Heat the oven to 200 °C.",
+          es: "Calienta el horno a 200 °C.",
+          nl: "Verwarm de oven voor op 200 °C.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Blend the cottage cheese, eggs, pizza flour, salt, oregano and thyme into a smooth batter. Line a baking tray with paper and spread the mixture out evenly.",
+          es: "Tritura el requesón, los huevos, la harina, la sal, el orégano y el tomillo hasta una masa lisa. Forra una bandeja con papel y extiende la mezcla de manera uniforme.",
+          nl: "Meng de cottage cheese, eieren, pizzabloem, zout, oregano en tijm tot een glad beslag. Bekleed een bakplaat met bakpapier en verdeel het mengsel gelijkmatig over de plaat.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Bake the base about 25 minutes, until golden and firm all the way through.",
+          es: "Hornea la base unos 25 minutos, hasta que esté dorada y firme hasta el centro.",
+          nl: "Bak de bodem ongeveer 25 minuten, tot hij goudbruin en helemaal stevig is.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Meanwhile, roast the tomatoes, onion, carrot, celery and garlic with a splash of olive oil until everything is nicely caramelised.",
+          es: "Mientras, asa los tomates, la cebolla, la zanahoria, el apio y el ajo con un chorrito de aceite de oliva hasta que todo esté bien caramelizado.",
+          nl: "Rooster ondertussen de tomaten, ui, wortel, bleekselderij en knoflook met een scheutje olijfolie tot alles mooi gekaramelliseerd is.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Brown the mince in a pan. Add the tomato paste and cook it out briefly. Add the roasted vegetables and the stock cube, and let it reduce gently into a thick bolognese. Season with salt and pepper.",
+          es: "Dora la carne en una sartén. Añade el concentrado de tomate y cocínalo un momento. Incorpora las verduras asadas y la pastilla de caldo, y deja que reduzca suave hasta una boloñesa espesa. Salpimienta.",
+          nl: "Bak het gehakt rul in een pan. Voeg de tomatenpuree toe en bak die kort mee. Voeg de geroosterde groenten en het fondblokje toe en laat het rustig inkoken tot een dikke bolognese. Breng op smaak met zout en peper.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Take the pre-baked base out of the oven. Spread the bolognese evenly over it and scatter with mozzarella and extra oregano.",
+          es: "Saca la base prehorneada del horno. Reparte la boloñesa de manera uniforme y esparce la mozzarella y orégano extra.",
+          nl: "Haal de voorgebakken bodem uit de oven. Verdeel de bolognese gelijkmatig over de bodem en bestrooi met mozzarella en extra oregano.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Bake another 10 to 12 minutes at 220 °C, until the cheese is melted and golden. Serve straight from the oven with a sharp green salad and some torn basil.",
+          es: "Hornea otros 10 a 12 minutos a 220 °C, hasta que el queso esté fundido y dorado. Sirve recién salida del horno con una ensalada verde y algo de albahaca rota.",
+          nl: "Bak de pizza nog 10 tot 12 minuten op 220 °C, tot de kaas gesmolten en goudbruin is. Serveer direct uit de oven met een frisse groene salade en wat gescheurde basilicum.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-10",
+  },
 ];
