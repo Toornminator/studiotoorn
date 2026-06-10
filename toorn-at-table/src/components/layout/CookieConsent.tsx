@@ -34,26 +34,31 @@ type StoredConsent = {
 };
 
 /**
- * Push a Consent Mode v2 update into the gtag dataLayer. Safe to call
- * before gtag.js has finished loading — dataLayer is a plain array
- * that gtag.js drains on init, so the update is replayed once it
- * arrives.
+ * Push a Consent Mode v2 update through the page's gtag() function.
+ *
+ * This MUST go through `window.gtag(...)` (defined in layout.tsx), not a raw
+ * `dataLayer.push([...])`. gtag.js only treats entries that are `arguments`
+ * objects (what gtag() pushes) as commands; a plain array pushed onto the
+ * dataLayer is ignored as a consent command. The old raw-array version left
+ * `analytics_storage` denied even after the visitor clicked Accept, so every
+ * GA hit went out as denied (gcs=G100) and no users were ever recorded.
+ *
+ * gtag() is defined before gtag.js loads and queues into the same dataLayer,
+ * so calling it early is safe — the update is replayed once the library inits.
  */
 function pushConsent(choice: Choice) {
   if (typeof window === "undefined") return;
   const state = choice === "granted" ? "granted" : "denied";
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const dl: any[] = ((window as unknown as { dataLayer?: unknown[] }).dataLayer ||= []);
-  dl.push([
-    "consent",
-    "update",
-    {
-      analytics_storage: state,
-      ad_storage: state,
-      ad_user_data: state,
-      ad_personalization: state,
-    },
-  ]);
+  const w = window as unknown as {
+    gtag?: (...args: unknown[]) => void;
+  };
+  if (typeof w.gtag !== "function") return;
+  w.gtag("consent", "update", {
+    analytics_storage: state,
+    ad_storage: state,
+    ad_user_data: state,
+    ad_personalization: state,
+  });
 }
 
 function readStored(): StoredConsent | null {
