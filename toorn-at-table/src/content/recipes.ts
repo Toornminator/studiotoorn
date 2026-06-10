@@ -4449,4 +4449,348 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-10",
   },
+  {
+    slug: "groningse-eierbal",
+    title: {
+      en: "Groninger eierbal with mustard ragout",
+      es: "Eierbal de Groninga con ragú a la mostaza",
+      nl: "Groningse eierbal met mosterdragout",
+    },
+    intro: {
+      en: "A hard-boiled egg wrapped in thick spiced ragout, breaded, and dropped in hot fat until it is gold and crackling. This is not a snack to be polite about. It is Groningen's deep-fried pride, and it will burn the roof of your mouth if you do not wait.",
+      es: "Un huevo duro envuelto en una bechamel especiada y espesa, empanado y frito hasta que queda dorado y crujiente. No es un aperitivo para tomárselo con remilgos. Es el orgullo frito de Groninga, y te abrasará el paladar si no esperas.",
+      nl: "Een hardgekookt ei omhuld met dikke, kruidige ragout, gepaneerd en gefrituurd tot hij goudbruin en krokant is. Dit is geen hapje om voorzichtig over te doen. Het is Groningse frituurtrots, en je brandt je gehemelte als je niet wacht.",
+    },
+    category: "voor",
+    seasons: ["altijd"],
+    difficulty: 3,
+    prepMinutes: 180,
+    cookMinutes: 12,
+    servings: 4,
+    heroImage: "/images/recipes/groningse-eierbal.jpg",
+    pairing: {
+      en: "A cold lager, straight up, and a blob of coarse mustard. This is counter food. Do not overthink it.",
+      es: "Una cerveza rubia bien fría y un buen pegote de mostaza en grano. Esto es comida de barra. No le des más vueltas.",
+      nl: "Een koud pilsje, recht voor z'n raap, en een klodder grove mosterd. Dit is toonbank-eten. Niet over nadenken.",
+    },
+    body: {
+      en: [
+        "A hard-boiled egg, wrapped in thick spiced ragout, breaded, and dropped into hot fat. There is nothing refined about it, and that is the entire point. This is cafetaria food, snackbar heritage, the thing you eat standing at a counter in Groningen with a cold beer and no apology. Gold and crackling on the outside, hot and creamy and savoury on the inside, with a whole egg sitting in the middle like a secret. Do not try to make it elegant. Make it honest, and make it big.",
+        "The ragout is the soul of the thing, and the only rule is that it has to be stiff. Butter, onion softened slow and pale, flour cooked out into a roux, then stock added little by little until it goes thick, far thicker than a sauce you would ever pour. Then you season it like the snackbar it comes from: curry powder, sharp Dijon, nutmeg, pepper, and yes, a whisper of Maggi if you want the flavour you actually remember. Cook it down until it almost stands up on its own, then chill it hard, a night if you can. Cold and firm is not optional here. It is the whole game.",
+        "Then the patience that separates an eierbal from a deep-fried disaster. Wrap the cold ragout around each egg, big and fully closed, and back into the fridge to firm. Flour, egg, breadcrumb, and do it twice for a crust that holds. Chill again. Only then, the oil at 170, five or six minutes until it is the colour of an old penny. Drain it, and then, this is the hard part, wait. Bite into it straight from the fryer and you will scald the roof of your mouth on a piece of Groningen pride. Coarse mustard on the side. That is not a suggestion, that is the law.",
+      ],
+      es: [
+        "Un huevo duro, envuelto en una bechamel especiada y espesa, empanado y lanzado a la grasa caliente. No tiene nada de refinado, y ese es justo el punto. Esto es comida de cafetería, herencia de snackbar, lo que comes de pie en una barra de Groninga con una cerveza fría y sin pedir perdón. Dorado y crujiente por fuera, caliente, cremoso y sabroso por dentro, con un huevo entero en el centro como un secreto. No intentes hacerlo elegante. Hazlo honesto, y hazlo grande.",
+        "La ragú es el alma de esto, y la única regla es que tiene que quedar firme. Mantequilla, cebolla pochada lenta y pálida, harina cocinada en un roux, y luego caldo poco a poco hasta que espesa, mucho más espeso que cualquier salsa que servirías. Después la sazonas como el snackbar del que viene: curry, mostaza de Dijon picante, nuez moscada, pimienta y sí, un toque de Maggi si quieres el sabor que de verdad recuerdas. Redúcela hasta que casi se sostenga sola, y enfríala bien, una noche si puedes. Frío y firme no es opcional aquí. Es todo el juego.",
+        "Luego la paciencia que separa una buena eierbal de un desastre frito. Envuelve la ragú fría alrededor de cada huevo, grande y bien cerrado, y de vuelta a la nevera a firmar. Harina, huevo, pan rallado, y hazlo dos veces para una costra que aguante. Enfría otra vez. Solo entonces, el aceite a 170, cinco o seis minutos hasta que tenga el color de una moneda vieja. Escúrrelo y luego, esta es la parte difícil, espera. Le das un bocado recién salido de la freidora y te abrasas el paladar con un trozo de orgullo de Groninga. Mostaza en grano al lado. No es una sugerencia, es la ley.",
+      ],
+      nl: [
+        "Een hardgekookt ei, omhuld met dikke, kruidige ragout, gepaneerd en de hete olie in. Er is niets verfijnds aan, en dat is precies de bedoeling. Dit is cafetaria-eten, snackbar-erfgoed, het ding dat je staand aan de toonbank in Groningen eet met een koud pilsje en zonder excuus. Goudbruin en krokant van buiten, heet en romig en hartig van binnen, met een heel ei in het midden als een geheim. Probeer het niet elegant te maken. Maak het eerlijk, en maak het groot.",
+        "De ragout is de ziel van het ding, en de enige regel is dat hij stevig moet zijn. Boter, ui langzaam en bleek gefruit, bloem gegaard tot een roux, en dan beetje bij beetje bouillon tot hij dik wordt, veel dikker dan een saus die je ooit zou schenken. Dan breng je hem op smaak zoals de snackbar waar hij vandaan komt: kerrie, scherpe Dijon, nootmuskaat, peper en ja, een vleugje Maggi als je de smaak wilt die je je echt herinnert. Kook hem in tot hij bijna uit zichzelf blijft staan, en koel hem goed, een nacht als het kan. Koud en stevig is hier niet optioneel. Het is het hele spel.",
+        "Dan het geduld dat een eierbal scheidt van een gefrituurde ramp. Vouw de koude ragout rond elk ei, groot en helemaal dicht, en terug de koelkast in om op te stijven. Bloem, ei, paneermeel, en doe het twee keer voor een korst die het houdt. Koel opnieuw. Pas dan de olie op 170, vijf of zes minuten tot hij de kleur heeft van een oude cent. Laat hem uitlekken en dan, dit is het moeilijke deel, wacht. Hap er recht uit de frituur in en je brandt je gehemelte aan een stuk Groningse trots. Grove mosterd ernaast. Dat is geen suggestie, dat is de wet.",
+      ],
+    },
+    nowPlaying: {
+      track: "'t Hogeland",
+      artist: "Ede Staal",
+    },
+    marginalia: [
+      {
+        id: "eb-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "What separates a homemade eierbal from a real cafetaria one is a whisper of Maggi or stock powder. It is not cheating, it is the flavour you actually remember.",
+          es: "Lo que separa una eierbal casera de una de cafetería de verdad es un toque de Maggi o de pastilla de caldo. No es trampa, es el sabor que de verdad recuerdas.",
+          nl: "Wat een zelfgemaakte eierbal scheidt van een echte cafetaria-eierbal is een vleugje Maggi of bouillonpoeder. Dat is geen valsspelen, dat is de smaak die je je echt herinnert.",
+        },
+      },
+      {
+        id: "eb-2",
+        kind: "warning",
+        anchor: "step-1",
+        body: {
+          en: "Pat the boiled eggs bone dry. A wet egg and the ragout will not grip it, and you will be wrestling a ball that refuses to close.",
+          es: "Seca los huevos cocidos del todo. Un huevo húmedo y la ragú no se agarra, y acabarás peleando con una bola que no se cierra.",
+          nl: "Dep de gekookte eieren kurkdroog. Een nat ei en de ragout pakt niet, en dan vecht je met een bal die niet dicht wil.",
+        },
+      },
+      {
+        id: "eb-3",
+        kind: "wrong",
+        anchor: "step-3",
+        body: {
+          en: "Make the ragout properly stiff, thicker than any sauce you would pour. People stop too soon, end up with gravy, and then wonder why their eierbal is a puddle. It should hold its shape on a spoon, almost like a croquette filling.",
+          es: "Deja la ragú bien firme, más espesa que cualquier salsa que servirías. La gente para demasiado pronto, acaba con una salsa, y luego se pregunta por qué su eierbal es un charco. Tiene que sostener la forma en la cuchara, casi como un relleno de croqueta.",
+          nl: "Maak de ragout echt stevig, dikker dan elke saus die je zou schenken. Mensen stoppen te vroeg, houden jus over, en vragen zich dan af waarom hun eierbal een plas is. Hij moet zijn vorm op een lepel houden, bijna als kroketvulling.",
+        },
+      },
+      {
+        id: "eb-4",
+        kind: "scrawl",
+        anchor: "step-5",
+        body: {
+          en: "Cold and firm before you shape, or it is one big Groningen mudslide. A night in the fridge beats two hours every time.",
+          es: "Frío y firme antes de formar, o es un gran deslizamiento de barro groningués. Una noche en la nevera gana a dos horas siempre.",
+          nl: "Koud en stevig voordat je gaat vormen, anders wordt het één grote Groningse glijpartij. Een nacht in de koelkast wint het altijd van twee uur.",
+        },
+      },
+      {
+        id: "eb-5",
+        kind: "tip",
+        anchor: "step-8",
+        body: {
+          en: "Always rest the breaded balls in the fridge before they hit the oil. That little patience is the difference between an eierbal and a deep-fried disaster that splits open and bleeds ragout into your fryer.",
+          es: "Reposa siempre las bolas empanadas en la nevera antes de que toquen el aceite. Esa pequeña paciencia es la diferencia entre una eierbal y un desastre frito que se abre y desangra ragú en la freidora.",
+          nl: "Laat de gepaneerde ballen altijd even rusten in de koelkast voordat ze de olie in gaan. Dat kleine beetje geduld is het verschil tussen een eierbal en een gefrituurde ramp die openbarst en ragout je frituur in bloedt.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "4", es: "4", nl: "4" },
+        ingredient: { en: "eggs", es: "huevos", nl: "eieren" },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "50 g", es: "50 g", nl: "50 g" },
+        ingredient: { en: "butter", es: "mantequilla", nl: "roomboter" },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "60 g", es: "60 g", nl: "60 g" },
+        ingredient: { en: "plain flour", es: "harina", nl: "bloem" },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "400 ml", es: "400 ml", nl: "400 ml" },
+        ingredient: {
+          en: "beef or chicken stock",
+          es: "caldo de ternera o de pollo",
+          nl: "runder- of kippenbouillon",
+        },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: {
+          en: "small onion, very finely chopped",
+          es: "cebolla pequeña, muy picada",
+          nl: "kleine ui, heel fijn gesnipperd",
+        },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "curry powder", es: "curry en polvo", nl: "kerriepoeder" },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "spicy Dijon mustard",
+          es: "mostaza de Dijon picante",
+          nl: "pittige Dijonmosterd",
+        },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "Worcestershire sauce",
+          es: "salsa Worcestershire",
+          nl: "Worcestershiresaus",
+        },
+        note: { en: "optional", es: "opcional", nl: "optioneel" },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "a pinch", es: "una pizca", nl: "een snuf" },
+        ingredient: { en: "nutmeg", es: "nuez moscada", nl: "nootmuskaat" },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "salt and black pepper",
+          es: "sal y pimienta negra",
+          nl: "zout en zwarte peper",
+        },
+      },
+      {
+        group: {
+          en: "Eggs & ragout",
+          es: "Huevos y ragú",
+          nl: "Eieren en ragout",
+        },
+        quantity: { en: "a dash", es: "un chorrito", nl: "een scheutje" },
+        ingredient: {
+          en: "Maggi or stock powder",
+          es: "Maggi o pastilla de caldo",
+          nl: "Maggi of bouillonpoeder",
+        },
+        note: {
+          en: "optional, for snackbar flavour",
+          es: "opcional, para sabor de snackbar",
+          nl: "optioneel, voor die snackbarsmaak",
+        },
+      },
+      {
+        group: { en: "To bread", es: "Para empanar", nl: "Paneren" },
+        quantity: { en: "to coat", es: "para rebozar", nl: "om te paneren" },
+        ingredient: { en: "plain flour", es: "harina", nl: "bloem" },
+      },
+      {
+        group: { en: "To bread", es: "Para empanar", nl: "Paneren" },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: {
+          en: "eggs, beaten",
+          es: "huevos, batidos",
+          nl: "eieren, losgeklopt",
+        },
+      },
+      {
+        group: { en: "To bread", es: "Para empanar", nl: "Paneren" },
+        quantity: { en: "to coat", es: "para rebozar", nl: "om te paneren" },
+        ingredient: {
+          en: "fine breadcrumbs",
+          es: "pan rallado fino",
+          nl: "fijn paneermeel",
+        },
+      },
+      {
+        group: { en: "To fry", es: "Para freír", nl: "Frituren" },
+        quantity: { en: "to fry", es: "para freír", nl: "om te frituren" },
+        ingredient: {
+          en: "sunflower or frying oil",
+          es: "aceite de girasol o de freír",
+          nl: "zonnebloem- of frituurolie",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Hard-boil the eggs in 8 to 9 minutes. Cool them under cold water, peel carefully, and pat them very dry with kitchen paper. The drier the eggs, the better the ragout grips them.",
+          es: "Cuece los huevos duros en 8 a 9 minutos. Enfríalos bajo agua fría, pélalos con cuidado y sécalos muy bien con papel. Cuanto más secos, mejor se agarra la ragú.",
+          nl: "Kook de eieren in 8 tot 9 minuten hard. Spoel ze koud af, pel ze voorzichtig en dep ze goed droog met keukenpapier. Hoe droger de eieren, hoe beter de ragout blijft plakken.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Melt the butter over medium heat. Soften the onion gently for 3 to 4 minutes without colouring it. Stir in the flour and cook the roux about 2 minutes, so it loses its raw-flour taste.",
+          es: "Funde la mantequilla a fuego medio. Pocha la cebolla 3 o 4 minutos sin que coja color. Añade la harina y cocina el roux unos 2 minutos, para que pierda el sabor a harina cruda.",
+          nl: "Smelt de boter op middelhoog vuur. Fruit de ui 3 tot 4 minuten zachtjes aan zonder dat hij bruin wordt. Roer de bloem erdoor en laat de roux ongeveer 2 minuten garen, zodat de rauwe bloemsmaak verdwijnt.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Add the stock little by little, stirring hard, until the ragout thickens. You want it stiff, much thicker than a normal sauce, stiff enough to wrap around an egg and stay there.",
+          es: "Añade el caldo poco a poco, removiendo con fuerza, hasta que la ragú espese. La quieres firme, mucho más espesa que una salsa normal, lo bastante para envolver un huevo y quedarse ahí.",
+          nl: "Schenk de bouillon beetje bij beetje erbij terwijl je stevig blijft roeren, tot de ragout dikker wordt. Je wilt hem stevig, veel dikker dan een gewone saus, dik genoeg om straks om het ei te blijven zitten.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Season with curry powder, Dijon, nutmeg, pepper, salt and, if you like, Worcestershire or a small dash of Maggi. Let it cook gently a few more minutes until thick and stiff, almost like a croquette filling.",
+          es: "Sazona con curry, Dijon, nuez moscada, pimienta, sal y, si quieres, Worcestershire o un toque de Maggi. Déjala cocer suave unos minutos más hasta que esté espesa y firme, casi como un relleno de croqueta.",
+          nl: "Breng op smaak met kerrie, Dijon, nootmuskaat, peper, zout en eventueel Worcestershire of een klein scheutje Maggi. Laat de ragout nog een paar minuten zachtjes garen tot hij dik en stevig is, bijna als kroketvulling.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Scrape the ragout into a dish and press cling film directly onto the surface so no skin forms. Cool fully, then chill at least 2 hours, or better, overnight.",
+          es: "Vuelca la ragú en un recipiente y cubre con film pegado a la superficie para que no haga costra. Enfría del todo y refrigera al menos 2 horas, o mejor, toda la noche.",
+          nl: "Schep de ragout in een schaal en dek af met folie direct op de ragout, zodat er geen vel ontstaat. Laat volledig afkoelen en zet daarna minstens 2 uur in de koelkast, of beter nog, een nacht.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Divide the cold ragout into 4 equal portions. Flatten a portion in your hand, wrap it fully around an egg and shape a big ball with the egg completely covered. Dampen your hands lightly if it sticks.",
+          es: "Divide la ragú fría en 4 porciones iguales. Aplana una porción en la mano, envuelve un huevo del todo y forma una bola grande con el huevo bien cubierto. Humedece las manos si se pega.",
+          nl: "Verdeel de koude ragout in 4 gelijke porties. Druk een portie plat in je hand, vouw hem helemaal rond een ei en vorm een grote bal met het ei volledig bedekt. Maak je handen licht vochtig als het plakt.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Chill the shaped balls 30 minutes to firm up.",
+          es: "Refrigera las bolas formadas 30 minutos para que firmen.",
+          nl: "Leg de gevormde eierballen 30 minuten in de koelkast om op te stijven.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Set up three bowls: flour, beaten egg, breadcrumbs. Roll each ball through the flour, then the egg, then the crumbs. For a sturdier crust, go through the egg and crumbs a second time. Then chill the breaded balls another 30 minutes to 1 hour.",
+          es: "Prepara tres platos: harina, huevo batido, pan rallado. Pasa cada bola por la harina, luego el huevo y luego el pan rallado. Para una costra más fuerte, repite huevo y pan rallado. Después refrigera las bolas empanadas otros 30 minutos a 1 hora.",
+          nl: "Zet drie borden klaar: bloem, losgeklopt ei, paneermeel. Haal elke bal door de bloem, dan het ei, dan het paneermeel. Voor een steviger korst nog een keer door ei en paneermeel. Zet de gepaneerde ballen daarna nogmaals 30 minuten tot 1 uur in de koelkast.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Heat the oil to 170 °C. Fry the eierballen 1 or 2 at a time for about 5 to 6 minutes, until deep gold and crisp. Drain on kitchen paper and let them rest 2 minutes before serving.",
+          es: "Calienta el aceite a 170 °C. Fríe las eierballen de 1 o 2 en 1 unos 5 a 6 minutos, hasta que estén bien doradas y crujientes. Escúrrelas sobre papel y déjalas reposar 2 minutos antes de servir.",
+          nl: "Verhit de olie tot 170 °C. Frituur de eierballen per 1 of 2 tegelijk ongeveer 5 tot 6 minuten goudbruin en krokant. Laat ze uitlekken op keukenpapier en 2 minuten rusten voordat je ze serveert.",
+        },
+      },
+      {
+        position: 10,
+        body: {
+          en: "Serve with plenty of coarse mustard on the side. The Dijon goes in the ragout for flavour; the coarse mustard belongs next to it on the plate. That is how it is done.",
+          es: "Sirve con bastante mostaza en grano al lado. El Dijon va en la ragú para el sabor; la mostaza en grano va al lado en el plato. Así se hace.",
+          nl: "Serveer met flink wat grove mosterd ernaast. De Dijon gaat in de ragout voor de smaak; de grove mosterd hoort er gewoon dik naast op het bord. Zo hoort het.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-10",
+  },
 ];
