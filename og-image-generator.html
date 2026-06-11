@@ -3,77 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <title>OG Image Generator — Studio Toorn</title>
+<link href="https://api.fontshare.com/v2/css?f[]=boska@300,400,401&f[]=general-sans@400,500&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; padding: 0; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  body { margin: 0; padding: 0; background: #f5f0e4; }
   .og {
-    width: 1200px; height: 630px; background: #0a0a0a; position: relative; overflow: hidden;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-family: 'Outfit', system-ui, sans-serif;
+    width: 1200px; height: 630px; position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 55% at 88% 112%, rgba(201,161,85,.28) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 8% -10%, rgba(201,161,85,.16) 0%, transparent 60%),
+      #f5f0e4;
+    font-family: 'General Sans', system-ui, sans-serif;
+    box-sizing: border-box;
+    padding: 64px 80px;
+    display: flex; flex-direction: column; justify-content: space-between;
   }
-  /* Noise texture overlay */
   .og::before {
-    content: ''; position: absolute; inset: 0; opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-    background-size: 256px 256px;
+    content: ''; position: absolute; inset: 0; opacity: .05; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
   }
-  /* Subtle radial glow */
-  .og::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgba(200,164,85,0.06) 0%, transparent 60%);
-  }
-  .og > * { position: relative; z-index: 1; }
-  /* Subtle border lines */
-  .border-line {
-    position: absolute; z-index: 1;
-    background: rgba(200,164,85,0.12);
-  }
-  .border-line.top { top: 40px; left: 60px; right: 60px; height: 1px; }
-  .border-line.bottom { bottom: 40px; left: 60px; right: 60px; height: 1px; }
-  .border-line.left { top: 40px; bottom: 40px; left: 60px; width: 1px; }
-  .border-line.right { top: 40px; bottom: 40px; right: 60px; width: 1px; }
+  .dust { position: absolute; border-radius: 50%; background: #9a7627; pointer-events: none; }
 
-  .monogram { height: 120px; margin-bottom: 32px; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .mono {
+    width: 44px; height: 44px; background: #211b10;
+    -webkit-mask: url('images/monogram-small.png') center/contain no-repeat;
+    mask: url('images/monogram-small.png') center/contain no-repeat;
+  }
   .name {
-    font-size: 28px; letter-spacing: 0.35em; text-transform: uppercase;
-    color: #c8a455; font-weight: 300; margin-bottom: 12px;
-  }
-  .tagline {
-    font-size: 18px; color: rgba(240,235,224,0.45); font-weight: 300;
-    letter-spacing: 0.08em;
-  }
-  .url {
-    position: absolute; bottom: 56px; font-size: 13px;
-    letter-spacing: 0.2em; color: rgba(200,164,85,0.35);
-    text-transform: lowercase;
+    font-family: 'Boska', Georgia, serif;
+    font-size: 24px; letter-spacing: .32em; text-transform: uppercase;
+    color: #211b10; font-weight: 400;
   }
 
-  /* Instructions */
-  .instructions {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-    background: rgba(200,164,85,0.1); color: #c8a455; padding: 12px 24px;
-    border-radius: 8px; font-family: system-ui; font-size: 14px;
-    border: 1px solid rgba(200,164,85,0.2); z-index: 100;
-    width: 1200px; text-align: center; box-sizing: border-box;
+  h1 {
+    margin: 0; font-family: 'Boska', Georgia, serif; font-weight: 300;
+    font-size: 88px; line-height: 1.1; letter-spacing: -.015em; color: #211b10;
   }
+  h1 em { font-style: italic; color: #9a7627; }
+  .pill {
+    display: inline-block; width: 168px; height: 60px; border-radius: 999px;
+    overflow: hidden; vertical-align: -4px; margin: 0 6px;
+    box-shadow: 0 14px 30px -12px rgba(33,27,16,.45);
+  }
+  .pill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .foot {
+    border-top: 1px solid rgba(154,118,39,.3); padding-top: 26px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .foot span {
+    font-size: 15px; letter-spacing: .3em; text-transform: uppercase;
+    color: #7a5d1d; font-weight: 500;
+  }
+  .foot b { font-weight: 500; color: rgba(33,27,16,.55); font-size: 15px; letter-spacing: .18em; }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="og" id="og-capture">
-  <div class="border-line top"></div>
-  <div class="border-line bottom"></div>
-  <div class="border-line left"></div>
-  <div class="border-line right"></div>
+  <div class="dust" style="top:120px;left:740px;width:5px;height:5px;opacity:.3"></div>
+  <div class="dust" style="top:210px;left:1080px;width:4px;height:4px;opacity:.25"></div>
+  <div class="dust" style="top:480px;left:180px;width:5px;height:5px;opacity:.22"></div>
+  <div class="dust" style="top:90px;left:330px;width:3px;height:3px;opacity:.3"></div>
+  <div class="dust" style="top:400px;left:1130px;width:6px;height:6px;opacity:.2"></div>
+  <div class="dust" style="top:540px;left:920px;width:4px;height:4px;opacity:.28"></div>
 
-  <img src="images/monogram preloader.png" alt="Studio Toorn" class="monogram">
-  <div class="name">Studio Toorn</div>
-  <div class="tagline">Premium Digital Agency</div>
-  <div class="url">studiotoorn.com</div>
-</div>
+  <div class="brand">
+    <div class="mono"></div>
+    <div class="name">Studio Toorn</div>
+  </div>
 
-<div class="instructions">
-  Right-click the image above &rarr; Inspect &rarr; Screenshot node (or use browser DevTools: Ctrl+Shift+P &rarr; "Capture node screenshot" on the #og-capture div). Save as <strong>images/og-image.png</strong>
+  <h1>
+    A digital studio<span class="pill"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80" alt=""></span><br>
+    run like a <em>Michelin kitchen.</em>
+  </h1>
+
+  <div class="foot">
+    <span>Digital atelier · Costa del Sol</span>
+    <b>studiotoorn.com</b>
+  </div>
 </div>
 
 </body>
