@@ -154,6 +154,12 @@ export const en: Dictionary = {
     shareCopied: "Link copied",
     appLink: "Put the cookbook on your phone",
   },
+  areas: {
+    eyebrow: "Private chef · Costa del Sol",
+    faqTitle: "Asked a lot",
+    otherAreas: "Also at tables in",
+    whereICook: "Where I cook",
+  },
   cookbookApp: {
     metaTitle: "Cookbook",
     metaDescription:

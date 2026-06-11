@@ -135,6 +135,16 @@ export type Dictionary = {
     /** Homepage link to the installable cookbook app page. */
     appLink: string;
   };
+  /** Shared strings for the /private-chef/[area] landing pages. */
+  areas: {
+    eyebrow: string;
+    /** Heading above the per-area FAQ accordion. */
+    faqTitle: string;
+    /** Lead-in for the cross-links to the other area pages. */
+    otherAreas: string;
+    /** Label for the footer row of area links. */
+    whereICook: string;
+  };
   cookbookApp: {
     /** <title> + meta description for the standalone /cookbook page. */
     metaTitle: string;

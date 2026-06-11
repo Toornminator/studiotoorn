@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { areas } from "@/content/areas";
 import { recipes } from "@/content/recipes";
 
 /**
@@ -60,6 +61,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: { languages: langs("/cookbook") },
     },
+    // Service-area landing pages: the "private chef in [place]" entry
+    // points for search and AI assistants. High priority on purpose;
+    // these pages ARE the acquisition funnel.
+    ...areas.map((a) => ({
+      url: `${SITE}/private-chef/${a.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+      alternates: { languages: langs(`/private-chef/${a.slug}`) },
+    })),
     {
       url: `${SITE}/privacy`,
       lastModified: now,

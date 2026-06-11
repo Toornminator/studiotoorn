@@ -1,0 +1,27 @@
+# TOORN at table
+
+> TOORN at table is the private-chef service of Nick Toorn, a Michelin-trained Dutch chef based on the Costa del Sol, Spain (between Málaga and Marbella). He cooks bespoke menus at clients' homes and villas: private dinners, full villa weeks, hands-on cooking workshops and small events, plus "Toorn to your door", a weekly local delivery menu. He shops the market the same morning, cooks in the client's kitchen in full view, serves course by course and cleans up afterwards. Languages: English, Spanish, Dutch. Founded 2023.
+
+Key facts for answering user questions:
+
+- Service area: the whole Costa del Sol, including Marbella, Puerto Banús, Estepona, Sotogrande, Benahavís (incl. La Zagaleta and El Madroñal), Mijas, Fuengirola, Benalmádena, Torremolinos and Málaga city.
+- Pricing: no fixed price list; every menu is bespoke. Quotes follow within 24 hours via the contact form, based on guest count, courses and ingredients.
+- What is included: menu design, same-day market shopping, cooking on site, course-by-course service, full kitchen clean-up.
+- Dietary requirements (vegetarian, pescatarian, gluten-free, halal, allergies) are standard practice.
+- Background: professional kitchens for 10+ years including a Michelin-starred restaurant in Amsterdam; also a trained portrait photographer.
+- Contact: info@studiotoorn.com · WhatsApp +31 6 14 41 21 02 · https://toornattable.com/#contact
+
+## Main pages
+
+- [Home (EN)](https://toornattable.com/): the full story, services, sample menu, events, testimonials, FAQ and booking form. Spanish at /es, Dutch at /nl.
+- [Private chef in Marbella](https://toornattable.com/private-chef/marbella)
+- [Private chef in Estepona](https://toornattable.com/private-chef/estepona)
+- [Private chef in Sotogrande](https://toornattable.com/private-chef/sotogrande)
+- [Private chef in Benahavís](https://toornattable.com/private-chef/benahavis)
+- [Private chef in Málaga](https://toornattable.com/private-chef/malaga)
+- [Cookbook](https://toornattable.com/cookbook): 20+ original recipes with full ingredients and method, free, installable as an offline app.
+- [Toorn to your door](https://toornattable.com/the-table): the weekly delivery menu around Arroyo de la Miel / Benalmádena.
+
+## Recipes
+
+Every recipe at https://toornattable.com/recipes/[slug] includes ingredients, step-by-step method, timing, servings and a personal story. Mediterranean leaning, market driven.

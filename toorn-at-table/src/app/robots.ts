@@ -14,16 +14,34 @@ import type { MetadataRoute } from "next";
  *  - Sitemap line at the bottom points crawlers at the structured
  *    URL list so they don't have to discover the routes themselves.
  *
- * AI crawlers (GPTBot, ClaudeBot, anthropic-ai, Google-Extended,
- * etc.) are not blocked. Nick's site benefits from showing up in
- * AI overviews and search summaries; if that ever changes, add the
- * specific user-agent + disallow here.
+ * AI crawlers get an EXPLICIT allow block on top of the wildcard.
+ * Functionally the wildcard already admits them, but stating each
+ * bot by name (a) survives a future tightening of the wildcard rule
+ * and (b) reads as an unambiguous invitation to the platforms the
+ * brand wants citations from: ChatGPT, Claude, Perplexity, Google AI
+ * Overviews, Apple Intelligence. The business RUNS on "private chef
+ * Marbella" answers inside AI assistants; never block these.
  */
 const SITE = "https://toornattable.com";
+
+const AI_CRAWLERS = [
+  "GPTBot", // OpenAI / ChatGPT search + training
+  "OAI-SearchBot", // OpenAI search index
+  "ClaudeBot", // Anthropic / Claude
+  "anthropic-ai", // Anthropic (alternate identifier)
+  "PerplexityBot", // Perplexity
+  "Google-Extended", // Google AI Overviews / Gemini grounding
+  "Applebot-Extended", // Apple Intelligence
+];
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
+      ...AI_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: ["/api/"],
+      })),
       {
         userAgent: "*",
         allow: "/",

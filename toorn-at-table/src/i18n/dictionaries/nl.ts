@@ -155,6 +155,12 @@ export const nl: Dictionary = {
     shareCopied: "Link gekopieerd",
     appLink: "Zet het kookboek op je telefoon",
   },
+  areas: {
+    eyebrow: "Privéchef · Costa del Sol",
+    faqTitle: "Veelgevraagd",
+    otherAreas: "Ik kook ook in",
+    whereICook: "Waar ik kook",
+  },
   cookbookApp: {
     metaTitle: "Kookboek",
     metaDescription:

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { localizedHref } from "@/i18n/config";
+import { getAreas } from "@/lib/content/areas";
 import { NewsletterForm } from "./NewsletterForm";
 import { SocialLinks } from "./SocialLinks";
 
@@ -91,6 +92,24 @@ export async function Footer() {
               <li><Link href={localizedHref("/#events", locale)} className="hover:text-tattoo-mustard">{t.footer.sitemapEvents}</Link></li>
               <li><Link href={localizedHref("/#contact", locale)} className="hover:text-tattoo-mustard">{t.footer.sitemapContact}</Link></li>
               <li><Link href={localizedHref("/#about", locale)} className="hover:text-tattoo-mustard">{t.footer.sitemapAbout}</Link></li>
+            </ul>
+
+            {/* Service-area links: crawl path + user shortcut to the
+                "private chef in [place]" landing pages. */}
+            <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/40">
+              {t.areas.whereICook}
+            </p>
+            <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
+              {getAreas(locale).map((a) => (
+                <li key={a.slug}>
+                  <Link
+                    href={localizedHref(`/private-chef/${a.slug}`, locale)}
+                    className="hover:text-tattoo-mustard"
+                  >
+                    {a.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

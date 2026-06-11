@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   // build and social previews break.
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "TOORN at table · Private chef, Costa del Sol",
+    default: "TOORN at table · Private chef Marbella & Costa del Sol",
     template: "%s · TOORN at table",
   },
   description:
-    "Private chef on the Costa del Sol. Michelin-trained precision, Andalusian calm, one table. Private dinners, villa weeks, workshops and open-booking events by Nick Toorn since 2023.",
+    "Private chef in Marbella and across the Costa del Sol: Estepona, Sotogrande, Benahavís, Málaga. Michelin-trained precision, Andalusian calm, one table. Private dinners, villa weeks, workshops and events by Nick Toorn since 2023.",
   applicationName: "TOORN at table",
   authors: [{ name: "Nick Toorn" }],
   creator: "Nick Toorn",
