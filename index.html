@@ -3,970 +3,815 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Studio Toorn — Premium digital experiences. Web design, AI automation, brand identity. Costa del Sol.">
-<title>Studio Toorn — Premium Digital Agency</title>
+<meta name="description" content="Studio Toorn, a digital studio run like a Michelin kitchen. Web design, AI automation and brand identity from the Costa del Sol.">
+<title>Studio Toorn — A digital studio run like a Michelin kitchen</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://studiotoorn.com/">
+<meta property="og:title" content="Studio Toorn — A digital studio run like a Michelin kitchen">
+<meta property="og:description" content="Web design, AI automation and brand identity, prepared with Michelin-grade obsession. Costa del Sol, serving worldwide.">
+<meta property="og:image" content="https://studiotoorn.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/monogram%20preloader.png">
+<link rel="canonical" href="https://studiotoorn.com/">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=boska@300,400,500,401,501&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
   theme: {
     extend: {
-      colors: { amber: '#c8a455', amber2: '#e0bc78', cream: '#f0ebe0' },
+      colors: { ink: '#0b0a08', ink2: '#121008', ink3: '#1a1610', gold: '#c9a155', gold2: '#e8c87e', cream: '#f2ecdd' },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        inst: ['"Instrument Serif"', 'Georgia', 'serif'],
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['Boska', 'Georgia', 'serif'],
+        sans: ['"General Sans"', 'system-ui', 'sans-serif'],
       },
     }
   }
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Studio Toorn",
+  "url": "https://studiotoorn.com",
+  "email": "info@studiotoorn.com",
+  "telephone": "+31614412102",
+  "founder": { "@type": "Person", "name": "Nick Toorn" },
+  "description": "Digital agency for web design, AI automation and brand identity. Based on the Costa del Sol, Spain.",
+  "areaServed": ["Costa del Sol", "Spain", "Netherlands", "Worldwide"]
+}
+</script>
+
 <style>
-/* ── Variables ─────────────────────────────────────────── */
-:root {
-  --amber: #c8a455; --amber2: #e0bc78;
-  --cream: #f0ebe0; --bg: #0a0a0a; --muted: rgba(240,235,224,0.5);
-  --border: rgba(200,164,85,0.15);
+/* ================= TOKENS ================= */
+:root{
+  --ink:#0b0a08; --ink2:#121008; --ink3:#1a1610;
+  --gold:#c9a155; --gold2:#e8c87e;
+  --gold-dim:rgba(201,161,85,.14);
+  --gold-soft:rgba(201,161,85,.38);
+  --cream:#f2ecdd; --cream-dim:rgba(242,236,221,.55); --cream-faint:rgba(242,236,221,.28);
+  --pad:clamp(1.25rem,4vw,4rem);
+  --chapter:clamp(7rem,14vh,12rem);
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto} /* Lenis overrides */
-body{background:var(--bg);color:var(--cream);font-family:'Outfit',system-ui,sans-serif;cursor:none;overflow-x:hidden}
-body.locked{overflow:hidden}
-a,button{cursor:none}
+html{background:var(--ink);scroll-behavior:auto;overflow-x:hidden}
+body{background:var(--ink);color:var(--cream);font-family:'General Sans',system-ui,sans-serif;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+body.locked{overflow:hidden;height:100dvh}
 img{display:block;max-width:100%}
-::selection{background:var(--amber);color:#0a0a0a}
+a{color:inherit;text-decoration:none}
+button{background:none;border:none;color:inherit;font:inherit}
+::selection{background:var(--gold);color:var(--ink)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:rgba(201,161,85,.4)}
+@media(pointer:fine){ body, a, button, input, select, textarea, label{cursor:none} }
 
-/* ── Scrollbar ─────────────────────────────────────────── */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:rgba(200,164,85,0.3);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:rgba(200,164,85,0.5)}
+/* ================= OVERLAYS ================= */
+#grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:80;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 9s steps(10) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-4%,-6%)}30%{transform:translate(5%,-3%)}50%{transform:translate(-6%,4%)}70%{transform:translate(4%,6%)}90%{transform:translate(-3%,2%)}}
+#prog{position:fixed;top:0;left:0;right:0;height:2px;z-index:90;pointer-events:none}
+#prog div{height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
 
-/* ── Noise overlay ─────────────────────────────────────── */
-#noise{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px 150px}
+/* ================= CURSOR ================= */
+#cur-dot,#cur-ring{position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;z-index:99;transform:translate(-50%,-50%)}
+#cur-dot{width:6px;height:6px;background:var(--gold2)}
+#cur-ring{width:36px;height:36px;border:1px solid var(--gold-soft);display:flex;align-items:center;justify-content:center;
+  transition:width .45s var(--ease),height .45s var(--ease),background-color .35s,border-color .35s}
+#cur-ring span{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:0;transition:opacity .25s;font-weight:600}
+#cur-ring.grow{width:56px;height:56px;border-color:var(--gold)}
+#cur-ring.view{width:84px;height:84px;background:var(--gold);border-color:var(--gold)}
+#cur-ring.view span{opacity:1}
+@media(pointer:coarse){#cur-dot,#cur-ring{display:none}}
 
-/* ── Progress bar ─────────────────────────────────────── */
-#prog{position:fixed;top:0;left:0;height:2px;width:100%;background:transparent;z-index:9998;transform-origin:left;pointer-events:none}
-#prog::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--amber),var(--amber2));transform:scaleX(0);transform-origin:left;transition:transform .05s linear}
+/* ================= PRELOADER ================= */
+#loader{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center}
+.ld-panel{position:absolute;left:0;right:0;height:50.5%;background:var(--ink2)}
+.ld-top{top:0}.ld-bot{bottom:0}
+.ld-core{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.6rem}
+.ld-logo{width:clamp(72px,10vmin,110px);opacity:0}
+.ld-word{font-size:.62rem;letter-spacing:.45em;text-transform:uppercase;color:var(--cream-dim);min-height:1.2em;text-align:center}
+.ld-count{position:absolute;bottom:clamp(1.5rem,4vw,3rem);right:clamp(1.5rem,4vw,3rem);z-index:2;font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(3rem,8vw,6rem);line-height:1;color:var(--cream);font-variant-numeric:tabular-nums}
+.ld-count i{font-style:normal;color:var(--gold);font-size:.4em;vertical-align:.9em;margin-left:.1em}
+.ld-bar{position:absolute;bottom:0;left:0;right:0;height:2px;z-index:3;background:rgba(201,161,85,.12)}
+.ld-bar div{height:100%;width:0;background:var(--gold)}
 
-/* ── Cursor ───────────────────────────────────────────── */
-#cursor-dot{position:fixed;width:8px;height:8px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:opacity .3s}
-#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,164,85,0.5);border-radius:50%;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:width .4s,height .4s,border-color .3s}
-#cursor-ring.hover{width:56px;height:56px;border-color:var(--amber)}
-@media(pointer:coarse){#cursor-dot,#cursor-ring{display:none}body,a,button{cursor:auto}}
+/* ================= NAV ================= */
+#nav{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem var(--pad);transition:background .5s,border-color .5s,padding .5s;border-bottom:1px solid transparent}
+#nav.scrolled{background:rgba(11,10,8,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--gold-dim);padding-top:.75rem;padding-bottom:.75rem}
+.nav-brand{display:inline-flex;align-items:center;gap:.7rem;font-family:'Boska',Georgia,serif;font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase}
+.nav-mono{display:inline-block;width:26px;height:26px;background:var(--cream);flex-shrink:0;transition:transform .5s var(--ease);
+  -webkit-mask:url('images/monogram%20preloader.png') center/contain no-repeat;mask:url('images/monogram%20preloader.png') center/contain no-repeat}
+.nav-brand:hover .nav-mono{transform:rotate(-10deg) scale(1.1)}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav-links a:hover{color:var(--cream)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-right{display:flex;align-items:center;gap:1.6rem}
+.nav-clock{font-size:.62rem;letter-spacing:.2em;color:var(--cream-faint);font-variant-numeric:tabular-nums}
+.lang{display:flex;gap:.2rem}
+.lang button{font-size:.62rem;letter-spacing:.15em;padding:.3rem .45rem;color:var(--cream-faint);transition:color .3s}
+.lang button.on{color:var(--gold)}
+.lang button:hover{color:var(--gold2)}
+.burger{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:75}
+.burger span{display:block;width:24px;height:1px;background:var(--cream);transition:transform .45s var(--ease),opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:900px){.nav-links,.nav-clock{display:none}.burger{display:flex}}
 
-/* ── Preloader ────────────────────────────────────────── */
-#preloader{position:fixed;inset:0;background:#000;z-index:9990;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column}
-/* Monogram — absolutely centered at exact viewport center */
-.pl-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(100px,14vmin,150px);aspect-ratio:1;z-index:6;opacity:1}
-.pl-logo img{width:100%;height:100%;object-fit:contain;display:block}
-/* Stage — name + tagline positioned just below the centered logo */
-.pl-stage{position:absolute;top:calc(50% + clamp(50px,7vmin,75px) + 10px);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:2;width:100%}
-.pl-name{font-family:'Playfair Display',serif;font-size:clamp(.95rem,2vw,1.45rem);font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--cream);display:flex;overflow:hidden;padding-left:.5em}
-.pl-char{display:inline-block;transform:translateY(110%);opacity:0}
-.pl-tagline{font-size:.56rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(240,235,224,.38);margin-top:.9rem;opacity:0}
-/* Progress ring */
-.pl-ring{position:absolute;top:50%;left:50%;width:min(64vmin,420px);height:min(64vmin,420px);transform:translate(-50%,-50%);pointer-events:none;z-index:1}
-.pl-ring svg{width:100%;height:100%;transform:rotate(-90deg);display:block;overflow:visible}
-.pl-ring-track{fill:none;stroke:rgba(200,164,85,.1);stroke-width:1}
-.pl-ring-fill{fill:none;stroke:url(#pl-grad);stroke-width:1.5;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(200,164,85,.5))}
-/* Glow behind logo */
-.pl-glow{position:absolute;top:50%;left:50%;width:min(50vmin,360px);height:min(50vmin,360px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(200,164,85,.2) 0%,rgba(200,164,85,.04) 50%,transparent 70%);filter:blur(20px);opacity:0;z-index:0;pointer-events:none}
-/* Outer spinning ring */
-.pl-ring-outer{position:absolute;top:50%;left:50%;width:calc(min(64vmin,420px) + 50px);height:calc(min(64vmin,420px) + 50px);border-radius:50%;border:1px dashed rgba(200,164,85,.15);transform:translate(-50%,-50%);opacity:0;animation:pl-spin 28s linear infinite;pointer-events:none;z-index:1}
-@keyframes pl-spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-/* Pulsing rings from center */
-.pl-pulse{position:absolute;top:50%;left:50%;width:80px;height:80px;border-radius:50%;border:1px solid rgba(200,164,85,.4);transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none;z-index:1}
-.pl-pulse.p1{animation:pl-expand 2.2s ease-out .0s infinite}
-.pl-pulse.p2{animation:pl-expand 2.2s ease-out .7s infinite}
-.pl-pulse.p3{animation:pl-expand 2.2s ease-out 1.4s infinite}
-@keyframes pl-expand{0%{transform:translate(-50%,-50%) scale(0);opacity:0}15%{opacity:.7}100%{transform:translate(-50%,-50%) scale(6);opacity:0}}
-/* Corner meta */
-.pl-meta{position:absolute;font-family:'Outfit',sans-serif;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(240,235,224,.35);opacity:0;z-index:2;display:flex;align-items:center;gap:.55rem}
-.pl-dot{width:4px;height:4px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);animation:pl-blink 1.4s ease-in-out infinite;flex-shrink:0}
-@keyframes pl-blink{0%,100%{opacity:1}50%{opacity:.25}}
-.pl-tl{top:2rem;left:2rem}
-.pl-tr{top:2rem;right:2rem;font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-style:italic;font-weight:400;letter-spacing:0;color:var(--cream);line-height:1;gap:.1rem;align-items:flex-start}
-.pl-tr-pct{font-size:.32em;color:var(--amber);font-style:normal;font-family:'Outfit',sans-serif;letter-spacing:.15em;margin-top:.5em}
-.pl-bl{bottom:2rem;left:2rem}
-.pl-br{bottom:2rem;right:2rem}
-/* Progress rail */
-.pl-rail{position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(200,164,85,.12);z-index:2;opacity:0}
-.pl-rail-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,transparent,var(--amber),var(--amber2),var(--amber));box-shadow:0 0 12px rgba(200,164,85,.6)}
-/* Curtain exit — START off-screen, slide IN to cover */
-.pl-curtain{position:absolute;left:0;right:0;background:#000;z-index:5;pointer-events:none}
-.pl-curtain-top{top:0;height:50%;transform:translateY(-100%)}
-.pl-curtain-bot{bottom:0;height:50%;transform:translateY(100%)}
-@media(max-width:720px){
-  .pl-tl,.pl-bl{left:1.25rem}.pl-tr,.pl-br{right:1.25rem}
-  .pl-tr{font-size:2rem}
-  .pl-meta{font-size:.5rem}
-}
+#ovl{position:fixed;inset:0;z-index:69;background:rgba(11,10,8,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad);opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+#ovl.open{opacity:1;visibility:visible}
+.ovl-link{display:block;font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(2.6rem,9vw,4.6rem);line-height:1.25;color:var(--cream);
+  opacity:0;transform:translateY(36px);transition:opacity .6s var(--ease),transform .6s var(--ease),color .3s}
+.ovl-link em{font-style:italic;color:var(--gold)}
+.ovl-link:hover{color:var(--gold2)}
+#ovl.open .ovl-link{opacity:1;transform:translateY(0)}
+#ovl.open .ovl-link:nth-child(1){transition-delay:.08s}#ovl.open .ovl-link:nth-child(2){transition-delay:.16s}
+#ovl.open .ovl-link:nth-child(3){transition-delay:.24s}#ovl.open .ovl-link:nth-child(4){transition-delay:.32s}
+.ovl-foot{position:absolute;bottom:2.2rem;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:center}
+.ovl-foot .lang button{font-size:.75rem}
 
-/* ── Navbar ───────────────────────────────────────────── */
-#nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.75rem 3rem;transition:padding .4s,background .4s,border-color .4s;border-bottom:1px solid transparent}
-#nav.scrolled{padding:1rem 3rem;background:rgba(10,10,10,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--border)}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--cream);text-decoration:none;display:inline-flex;align-items:center;gap:.7rem}
-.nav-monogram{display:inline-block;width:28px;height:28px;background:var(--cream);flex-shrink:0;transition:transform .4s ease;
-  -webkit-mask-image:url('images/monogram%20preloader.png');
-  mask-image:url('images/monogram%20preloader.png');
-  -webkit-mask-size:contain;mask-size:contain;
-  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  -webkit-mask-position:center;mask-position:center;
-  -webkit-mask-mode:luminance;mask-mode:luminance}
-.nav-logo:hover .nav-monogram{transform:rotate(-8deg) scale(1.08)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s;padding-bottom:2px}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--amber);transition:width .3s ease}
-.nav-links a:hover{color:var(--amber)}
-.nav-links a:hover::after{width:100%}
-.btn-nav{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.6rem 1.4rem;border:1px solid var(--amber);color:var(--amber);background:transparent;transition:background .3s,color .3s;text-decoration:none}
-.btn-nav:hover{background:var(--amber);color:#0a0a0a}
-/* Hamburger */
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;width:28px}
-.hamburger span{display:block;height:1px;background:var(--cream);transition:transform .3s,opacity .3s;transform-origin:center;will-change:transform}
-.hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-@media(max-width:900px){#nav{padding:1.25rem 1.5rem}.nav-links,.btn-nav{display:none}.hamburger{display:flex}}
-@media(max-width:900px){#nav.scrolled{padding:.9rem 1.5rem}}
+/* ================= TYPE HELPERS ================= */
+.eyebrow{font-size:.66rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.h2{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(2.6rem,5.6vw,5rem);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.h2 em{font-style:italic;color:var(--gold)}
+.lead{font-size:clamp(.95rem,1.3vw,1.05rem);font-weight:300;color:var(--cream-dim);line-height:1.85;max-width:54ch}
 
-/* ── Nav Overlay ──────────────────────────────────────── */
-#nav-overlay{position:fixed;inset:0;background:#070706;z-index:490;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease}
-#nav-overlay.open{opacity:1;pointer-events:all}
-.ov-links{list-style:none;text-align:center}
-.ov-links li{overflow:hidden}
-.ov-links a{display:block;font-family:'Playfair Display',serif;font-size:clamp(2.5rem,8vw,4.5rem);font-weight:400;color:var(--cream);text-decoration:none;padding:.4rem 0;opacity:0;transform:translateY(30px);transition:opacity .5s ease,transform .5s ease,color .2s}
-#nav-overlay.open .ov-links a{opacity:1;transform:translateY(0)}
-#nav-overlay.open .ov-links li:nth-child(1) a{transition-delay:.08s,.08s,.0s}
-#nav-overlay.open .ov-links li:nth-child(2) a{transition-delay:.16s,.16s,.0s}
-#nav-overlay.open .ov-links li:nth-child(3) a{transition-delay:.24s,.24s,.0s}
-#nav-overlay.open .ov-links li:nth-child(4) a{transition-delay:.32s,.32s,.0s}
-.ov-links a:hover{color:var(--amber)}
-.ov-bottom{margin-top:3rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);opacity:0;transition:opacity .5s .4s}
-#nav-overlay.open .ov-bottom{opacity:1}
-.ov-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--cream);font-size:1.5rem;line-height:1;opacity:.6;transition:opacity .2s}
-.ov-close:hover{opacity:1}
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
-/* ── Hero ─────────────────────────────────────────────── */
-#hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-#hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.88),rgba(10,10,10,.93));z-index:1}
-.hero-content{position:relative;z-index:2;padding:0 1.5rem;max-width:1180px;margin:0 auto;text-align:center}
-#hero h1{text-align:center;margin-inline:auto}
-.hero-eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--amber);margin-bottom:1.75rem;opacity:0;transform:translateY(20px)}
-.hero-line{display:block;font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.2vw,4.8rem);font-weight:400;line-height:1.14;letter-spacing:-0.01em;opacity:0;transform:translateY(40px);text-wrap:balance}
-.hero-line + .hero-line{margin-top:.1em}
-.hero-line.gold em,.gold-word{background:linear-gradient(135deg,var(--amber),var(--amber2),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:grad-flow 4s linear infinite paused;font-style:normal}
-@keyframes grad-flow{to{background-position:200% center}}
-.hero-sub{font-size:clamp(.9rem,1.4vw,1.05rem);font-weight:300;color:var(--muted);max-width:580px;margin:2rem auto 0;line-height:1.75;opacity:0;transform:translateY(20px)}
-.hero-ctas{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;opacity:0;transform:translateY(20px)}
-.btn-outline-gold{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.25rem;border:1px solid var(--amber);color:var(--amber);background:transparent;text-decoration:none;transition:background .3s,color .3s;display:inline-block}
-.btn-outline-gold:hover{background:var(--amber);color:#0a0a0a}
-.btn-solid-gold{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.25rem;border:1px solid var(--amber);color:#0a0a0a;background:var(--amber);text-decoration:none;transition:background .3s;display:inline-block}
-.btn-solid-gold:hover{background:var(--amber2)}
-/* Hero side text */
-.hero-side{position:absolute;top:50%;writing-mode:vertical-rl;font-size:.56rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(240,235,224,.08);transform:translateY(-50%);z-index:2}
-.hero-side-l{left:2rem;transform:translateY(-50%) rotate(180deg)}
-.hero-side-r{right:2rem}
-/* Scroll indicator */
-.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem}
-.scroll-ind span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(240,235,224,.25)}
-.chevron{width:18px;height:18px;border-right:1.5px solid rgba(200,164,85,.4);border-bottom:1.5px solid rgba(200,164,85,.4);transform:rotate(45deg);animation:chevron-bounce 1.8s ease-in-out infinite}
-@keyframes chevron-bounce{0%,100%{transform:rotate(45deg) translateY(0);opacity:.4}50%{transform:rotate(45deg) translateY(4px);opacity:.9}}
+/* ================= HERO ================= */
+#hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
+  background:radial-gradient(ellipse 90% 60% at 50% 110%,rgba(201,161,85,.13) 0%,transparent 55%),
+             radial-gradient(ellipse 70% 50% at 50% -10%,rgba(201,161,85,.05) 0%,transparent 60%),var(--ink)}
+#embers{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-in{position:relative;z-index:3;max-width:76rem;padding:0 var(--pad);width:100%}
+.hero-eyebrow{font-size:.66rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold);margin-bottom:2.2rem}
+#hero h1{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(2.9rem,7.4vw,7rem);line-height:1.08;letter-spacing:-.015em;color:var(--cream)}
+.h-line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.h-line-in{display:inline-block;will-change:transform}
+#hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:clamp(.92rem,1.35vw,1.08rem);font-weight:300;color:var(--cream-dim);line-height:1.85;max-width:62ch;margin:2.4rem auto 0}
+.hero-ctas{display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
+.hero-side{position:absolute;top:50%;writing-mode:vertical-rl;font-size:.58rem;letter-spacing:.42em;text-transform:uppercase;color:var(--cream-faint);z-index:2}
+.side-l{left:1.8rem;transform:translateY(-50%) rotate(180deg)}
+.side-r{right:1.8rem;transform:translateY(-50%)}
+@media(max-width:900px){.hero-side{display:none}}
+.scroll-cue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.scroll-cue span{font-size:.56rem;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-faint)}
+.scroll-cue i{display:block;width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* ── Marquee ─────────────────────────────────────────── */
-.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;white-space:nowrap}
-.marquee-inner{display:inline-flex;gap:0;animation:marquee-run 30s linear infinite}
-.marquee-inner span{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,164,85,.3);padding:0 2rem}
-.marquee-inner span.dot{padding:0;opacity:.4}
-@keyframes marquee-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ================= BUTTONS ================= */
+.btn{display:inline-flex;align-items:center;gap:.85rem;padding:.55rem .6rem .55rem 1.6rem;border-radius:999px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:background .4s,border-color .4s,color .4s;will-change:transform}
+.btn .chip{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .5s var(--ease),background .4s}
+.btn:hover .chip{transform:translate(2px,-2px) scale(1.06)}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold .chip{background:rgba(11,10,8,.16)}
+.btn-gold:hover{background:var(--gold2)}
+.btn-line{border:1px solid var(--gold-soft);color:var(--cream)}
+.btn-line .chip{background:var(--gold-dim)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold2)}
+.btn-wa{background:#1f9e54;color:#06130b}
+.btn-wa .chip{background:rgba(6,19,11,.15)}
+.btn-wa:hover{background:#27b863}
 
-/* ── Section labels ───────────────────────────────────── */
-.sec-eyebrow{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.85rem;margin-bottom:1rem}
-.sec-eyebrow::before{content:'';width:1.75rem;height:1px;background:var(--amber);flex-shrink:0}
-.sec-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:400;line-height:1.1}
-.sec-h2 em{font-style:italic;color:var(--amber)}
+/* ================= MARQUEE ================= */
+.mq-wrap{padding:clamp(3rem,7vh,5rem) 0;border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);overflow:hidden;transform:rotate(-1.6deg) scale(1.02);background:var(--ink2)}
+.mq{display:flex;width:max-content;animation:mq 46s linear infinite}
+.mq span{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1;white-space:nowrap;padding:0 1.6rem;
+  color:transparent;-webkit-text-stroke:1px var(--gold-soft)}
+.mq span.fill{color:var(--gold);-webkit-text-stroke:0}
+.mq b{align-self:center;color:var(--gold);font-size:1rem;font-weight:400}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq{animation:none}}
 
-/* ── Services cards ───────────────────────────────────── */
-.svc-card{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:none}
-.svc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94);will-change:transform}
-.svc-card:hover img{transform:scale(1.06)}
-.svc-overlay{position:absolute;inset:0;background:rgba(8,8,7,.82);transition:background .5s;z-index:1}
-.svc-card:hover .svc-overlay{background:rgba(8,8,7,.6)}
-.svc-card-content{position:absolute;inset:0;z-index:2;padding:1.75rem;display:flex;flex-direction:column;justify-content:flex-end}
-.svc-wm{position:absolute;top:.4rem;left:.5rem;font-family:'Playfair Display',serif;font-size:clamp(4rem,8vw,7rem);font-weight:400;color:transparent;-webkit-text-stroke:1px rgba(200,164,85,.25);line-height:1;z-index:2;user-select:none;pointer-events:none}
-.svc-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:.5rem}
-.svc-desc{font-size:.82rem;font-weight:300;color:rgba(240,235,224,.6);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s;opacity:0}
-.svc-card:hover .svc-desc{max-height:4rem;opacity:1}
+/* ================= SECTIONS ================= */
+.chapter{padding:var(--chapter) var(--pad)}
+.wrap{max-width:80rem;margin:0 auto}
 
-/* ── Portfolio items ──────────────────────────────────── */
-.proj-item{position:relative;overflow:hidden;display:block;text-decoration:none;cursor:none}
-.proj-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.25,.46,.45,.94);will-change:transform}
-.proj-item:hover img{transform:scale(1.05)}
-.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.92) 0%,rgba(8,8,7,.2) 55%,transparent 100%);z-index:1;transition:opacity .4s}
-.proj-item:hover .proj-overlay{opacity:.95}
-.proj-info{position:absolute;bottom:0;left:0;right:0;padding:1.75rem 2rem;z-index:2}
-.proj-cat{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem}
-.proj-name{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,2rem);font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:.3rem}
-.proj-desc-text{font-size:.78rem;color:rgba(240,235,224,.4);font-weight:300;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
-.proj-item:hover .proj-desc-text{opacity:1;transform:none}
-.proj-wm{position:absolute;bottom:-.1em;left:-.03em;font-family:'Playfair Display',serif;font-size:clamp(100px,18vw,260px);font-weight:400;color:transparent;-webkit-text-stroke:1px rgba(200,164,85,.1);pointer-events:none;z-index:1;user-select:none;line-height:.9}
-.proj-item:hover .proj-wm{-webkit-text-stroke-color:rgba(200,164,85,.2)}
-/* Explore button — shown on hover in both card types */
-.proj-explore{display:inline-flex;align-items:center;gap:.55rem;padding:.52rem 1.3rem;border:1px solid rgba(200,164,85,.45);border-radius:2px;color:var(--amber);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;opacity:0;transform:translateY(5px);transition:opacity .35s,transform .35s,background .3s,border-color .3s;margin-top:.7rem;width:fit-content;pointer-events:auto}
-.proj-item:hover .proj-explore,.proj-live:hover .proj-explore{opacity:1;transform:none}
-.proj-explore:hover{background:rgba(200,164,85,.1);border-color:var(--amber)}
-.proj-explore svg{transition:transform .3s}
-.proj-explore:hover svg{transform:translateX(3px)}
-/* ── Live preview cards ────────────────────────────────── */
-.proj-live{position:relative;margin-bottom:1.5rem}
-.proj-browser{background:#161616;border:1px solid rgba(255,255,255,.07);border-bottom:none;border-radius:8px 8px 0 0;padding:9px 16px;display:flex;align-items:center;gap:12px}
-.proj-browser-dots{display:flex;gap:5px;flex-shrink:0}
-.proj-browser-dots span{width:9px;height:9px;border-radius:50%}
-.proj-browser-dots span:nth-child(1){background:#ff5f57}.proj-browser-dots span:nth-child(2){background:#febc2e}.proj-browser-dots span:nth-child(3){background:#28c840}
-.proj-browser-addr-wrap{flex:1;max-width:340px;background:rgba(255,255,255,.05);border-radius:3px;padding:3px 10px;display:flex;align-items:center;gap:6px;margin:0 auto;overflow:hidden}
-.proj-browser-addr{font-size:.58rem;letter-spacing:.04em;color:rgba(255,255,255,.32);font-family:'Courier New',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.proj-live-vp{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,255,255,.06);border-top:none;border-radius:0 0 8px 8px}
-.proj-iframe-scaler{position:absolute;top:0;left:0;transform-origin:top left;pointer-events:none;width:1440px}
-.proj-iframe-scaler iframe{width:1440px;height:900px;border:none;display:block}
-.proj-live-vp .proj-overlay{opacity:0;z-index:2}
-.proj-live:hover .proj-live-vp .proj-overlay{opacity:1}
-.proj-live .proj-info{z-index:3}
-.proj-live .proj-wm{z-index:2}
-.proj-live .proj-desc-text{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
-.proj-live:hover .proj-desc-text{opacity:1;transform:none}
+/* ================= MENU (services) ================= */
+#menu{background:var(--ink)}
+.menu-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:clamp(3rem,7vh,5rem)}
+.menu-list{border-top:1px solid var(--gold-dim)}
+.m-row{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:clamp(1rem,3vw,2.5rem);
+  padding:clamp(1.6rem,3.4vw,2.6rem) .25rem;border-bottom:1px solid var(--gold-dim);transition:padding .45s var(--ease)}
+.m-row:hover{padding-left:1.2rem}
+.m-num{font-size:.66rem;letter-spacing:.3em;color:var(--gold);font-variant-numeric:tabular-nums}
+.m-name{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(1.7rem,4vw,3.4rem);line-height:1.12;color:var(--cream);transition:color .35s}
+.m-row:hover .m-name{color:var(--gold2)}
+.m-name .m-tag{display:block;font-family:'General Sans',sans-serif;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-faint);margin-top:.55rem;font-style:normal}
+.m-desc{font-size:.85rem;font-weight:300;color:var(--cream-dim);line-height:1.8;max-width:34ch;text-align:right;justify-self:end}
+@media(max-width:760px){.m-row{grid-template-columns:auto 1fr}.m-desc{grid-column:2;text-align:left;justify-self:start;max-width:60ch;margin-top:.4rem}}
+#m-preview{position:fixed;top:0;left:0;width:min(330px,30vw);aspect-ratio:3/2;z-index:60;pointer-events:none;overflow:hidden;border-radius:4px;
+  opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .35s var(--ease)}
+#m-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+#m-preview img.show{opacity:1}
+@media(pointer:coarse){#m-preview{display:none}}
 
-/* ── About sticky ─────────────────────────────────────── */
-.about-photo-wrap{position:sticky;top:120px}
-.about-photo-frame{position:relative}
-.about-photo-frame::before{content:'';position:absolute;top:-1rem;left:-1rem;width:4rem;height:4rem;border-top:1px solid rgba(200,164,85,.4);border-left:1px solid rgba(200,164,85,.4);z-index:2}
-.about-photo-frame::after{content:'';position:absolute;bottom:-1rem;right:-1rem;width:4rem;height:4rem;border-bottom:1px solid rgba(200,164,85,.4);border-right:1px solid rgba(200,164,85,.4);z-index:2}
-.about-photo-frame img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
-.ir-wrap{position:relative;overflow:hidden}
-.ir-cover{position:absolute;inset:0;background:var(--amber);transform-origin:left center;z-index:3}
+/* ================= WORK ================= */
+#work{background:var(--ink2)}
+.dish{margin-bottom:clamp(2.5rem,6vh,4.5rem);will-change:transform}
+.dish-w70{width:70%}.dish-w66{width:66%;margin-left:auto}.dish-w64{width:64%}.dish-w64r{width:64%;margin-left:auto}
+@media(max-width:900px){.dish-w70,.dish-w66,.dish-w64,.dish-w64r{width:100%;margin-left:0}}
+.frame{border:1px solid rgba(201,161,85,.2);border-radius:8px;overflow:hidden;background:var(--ink3);box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.frame-bar{display:flex;align-items:center;gap:.9rem;padding:.65rem 1rem;border-bottom:1px solid var(--gold-dim);background:rgba(11,10,8,.6)}
+.frame-dots{display:flex;gap:.4rem}
+.frame-dots span{width:8px;height:8px;border-radius:50%;background:rgba(242,236,221,.14)}
+.frame-dots span:first-child{background:rgba(201,161,85,.5)}
+.frame-addr{display:flex;align-items:center;gap:.5rem;font-size:.66rem;letter-spacing:.06em;color:var(--cream-faint);background:rgba(242,236,221,.05);border-radius:999px;padding:.28rem 1rem}
+.frame-vp{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--ink3)}
+.frame-vp iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none;background:var(--ink3)}
+.dish-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,10,8,.92) 0%,rgba(11,10,8,.25) 45%,transparent 70%);display:flex;align-items:flex-end;padding:clamp(1.2rem,3vw,2.2rem)}
+.dish-info{transform:translateY(8px);transition:transform .5s var(--ease)}
+.frame:hover .dish-info{transform:translateY(0)}
+.dish-cat{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.dish-name{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(1.5rem,2.6vw,2.3rem);line-height:1.1;color:var(--cream)}
+.dish-desc{font-size:.8rem;font-weight:300;color:var(--cream-dim);max-width:46ch;margin-top:.55rem;line-height:1.7;opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s}
+.frame:hover .dish-desc{opacity:1;transform:translateY(0)}
+.dish-go{display:inline-flex;align-items:center;gap:.55rem;margin-top:.9rem;padding:.5rem 1.2rem;border:1px solid var(--gold-soft);border-radius:999px;
+  font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s,background .3s,color .3s}
+.dish-go:hover{background:var(--gold);color:var(--ink)}
+.frame:hover .dish-go{opacity:1;transform:translateY(0)}
+.dish-n{position:absolute;top:.9rem;right:1.2rem;font-family:'Boska',Georgia,serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(201,161,85,.3)}
+.work-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem)}
+@media(max-width:900px){.work-pair{grid-template-columns:1fr}}
+@media(pointer:coarse){.dish-desc,.dish-go{opacity:1;transform:none}.dish-info{transform:none}}
+@media(max-width:700px){.dish-overlay{background:linear-gradient(to top,rgba(11,10,8,.97) 0%,rgba(11,10,8,.55) 42%,rgba(11,10,8,.12) 72%,transparent 88%)}}
 
-/* ── Process timeline ─────────────────────────────────── */
-.proc-wrap{position:relative;padding:2rem 0}
-.proc-line-bg{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(200,164,85,.12);transform:translateX(-50%)}
-.proc-line-fill{position:absolute;left:50%;top:0;width:1px;height:0%;background:linear-gradient(to bottom,var(--amber),var(--amber2));transform:translateX(-50%);box-shadow:0 0 8px rgba(200,164,85,.3)}
-.proc-step{display:grid;grid-template-columns:1fr 60px 1fr;min-height:160px;padding:3rem 0;position:relative}
-.proc-step-content{padding:0 2rem}
-.proc-step.left-step .proc-step-content{grid-column:1;text-align:right;padding-right:2.5rem}
-.proc-step.left-step .proc-dot-col{grid-column:2}
-.proc-step.left-step .proc-step-empty{grid-column:3}
-.proc-step.right-step .proc-step-empty{grid-column:1}
-.proc-step.right-step .proc-dot-col{grid-column:2}
-.proc-step.right-step .proc-step-content{grid-column:3;text-align:left;padding-left:2.5rem}
-.proc-dot-col{display:flex;align-items:flex-start;justify-content:center;padding-top:.25rem}
-.proc-dot{width:14px;height:14px;border-radius:50%;border:2px solid rgba(200,164,85,.3);background:var(--bg);transition:border-color .5s,background .5s,box-shadow .5s;flex-shrink:0}
-.proc-dot.lit{border-color:var(--amber);background:var(--amber);box-shadow:0 0 12px rgba(200,164,85,.5)}
-.proc-num{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(3rem,6vw,5rem);font-weight:400;color:rgba(200,164,85,.15);line-height:1;margin-bottom:.35rem}
-.proc-title{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:400;color:var(--cream);margin-bottom:.65rem;line-height:1.2}
-.proc-desc{font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.85;max-width:400px}
-.proc-step.right-step .proc-desc{margin-left:0}
-/* Mobile: single column */
-@media(max-width:768px){
-  .proc-line-bg,.proc-line-fill{left:20px}
-  .proc-step{grid-template-columns:40px 1fr;min-height:auto;padding:2rem 0}
-  .proc-step.left-step .proc-step-content,
-  .proc-step.right-step .proc-step-content{grid-column:2;text-align:left;padding-left:1.5rem;padding-right:0}
-  .proc-step.left-step .proc-dot-col,
-  .proc-step.right-step .proc-dot-col{grid-column:1;padding-top:.4rem}
-  .proc-step.left-step .proc-step-empty,
-  .proc-step.right-step .proc-step-empty{display:none}
-  .proc-desc{max-width:none}
-}
+/* ================= STATEMENT ================= */
+.stmt-sec{min-height:72vh;display:flex;align-items:center;justify-content:center;padding:var(--chapter) var(--pad);background:var(--ink)}
+.stmt{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(1.9rem,4.6vw,4rem);line-height:1.3;text-align:center;max-width:62rem;color:var(--cream);text-wrap:balance}
+.stmt .w{opacity:.12;display:inline-block;transition:opacity .2s linear}
+.stmt em{font-style:italic;color:var(--gold)}
 
-/* ── Testimonials carousel ────────────────────────────── */
-.testi-viewport{overflow:hidden;position:relative}
-.testi-track{display:flex;transition:transform .65s cubic-bezier(.4,0,.2,1);will-change:transform}
-.tcard{flex:0 0 100%;padding:3rem 1.5rem;min-width:0}
-.tcard-qs{font-family:'Playfair Display',serif;font-size:6rem;color:var(--amber);opacity:.15;line-height:.35;margin-bottom:1.75rem;display:block;transform:perspective(400px) rotateY(-8deg)}
-.tcard-text{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.4rem);font-weight:400;color:var(--cream);line-height:1.75;max-width:800px;margin-bottom:2rem}
-.tcard-name{font-size:.82rem;font-weight:600;color:var(--amber)}
-.tcard-role{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
-.testi-dot{width:7px;height:7px;border-radius:50%;background:rgba(200,164,85,.25);transition:background .3s,transform .3s;border:none}
-.testi-dot.active{background:var(--amber);transform:scale(1.4)}
-.testi-arr{width:46px;height:46px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;background:transparent;color:var(--muted);transition:border-color .3s,color .3s,background .3s}
-.testi-arr:hover{border-color:var(--amber);color:var(--amber);background:rgba(200,164,85,.06)}
+/* ================= CHEF ================= */
+#chef{background:var(--ink2)}
+.chef-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2.5rem,6vw,6rem);align-items:start}
+@media(max-width:900px){.chef-grid{grid-template-columns:1fr}}
+.chef-photo{position:sticky;top:6.5rem}
+@media(max-width:900px){.chef-photo{position:static;max-width:420px}}
+.chef-photo .ph{position:relative;overflow:hidden;border-radius:6px}
+.chef-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;filter:saturate(.92) contrast(1.04)}
+.chef-photo .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,10,8,.45),transparent 45%)}
+.chef-cap{display:flex;justify-content:space-between;margin-top:.9rem;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-faint)}
+.chef-quote{font-family:'Boska',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.55;color:var(--cream);margin:2.2rem 0 3.5rem;max-width:34ch}
+.chef-quote em{color:var(--gold);font-style:italic}
+.life{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.2rem,2.5vw,2.2rem);padding:2.2rem 0;border-top:1px solid var(--gold-dim)}
+.life-n{font-family:'Boska',Georgia,serif;font-weight:300;font-size:1.1rem;color:var(--gold);padding-top:.35rem}
+.life h3{font-family:'Boska',Georgia,serif;font-weight:400;font-size:clamp(1.4rem,2.2vw,1.9rem);margin-bottom:.8rem}
+.life p{font-size:.88rem;font-weight:300;color:var(--cream-dim);line-height:1.95;max-width:58ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.2rem;padding-top:2.6rem;border-top:1px solid var(--gold-dim)}
+.stat b{display:block;font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:.7rem;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-faint);line-height:1.7}
 
-/* ── Contact form ─────────────────────────────────────── */
-.form-field{margin-bottom:1.1rem;opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease}
-.form-field.visible{opacity:1;transform:none}
-.form-label{display:block;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
-.form-input,.form-select,.form-textarea{width:100%;background:rgba(240,235,224,.03);border:1px solid rgba(240,235,224,.08);color:var(--cream);font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:300;padding:.85rem 1rem;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none}
-.form-input::placeholder,.form-textarea::placeholder{color:rgba(240,235,224,.2)}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--amber)}
-.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath stroke='%23c8a455' stroke-width='1.5' d='M1 1l5 5 5-5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-.form-select option{background:#111}
-.form-textarea{resize:none;height:90px}
-.btn-submit{width:100%;background:var(--amber);color:#0a0a0a;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1.1rem;border:none;position:relative;overflow:hidden;transition:background .3s}
-.btn-submit:hover{background:var(--amber2)}
-/* WhatsApp pulse */
-.btn-wa{display:inline-flex;align-items:center;gap:.85rem;background:#25D366;color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1.1rem 2rem;text-decoration:none;position:relative;transition:transform .3s,box-shadow .3s}
-.btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.3)}
-.btn-wa::before{content:'';position:absolute;inset:-5px;border:1.5px solid rgba(37,211,102,.4);animation:wa-ring 2.5s ease-out infinite}
-.btn-wa:hover::before{animation:none;opacity:0}
-@keyframes wa-ring{0%{opacity:1;inset:-5px}80%,100%{opacity:0;inset:-18px}}
+/* ================= PROCESS ================= */
+#process{background:var(--ink)}
+.courses{margin-top:clamp(3rem,6vh,4.5rem);display:flex;flex-direction:column;gap:2.2rem}
+.course{position:sticky;background:var(--ink2);border:1px solid rgba(201,161,85,.2);border-radius:10px;
+  padding:clamp(2rem,4.5vw,3.8rem);display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start;will-change:transform;box-shadow:0 -20px 60px -30px rgba(0,0,0,.8)}
+.course:nth-child(1){top:calc(13vh + 0rem)}
+.course:nth-child(2){top:calc(13vh + 2.6rem)}
+.course:nth-child(3){top:calc(13vh + 5.2rem)}
+.course:nth-child(4){top:calc(13vh + 7.8rem)}
+.course-n{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(3rem,7vw,5.5rem);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold-soft)}
+.course-tag{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.course h3{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(1.8rem,3.4vw,2.8rem);margin-bottom:1rem}
+.course p{font-size:.9rem;font-weight:300;color:var(--cream-dim);line-height:1.95;max-width:62ch}
+@media(max-width:700px){.course{grid-template-columns:1fr;position:relative;top:0!important}}
 
-/* ── Stats numbers ────────────────────────────────────── */
-.stat-num{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,4.5rem);font-weight:400;color:var(--amber);line-height:1}
-.stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
+/* ================= GUESTBOOK ================= */
+#guestbook{background:var(--ink2)}
+.gb{position:relative;min-height:clamp(20rem,38vh,26rem);margin-top:clamp(2.5rem,5vh,4rem)}
+.gb-item{position:absolute;inset:0;opacity:0;visibility:hidden}
+.gb-item.on{opacity:1;visibility:visible}
+.gb-q{font-family:'Boska',Georgia,serif;font-weight:300;font-style:italic;font-size:clamp(1.4rem,2.9vw,2.5rem);line-height:1.5;max-width:56rem;color:var(--cream)}
+.gb-q::before{content:'\201C';color:var(--gold);margin-right:.2em}
+.gb-who{margin-top:2.2rem}
+.gb-name{font-size:.85rem;font-weight:500;letter-spacing:.06em;color:var(--gold2)}
+.gb-role{font-size:.7rem;letter-spacing:.14em;color:var(--cream-faint);margin-top:.3rem;text-transform:uppercase}
+.gb-nav{display:flex;align-items:center;gap:1.2rem;margin-top:2.5rem}
+.gb-arr{width:44px;height:44px;border:1px solid var(--gold-soft);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);transition:background .3s,color .3s}
+.gb-arr:hover{background:var(--gold);color:var(--ink)}
+.gb-count{font-size:.62rem;letter-spacing:.3em;color:var(--cream-faint);font-variant-numeric:tabular-nums;margin-left:auto}
 
-/* ── Scroll reveal ────────────────────────────────────── */
-.rv{opacity:0;transform:translateY(44px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
-.rv.on{opacity:1;transform:none}
-.rv-l{opacity:0;transform:translateX(-44px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
-.rv-l.on{opacity:1;transform:none}
-.rv-r{opacity:0;transform:translateX(44px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
-.rv-r.on{opacity:1;transform:none}
-.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
-.rv-l.d1{transition-delay:.1s}.rv-l.d2{transition-delay:.2s}
-.rv-r.d1{transition-delay:.1s}.rv-r.d2{transition-delay:.2s}
+/* ================= CONTACT ================= */
+#contact{background:var(--ink)}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,7rem)}
+@media(max-width:900px){.ct-grid{grid-template-columns:1fr}}
+.ct-rows{display:flex;flex-direction:column;gap:1.3rem;margin:2.6rem 0}
+.ct-row{display:flex;align-items:baseline;gap:1rem}
+.ct-row i{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;transform:translateY(-3px)}
+.ct-row b{display:block;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;margin-bottom:.25rem}
+.ct-row span{font-size:.92rem;font-weight:300;color:var(--cream-dim)}
+.ct-row a:hover{color:var(--gold2)}
+.field{margin-bottom:2rem}
+.field label{display:block;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:.7rem}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(201,161,85,.25);
+  color:var(--cream);font-family:inherit;font-size:.95rem;font-weight:300;padding:.65rem .1rem;outline:none;border-radius:0;transition:border-color .35s}
+.field input::placeholder,.field textarea::placeholder{color:rgba(242,236,221,.22)}
+.field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--gold)}
+.field textarea{min-height:110px;resize:vertical}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23c9a155' stroke-width='1.2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .2rem center}
+.field select option{background:var(--ink2);color:var(--cream)}
+.form-note{font-size:.7rem;color:var(--cream-faint);letter-spacing:.1em;margin-top:1.2rem}
+.form-ok{border:1px solid var(--gold-soft);border-radius:8px;padding:2.5rem;text-align:center;font-family:'Boska',Georgia,serif;font-size:1.3rem;font-style:italic;color:var(--gold2);line-height:1.6}
 
-/* ── Magnetic wrapper ─────────────────────────────────── */
-.mag{display:inline-block;will-change:transform}
+/* ================= FOOTER ================= */
+footer{background:var(--ink2);border-top:1px solid var(--gold-dim);padding:clamp(4rem,9vh,7rem) var(--pad) 2.2rem;overflow:hidden}
+.f-giant{font-family:'Boska',Georgia,serif;font-weight:300;font-size:clamp(3.2rem,11.5vw,11rem);line-height:.95;letter-spacing:.02em;text-align:center;white-space:nowrap;
+  color:rgba(242,236,221,var(--fill,0));-webkit-text-stroke:1px rgba(201,161,85,.4);user-select:none}
+.f-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.6rem;margin-top:clamp(3rem,7vh,5rem);padding-top:2rem;border-top:1px solid var(--gold-dim)}
+.f-brand{display:flex;align-items:center;gap:.7rem;font-family:'Boska',Georgia,serif;font-size:.9rem;letter-spacing:.26em;text-transform:uppercase}
+.f-meta{font-size:.62rem;letter-spacing:.24em;color:var(--cream-faint);text-transform:uppercase}
+.f-soc{display:flex;gap:.7rem}
+.f-soc a{width:38px;height:38px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream-faint);transition:border-color .3s,color .3s}
+.f-soc a:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ── Reduced motion ───────────────────────────────────── */
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .rv,.rv-l,.rv-r{opacity:1;transform:none}
+  .rv{opacity:1;transform:none;transition:none}
+  .scroll-cue i{animation:none}
+  #grain{animation:none}
+  .stmt .w{opacity:1}
 }
 </style>
 </head>
-
 <body class="locked">
 
-<!-- ── Noise ── -->
-<div id="noise" aria-hidden="true"></div>
-<!-- ── Progress ── -->
-<div id="prog" aria-hidden="true"></div>
-<!-- ── Cursor ── -->
-<div id="cursor-dot" aria-hidden="true"></div>
-<div id="cursor-ring" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"><div></div></div>
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"><span data-i18n="cur.view">View</span></div>
 
 <!-- ════ PRELOADER ════ -->
-<div id="preloader">
-
-  <!-- Ambient glow -->
-  <div class="pl-glow" id="pl-glow"></div>
-
-  <!-- Pulsing rings (pure CSS, visible from frame 1) -->
-  <div class="pl-pulse p1"></div>
-  <div class="pl-pulse p2"></div>
-  <div class="pl-pulse p3"></div>
-
-  <!-- Outer dashed ring -->
-  <div class="pl-ring-outer" id="pl-ring-outer"></div>
-
-  <!-- SVG progress ring -->
-  <div class="pl-ring">
-    <svg viewBox="0 0 200 200" aria-hidden="true">
-      <defs>
-        <linearGradient id="pl-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#c8a455"/>
-          <stop offset="50%" stop-color="#e0bc78"/>
-          <stop offset="100%" stop-color="#c8a455"/>
-        </linearGradient>
-      </defs>
-      <circle class="pl-ring-track" cx="100" cy="100" r="96"/>
-      <circle class="pl-ring-fill" id="pl-ring-fill" cx="100" cy="100" r="96"/>
-    </svg>
+<div id="loader" aria-hidden="true">
+  <div class="ld-panel ld-top"></div>
+  <div class="ld-panel ld-bot"></div>
+  <div class="ld-core">
+    <img class="ld-logo" id="ld-logo" src="images/monogram%20preloader.png" alt="">
+    <div class="ld-word" id="ld-word">mise en place</div>
   </div>
-
-  <!-- Monogram — absolutely centered at exact viewport midpoint -->
-  <div class="pl-logo" id="pl-logo">
-    <img src="images/monogram%20preloader.png" alt="Studio Toorn">
-  </div>
-
-  <!-- Name + tagline — centered below the logo -->
-  <div class="pl-stage">
-    <div class="pl-name" id="pl-name"></div>
-    <p class="pl-tagline" id="pl-tag">Premium Digital Agency</p>
-  </div>
-
-  <!-- Corner meta -->
-  <div class="pl-meta pl-tl"><span class="pl-dot"></span>Loading</div>
-  <div class="pl-meta pl-tr" id="pl-pct"><span id="pl-pct-num">00</span><span class="pl-tr-pct">%</span></div>
-  <div class="pl-meta pl-bl">36.517°N · 4.885°W</div>
-  <div class="pl-meta pl-br">EST · MMXXIV</div>
-
-  <!-- Progress rail -->
-  <div class="pl-rail" id="pl-rail-wrap"><div class="pl-rail-fill" id="pl-bar"></div></div>
-
-  <!-- Curtain exit panels — start OFF-SCREEN -->
-  <div class="pl-curtain pl-curtain-top" id="pl-curtain-top"></div>
-  <div class="pl-curtain pl-curtain-bot" id="pl-curtain-bot"></div>
+  <div class="ld-count" id="ld-count">00<i>%</i></div>
+  <div class="ld-bar"><div id="ld-bar"></div></div>
 </div>
 
 <!-- ════ NAV ════ -->
-<nav id="nav">
-  <a href="#" class="nav-logo" id="logo-link"><span class="nav-monogram" aria-hidden="true"></span>Studio Toorn</a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#services" data-scramble>Services</a></li>
-    <li><a href="#work" data-scramble>Work</a></li>
-    <li><a href="#about" data-scramble>About</a></li>
-    <li><a href="#contact" data-scramble>Contact</a></li>
+<header id="nav">
+  <a href="#hero" class="nav-brand st-anchor"><span class="nav-mono" aria-hidden="true"></span>Studio Toorn</a>
+  <ul class="nav-links">
+    <li><a href="#menu" class="st-anchor" data-i18n="nav.menu">The Menu</a></li>
+    <li><a href="#work" class="st-anchor" data-i18n="nav.work">The Dishes</a></li>
+    <li><a href="#chef" class="st-anchor" data-i18n="nav.chef">The Chef</a></li>
+    <li><a href="#contact" class="st-anchor" data-i18n="nav.contact">Reservations</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:1rem">
-    <a href="#contact" class="btn-nav">Start a Project</a>
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="nav-right">
+    <span class="nav-clock"><span data-i18n="clock.city">Málaga</span> <span class="js-clock">--:--</span></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="nl">NL</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-</nav>
+</header>
 
-<!-- ════ NAV OVERLAY ════ -->
-<div id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <button class="ov-close" id="ov-close" aria-label="Close menu">✕</button>
-  <ul class="ov-links">
-    <li><a href="#services" class="ov-link">Services</a></li>
-    <li><a href="#work" class="ov-link">Work</a></li>
-    <li><a href="#about" class="ov-link">About</a></li>
-    <li><a href="#contact" class="ov-link">Contact</a></li>
-  </ul>
-  <div class="ov-bottom">info@studiotoorn.com · +31 6 14 41 21 02</div>
+<!-- ════ OVERLAY MENU ════ -->
+<div id="ovl" role="dialog" aria-modal="true" aria-label="Navigation">
+  <nav>
+    <a class="ovl-link st-anchor" href="#menu"><em>01</em> <span data-i18n="nav.menu">The Menu</span></a>
+    <a class="ovl-link st-anchor" href="#work"><em>02</em> <span data-i18n="nav.work">The Dishes</span></a>
+    <a class="ovl-link st-anchor" href="#chef"><em>03</em> <span data-i18n="nav.chef">The Chef</span></a>
+    <a class="ovl-link st-anchor" href="#contact"><em>04</em> <span data-i18n="nav.contact">Reservations</span></a>
+  </nav>
+  <div class="ovl-foot">
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="nl">NL</button>
+    </div>
+    <span class="f-meta"><span data-i18n="clock.city">Málaga</span> <span class="js-clock">--:--</span></span>
+  </div>
 </div>
 
-<!-- ════ HERO ════ -->
+<main>
+
+<!-- ════ HERO · L'AMUSE-BOUCHE ════ -->
 <section id="hero">
-  <video id="hero-video" autoplay muted loop playsinline
-    poster="images/nano-banana-2_Abstract_visualization_of_artificial_intelligence_and_data_flow_glowing_warm_amb-3.jpg">
-    <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <span class="hero-side hero-side-l" aria-hidden="true">STUDIO TOORN</span>
-  <span class="hero-side hero-side-r" aria-hidden="true">EST. 2024</span>
-  <div class="hero-content">
-    <p class="hero-eyebrow" id="h-eyebrow">Premium Digital Agency</p>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <span class="hero-side side-l" aria-hidden="true" data-i18n="hero.sidel">Forged in Amsterdam</span>
+  <span class="hero-side side-r" aria-hidden="true" data-i18n="hero.sider">Served on the Costa del Sol</span>
+  <div class="hero-in">
+    <p class="hero-eyebrow" id="h-eyebrow" data-i18n="hero.eyebrow">Digital atelier · Costa del Sol</p>
     <h1>
-      <span class="hero-line" id="hl-0">We don't build websites.</span>
-      <span class="hero-line" id="hl-1">We build unforgettable</span>
-      <span class="hero-line" id="hl-2">digital <span class="gold-word">experiences.</span></span>
+      <span class="h-line"><span class="h-line-in" data-i18n="hero.l1">A digital studio</span></span>
+      <span class="h-line"><span class="h-line-in" data-i18n="hero.l2">run like a <em>Michelin kitchen.</em></span></span>
     </h1>
-    <p class="hero-sub" id="h-sub">From Michelin-starred kitchens to pixel-perfect screens — we bring obsessive craft and cutting-edge AI to every project we touch.</p>
+    <p class="hero-sub" id="h-sub" data-i18n="hero.sub">Websites, AI automation and brand identity, prepared with the obsession that earned stars in Amsterdam. Now serving from the Costa del Sol.</p>
     <div class="hero-ctas" id="h-ctas">
-      <a href="#work" class="btn-outline-gold mag">View Our Work</a>
-      <a href="#contact" class="btn-solid-gold mag">Start a Project</a>
+      <a href="#menu" class="btn btn-line mag st-anchor"><span data-i18n="hero.cta1">View the menu</span><span class="chip"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 2.5v9M2.5 7l4.5 4.5L11.5 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a href="#contact" class="btn btn-gold mag st-anchor"><span data-i18n="hero.cta2">Reserve a table</span><span class="chip"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
     </div>
   </div>
-  <div class="scroll-ind" id="scroll-ind">
-    <span>Scroll</span>
-    <div class="chevron"></div>
-  </div>
+  <div class="scroll-cue" id="scroll-cue"><span data-i18n="hero.scroll">First course below</span><i></i></div>
 </section>
 
 <!-- ════ MARQUEE ════ -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-inner">
-    <span>Web Design</span><span class="dot">◆</span>
-    <span>AI Automation</span><span class="dot">◆</span>
-    <span>Brand Identity</span><span class="dot">◆</span>
-    <span>Content Strategy</span><span class="dot">◆</span>
-    <span>Property Listings</span><span class="dot">◆</span>
-    <span>Restaurant Experiences</span><span class="dot">◆</span>
-    <span>Premium Digital</span><span class="dot">◆</span>
-    <span>Costa del Sol</span><span class="dot">◆</span>
-    <span>Web Design</span><span class="dot">◆</span>
-    <span>AI Automation</span><span class="dot">◆</span>
-    <span>Brand Identity</span><span class="dot">◆</span>
-    <span>Content Strategy</span><span class="dot">◆</span>
-    <span>Property Listings</span><span class="dot">◆</span>
-    <span>Restaurant Experiences</span><span class="dot">◆</span>
-    <span>Premium Digital</span><span class="dot">◆</span>
-    <span>Costa del Sol</span><span class="dot">◆</span>
+<div class="mq-wrap" aria-hidden="true">
+  <div class="mq" id="mq">
+    <span>Web Design</span><b>◆</b><span class="fill">AI Automation</span><b>◆</b><span>Brand Identity</span><b>◆</b><span class="fill">Content</span><b>◆</b><span>Costa del Sol</span><b>◆</b><span class="fill">Est. Amsterdam</span><b>◆</b>
+    <span>Web Design</span><b>◆</b><span class="fill">AI Automation</span><b>◆</b><span>Brand Identity</span><b>◆</b><span class="fill">Content</span><b>◆</b><span>Costa del Sol</span><b>◆</b><span class="fill">Est. Amsterdam</span><b>◆</b>
   </div>
 </div>
 
-<!-- ════ SERVICES ════ -->
-<section id="services" class="py-24 px-6 bg-[#0d0d0b]">
-  <div class="max-w-7xl mx-auto">
-    <div class="mb-14 rv">
-      <p class="sec-eyebrow">What We Do</p>
-      <h2 class="sec-h2">Services built to <em>perform</em></h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-
-      <div class="svc-card rv d1">
-        <img src="images/nano-banana-2_Dramatic_overhead_shot_of_a_sleek_ultrawide_monitor_displaying_a_beautiful_dark--2.jpg" alt="Web Design — Studio Toorn" loading="lazy">
-        <div class="svc-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-wm" aria-hidden="true">01</span>
-          <h3 class="svc-title">Web Design &amp; Development</h3>
-          <p class="svc-desc">Handcrafted websites that convert visitors into clients. Every pixel considered, every interaction intentional.</p>
-        </div>
+<!-- ════ LE MENU · SERVICES ════ -->
+<section id="menu" class="chapter">
+  <div class="wrap">
+    <div class="menu-head">
+      <div class="rv">
+        <p class="eyebrow" data-i18n="menu.eyebrow">What we serve</p>
+        <h2 class="h2">Le <em>Menu</em></h2>
       </div>
-
-      <div class="svc-card rv d2">
-        <img src="images/nano-banana-2_Abstract_visualization_of_artificial_intelligence_and_data_flow_glowing_warm_amb-3.jpg" alt="AI Automation — Studio Toorn" loading="lazy">
-        <div class="svc-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-wm" aria-hidden="true">02</span>
-          <h3 class="svc-title">AI-Powered Automation</h3>
-          <p class="svc-desc">Intelligent workflows that scale your business while you sleep. From lead capture to client communication.</p>
-        </div>
-      </div>
-
-      <div class="svc-card rv d3">
-        <img src="images/nano-banana-2_Cinematic_flat_lay_of_a_content_creator_workspace_on_a_dark_marble_surface_high--2.jpg" alt="Content Creation — Studio Toorn" loading="lazy">
-        <div class="svc-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-wm" aria-hidden="true">03</span>
-          <h3 class="svc-title">Content Creation &amp; Strategy</h3>
-          <p class="svc-desc">Stories that resonate, strategies that dominate. From editorial photography to long-form SEO content.</p>
-        </div>
-      </div>
-
-      <div class="svc-card rv d4">
-        <img src="images/nano-banana-2_Elegant_minimal_branding_mockup_on_a_dark_textured_surface_premium_business_card-0.jpg" alt="Brand Identity — Studio Toorn" loading="lazy">
-        <div class="svc-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-wm" aria-hidden="true">04</span>
-          <h3 class="svc-title">Brand Identity</h3>
-          <p class="svc-desc">From concept to culture — we shape how the world sees you. Logo, visual language, brand guidelines.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════ PORTFOLIO ════ -->
-<section id="work" class="py-24 px-6 bg-[#0a0a0a]">
-  <div class="max-w-7xl mx-auto">
-    <div class="mb-14 rv">
-      <p class="sec-eyebrow">Selected Work</p>
-      <h2 class="sec-h2">Projects that <em>moved the needle</em></h2>
+      <p class="lead rv d1" style="max-width:30ch;text-align:right" data-i18n="menu.sub">Four disciplines. One standard.</p>
     </div>
 
-    <!-- Project 1 — En Boca, left-wide flagship -->
-    <div class="proj-live rv mb-6" style="width:70%;margin-left:0">
-      <div class="proj-browser">
-        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
-        <div class="proj-browser-addr-wrap">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
-          <span class="proj-browser-addr">enbocagastrobar.netlify.app</span>
-        </div>
+    <div class="menu-list">
+      <div class="m-row rv" data-img="0">
+        <span class="m-num">01</span>
+        <h3 class="m-name"><span data-i18n="menu.i1.name">Web Design &amp; Development</span><span class="m-tag">le plat principal</span></h3>
+        <p class="m-desc" data-i18n="menu.i1.desc">Hand-built sites that turn lookers into bookers. Every pixel plated with intent.</p>
       </div>
-      <div class="proj-live-vp">
-        <div class="proj-iframe-scaler">
-          <iframe src="https://enbocagastrobar.netlify.app/" scrolling="no" loading="lazy" title="En Boca Gastro Bar" tabindex="-1"></iframe>
-        </div>
-        <div class="proj-overlay"></div>
-        <span class="proj-wm" aria-hidden="true">01</span>
-        <div class="proj-info">
-          <p class="proj-cat">Restaurant · Brand Experience</p>
-          <h3 class="proj-name">En Boca</h3>
-          <p class="proj-desc-text">Mediterranean gastro bar in Benalmádena. Full brand identity and immersive landing page.</p>
-          <a href="https://enbocagastrobar.netlify.app/" target="_blank" rel="noopener" class="proj-explore">
-            <span>Explore</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
+      <div class="m-row rv d1" data-img="1">
+        <span class="m-num">02</span>
+        <h3 class="m-name"><span data-i18n="menu.i2.name">AI Automation</span><span class="m-tag">la spécialité</span></h3>
+        <p class="m-desc" data-i18n="menu.i2.desc">Quiet machines on the night shift: lead capture, follow-ups and bookings while you sleep.</p>
       </div>
-    </div>
-
-    <!-- Project 2 — Juridisch AI Adviseur, right-aligned -->
-    <div class="proj-live rv d1 mb-6" style="width:66%;margin-left:auto;margin-right:0">
-      <div class="proj-browser">
-        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
-        <div class="proj-browser-addr-wrap">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
-          <span class="proj-browser-addr">juridischaidviseur.nl</span>
-        </div>
+      <div class="m-row rv d2" data-img="2">
+        <span class="m-num">03</span>
+        <h3 class="m-name"><span data-i18n="menu.i3.name">Content &amp; Strategy</span><span class="m-tag">l'entrée</span></h3>
+        <p class="m-desc" data-i18n="menu.i3.desc">Photography, copy and strategy with real flavour. Stories that resonate, plans that perform.</p>
       </div>
-      <div class="proj-live-vp">
-        <div class="proj-iframe-scaler">
-          <iframe src="https://www.juridischaidviseur.nl/" scrolling="no" loading="lazy" title="Juridisch AI Adviseur" tabindex="-1"></iframe>
-        </div>
-        <div class="proj-overlay"></div>
-        <span class="proj-wm" aria-hidden="true">02</span>
-        <div class="proj-info">
-          <p class="proj-cat">Legal Tech · AI Platform</p>
-          <h3 class="proj-name">Juridisch AI Adviseur</h3>
-          <p class="proj-desc-text">AI-powered legal advice platform. GPT-4 integration with custom trained Dutch legal data.</p>
-          <a href="https://www.juridischaidviseur.nl/" target="_blank" rel="noopener" class="proj-explore">
-            <span>Explore</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects 3+4 — SilkFlorae + Cosmic Ceramics, side by side -->
-    <div class="grid grid-cols-2 gap-5 rv d2 mb-6">
-      <div class="proj-live">
-        <div class="proj-browser">
-          <div class="proj-browser-dots"><span></span><span></span><span></span></div>
-          <div class="proj-browser-addr-wrap">
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
-            <span class="proj-browser-addr">silkflorae.com</span>
-          </div>
-        </div>
-        <div class="proj-live-vp">
-          <div class="proj-iframe-scaler">
-            <iframe src="https://www.silkflorae.com/" scrolling="no" loading="lazy" title="SilkFlorae" tabindex="-1"></iframe>
-          </div>
-          <div class="proj-overlay"></div>
-          <span class="proj-wm" aria-hidden="true">03</span>
-          <div class="proj-info">
-            <p class="proj-cat">E-Commerce · Luxury Fashion</p>
-            <h3 class="proj-name">SilkFlorae</h3>
-            <p class="proj-desc-text">Premium e-commerce for a luxury fashion brand. Conversion-focused design.</p>
-            <a href="https://www.silkflorae.com/" target="_blank" rel="noopener" class="proj-explore">
-              <span>Explore</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="proj-live">
-        <div class="proj-browser">
-          <div class="proj-browser-dots"><span></span><span></span><span></span></div>
-          <div class="proj-browser-addr-wrap">
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
-            <span class="proj-browser-addr">cosmic-ceramics.com</span>
-          </div>
-        </div>
-        <div class="proj-live-vp">
-          <div class="proj-iframe-scaler">
-            <iframe src="https://www.cosmic-ceramics.com/" scrolling="no" loading="lazy" title="Cosmic Ceramics" tabindex="-1"></iframe>
-          </div>
-          <div class="proj-overlay"></div>
-          <span class="proj-wm" aria-hidden="true">04</span>
-          <div class="proj-info">
-            <p class="proj-cat">E-Commerce · Artisan</p>
-            <h3 class="proj-name">Cosmic Ceramics</h3>
-            <p class="proj-desc-text">Artisan ceramics e-commerce. Handcrafted aesthetic meets seamless online shopping.</p>
-            <a href="https://www.cosmic-ceramics.com/" target="_blank" rel="noopener" class="proj-explore">
-              <span>Explore</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 5 — SwingUnity, left-aligned -->
-    <div class="proj-live rv d3 mb-6" style="width:64%;margin-left:0">
-      <div class="proj-browser">
-        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
-        <div class="proj-browser-addr-wrap">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
-          <span class="proj-browser-addr">swingunity.com</span>
-        </div>
-      </div>
-      <div class="proj-live-vp">
-        <div class="proj-iframe-scaler">
-          <iframe src="https://www.swingunity.com/" scrolling="no" loading="lazy" title="SwingUnity" tabindex="-1"></iframe>
-        </div>
-        <div class="proj-overlay"></div>
-        <span class="proj-wm" aria-hidden="true">05</span>
-        <div class="proj-info">
-          <p class="proj-cat">Community · Platform</p>
-          <h3 class="proj-name">SwingUnity</h3>
-          <p class="proj-desc-text">Online community platform with membership system and event management.</p>
-          <a href="https://www.swingunity.com/" target="_blank" rel="noopener" class="proj-explore">
-            <span>Explore</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 6 — Mr Consulting, right-aligned -->
-    <div class="proj-live rv d4" style="width:64%;margin-left:auto;margin-right:0">
-      <div class="proj-browser">
-        <div class="proj-browser-dots"><span></span><span></span><span></span></div>
-        <div class="proj-browser-addr-wrap">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style="opacity:.35;flex-shrink:0"><circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(255,255,255,.5)" stroke-width=".9"/><path d="M1.5 4.5h6M4.5 1c-.8 1-1.3 2.1-1.3 3.5s.5 2.5 1.3 3.5M4.5 1c.8 1 1.3 2.1 1.3 3.5S5.3 7.5 4.5 8" stroke="rgba(255,255,255,.5)" stroke-width=".9"/></svg>
-          <span class="proj-browser-addr">mrconsultingspain.com</span>
-        </div>
-      </div>
-      <div class="proj-live-vp">
-        <div class="proj-iframe-scaler">
-          <iframe src="https://mrconsultingspain.com/" scrolling="no" loading="lazy" title="Mr Consulting" tabindex="-1"></iframe>
-        </div>
-        <div class="proj-overlay"></div>
-        <span class="proj-wm" aria-hidden="true">06</span>
-        <div class="proj-info">
-          <p class="proj-cat">Business · Consulting</p>
-          <h3 class="proj-name">Mr Consulting</h3>
-          <p class="proj-desc-text">Premium consulting firm website. Authority-first design that converts visitors into clients.</p>
-          <a href="https://mrconsultingspain.com/" target="_blank" rel="noopener" class="proj-explore">
-            <span>Explore</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
+      <div class="m-row rv d3" data-img="3">
+        <span class="m-num">04</span>
+        <h3 class="m-name"><span data-i18n="menu.i4.name">Brand Identity</span><span class="m-tag">le dessert</span></h3>
+        <p class="m-desc" data-i18n="menu.i4.desc">Logo, language and visual world. How a name becomes a reputation.</p>
       </div>
     </div>
   </div>
+  <div id="m-preview" aria-hidden="true">
+    <img src="images/nano-banana-2_Dramatic_overhead_shot_of_a_sleek_ultrawide_monitor_displaying_a_beautiful_dark--2.jpg" alt="">
+    <img src="images/nano-banana-2_Abstract_visualization_of_artificial_intelligence_and_data_flow_glowing_warm_amb-3.jpg" alt="">
+    <img src="images/nano-banana-2_Cinematic_flat_lay_of_a_content_creator_workspace_on_a_dark_marble_surface_high--2.jpg" alt="">
+    <img src="images/nano-banana-2_Elegant_minimal_branding_mockup_on_a_dark_textured_surface_premium_business_card-0.jpg" alt="">
+  </div>
 </section>
 
-<!-- ════ ABOUT ════ -->
-<section id="about" class="py-24 px-6 bg-[#0d0d0b]">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-20 items-start">
+<!-- ════ SIGNATURE DISHES · WORK ════ -->
+<section id="work" class="chapter">
+  <div class="wrap">
+    <div class="menu-head">
+      <div class="rv">
+        <p class="eyebrow" data-i18n="work.eyebrow">Signature dishes</p>
+        <h2 class="h2" data-i18n-html="work.title">Served <em>live.</em></h2>
+      </div>
+      <p class="lead rv d1" style="max-width:34ch;text-align:right" data-i18n="work.sub">These are not screenshots. Every project below is the real site, running live in its own window.</p>
+    </div>
 
-      <!-- Photo: sticky on desktop -->
-      <div class="about-photo-wrap rv-l">
-        <div class="about-photo-frame">
-          <div class="ir-wrap">
-            <img src="images/nicktoorn.png"
-                 alt="Nick Toorn — Founder, Studio Toorn" loading="lazy"
-                 class="w-full" style="aspect-ratio:3/4;object-fit:cover;object-position:center top">
-            <div class="ir-cover"></div>
+    <!-- 01 En Boca -->
+    <div class="dish dish-w70 proj">
+      <div class="frame">
+        <div class="frame-bar"><div class="frame-dots"><span></span><span></span><span></span></div><span class="frame-addr">enbocagastrobar.netlify.app</span></div>
+        <div class="frame-vp">
+          <iframe data-src="https://enbocagastrobar.netlify.app/" loading="lazy" title="En Boca Gastro Bar" tabindex="-1"></iframe>
+          <span class="dish-n" aria-hidden="true">01</span>
+          <div class="dish-overlay">
+            <div class="dish-info">
+              <p class="dish-cat" data-i18n="work.p1.cat">Restaurant · Brand experience</p>
+              <h3 class="dish-name">En Boca</h3>
+              <p class="dish-desc" data-i18n="work.p1.desc">Mediterranean gastrobar in Benalmádena. Full identity and an immersive landing experience.</p>
+              <a class="dish-go" href="https://enbocagastrobar.netlify.app/" target="_blank" rel="noopener"><span data-i18n="work.visit">Taste it</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Text -->
+    <!-- 02 Juridisch AI Adviseur -->
+    <div class="dish dish-w66 proj">
+      <div class="frame">
+        <div class="frame-bar"><div class="frame-dots"><span></span><span></span><span></span></div><span class="frame-addr">juridischaidviseur.nl</span></div>
+        <div class="frame-vp">
+          <iframe data-src="https://www.juridischaidviseur.nl/" loading="lazy" title="Juridisch AI Adviseur" tabindex="-1"></iframe>
+          <span class="dish-n" aria-hidden="true">02</span>
+          <div class="dish-overlay">
+            <div class="dish-info">
+              <p class="dish-cat" data-i18n="work.p2.cat">Legal tech · AI platform</p>
+              <h3 class="dish-name">Juridisch AI Adviseur</h3>
+              <p class="dish-desc" data-i18n="work.p2.desc">AI legal advice platform, trained on Dutch law and built to convert.</p>
+              <a class="dish-go" href="https://www.juridischaidviseur.nl/" target="_blank" rel="noopener"><span data-i18n="work.visit">Taste it</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 + 04 pair -->
+    <div class="work-pair dish">
+      <div class="proj">
+        <div class="frame">
+          <div class="frame-bar"><div class="frame-dots"><span></span><span></span><span></span></div><span class="frame-addr">silkflorae.com</span></div>
+          <div class="frame-vp">
+            <iframe data-src="https://www.silkflorae.com/" loading="lazy" title="SilkFlorae" tabindex="-1"></iframe>
+            <span class="dish-n" aria-hidden="true">03</span>
+            <div class="dish-overlay">
+              <div class="dish-info">
+                <p class="dish-cat" data-i18n="work.p3.cat">E-commerce · Luxury fashion</p>
+                <h3 class="dish-name">SilkFlorae</h3>
+                <p class="dish-desc" data-i18n="work.p3.desc">Premium e-commerce for a luxury fashion label, designed to convert.</p>
+                <a class="dish-go" href="https://www.silkflorae.com/" target="_blank" rel="noopener"><span data-i18n="work.visit">Taste it</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="frame">
+          <div class="frame-bar"><div class="frame-dots"><span></span><span></span><span></span></div><span class="frame-addr">cosmic-ceramics.com</span></div>
+          <div class="frame-vp">
+            <iframe data-src="https://www.cosmic-ceramics.com/" loading="lazy" title="Cosmic Ceramics" tabindex="-1"></iframe>
+            <span class="dish-n" aria-hidden="true">04</span>
+            <div class="dish-overlay">
+              <div class="dish-info">
+                <p class="dish-cat" data-i18n="work.p4.cat">E-commerce · Artisan</p>
+                <h3 class="dish-name">Cosmic Ceramics</h3>
+                <p class="dish-desc" data-i18n="work.p4.desc">Artisan ceramics, handcrafted aesthetic, seamless checkout.</p>
+                <a class="dish-go" href="https://www.cosmic-ceramics.com/" target="_blank" rel="noopener"><span data-i18n="work.visit">Taste it</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 SwingUnity -->
+    <div class="dish dish-w64 proj">
+      <div class="frame">
+        <div class="frame-bar"><div class="frame-dots"><span></span><span></span><span></span></div><span class="frame-addr">swingunity.com</span></div>
+        <div class="frame-vp">
+          <iframe data-src="https://www.swingunity.com/" loading="lazy" title="SwingUnity" tabindex="-1"></iframe>
+          <span class="dish-n" aria-hidden="true">05</span>
+          <div class="dish-overlay">
+            <div class="dish-info">
+              <p class="dish-cat" data-i18n="work.p5.cat">Community · Platform</p>
+              <h3 class="dish-name">SwingUnity</h3>
+              <p class="dish-desc" data-i18n="work.p5.desc">Membership community with events, content and a thriving calendar.</p>
+              <a class="dish-go" href="https://www.swingunity.com/" target="_blank" rel="noopener"><span data-i18n="work.visit">Taste it</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Mr Consulting -->
+    <div class="dish dish-w64r proj">
+      <div class="frame">
+        <div class="frame-bar"><div class="frame-dots"><span></span><span></span><span></span></div><span class="frame-addr">mrconsultingspain.com</span></div>
+        <div class="frame-vp">
+          <iframe data-src="https://mrconsultingspain.com/" loading="lazy" title="Mr Consulting" tabindex="-1"></iframe>
+          <span class="dish-n" aria-hidden="true">06</span>
+          <div class="dish-overlay">
+            <div class="dish-info">
+              <p class="dish-cat" data-i18n="work.p6.cat">Business · Consulting</p>
+              <h3 class="dish-name">Mr Consulting</h3>
+              <p class="dish-desc" data-i18n="work.p6.desc">Authority-first consulting site that wins trust fast.</p>
+              <a class="dish-go" href="https://mrconsultingspain.com/" target="_blank" rel="noopener"><span data-i18n="work.visit">Taste it</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ STATEMENT 1 ════ -->
+<section class="stmt-sec">
+  <p class="stmt js-stmt" data-i18n="stmt.1">Taste cannot be downloaded. It is trained, plate by plate, pixel by pixel.</p>
+</section>
+
+<!-- ════ THE CHEF · ABOUT ════ -->
+<section id="chef" class="chapter">
+  <div class="wrap">
+    <div class="chef-grid">
+      <div class="chef-photo rv">
+        <div class="ph"><img src="images/nicktoorn.png" alt="Nick Toorn, founder of Studio Toorn" loading="lazy"></div>
+        <div class="chef-cap"><span>Nick Toorn</span><span data-i18n="chef.cap">Chef · Photographer · Builder</span></div>
+      </div>
       <div>
         <div class="rv">
-          <p class="sec-eyebrow">The Mind Behind Studio Toorn</p>
-          <h2 class="sec-h2 mb-8">Nick <em>Toorn</em></h2>
+          <p class="eyebrow" data-i18n="chef.eyebrow">The chef</p>
+          <h2 class="h2" data-i18n-html="chef.title">Three lives, <em>one obsession.</em></h2>
         </div>
-        <p class="rv d1" style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.05rem,1.7vw,1.35rem);font-weight:400;color:var(--cream);line-height:1.7;margin-bottom:1.75rem">"From the precision of a Michelin-starred kitchen in Amsterdam to the art of portrait photography — a career spent mastering the craft of creating experiences that move people."</p>
-        <p class="rv d2" style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:1.2rem">At 23, Nick ran a brigade in one of Amsterdam's finest restaurants, where he learned that excellence lives in the details — the exact temperature, the perfect timing, the presentation that makes someone pause before the first bite.</p>
-        <p class="rv d3" style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:1.2rem">Behind the camera, he discovered the same truth: the difference between a good portrait and an unforgettable one is the ability to see what others overlook.</p>
-        <p class="rv d4" style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:1.2rem">Studio Toorn was born from a simple conviction — that digital experiences deserve the same obsessive attention to craft. Every pixel considered. Every interaction intentional. Every project delivered as if our reputation depends on it. <em style="color:var(--amber);font-style:italic">Because it does.</em></p>
-        <p class="rv" style="transition-delay:.5s;font-size:.9rem;font-weight:300;color:var(--muted);line-height:2;margin-bottom:2.5rem">Now based on Spain's Costa del Sol, Studio Toorn combines this artisan mindset with cutting-edge AI technology to build digital experiences that don't just look extraordinary — they perform.</p>
+        <p class="chef-quote rv d1" data-i18n="chef.quote">"If a plate left my pass at 99 percent, it went back. Your website deserves the same standard."</p>
 
-        <!-- Stats -->
-        <div class="rv grid grid-cols-3 gap-6 pt-8 border-t border-[rgba(200,164,85,0.15)]" style="transition-delay:.6s">
+        <div class="life rv">
+          <span class="life-n">I</span>
           <div>
-            <div class="stat-num" data-count="50" data-suffix="+">0</div>
-            <div class="stat-label">Projects Delivered</div>
+            <h3 data-i18n="chef.c1.title">The kitchen</h3>
+            <p data-i18n="chef.c1.body">At 23, Nick ran a brigade in a Michelin-starred Amsterdam restaurant. Excellence lives in details: the exact temperature, the perfect timing, the presentation that makes someone pause before the first bite.</p>
           </div>
+        </div>
+        <div class="life rv d1">
+          <span class="life-n">II</span>
           <div>
-            <div class="stat-num" data-count="7" data-suffix="+">0</div>
-            <div class="stat-label">Years Creative Experience</div>
+            <h3 data-i18n="chef.c2.title">The lens</h3>
+            <p data-i18n="chef.c2.body">Behind the camera he found the same truth: the difference between a good portrait and an unforgettable one is seeing what others overlook.</p>
           </div>
+        </div>
+        <div class="life rv d2">
+          <span class="life-n">III</span>
           <div>
-            <div class="stat-num" data-count="3" data-suffix="">0</div>
-            <div class="stat-label">Countries. 1 Standard: Excellence</div>
+            <h3 data-i18n="chef.c3.title">The studio</h3>
+            <p data-i18n="chef.c3.body">Studio Toorn transposes that craft to the screen, from the Costa del Sol: artisan attention to detail, sharpened by AI, delivered as if our reputation depends on it. Because it does.</p>
           </div>
+        </div>
+
+        <div class="stats rv">
+          <div class="stat"><b data-count="50" data-suffix="+">0</b><span data-i18n="chef.s1">Projects delivered</span></div>
+          <div class="stat"><b data-count="7" data-suffix="+">0</b><span data-i18n="chef.s2">Years of craft</span></div>
+          <div class="stat"><b data-count="3" data-suffix="">0</b><span data-i18n="chef.s3">Languages spoken</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ PROCESS ════ -->
-<section id="process" class="py-24 px-6 bg-[#080807]">
-  <div class="max-w-5xl mx-auto">
-    <div class="mb-16 rv">
-      <p class="sec-eyebrow">How We Work</p>
-      <h2 class="sec-h2">Our <em>process</em></h2>
+<!-- ════ SERVICE · PROCESS ════ -->
+<section id="process" class="chapter">
+  <div class="wrap" style="max-width:64rem">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="proc.eyebrow">How service runs</p>
+      <h2 class="h2" data-i18n-html="proc.title">From booking <em>to last bite.</em></h2>
     </div>
-
-    <div class="proc-wrap" id="proc-wrap">
-      <div class="proc-line-bg"></div>
-      <div class="proc-line-fill" id="proc-line-fill"></div>
-
-      <!-- Step 1 — LEFT -->
-      <div class="proc-step left-step rv" id="st1">
-        <div class="proc-step-content">
-          <div class="proc-num">01</div>
-          <h3 class="proc-title">Discovery</h3>
-          <p class="proc-desc">We listen. We research. We understand your world before we touch a pixel. Great work begins with genuine understanding — of your clients, your competition, and your ambitions.</p>
-        </div>
-        <div class="proc-dot-col"><div class="proc-dot" id="dot1"></div></div>
-        <div class="proc-step-empty"></div>
-      </div>
-
-      <!-- Step 2 — RIGHT -->
-      <div class="proc-step right-step rv d1" id="st2">
-        <div class="proc-step-empty"></div>
-        <div class="proc-dot-col"><div class="proc-dot" id="dot2"></div></div>
-        <div class="proc-step-content">
-          <div class="proc-num">02</div>
-          <h3 class="proc-title">Strategy</h3>
-          <p class="proc-desc">Data meets intuition. We map the journey from visitor to loyal client. Every decision is grounded in what works — informed by research, refined by experience.</p>
+    <div class="courses">
+      <div class="course">
+        <span class="course-n">01</span>
+        <div>
+          <p class="course-tag">mise en place</p>
+          <h3 data-i18n="proc.c1.title">Discovery</h3>
+          <p data-i18n="proc.c1.body">We listen, research and learn your world before touching a pixel. Great work starts with genuine understanding of your clients, your competition and your ambitions.</p>
         </div>
       </div>
-
-      <!-- Step 3 — LEFT -->
-      <div class="proc-step left-step rv d2" id="st3">
-        <div class="proc-step-content">
-          <div class="proc-num">03</div>
-          <h3 class="proc-title">Creation</h3>
-          <p class="proc-desc">Where craft meets technology. Every detail obsessed over. This is the part that sets Studio Toorn apart — the hours spent on the details no one notices until they're missing.</p>
-        </div>
-        <div class="proc-dot-col"><div class="proc-dot" id="dot3"></div></div>
-        <div class="proc-step-empty"></div>
-      </div>
-
-      <!-- Step 4 — RIGHT -->
-      <div class="proc-step right-step rv d3" id="st4">
-        <div class="proc-step-empty"></div>
-        <div class="proc-dot-col"><div class="proc-dot" id="dot4"></div></div>
-        <div class="proc-step-content">
-          <div class="proc-num">04</div>
-          <h3 class="proc-title">Launch &amp; Scale</h3>
-          <p class="proc-desc">Your project goes live. Then we make it fly. Performance optimisation, analytics, A/B testing — we stay invested in your success long after the launch day champagne.</p>
+      <div class="course">
+        <span class="course-n">02</span>
+        <div>
+          <p class="course-tag">la carte</p>
+          <h3 data-i18n="proc.c2.title">Strategy</h3>
+          <p data-i18n="proc.c2.body">Data meets intuition. We map the route from first visit to loyal client, grounded in research and refined by experience.</p>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════ TESTIMONIALS ════ -->
-<section id="testi" class="py-24 px-6 bg-[#0d0d0b]">
-  <div class="max-w-5xl mx-auto">
-    <div class="mb-12 rv">
-      <p class="sec-eyebrow">Client Stories</p>
-      <h2 class="sec-h2">Words from those who <em>trust us</em></h2>
-    </div>
-
-    <div class="rv d1" style="transition-delay:.15s">
-      <!-- Viewport -->
-      <div class="testi-viewport" id="testi-viewport">
-        <div class="testi-track" id="testi-track">
-          <!-- Card 1 -->
-          <div class="tcard">
-            <span class="tcard-qs">"</span>
-            <p class="tcard-text">Studio Toorn didn't just build us a website — they built us a reputation. Within three months of launching our property listings site, we closed two deals that came directly through the new platform. The quality speaks before we even pick up the phone.</p>
-            <div class="mt-auto">
-              <div class="tcard-name">Alejandro Ruiz</div>
-              <div class="tcard-role">Senior Estate Agent · Marbella Luxury Properties</div>
-            </div>
-          </div>
-          <!-- Card 2 -->
-          <div class="tcard">
-            <span class="tcard-qs">"</span>
-            <p class="tcard-text">We had a website before. After Studio Toorn, we had an experience. Reservations went up 40% in the first month. Guests arrive having already fallen in love with us — Nick has an extraordinary ability to communicate atmosphere through a screen.</p>
-            <div class="mt-auto">
-              <div class="tcard-name">Carmen Iglesias</div>
-              <div class="tcard-role">Owner · La Terraza del Puerto, Málaga</div>
-            </div>
-          </div>
-          <!-- Card 3 -->
-          <div class="tcard">
-            <span class="tcard-qs">"</span>
-            <p class="tcard-text">We came to Nick with a concept and a deadline. He came back with something that made our investors sit forward in their chairs. The AI automation workflows he built have since saved us an estimated 20+ hours per week. Exceptional ROI doesn't begin to cover it.</p>
-            <div class="mt-auto">
-              <div class="tcard-name">Pieter van den Berg</div>
-              <div class="tcard-role">Co-Founder · Nexora AI, Amsterdam</div>
-            </div>
-          </div>
+      <div class="course">
+        <span class="course-n">03</span>
+        <div>
+          <p class="course-tag">le passe</p>
+          <h3 data-i18n="proc.c3.title">Creation</h3>
+          <p data-i18n="proc.c3.body">Craft meets technology. Hours spent on the details nobody notices until they are missing.</p>
         </div>
       </div>
-
-      <!-- Controls -->
-      <div class="flex items-center gap-4 mt-8">
-        <button class="testi-arr" id="t-prev" aria-label="Previous testimonial">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 12H5m7-7l-7 7 7 7"/></svg>
-        </button>
-        <div class="flex gap-2" id="t-dots">
-          <button class="testi-dot active" data-idx="0" aria-label="Testimonial 1"></button>
-          <button class="testi-dot" data-idx="1" aria-label="Testimonial 2"></button>
-          <button class="testi-dot" data-idx="2" aria-label="Testimonial 3"></button>
+      <div class="course">
+        <span class="course-n">04</span>
+        <div>
+          <p class="course-tag">service</p>
+          <h3 data-i18n="proc.c4.title">Launch &amp; scale</h3>
+          <p data-i18n="proc.c4.body">Going live is the beginning. Performance, analytics and testing keep your project flying long after launch day.</p>
         </div>
-        <button class="testi-arr" id="t-next" aria-label="Next testimonial">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14m-7-7l7 7-7 7"/></svg>
-        </button>
-        <span id="t-count" style="font-size:.65rem;letter-spacing:.2em;color:var(--muted);margin-left:auto">01 / 03</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ CONTACT ════ -->
-<section id="contact" class="py-24 px-6 bg-[#080807]">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+<!-- ════ GUEST BOOK · TESTIMONIALS ════ -->
+<section id="guestbook" class="chapter">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="gb.eyebrow">The guest book</p>
+      <h2 class="h2" data-i18n-html="gb.title">Words from <em>the table.</em></h2>
+    </div>
+    <div class="gb rv d1" id="gb">
+      <div class="gb-item on">
+        <p class="gb-q" data-i18n="gb.q1">Studio Toorn did not just build us a website, they built us a reputation. Within three months we closed two deals that came directly through the new platform.</p>
+        <div class="gb-who"><div class="gb-name">Alejandro Ruiz</div><div class="gb-role" data-i18n="gb.r1">Senior estate agent · Marbella Luxury Properties</div></div>
+      </div>
+      <div class="gb-item">
+        <p class="gb-q" data-i18n="gb.q2">We had a website before. After Studio Toorn we had an experience. Reservations rose forty percent in the first month.</p>
+        <div class="gb-who"><div class="gb-name">Carmen Iglesias</div><div class="gb-role" data-i18n="gb.r2">Owner · La Terraza del Puerto, Málaga</div></div>
+      </div>
+      <div class="gb-item">
+        <p class="gb-q" data-i18n="gb.q3">Nick came back with something that made our investors sit forward. His AI workflows now save us over twenty hours a week.</p>
+        <div class="gb-who"><div class="gb-name">Pieter van den Berg</div><div class="gb-role" data-i18n="gb.r3">Co-founder · Nexora AI, Amsterdam</div></div>
+      </div>
+    </div>
+    <div class="gb-nav rv d2">
+      <button class="gb-arr" id="gb-prev" aria-label="Previous"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 12H5m7-7l-7 7 7 7"/></svg></button>
+      <button class="gb-arr" id="gb-next" aria-label="Next"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14m-7-7l7 7-7 7"/></svg></button>
+      <span class="gb-count" id="gb-count">01 / 03</span>
+    </div>
+  </div>
+</section>
 
-      <!-- Left info -->
+<!-- ════ STATEMENT 2 ════ -->
+<section class="stmt-sec" style="background:var(--ink2)">
+  <p class="stmt js-stmt" data-i18n="stmt.2">Good enough is not on the menu.</p>
+</section>
+
+<!-- ════ RESERVATIONS · CONTACT ════ -->
+<section id="contact" class="chapter">
+  <div class="wrap">
+    <div class="ct-grid">
       <div class="rv">
-        <p class="sec-eyebrow">Get In Touch</p>
-        <h2 class="sec-h2 mb-8" style="font-size:clamp(2rem,4vw,3.5rem)">Let's create something <em>extraordinary</em></h2>
-        <p style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:2.5rem;max-width:380px">Every great project begins with a conversation. Tell us what you're building — we'll tell you how to make it unforgettable.</p>
-        <div style="display:flex;flex-direction:column;gap:.85rem;margin-bottom:2.5rem">
-          <div style="display:flex;align-items:center;gap:.85rem;font-size:.82rem;color:var(--muted)">
-            <span style="width:3px;height:3px;border-radius:50%;background:var(--amber);flex-shrink:0"></span>
-            <div><span style="display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">WhatsApp / Phone</span>+31 6 14 41 21 02</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:.85rem;font-size:.82rem;color:var(--muted)">
-            <span style="width:3px;height:3px;border-radius:50%;background:var(--amber);flex-shrink:0"></span>
-            <div><span style="display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Email</span>info@studiotoorn.com</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:.85rem;font-size:.82rem;color:var(--muted)">
-            <span style="width:3px;height:3px;border-radius:50%;background:var(--amber);flex-shrink:0"></span>
-            <div><span style="display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Base</span>Costa del Sol, Spain — Working Globally</div>
-          </div>
+        <p class="eyebrow" data-i18n="ct.eyebrow">Reservations</p>
+        <h2 class="h2" data-i18n-html="ct.title">Reserve <em>your table.</em></h2>
+        <p class="lead" style="margin-top:1.8rem" data-i18n="ct.sub">Every great project starts with a conversation. Tell us what you are building, we will tell you how to make it unforgettable.</p>
+        <div class="ct-rows">
+          <div class="ct-row"><i></i><div><b data-i18n="ct.l1">WhatsApp / Phone</b><span><a href="tel:+31614412102">+31 6 14 41 21 02</a></span></div></div>
+          <div class="ct-row"><i></i><div><b data-i18n="ct.l2">Email</b><span><a href="mailto:info@studiotoorn.com">info@studiotoorn.com</a></span></div></div>
+          <div class="ct-row"><i></i><div><b data-i18n="ct.l3">Base</b><span data-i18n="ct.l3v">Costa del Sol, Spain. Working worldwide.</span></div></div>
         </div>
-        <a href="https://wa.me/31614412102?text=Hi%20Nick%2C%20I'd%20like%20to%20discuss%20a%20project%20with%20Studio%20Toorn." target="_blank" rel="noopener" class="btn-wa mag">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.524 5.845L.057 23.428a.75.75 0 0 0 .915.915l5.638-1.462A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 0 1-4.953-1.356l-.355-.211-3.683.955.975-3.589-.232-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-          Message on WhatsApp
+        <a href="https://wa.me/31614412102?text=Hi%20Nick%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20Studio%20Toorn." target="_blank" rel="noopener" class="btn btn-wa mag">
+          <span data-i18n="ct.wa">Message on WhatsApp</span>
+          <span class="chip"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.524 5.845L.057 23.428a.75.75 0 0 0 .915.915l5.638-1.462A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 0 1-4.953-1.356l-.355-.211-3.683.955.975-3.589-.232-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg></span>
         </a>
       </div>
 
-      <!-- Right form -->
       <div class="rv d1">
-        <div style="margin-bottom:2rem">
-          <p class="sec-eyebrow">Start a Project</p>
-          <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">We respond within 24 hours.</p>
-        </div>
-        <form id="contact-form" action="https://formspree.io/f/xpwzgrqj" method="POST">
-          <div class="form-field" id="ff1">
-            <label class="form-label" for="f-name">Your Name</label>
-            <input class="form-input" id="f-name" name="name" type="text" placeholder="John Smith" required>
+        <form id="ct-form" action="https://formspree.io/f/xpwzgrqj" method="POST">
+          <div class="field">
+            <label for="f-name" data-i18n="f.name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" data-i18n-ph="f.namePh" placeholder="Jane Smith" required>
           </div>
-          <div class="form-field" id="ff2">
-            <label class="form-label" for="f-email">Email Address</label>
-            <input class="form-input" id="f-email" name="email" type="email" placeholder="john@company.com" required>
+          <div class="field">
+            <label for="f-email" data-i18n="f.email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required>
           </div>
-          <div class="form-field" id="ff3">
-            <label class="form-label" for="f-type">Project Type</label>
-            <select class="form-select" id="f-type" name="project_type">
-              <option value="" disabled selected>Select a service</option>
-              <option>Web Design &amp; Development</option>
-              <option>AI-Powered Automation</option>
-              <option>Content Creation &amp; Strategy</option>
-              <option>Brand Identity</option>
-              <option>Property Listing Page</option>
-              <option>Restaurant Website</option>
-              <option>Other / Full Package</option>
+          <div class="field">
+            <label for="f-type" data-i18n="f.type">What are we cooking?</label>
+            <select id="f-type" name="project_type">
+              <option value="" disabled selected data-i18n="f.o0">Choose a course</option>
+              <option data-i18n="f.o1">Website</option>
+              <option data-i18n="f.o2">AI automation</option>
+              <option data-i18n="f.o3">Content &amp; strategy</option>
+              <option data-i18n="f.o4">Brand identity</option>
+              <option data-i18n="f.o5">The full tasting menu</option>
+              <option data-i18n="f.o6">Other</option>
             </select>
           </div>
-          <div class="form-field" id="ff4">
-            <label class="form-label" for="f-msg">Tell Us About Your Project</label>
-            <textarea class="form-textarea" id="f-msg" name="message" placeholder="What are you building? What does success look like?" required></textarea>
+          <div class="field">
+            <label for="f-msg" data-i18n="f.msg">Tell us about your project</label>
+            <textarea id="f-msg" name="message" data-i18n-ph="f.msgPh" placeholder="What are you building? What does success look like?" required></textarea>
           </div>
-          <div class="form-field" id="ff5">
-            <button type="submit" class="btn-submit mag">Send Message →</button>
-          </div>
+          <button type="submit" class="btn btn-gold mag"><span data-i18n="f.send">Send the request</span><span class="chip"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <p class="form-note" data-i18n="f.note">We reply within 24 hours.</p>
         </form>
+        <div class="form-ok" id="form-ok" style="display:none" data-i18n="f.ok">Request received. We will be in touch within 24 hours.</div>
       </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- ════ FOOTER ════ -->
-<footer class="py-12 px-6 border-t border-[rgba(200,164,85,0.15)] bg-[#050504]">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6">
-    <div style="display:flex;align-items:center;gap:.85rem">
-      <span class="nav-monogram" aria-hidden="true"></span>
-      <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--cream)">Studio Toorn</span>
+<footer>
+  <div class="f-giant" id="f-giant" aria-hidden="true">STUDIO&nbsp;TOORN</div>
+  <div class="f-row">
+    <div class="f-brand"><span class="nav-mono" aria-hidden="true"></span>Studio Toorn</div>
+    <span class="f-meta" data-i18n="ft.tag">Built with obsession.</span>
+    <span class="f-meta"><span data-i18n="clock.city">Málaga</span> <span class="js-clock">--:--</span></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="nl">NL</button>
     </div>
-    <span style="font-size:.62rem;letter-spacing:.25em;color:var(--muted)">Built with obsession.</span>
-    <div style="display:flex;gap:.75rem">
-      <a href="#" aria-label="Instagram" style="width:36px;height:36px;border:1px solid rgba(200,164,85,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .3s,color .3s;text-decoration:none" onmouseenter="this.style.borderColor='#c8a455';this.style.color='#c8a455'" onmouseleave="this.style.borderColor='rgba(200,164,85,.15)';this.style.color='var(--muted)'">
-        <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border:1px solid rgba(200,164,85,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .3s,color .3s;text-decoration:none" onmouseenter="this.style.borderColor='#c8a455';this.style.color='#c8a455'" onmouseleave="this.style.borderColor='rgba(200,164,85,.15)';this.style.color='var(--muted)'">
-        <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
+    <div class="f-soc">
+      <a href="#" aria-label="Instagram"><svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
     </div>
-    <p style="font-size:.65rem;color:var(--muted)">© 2025 Studio Toorn. All rights reserved.</p>
+    <p class="f-meta" data-i18n="ft.rights">© 2026 Studio Toorn. All rights reserved.</p>
   </div>
 </footer>
 
@@ -974,482 +819,666 @@ img{display:block;max-width:100%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-
 <script>
-(function() {
+(function(){
 'use strict';
 
-/* ── Feature detect ──────────────────────────────────── */
-const isTouch = window.matchMedia('(pointer:coarse)').matches;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+var fine = window.matchMedia('(pointer:fine)').matches;
+var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+var $ = function(s,c){ return (c||document).querySelector(s); };
+var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
 
-/* ── Lenis smooth scroll ─────────────────────────────── */
-let lenis;
-function initLenis() {
-  lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.9, smoothWheel: true });
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-  // Connect to GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+/* ================= I18N ================= */
+var I18N = {
+en:{
+  'cur.view':'View',
+  'nav.menu':'The Menu','nav.work':'The Dishes','nav.chef':'The Chef','nav.contact':'Reservations',
+  'clock.city':'Málaga',
+  'hero.sidel':'Forged in Amsterdam','hero.sider':'Served on the Costa del Sol',
+  'hero.eyebrow':'Digital atelier · Costa del Sol',
+  'hero.l1':'A digital studio','hero.l2':'run like a <em>Michelin kitchen.</em>',
+  'hero.sub':'Websites, AI automation and brand identity, prepared with the obsession that earned stars in Amsterdam. Now serving from the Costa del Sol.',
+  'hero.cta1':'View the menu','hero.cta2':'Reserve a table','hero.scroll':'First course below',
+  'menu.eyebrow':'What we serve','menu.sub':'Four disciplines. One standard.',
+  'menu.i1.name':'Web Design &amp; Development','menu.i1.desc':'Hand-built sites that turn lookers into bookers. Every pixel plated with intent.',
+  'menu.i2.name':'AI Automation','menu.i2.desc':'Quiet machines on the night shift: lead capture, follow-ups and bookings while you sleep.',
+  'menu.i3.name':'Content &amp; Strategy','menu.i3.desc':'Photography, copy and strategy with real flavour. Stories that resonate, plans that perform.',
+  'menu.i4.name':'Brand Identity','menu.i4.desc':'Logo, language and visual world. How a name becomes a reputation.',
+  'work.eyebrow':'Signature dishes','work.title':'Served <em>live.</em>',
+  'work.sub':'These are not screenshots. Every project below is the real site, running live in its own window.',
+  'work.visit':'Taste it',
+  'work.p1.cat':'Restaurant · Brand experience','work.p1.desc':'Mediterranean gastrobar in Benalmádena. Full identity and an immersive landing experience.',
+  'work.p2.cat':'Legal tech · AI platform','work.p2.desc':'AI legal advice platform, trained on Dutch law and built to convert.',
+  'work.p3.cat':'E-commerce · Luxury fashion','work.p3.desc':'Premium e-commerce for a luxury fashion label, designed to convert.',
+  'work.p4.cat':'E-commerce · Artisan','work.p4.desc':'Artisan ceramics, handcrafted aesthetic, seamless checkout.',
+  'work.p5.cat':'Community · Platform','work.p5.desc':'Membership community with events, content and a thriving calendar.',
+  'work.p6.cat':'Business · Consulting','work.p6.desc':'Authority-first consulting site that wins trust fast.',
+  'stmt.1':'Taste cannot be downloaded. It is trained, plate by plate, pixel by pixel.',
+  'stmt.2':'Good enough is not on the menu.',
+  'chef.eyebrow':'The chef','chef.title':'Three lives, <em>one obsession.</em>','chef.cap':'Chef · Photographer · Builder',
+  'chef.quote':'"If a plate left my pass at 99 percent, it went back. Your website deserves the same standard."',
+  'chef.c1.title':'The kitchen','chef.c1.body':'At 23, Nick ran a brigade in a Michelin-starred Amsterdam restaurant. Excellence lives in details: the exact temperature, the perfect timing, the presentation that makes someone pause before the first bite.',
+  'chef.c2.title':'The lens','chef.c2.body':'Behind the camera he found the same truth: the difference between a good portrait and an unforgettable one is seeing what others overlook.',
+  'chef.c3.title':'The studio','chef.c3.body':'Studio Toorn transposes that craft to the screen, from the Costa del Sol: artisan attention to detail, sharpened by AI, delivered as if our reputation depends on it. Because it does.',
+  'chef.s1':'Projects delivered','chef.s2':'Years of craft','chef.s3':'Languages spoken',
+  'proc.eyebrow':'How service runs','proc.title':'From booking <em>to last bite.</em>',
+  'proc.c1.title':'Discovery','proc.c1.body':'We listen, research and learn your world before touching a pixel. Great work starts with genuine understanding of your clients, your competition and your ambitions.',
+  'proc.c2.title':'Strategy','proc.c2.body':'Data meets intuition. We map the route from first visit to loyal client, grounded in research and refined by experience.',
+  'proc.c3.title':'Creation','proc.c3.body':'Craft meets technology. Hours spent on the details nobody notices until they are missing.',
+  'proc.c4.title':'Launch &amp; scale','proc.c4.body':'Going live is the beginning. Performance, analytics and testing keep your project flying long after launch day.',
+  'gb.eyebrow':'The guest book','gb.title':'Words from <em>the table.</em>',
+  'gb.q1':'Studio Toorn did not just build us a website, they built us a reputation. Within three months we closed two deals that came directly through the new platform.',
+  'gb.r1':'Senior estate agent · Marbella Luxury Properties',
+  'gb.q2':'We had a website before. After Studio Toorn we had an experience. Reservations rose forty percent in the first month.',
+  'gb.r2':'Owner · La Terraza del Puerto, Málaga',
+  'gb.q3':'Nick came back with something that made our investors sit forward. His AI workflows now save us over twenty hours a week.',
+  'gb.r3':'Co-founder · Nexora AI, Amsterdam',
+  'ct.eyebrow':'Reservations','ct.title':'Reserve <em>your table.</em>',
+  'ct.sub':'Every great project starts with a conversation. Tell us what you are building, we will tell you how to make it unforgettable.',
+  'ct.l1':'WhatsApp / Phone','ct.l2':'Email','ct.l3':'Base','ct.l3v':'Costa del Sol, Spain. Working worldwide.',
+  'ct.wa':'Message on WhatsApp',
+  'f.name':'Your name','f.namePh':'Jane Smith','f.email':'Email','f.type':'What are we cooking?',
+  'f.o0':'Choose a course','f.o1':'Website','f.o2':'AI automation','f.o3':'Content &amp; strategy','f.o4':'Brand identity','f.o5':'The full tasting menu','f.o6':'Other',
+  'f.msg':'Tell us about your project','f.msgPh':'What are you building? What does success look like?',
+  'f.send':'Send the request','f.note':'We reply within 24 hours.','f.ok':'Request received. We will be in touch within 24 hours.',
+  'ft.tag':'Built with obsession.','ft.rights':'© 2026 Studio Toorn. All rights reserved.'
+},
+es:{
+  'cur.view':'Ver',
+  'nav.menu':'La Carta','nav.work':'Los Platos','nav.chef':'El Chef','nav.contact':'Reservas',
+  'clock.city':'Málaga',
+  'hero.sidel':'Forjado en Ámsterdam','hero.sider':'Servido en la Costa del Sol',
+  'hero.eyebrow':'Atelier digital · Costa del Sol',
+  'hero.l1':'Un estudio digital','hero.l2':'dirigido como una <em>cocina Michelin.</em>',
+  'hero.sub':'Webs, automatización con IA e identidad de marca, preparadas con la obsesión que ganó estrellas en Ámsterdam. Ahora servimos desde la Costa del Sol.',
+  'hero.cta1':'Ver la carta','hero.cta2':'Reservar mesa','hero.scroll':'Primer plato abajo',
+  'menu.eyebrow':'Lo que servimos','menu.sub':'Cuatro disciplinas. Un estándar.',
+  'menu.i1.name':'Diseño y desarrollo web','menu.i1.desc':'Webs artesanales que convierten visitas en clientes. Cada píxel emplatado con intención.',
+  'menu.i2.name':'Automatización con IA','menu.i2.desc':'Máquinas silenciosas en el turno de noche: captación, seguimiento y reservas mientras duermes.',
+  'menu.i3.name':'Contenido y estrategia','menu.i3.desc':'Fotografía, textos y estrategia con sabor real. Historias que resuenan, planes que funcionan.',
+  'menu.i4.name':'Identidad de marca','menu.i4.desc':'Logo, lenguaje y mundo visual. Cómo un nombre se convierte en reputación.',
+  'work.eyebrow':'Platos insignia','work.title':'Servido <em>en vivo.</em>',
+  'work.sub':'No son capturas. Cada proyecto es la web real, funcionando en su propia ventana.',
+  'work.visit':'Pruébalo',
+  'work.p1.cat':'Restaurante · Experiencia de marca','work.p1.desc':'Gastrobar mediterráneo en Benalmádena. Identidad completa y una landing inmersiva.',
+  'work.p2.cat':'Legal tech · Plataforma IA','work.p2.desc':'Plataforma de asesoría legal con IA, entrenada en derecho neerlandés y hecha para convertir.',
+  'work.p3.cat':'E-commerce · Moda de lujo','work.p3.desc':'E-commerce premium para una marca de moda de lujo, diseñado para convertir.',
+  'work.p4.cat':'E-commerce · Artesanía','work.p4.desc':'Cerámica artesanal, estética hecha a mano, compra sin fricción.',
+  'work.p5.cat':'Comunidad · Plataforma','work.p5.desc':'Comunidad de miembros con eventos, contenido y un calendario muy vivo.',
+  'work.p6.cat':'Negocios · Consultoría','work.p6.desc':'Web de consultoría que gana confianza desde el primer segundo.',
+  'stmt.1':'El gusto no se descarga. Se entrena, plato a plato, píxel a píxel.',
+  'stmt.2':'Lo suficientemente bueno no está en la carta.',
+  'chef.eyebrow':'El chef','chef.title':'Tres vidas, <em>una obsesión.</em>','chef.cap':'Chef · Fotógrafo · Constructor',
+  'chef.quote':'"Si un plato salía de mi pase al 99 por ciento, volvía a la cocina. Tu web merece el mismo estándar."',
+  'chef.c1.title':'La cocina','chef.c1.body':'Con 23 años, Nick dirigía una brigada en un restaurante de Ámsterdam con estrella Michelin. La excelencia vive en los detalles: la temperatura exacta, el momento perfecto, la presentación que detiene a alguien antes del primer bocado.',
+  'chef.c2.title':'El objetivo','chef.c2.body':'Detrás de la cámara encontró la misma verdad: la diferencia entre un buen retrato y uno inolvidable está en ver lo que otros pasan por alto.',
+  'chef.c3.title':'El estudio','chef.c3.body':'Studio Toorn traslada ese oficio a la pantalla, desde la Costa del Sol: atención artesanal al detalle, afilada con IA, entregada como si nuestra reputación dependiera de ello. Porque así es.',
+  'chef.s1':'Proyectos entregados','chef.s2':'Años de oficio','chef.s3':'Idiomas',
+  'proc.eyebrow':'Cómo funciona el servicio','proc.title':'De la reserva <em>al último bocado.</em>',
+  'proc.c1.title':'Descubrimiento','proc.c1.body':'Escuchamos, investigamos y aprendemos tu mundo antes de tocar un píxel. El gran trabajo empieza por entender de verdad a tus clientes, tu competencia y tus ambiciones.',
+  'proc.c2.title':'Estrategia','proc.c2.body':'Los datos se encuentran con la intuición. Trazamos la ruta de la primera visita al cliente fiel, con base en investigación y refinada por la experiencia.',
+  'proc.c3.title':'Creación','proc.c3.body':'El oficio se encuentra con la tecnología. Horas dedicadas a los detalles que nadie nota hasta que faltan.',
+  'proc.c4.title':'Lanzamiento y escala','proc.c4.body':'Salir en vivo es el principio. Rendimiento, analítica y pruebas mantienen tu proyecto volando mucho después del lanzamiento.',
+  'gb.eyebrow':'El libro de visitas','gb.title':'Palabras desde <em>la mesa.</em>',
+  'gb.q1':'Studio Toorn no solo nos hizo una web, nos construyó una reputación. En tres meses cerramos dos operaciones que llegaron directamente por la nueva plataforma.',
+  'gb.r1':'Agente inmobiliario senior · Marbella Luxury Properties',
+  'gb.q2':'Antes teníamos una web. Después de Studio Toorn teníamos una experiencia. Las reservas subieron un cuarenta por ciento el primer mes.',
+  'gb.r2':'Propietaria · La Terraza del Puerto, Málaga',
+  'gb.q3':'Nick volvió con algo que hizo que nuestros inversores se inclinaran hacia delante. Sus flujos de IA nos ahorran más de veinte horas a la semana.',
+  'gb.r3':'Cofundador · Nexora AI, Ámsterdam',
+  'ct.eyebrow':'Reservas','ct.title':'Reserva <em>tu mesa.</em>',
+  'ct.sub':'Todo gran proyecto empieza con una conversación. Cuéntanos qué estás construyendo y te diremos cómo hacerlo inolvidable.',
+  'ct.l1':'WhatsApp / Teléfono','ct.l2':'Email','ct.l3':'Base','ct.l3v':'Costa del Sol, España. Trabajamos en todo el mundo.',
+  'ct.wa':'Escríbenos por WhatsApp',
+  'f.name':'Tu nombre','f.namePh':'María García','f.email':'Email','f.type':'¿Qué cocinamos?',
+  'f.o0':'Elige un plato','f.o1':'Web','f.o2':'Automatización con IA','f.o3':'Contenido y estrategia','f.o4':'Identidad de marca','f.o5':'El menú degustación completo','f.o6':'Otro',
+  'f.msg':'Cuéntanos tu proyecto','f.msgPh':'¿Qué estás construyendo? ¿Cómo se ve el éxito?',
+  'f.send':'Enviar la solicitud','f.note':'Respondemos en 24 horas.','f.ok':'Solicitud recibida. Te contactamos en menos de 24 horas.',
+  'ft.tag':'Hecho con obsesión.','ft.rights':'© 2026 Studio Toorn. Todos los derechos reservados.'
+},
+nl:{
+  'cur.view':'Bekijk',
+  'nav.menu':'Het Menu','nav.work':'De Gerechten','nav.chef':'De Chef','nav.contact':'Reserveren',
+  'clock.city':'Málaga',
+  'hero.sidel':'Gesmeed in Amsterdam','hero.sider':'Geserveerd aan de Costa del Sol',
+  'hero.eyebrow':'Digitaal atelier · Costa del Sol',
+  'hero.l1':'Een digitale studio','hero.l2':'geleid als een <em>Michelin-keuken.</em>',
+  'hero.sub':'Websites, AI-automatisering en branding, bereid met de obsessie die in Amsterdam sterren opleverde. Nu geserveerd vanaf de Costa del Sol.',
+  'hero.cta1':'Bekijk het menu','hero.cta2':'Reserveer een tafel','hero.scroll':'Eerste gang hieronder',
+  'menu.eyebrow':'Wat we serveren','menu.sub':'Vier disciplines. Eén standaard.',
+  'menu.i1.name':'Webdesign &amp; development','menu.i1.desc':'Handgebouwde sites die kijkers omzetten in klanten. Elke pixel met intentie opgemaakt.',
+  'menu.i2.name':'AI-automatisering','menu.i2.desc':'Stille machines in de nachtdienst: leads, opvolging en boekingen terwijl jij slaapt.',
+  'menu.i3.name':'Content &amp; strategie','menu.i3.desc':'Fotografie, copy en strategie met echte smaak. Verhalen die raken, plannen die werken.',
+  'menu.i4.name':'Merkidentiteit','menu.i4.desc':'Logo, taal en visuele wereld. Hoe een naam een reputatie wordt.',
+  'work.eyebrow':'Signatuurgerechten','work.title':'Live <em>geserveerd.</em>',
+  'work.sub':'Dit zijn geen screenshots. Elk project hieronder is de echte site, live in zijn eigen venster.',
+  'work.visit':'Proef het',
+  'work.p1.cat':'Restaurant · Merkbeleving','work.p1.desc':'Mediterrane gastrobar in Benalmádena. Volledige identiteit en een meeslepende landingspagina.',
+  'work.p2.cat':'Legal tech · AI-platform','work.p2.desc':'AI-platform voor juridisch advies, getraind op Nederlands recht en gebouwd om te converteren.',
+  'work.p3.cat':'E-commerce · Luxemode','work.p3.desc':'Premium e-commerce voor een luxe modemerk, ontworpen om te converteren.',
+  'work.p4.cat':'E-commerce · Ambacht','work.p4.desc':'Ambachtelijke keramiek, handgemaakte esthetiek, frictieloze checkout.',
+  'work.p5.cat':'Community · Platform','work.p5.desc':'Ledencommunity met events, content en een levendige agenda.',
+  'work.p6.cat':'Business · Consultancy','work.p6.desc':'Consultancysite met autoriteit, die razendsnel vertrouwen wint.',
+  'stmt.1':'Smaak kun je niet downloaden. Die train je, bord voor bord, pixel voor pixel.',
+  'stmt.2':'Goed genoeg staat niet op het menu.',
+  'chef.eyebrow':'De chef','chef.title':'Drie levens, <em>één obsessie.</em>','chef.cap':'Chef · Fotograaf · Bouwer',
+  'chef.quote':'"Als een bord mijn pas op 99 procent verliet, ging het terug. Jouw website verdient dezelfde standaard."',
+  'chef.c1.title':'De keuken','chef.c1.body':'Op zijn 23e leidde Nick een brigade in een Amsterdams restaurant met een Michelinster. Excellentie zit in de details: de exacte temperatuur, de perfecte timing, de presentatie die iemand laat pauzeren voor de eerste hap.',
+  'chef.c2.title':'De lens','chef.c2.body':'Achter de camera vond hij dezelfde waarheid: het verschil tussen een goed portret en een onvergetelijk portret is zien wat anderen over het hoofd zien.',
+  'chef.c3.title':'De studio','chef.c3.body':'Studio Toorn vertaalt dat vakmanschap naar het scherm, vanaf de Costa del Sol: ambachtelijke aandacht voor detail, aangescherpt met AI, geleverd alsof onze reputatie ervan afhangt. Want dat doet ze.',
+  'chef.s1':'Projecten opgeleverd','chef.s2':'Jaar vakmanschap','chef.s3':'Talen',
+  'proc.eyebrow':'Hoe de service loopt','proc.title':'Van reservering <em>tot laatste hap.</em>',
+  'proc.c1.title':'Ontdekking','proc.c1.body':'We luisteren, doen onderzoek en leren jouw wereld kennen voordat we een pixel aanraken. Groot werk begint met echt begrip van je klanten, je concurrentie en je ambities.',
+  'proc.c2.title':'Strategie','proc.c2.body':'Data ontmoet intuïtie. We brengen de route in kaart van eerste bezoek naar trouwe klant, gefundeerd op onderzoek en verfijnd door ervaring.',
+  'proc.c3.title':'Creatie','proc.c3.body':'Vakmanschap ontmoet technologie. Uren besteed aan de details die niemand opmerkt totdat ze ontbreken.',
+  'proc.c4.title':'Lancering &amp; groei','proc.c4.body':'Live gaan is het begin. Performance, analytics en testen houden je project vliegend, lang na de lanceringsdag.',
+  'gb.eyebrow':'Het gastenboek','gb.title':'Woorden van <em>tafel.</em>',
+  'gb.q1':'Studio Toorn bouwde niet zomaar een website, ze bouwden onze reputatie. Binnen drie maanden sloten we twee deals die rechtstreeks via het nieuwe platform binnenkwamen.',
+  'gb.r1':'Senior makelaar · Marbella Luxury Properties',
+  'gb.q2':'We hadden eerst een website. Na Studio Toorn hadden we een ervaring. Reserveringen stegen veertig procent in de eerste maand.',
+  'gb.r2':'Eigenaresse · La Terraza del Puerto, Málaga',
+  'gb.q3':'Nick kwam terug met iets waardoor onze investeerders rechtop gingen zitten. Zijn AI-workflows besparen ons nu ruim twintig uur per week.',
+  'gb.r3':'Medeoprichter · Nexora AI, Amsterdam',
+  'ct.eyebrow':'Reserveringen','ct.title':'Reserveer <em>je tafel.</em>',
+  'ct.sub':'Elk groot project begint met een gesprek. Vertel ons wat je bouwt, wij vertellen je hoe het onvergetelijk wordt.',
+  'ct.l1':'WhatsApp / Telefoon','ct.l2':'E-mail','ct.l3':'Basis','ct.l3v':'Costa del Sol, Spanje. Wereldwijd actief.',
+  'ct.wa':'Stuur een WhatsApp',
+  'f.name':'Je naam','f.namePh':'Jan de Vries','f.email':'E-mail','f.type':'Wat gaan we koken?',
+  'f.o0':'Kies een gang','f.o1':'Website','f.o2':'AI-automatisering','f.o3':'Content &amp; strategie','f.o4':'Merkidentiteit','f.o5':'Het volledige proeverijmenu','f.o6':'Anders',
+  'f.msg':'Vertel over je project','f.msgPh':'Wat bouw je? Hoe ziet succes eruit?',
+  'f.send':'Verstuur de aanvraag','f.note':'We reageren binnen 24 uur.','f.ok':'Aanvraag ontvangen. We nemen binnen 24 uur contact op.',
+  'ft.tag':'Gebouwd met obsessie.','ft.rights':'© 2026 Studio Toorn. Alle rechten voorbehouden.'
+}
+};
+
+var lang = 'en';
+try { lang = localStorage.getItem('st-lang') || 'en'; } catch(e){}
+if (!I18N[lang]) lang = 'en';
+
+function applyLang(code){
+  lang = code;
+  try { localStorage.setItem('st-lang', code); } catch(e){}
+  document.documentElement.lang = code;
+  var dict = I18N[code];
+  $$('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if (dict[k] !== undefined) el.innerHTML = dict[k];
+  });
+  $$('[data-i18n-html]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-html');
+    if (dict[k] !== undefined) el.innerHTML = dict[k];
+  });
+  $$('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph');
+    if (dict[k] !== undefined) el.setAttribute('placeholder', dict[k]);
+  });
+  $$('.lang button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === code); });
+}
+
+applyLang(lang);
+
+$$('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){
+    if (b.getAttribute('data-lang') === lang) return;
+    applyLang(b.getAttribute('data-lang'));
+    rebuildStatements();
+    ScrollTrigger.refresh();
+  });
+});
+
+/* ================= LENIS ================= */
+var lenis = null;
+if (!reduced && typeof Lenis !== 'undefined') {
+  lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.95, smoothWheel: true });
+  window.__lenis = lenis;
+  lenis.stop();
   lenis.on('scroll', ScrollTrigger.update);
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
 }
 
-/* ── Scroll progress bar ─────────────────────────────── */
-function initProgress() {
-  const fill = document.querySelector('#prog::after') || null;
-  // Use Lenis scroll event + inline style
-  const prog = document.getElementById('prog');
-  if (!prog) return;
-  // Add inner div
-  const bar = document.createElement('div');
-  bar.style.cssText = 'position:absolute;inset:0;background:linear-gradient(90deg,#c8a455,#e0bc78);transform:scaleX(0);transform-origin:left;transition:transform .05s linear';
-  prog.appendChild(bar);
-  if (lenis) {
-    lenis.on('scroll', ({ scroll, limit }) => {
-      bar.style.transform = `scaleX(${limit > 0 ? scroll / limit : 0})`;
-    });
-  }
+function scrollToEl(target){
+  var el = $(target);
+  if (!el) return;
+  if (lenis) lenis.scrollTo(el, { offset: -64, duration: 1.4 });
+  else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
 }
 
-/* ── Custom cursor ───────────────────────────────────── */
-function initCursor() {
-  if (isTouch) return;
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  if (!dot || !ring) return;
-  const xD = gsap.quickTo(dot, 'left', { duration: 0.08, ease: 'power3' });
-  const yD = gsap.quickTo(dot, 'top',  { duration: 0.08, ease: 'power3' });
-  const xR = gsap.quickTo(ring, 'left', { duration: 0.45, ease: 'power3' });
-  const yR = gsap.quickTo(ring, 'top',  { duration: 0.45, ease: 'power3' });
-  window.addEventListener('mousemove', e => { xD(e.clientX); yD(e.clientY); xR(e.clientX); yR(e.clientY); }, { passive: true });
-  document.querySelectorAll('a,button,input,select,textarea,.svc-card').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
-  });
-}
-
-/* ── Navbar scroll effect ────────────────────────────── */
-function initNav() {
-  const nav = document.getElementById('nav');
-  if (!nav) return;
-  let ticking = false;
-  function handleScroll() {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const scrollY = lenis ? lenis.scroll : window.scrollY;
-        nav.classList.toggle('scrolled', scrollY > 80);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-  if (lenis) lenis.on('scroll', handleScroll);
-  else window.addEventListener('scroll', handleScroll, { passive: true });
-  // Logo link scrolls to top
-  const logoLink = document.getElementById('logo-link');
-  if (logoLink) {
-    logoLink.addEventListener('click', e => {
+$$('.st-anchor').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var href = a.getAttribute('href');
+    if (href && href.charAt(0) === '#') {
       e.preventDefault();
-      if (lenis) lenis.scrollTo(0, { duration: 1.4 });
-    });
-  }
-}
-
-/* ── Hamburger + overlay ─────────────────────────────── */
-function initHamburger() {
-  const btn = document.getElementById('hamburger');
-  const overlay = document.getElementById('nav-overlay');
-  const closeBtn = document.getElementById('ov-close');
-  if (!btn || !overlay) return;
-
-  function openOverlay() {
-    overlay.classList.add('open');
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('locked');
-  }
-  function closeOverlay() {
-    overlay.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('locked');
-  }
-
-  btn.addEventListener('click', () => {
-    overlay.classList.contains('open') ? closeOverlay() : openOverlay();
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-  // Close when a link is clicked
-  overlay.querySelectorAll('.ov-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      closeOverlay();
-      setTimeout(() => {
-        if (lenis && target) lenis.scrollTo(target, { offset: -80, duration: 1.2 });
-      }, 300);
-    });
-  });
-  // Close on backdrop click
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
-}
-
-/* ── Smooth anchor links ─────────────────────────────── */
-function initAnchorLinks() {
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    if (a.classList.contains('ov-link')) return; // handled separately
-    a.addEventListener('click', e => {
-      const hash = a.getAttribute('href');
-      if (hash === '#') { e.preventDefault(); if (lenis) lenis.scrollTo(0, { duration: 1.2 }); return; }
-      const target = document.querySelector(hash);
-      if (target) { e.preventDefault(); if (lenis) lenis.scrollTo(target, { offset: -80, duration: 1.2 }); }
-    });
-  });
-}
-
-/* ── Text scramble ───────────────────────────────────── */
-function initScramble() {
-  if (isTouch || prefersReducedMotion) return;
-  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  document.querySelectorAll('[data-scramble]').forEach(el => {
-    const orig = el.textContent;
-    let raf, frame = 0;
-    el.addEventListener('mouseenter', () => {
-      cancelAnimationFrame(raf); frame = 0;
-      const tick = () => {
-        el.textContent = orig.split('').map((c, i) => {
-          if (c === ' ') return ' ';
-          if (i < frame / 3) return orig[i];
-          return CHARS[Math.floor(Math.random() * CHARS.length)];
-        }).join('');
-        frame++;
-        if (frame <= orig.length * 3) raf = requestAnimationFrame(tick);
-        else el.textContent = orig;
-      };
-      tick();
-    });
-    el.addEventListener('mouseleave', () => { cancelAnimationFrame(raf); el.textContent = orig; });
-  });
-}
-
-/* ── Magnetic buttons ────────────────────────────────── */
-function initMagnetic() {
-  if (isTouch || prefersReducedMotion) return;
-  document.querySelectorAll('.mag').forEach(el => {
-    el.addEventListener('mousemove', function(e) {
-      const r = this.getBoundingClientRect();
-      const x = (e.clientX - (r.left + r.width / 2)) * 0.22;
-      const y = (e.clientY - (r.top + r.height / 2)) * 0.22;
-      gsap.to(this, { x, y, duration: 0.3, ease: 'power2.out' });
-    });
-    el.addEventListener('mouseleave', function() {
-      gsap.to(this, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1,.45)' });
-    });
-  });
-}
-
-/* ── Scroll reveal (IntersectionObserver) ────────────── */
-function initScrollReveal() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => obs.observe(el));
-}
-
-/* ── Image reveal wipe ───────────────────────────────── */
-function initImageReveals() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const cover = e.target.querySelector('.ir-cover');
-      if (cover) gsap.to(cover, { scaleX: 0, duration: 1.3, ease: 'expo.inOut', delay: 0.1 });
-      obs.unobserve(e.target);
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.ir-wrap').forEach(el => obs.observe(el));
-}
-
-/* ── Animated counters ───────────────────────────────── */
-function initCounters() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = parseInt(el.dataset.count, 10);
-      const suffix = el.dataset.suffix || '';
-      const dur = prefersReducedMotion ? 0 : 1600;
-      if (dur === 0) { el.textContent = target + suffix; obs.unobserve(el); return; }
-      const start = performance.now();
-      const tick = now => {
-        const t = Math.min((now - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - t, 3);
-        el.textContent = Math.round(ease * target) + suffix;
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      obs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-count]').forEach(el => obs.observe(el));
-}
-
-/* ── Process timeline line ───────────────────────────── */
-function initProcess() {
-  const line = document.getElementById('proc-line-fill');
-  if (!line) return;
-  const wrap = document.getElementById('proc-wrap');
-  if (!wrap) return;
-
-  // Draw the line via ScrollTrigger scrub (NO pin)
-  gsap.to(line, {
-    height: '100%',
-    ease: 'none',
-    scrollTrigger: {
-      trigger: wrap,
-      start: 'top 75%',
-      end: 'bottom 30%',
-      scrub: 1,
+      closeOvl();
+      scrollToEl(href);
     }
   });
+});
 
-  // Light up dots with IntersectionObserver
-  ['dot1','dot2','dot3','dot4'].forEach(id => {
-    const dot = document.getElementById(id);
-    if (!dot) return;
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { dot.classList.add('lit'); obs.unobserve(e.target); } });
-    }, { threshold: 0.5 });
-    obs.observe(dot.closest('.proc-step') || dot);
+/* ================= SCROLL PROGRESS + NAV STATE ================= */
+var progBar = $('#prog div');
+var nav = $('#nav');
+function onScrollPos(y, limit){
+  if (progBar) progBar.style.transform = 'scaleX(' + (limit > 0 ? y / limit : 0) + ')';
+  if (nav) nav.classList.toggle('scrolled', y > 60);
+}
+if (lenis) {
+  lenis.on('scroll', function(e){ onScrollPos(e.scroll, e.limit); });
+} else {
+  window.addEventListener('scroll', function(){
+    var limit = document.documentElement.scrollHeight - window.innerHeight;
+    onScrollPos(window.scrollY, limit);
+  }, { passive: true });
+}
+
+/* ================= CURSOR ================= */
+(function(){
+  if (!fine) return;
+  var dot = $('#cur-dot'), ring = $('#cur-ring');
+  gsap.set([dot, ring], { xPercent: -50, yPercent: -50, x: -100, y: -100 });
+  var xD = gsap.quickTo(dot, 'x', { duration: .06, ease: 'power3' });
+  var yD = gsap.quickTo(dot, 'y', { duration: .06, ease: 'power3' });
+  var xR = gsap.quickTo(ring, 'x', { duration: .35, ease: 'power3' });
+  var yR = gsap.quickTo(ring, 'y', { duration: .35, ease: 'power3' });
+  window.addEventListener('mousemove', function(e){
+    xD(e.clientX); yD(e.clientY); xR(e.clientX); yR(e.clientY);
+  }, { passive: true });
+  document.addEventListener('mouseover', function(e){
+    var t = e.target;
+    if (t.closest('.proj')) { ring.classList.add('view'); ring.classList.remove('grow'); }
+    else if (t.closest('a,button,input,select,textarea,label,.m-row')) { ring.classList.add('grow'); ring.classList.remove('view'); }
+    else { ring.classList.remove('grow'); ring.classList.remove('view'); }
+  }, { passive: true });
+})();
+
+/* ================= MAGNETIC ================= */
+(function(){
+  if (!fine || reduced) return;
+  $$('.mag').forEach(function(el){
+    var sx = gsap.quickTo(el, 'x', { duration: .4, ease: 'power3' });
+    var sy = gsap.quickTo(el, 'y', { duration: .4, ease: 'power3' });
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      sx((e.clientX - r.left - r.width / 2) * .25);
+      sy((e.clientY - r.top - r.height / 2) * .35);
+    });
+    el.addEventListener('mouseleave', function(){ sx(0); sy(0); });
+  });
+})();
+
+/* ================= CLOCK (Málaga) ================= */
+(function(){
+  var els = $$('.js-clock');
+  if (!els.length) return;
+  var fmt;
+  try { fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', hour: '2-digit', minute: '2-digit' }); }
+  catch(e){ fmt = null; }
+  function tick(){
+    var s = fmt ? fmt.format(new Date()) : new Date().toTimeString().slice(0,5);
+    els.forEach(function(el){ el.textContent = s; });
+  }
+  tick();
+  setInterval(tick, 10000);
+})();
+
+/* ================= OVERLAY MENU ================= */
+var burger = $('#burger'), ovl = $('#ovl');
+function closeOvl(){
+  if (!ovl.classList.contains('open')) return;
+  ovl.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  if (lenis) lenis.start();
+}
+if (burger) {
+  burger.addEventListener('click', function(){
+    var open = !ovl.classList.contains('open');
+    ovl.classList.toggle('open', open);
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    if (lenis) { open ? lenis.stop() : lenis.start(); }
   });
 }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeOvl(); });
 
-/* ── Testimonials carousel ───────────────────────────── */
-function initTestimonials() {
-  const track = document.getElementById('testi-track');
-  const dots = document.querySelectorAll('.testi-dot');
-  const prevBtn = document.getElementById('t-prev');
-  const nextBtn = document.getElementById('t-next');
-  const countEl = document.getElementById('t-count');
-  const viewport = document.getElementById('testi-viewport');
-  if (!track || !prevBtn || !nextBtn) return;
+/* ================= EMBERS CANVAS ================= */
+(function(){
+  var cv = $('#embers');
+  if (!cv || reduced) return;
+  var ctx = cv.getContext('2d');
+  var W, H, dpr, parts = [], running = false, inView = true;
+  var mouse = { x: -9999, y: -9999 };
+  var COUNT = window.innerWidth < 768 ? 42 : 110;
 
-  const N = 3;
-  let current = 0;
-  let autoTimer = null;
-
-  function goTo(idx) {
-    current = (idx + N) % N;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    if (countEl) countEl.textContent = String(current + 1).padStart(2, '0') + ' / 0' + N;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-
-  prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
-  nextBtn.addEventListener('click', () => { next(); resetAuto(); });
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.idx, 10)); resetAuto(); });
-  });
-
-  // Auto-advance
-  function startAuto() { autoTimer = setInterval(next, 6000); }
-  function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
-  function resetAuto() { stopAuto(); startAuto(); }
-
-  // Pause on hover
-  if (viewport) {
-    viewport.addEventListener('mouseenter', stopAuto);
-    viewport.addEventListener('mouseleave', startAuto);
+  function spawn(p, fresh){
+    p.x = Math.random() * W;
+    p.y = fresh ? Math.random() * H : H + 8 + Math.random() * 40;
+    p.r = .5 + Math.random() * 1.7;
+    p.s = .2 + Math.random() * .8;
+    p.ph = Math.random() * Math.PI * 2;
+    p.a = .14 + Math.random() * .5;
+    p.warm = Math.random() > .5;
+    return p;
   }
-
-  // Touch swipe
-  let touchStartX = 0;
-  if (track) {
-    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const delta = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(delta) > 50) { delta < 0 ? next() : prev(); resetAuto(); }
-    }, { passive: true });
-  }
-
-  // Start when in view
-  if (viewport) {
-    const obs = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) { startAuto(); obs.disconnect(); }
-    }, { threshold: 0.3 });
-    obs.observe(viewport);
-  }
-}
-
-/* ── Form field sequential reveal ───────────────────── */
-function initFormReveal() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-  const fields = ['ff1','ff2','ff3','ff4','ff5'];
-  const obs = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) return;
-    fields.forEach((id, i) => {
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('visible');
-      }, i * 160);
-    });
-    obs.unobserve(form);
-  }, { threshold: 0.1 });
-  obs.observe(form);
-}
-
-/* ── Preloader ───────────────────────────────────────── */
-function initPreloader() {
-  const pl       = document.getElementById('preloader');
-  const plName   = document.getElementById('pl-name');
-  const pctNum   = document.getElementById('pl-pct-num');
-  const ringFill = document.getElementById('pl-ring-fill');
-
-  if (!pl) { document.body.classList.remove('locked'); launchHero(); return; }
-  if (prefersReducedMotion) { pl.remove(); document.body.classList.remove('locked'); launchHero(); return; }
-
-  // Build name chars
-  if (plName) {
-    'Studio Toorn'.split('').forEach(c => {
-      const s = document.createElement('span');
-      s.className = 'pl-char';
-      s.textContent = c === ' ' ? '\u00A0' : c;
-      plName.appendChild(s);
-    });
-  }
-
-  // Ring stroke: circumference = 2πr, r=96
-  const CIRC = 2 * Math.PI * 96;
-  if (ringFill) {
-    ringFill.style.strokeDasharray  = CIRC;
-    ringFill.style.strokeDashoffset = CIRC;
-  }
-
-  // Progress object drives ring + counter + rail
-  const prog = { v: 0 };
-
-  // Logo visible from frame 1 — only scale it in, never hide it
-  gsap.set('#pl-logo', { scale: 0.82 });
-
-  const tl = gsap.timeline({ delay: 0.1 });
-  tl
-    // Logo: scale in only — opacity stays 1 from CSS (visible before GSAP loads)
-    .to('#pl-logo', { scale: 1, duration: 0.85, ease: 'power3.out' })
-    // Glow + outer ring
-    .to(['#pl-glow', '#pl-ring-outer'], { opacity: 1, duration: 0.9, ease: 'power2.out' }, '<+0.1')
-    // Name chars rise
-    .to('.pl-char', { y: 0, opacity: 1, stagger: 0.04, duration: 0.65, ease: 'power3.out' }, '-=0.4')
-    // Tagline
-    .to('#pl-tag', { opacity: 1, duration: 0.35 }, '-=0.2')
-    // Corner meta + rail
-    .to('.pl-meta', { opacity: 1, duration: 0.45, stagger: 0.05 }, '-=0.15')
-    .to('#pl-rail-wrap', { opacity: 1, duration: 0.3 }, '<')
-    // PROGRESS: ring stroke + counter + rail in lock-step
-    .to(prog, {
-      v: 100, duration: 1.8, ease: 'power1.inOut',
-      onUpdate() {
-        const v = prog.v;
-        if (pctNum)   pctNum.textContent = String(Math.floor(v)).padStart(2, '0');
-        if (ringFill) ringFill.style.strokeDashoffset = CIRC * (1 - v / 100);
+  function loop(t){
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.y -= p.s;
+      p.x += Math.sin(t * .0006 + p.ph) * .35;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y;
+      var d2 = dx * dx + dy * dy;
+      if (d2 < 16900 && d2 > .01) {
+        var d = Math.sqrt(d2), f = (130 - d) / 130 * 1.6;
+        p.x += dx / d * f; p.y += dy / d * f;
       }
-    })
-    .to('#pl-bar', { width: '100%', duration: 1.8, ease: 'power1.inOut' }, '<')
-    // Hold
-    .to({}, { duration: 0.25 })
-    // EXIT: logo swells, all fades, curtains close from outside in
-    .to('#pl-logo', { scale: 1.12, duration: 0.4, ease: 'power2.in' })
-    .to(['#pl-glow', '.pl-name', '#pl-tag', '.pl-meta', '#pl-rail-wrap', '.pl-ring', '#pl-ring-outer', '.pl-pulse'],
-        { opacity: 0, duration: 0.3 }, '<')
-    .to('#pl-logo', { opacity: 0, scale: 1.28, duration: 0.38, ease: 'power3.in' }, '-=0.1')
-    // Curtains slide IN from top/bottom to cover
-    .to('#pl-curtain-top', { yPercent: 100, duration: 0.85, ease: 'expo.inOut' }, '-=0.05')
-    .to('#pl-curtain-bot', { yPercent: -100, duration: 0.85, ease: 'expo.inOut' }, '<')
-    .call(() => {
-      pl.remove();
-      document.body.classList.remove('locked');
-      launchHero();
-    });
-}
+      if (p.y < -12 || p.x < -20 || p.x > W + 20) spawn(p, false);
+      var fl = .7 + .3 * Math.sin(t * .004 + p.ph * 3);
+      ctx.globalAlpha = p.a * fl;
+      ctx.fillStyle = p.warm ? '#e8c87e' : '#c9a155';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  }
+  function start(){ if (!running && inView && !document.hidden) { running = true; requestAnimationFrame(loop); } }
+  function stop(){ running = false; }
 
-/* ── Hero launch ─────────────────────────────────────── */
-function launchHero() {
-  if (prefersReducedMotion) {
-    ['h-eyebrow','hl-0','hl-1','hl-2','h-sub','h-ctas','scroll-ind'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+  resize();
+  for (var i = 0; i < COUNT; i++) parts.push(spawn({}, true));
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('mousemove', function(e){
+    var r = cv.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  }, { passive: true });
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+  new IntersectionObserver(function(en){
+    inView = en[0].isIntersecting;
+    inView ? start() : stop();
+  }).observe($('#hero'));
+  start();
+})();
+
+/* ================= REVEALS ================= */
+(function(){
+  var els = $$('.rv');
+  if (reduced) { els.forEach(function(el){ el.classList.add('on'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
     });
-    // Start gradient animation on gold word
-    document.querySelectorAll('.gold-word').forEach(el => { el.style.animationPlayState = 'running'; });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ================= STATEMENT WORD SCRUB ================= */
+var stmtTriggers = [];
+function rebuildStatements(){
+  stmtTriggers.forEach(function(st){ st.kill(); });
+  stmtTriggers = [];
+  $$('.js-stmt').forEach(function(el){
+    var dict = I18N[lang];
+    var key = el.getAttribute('data-i18n');
+    var text = (dict && dict[key]) ? dict[key] : el.textContent;
+    var words = text.split(' ');
+    el.innerHTML = words.map(function(w){ return '<span class="w">' + w + '</span>'; }).join(' ');
+    if (reduced) return;
+    var spans = $$('.w', el);
+    var tw = gsap.to(spans, {
+      opacity: 1,
+      stagger: .08,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 78%',
+        end: 'top 30%',
+        scrub: .6
+      }
+    });
+    stmtTriggers.push(tw.scrollTrigger);
+  });
+}
+rebuildStatements();
+
+/* ================= WORK: parallax + lazy iframes + scaler ================= */
+(function(){
+  if (!reduced) {
+    $$('.dish').forEach(function(card){
+      gsap.fromTo(card,
+        { y: 70, scale: .96 },
+        { y: 0, scale: 1, ease: 'none',
+          scrollTrigger: { trigger: card, start: 'top 98%', end: 'top 55%', scrub: .5 } });
+    });
+  }
+
+  var vps = $$('.frame-vp');
+  function scaleAll(){
+    vps.forEach(function(vp){
+      var f = $('iframe', vp);
+      if (!f) return;
+      var w = vp.clientWidth, h = vp.clientHeight;
+      var sc = w / 1440;
+      f.style.transform = 'scale(' + sc + ')';
+      f.style.height = Math.ceil(h / sc) + 'px';
+    });
+  }
+  scaleAll();
+  window.addEventListener('resize', scaleAll, { passive: true });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) {
+        var f = $('iframe', en.target);
+        if (f && !f.src && f.getAttribute('data-src')) f.src = f.getAttribute('data-src');
+        io.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: '900px 0px' });
+  vps.forEach(function(vp){ io.observe(vp); });
+})();
+
+/* ================= MENU HOVER PREVIEW ================= */
+(function(){
+  if (!fine || reduced) return;
+  var pv = $('#m-preview');
+  if (!pv) return;
+  var imgs = $$('img', pv);
+  gsap.set(pv, { xPercent: -50, yPercent: -50, scale: .85 });
+  var px = gsap.quickTo(pv, 'x', { duration: .5, ease: 'power3' });
+  var py = gsap.quickTo(pv, 'y', { duration: .5, ease: 'power3' });
+  var rot = gsap.quickTo(pv, 'rotation', { duration: .6, ease: 'power3' });
+  var lastX = 0, visible = false;
+  $$('.m-row').forEach(function(row){
+    row.addEventListener('mouseenter', function(){
+      var idx = parseInt(row.getAttribute('data-img'), 10) || 0;
+      imgs.forEach(function(im, i){ im.classList.toggle('show', i === idx); });
+      pv.style.opacity = '1';
+      gsap.to(pv, { scale: 1, duration: .4, ease: 'power3.out' });
+      visible = true;
+    });
+    row.addEventListener('mouseleave', function(){
+      pv.style.opacity = '0';
+      gsap.to(pv, { scale: .85, duration: .35, ease: 'power3.out' });
+      visible = false;
+    });
+  });
+  window.addEventListener('mousemove', function(e){
+    if (!visible) { px(e.clientX); py(e.clientY); lastX = e.clientX; return; }
+    px(e.clientX); py(e.clientY);
+    rot(Math.max(-7, Math.min(7, (e.clientX - lastX) * .55)));
+    lastX = e.clientX;
+  }, { passive: true });
+})();
+
+/* ================= PROCESS CARD STACK ================= */
+(function(){
+  if (reduced || window.innerWidth < 700) return;
+  var cards = $$('.course');
+  cards.forEach(function(card, i){
+    if (i === cards.length - 1) return;
+    var next = cards[i + 1];
+    gsap.to(card, {
+      scale: .94,
+      opacity: .45,
+      transformOrigin: 'center top',
+      ease: 'none',
+      scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 24%', scrub: true }
+    });
+  });
+})();
+
+/* ================= STATS COUNT ================= */
+(function(){
+  var stats = $$('[data-count]');
+  if (!stats.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var el = en.target;
+      var end = parseInt(el.getAttribute('data-count'), 10);
+      var suf = el.getAttribute('data-suffix') || '';
+      if (reduced) { el.textContent = end + suf; io.unobserve(el); return; }
+      var o = { v: 0 };
+      gsap.to(o, { v: end, duration: 1.8, ease: 'power3.out', onUpdate: function(){
+        el.textContent = Math.round(o.v) + suf;
+      }});
+      io.unobserve(el);
+    });
+  }, { threshold: .5 });
+  stats.forEach(function(s){ io.observe(s); });
+})();
+
+/* ================= GUESTBOOK ROTATOR ================= */
+(function(){
+  var items = $$('.gb-item');
+  if (!items.length) return;
+  var idx = 0, timer = null;
+  var count = $('#gb-count');
+  function show(n){
+    idx = (n + items.length) % items.length;
+    items.forEach(function(it, i){
+      if (i === idx) {
+        it.classList.add('on');
+        if (!reduced) gsap.fromTo(it, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .7, ease: 'power3.out' });
+      } else {
+        it.classList.remove('on');
+      }
+    });
+    if (count) count.textContent = ('0' + (idx + 1)).slice(-2) + ' / ' + ('0' + items.length).slice(-2);
+  }
+  function auto(){ clearInterval(timer); timer = setInterval(function(){ show(idx + 1); }, 7500); }
+  $('#gb-prev').addEventListener('click', function(){ show(idx - 1); auto(); });
+  $('#gb-next').addEventListener('click', function(){ show(idx + 1); auto(); });
+  auto();
+})();
+
+/* ================= FORM ================= */
+(function(){
+  var form = $('#ct-form'), ok = $('#form-ok');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = $('button[type=submit]', form);
+    if (btn) btn.style.opacity = '.5';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if (res.ok) { form.style.display = 'none'; ok.style.display = 'block'; }
+      else { form.submit(); }
+    }).catch(function(){ form.submit(); });
+  });
+})();
+
+/* ================= FOOTER GIANT FILL ================= */
+(function(){
+  var g = $('#f-giant');
+  if (!g || reduced) { if (g) g.style.setProperty('--fill', .9); return; }
+  gsap.to(g, {
+    '--fill': .92,
+    ease: 'none',
+    scrollTrigger: { trigger: g, start: 'top 95%', end: 'top 45%', scrub: .5 }
+  });
+})();
+
+/* ================= HERO INTRO + PRELOADER ================= */
+(function(){
+  var loader = $('#loader');
+  var heroBits = ['#h-eyebrow', '#h-sub', '#h-ctas', '#scroll-cue', '.side-l', '.side-r'];
+  var lines = $$('.h-line-in');
+
+  function heroIntro(){
+    document.body.classList.remove('locked');
+    if (lenis) lenis.start();
+    if (reduced) return;
+    var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    tl.fromTo(lines, { yPercent: 115 }, { yPercent: 0, duration: 1.1, stagger: .14 }, 0)
+      .fromTo('#h-eyebrow', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .8 }, .35)
+      .fromTo('#h-sub', { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .9 }, .55)
+      .fromTo('#h-ctas', { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .9 }, .7)
+      .fromTo('#scroll-cue', { opacity: 0 }, { opacity: 1, duration: .8 }, .9)
+      .fromTo('.hero-side', { opacity: 0 }, { opacity: 1, duration: .8 }, .9);
+  }
+
+  if (reduced) {
+    loader.style.display = 'none';
+    document.body.classList.remove('locked');
     return;
   }
 
-  // Start gradient on gold word
-  document.querySelectorAll('.gold-word').forEach(el => { el.style.animationPlayState = 'running'; });
+  // hide hero bits before reveal
+  gsap.set(lines, { yPercent: 115 });
+  gsap.set(heroBits.join(','), { opacity: 0 });
 
-  const tl = gsap.timeline();
-  tl
-    .to('#h-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
-    .to('#hl-0', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=.4')
-    .to('#hl-1', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=.6')
-    .to('#hl-2', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=.6')
-    .to('#h-sub', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=.5')
-    .to('#h-ctas', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=.5')
-    .to('#scroll-ind', { opacity: 1, duration: 0.6 }, '-=.2');
+  var seen = false;
+  try { seen = sessionStorage.getItem('st-seen') === '1'; } catch(e){}
+
+  var words = ['mise en place', 'sharpening knives', 'warming the pass', 'plating pixels', 'service'];
+  var wEl = $('#ld-word'), wi = 0;
+  var wTimer = setInterval(function(){
+    wi = (wi + 1) % words.length;
+    wEl.textContent = words[wi];
+  }, 380);
+
+  var cEl = $('#ld-count');
+  var dur = seen ? .55 : 2.0;
+  var o = { v: 0 };
+  var tl = gsap.timeline();
+  tl.to('#ld-logo', { opacity: 1, scale: 1, duration: .6, ease: 'power2.out' }, 0)
+    .fromTo('#ld-logo', { scale: .82 }, { scale: 1, duration: dur + .4, ease: 'power2.out' }, 0)
+    .to(o, { v: 100, duration: dur, ease: 'power2.inOut', onUpdate: function(){
+        var n = Math.round(o.v);
+        cEl.innerHTML = (n < 10 ? '0' + n : n) + '<i>%</i>';
+      } }, 0)
+    .to('#ld-bar', { width: '100%', duration: dur, ease: 'power2.inOut' }, 0)
+    .add(function(){
+      clearInterval(wTimer);
+      try { sessionStorage.setItem('st-seen', '1'); } catch(e){}
+    })
+    .to('.ld-core, .ld-count, .ld-bar', { opacity: 0, duration: .35, ease: 'power2.in' })
+    .to('.ld-top', { yPercent: -100, duration: .9, ease: 'power4.inOut' }, '<.15')
+    .to('.ld-bot', { yPercent: 100, duration: .9, ease: 'power4.inOut' }, '<')
+    .add(heroIntro, '<.35')
+    .set(loader, { display: 'none' });
+})();
+
+/* ================= REFRESH ON FONTS/LOAD ================= */
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
 }
-
-/* ── Video fallback ──────────────────────────────────── */
-function initVideoFallback() {
-  const video = document.getElementById('hero-video');
-  if (!video) return;
-  video.addEventListener('error', () => {
-    video.style.display = 'none';
-  });
-}
-
-/* ── INIT ────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-  initLenis();
-  initProgress();
-  initCursor();
-  initNav();
-  initHamburger();
-  initAnchorLinks();
-  initScramble();
-  initMagnetic();
-  initScrollReveal();
-  initImageReveals();
-  initCounters();
-  initProcess();
-  initTestimonials();
-  initFormReveal();
-  initVideoFallback();
-  initPreloader(); // Last — triggers hero launch on complete
-
-  // Refresh ScrollTrigger after fonts + layout settle
-  document.fonts.ready.then(() => {
-    ScrollTrigger.refresh();
-  });
-  // Scale live preview iframes to fit their containers
-  function scaleWorkIframes() {
-    document.querySelectorAll('.proj-live-vp').forEach(vp => {
-      const scaler = vp.querySelector('.proj-iframe-scaler');
-      if (!scaler) return;
-      const scale = vp.offsetWidth / 1440;
-      scaler.style.transform = `scale(${scale})`;
-    });
-  }
-  scaleWorkIframes();
-
-  window.addEventListener('resize', () => {
-    clearTimeout(window._resizeTimer);
-    window._resizeTimer = setTimeout(() => { ScrollTrigger.refresh(); scaleWorkIframes(); }, 250);
-  }, { passive: true });
-});
+window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 
 })();
 </script>
