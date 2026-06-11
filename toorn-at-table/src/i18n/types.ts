@@ -132,6 +132,35 @@ export type Dictionary = {
     /** Share button label + the "link copied" confirmation. */
     share: string;
     shareCopied: string;
+    /** Homepage link to the installable cookbook app page. */
+    appLink: string;
+  };
+  cookbookApp: {
+    /** <title> + meta description for the standalone /cookbook page. */
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    intro: string;
+    /** Install panel. */
+    installEyebrow: string;
+    installTitle: string;
+    installBody: string;
+    /** Native install button (Android / desktop Chrome). */
+    installButton: string;
+    /** Shown when already running as the installed app. */
+    installedNote: string;
+    /** iOS has no install prompt: Add-to-Home-Screen steps. */
+    iosSteps: string[];
+    /** Offline panel. */
+    offlineTitle: string;
+    offlineBody: string;
+    offlineButton: string;
+    offlineSaving: string;
+    offlineDone: string;
+    offlineError: string;
+    /** Back link to the full site. */
+    backToSite: string;
   };
   events: {
     eyebrow: string;

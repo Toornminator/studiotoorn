@@ -152,6 +152,35 @@ export const en: Dictionary = {
     cursorOpen: "Open recipe",
     share: "Share",
     shareCopied: "Link copied",
+    appLink: "Put the cookbook on your phone",
+  },
+  cookbookApp: {
+    metaTitle: "Cookbook",
+    metaDescription:
+      "The cookbook of a Michelin-trained private chef. Real recipes on your phone, working offline at the stove.",
+    eyebrow: "The cookbook · In your pocket",
+    title: "A cookbook that lives on your phone.",
+    intro:
+      "Every recipe I publish, in one place. Put it on your home screen, save it offline, and it's there when you're at the stove with wet hands and no signal.",
+    installEyebrow: "Get the app",
+    installTitle: "Put it on your phone",
+    installBody:
+      "No app store, nothing to pay. It installs straight from the browser and opens like any other app.",
+    installButton: "Install the cookbook",
+    installedNote: "You're cooking from the app. Good.",
+    iosSteps: [
+      "Open this page in Safari",
+      "Tap the share button",
+      "Tap 'Add to Home Screen'",
+    ],
+    offlineTitle: "Take it off the grid",
+    offlineBody:
+      "Save every recipe to your phone. Markets with no signal, kitchens with thick walls, planes. The book keeps working.",
+    offlineButton: "Save all recipes offline",
+    offlineSaving: "Saving recipes…",
+    offlineDone: "All recipes saved. Cook anywhere.",
+    offlineError: "That didn't work. Check your connection and try again.",
+    backToSite: "Back to the full site",
   },
   events: {
     eyebrow: "Chapter 05 · Events",

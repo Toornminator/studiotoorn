@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { ContactNudge } from "@/components/layout/ContactNudge";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { ServiceWorkerRegistrar } from "@/components/layout/ServiceWorkerRegistrar";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Footer } from "@/components/layout/Footer";
 import { GrainOverlay } from "@/components/layout/GrainOverlay";
@@ -81,6 +82,20 @@ export const metadata: Metadata = {
     // Same story for Twitter — src/app/twitter-image.png is picked up
     // automatically and overrides the openGraph image for Twitter cards.
   },
+  // Installed-app behaviour on iOS: full-screen from the home screen
+  // icon (Safari chrome gone), branded title under the icon. Android
+  // reads the same intent from the manifest.
+  appleWebApp: {
+    capable: true,
+    title: "TOORN",
+    statusBarStyle: "default",
+  },
+};
+
+// Paper-cream browser/status-bar chrome, matching the manifest theme so
+// the installed cookbook app doesn't open under a default-black bar.
+export const viewport: Viewport = {
+  themeColor: "#F4EDE0",
 };
 
 /**
@@ -274,6 +289,7 @@ export default async function RootLayout({
           <Preloader />
           <CookieConsent />
           <ContactNudge />
+          <ServiceWorkerRegistrar />
         </LocaleProvider>
       </body>
     </html>

@@ -154,6 +154,35 @@ export const es: Dictionary = {
     cursorOpen: "Abrir receta",
     share: "Compartir",
     shareCopied: "Enlace copiado",
+    appLink: "Pon el recetario en tu móvil",
+  },
+  cookbookApp: {
+    metaTitle: "Recetario",
+    metaDescription:
+      "El recetario de un chef privado con formación Michelin. Recetas de verdad en tu móvil, también sin conexión frente al fuego.",
+    eyebrow: "El recetario · En tu bolsillo",
+    title: "Un recetario que vive en tu móvil.",
+    intro:
+      "Cada receta que publico, en un solo sitio. Ponlo en tu pantalla de inicio, guárdalo sin conexión, y ahí está cuando estés frente al fuego con las manos mojadas y sin cobertura.",
+    installEyebrow: "La app",
+    installTitle: "Ponlo en tu móvil",
+    installBody:
+      "Sin app store, sin pagar nada. Se instala directo desde el navegador y se abre como cualquier otra app.",
+    installButton: "Instalar el recetario",
+    installedNote: "Estás cocinando desde la app. Bien.",
+    iosSteps: [
+      "Abre esta página en Safari",
+      "Toca el botón de compartir",
+      "Toca 'Añadir a pantalla de inicio'",
+    ],
+    offlineTitle: "Llévatelo sin cobertura",
+    offlineBody:
+      "Guarda todas las recetas en tu móvil. Mercados sin señal, cocinas con paredes gruesas, aviones. El libro sigue funcionando.",
+    offlineButton: "Guardar todas las recetas",
+    offlineSaving: "Guardando recetas…",
+    offlineDone: "Todas las recetas guardadas. Cocina donde sea.",
+    offlineError: "Eso no ha funcionado. Revisa tu conexión y prueba otra vez.",
+    backToSite: "Volver a la web completa",
   },
   events: {
     eyebrow: "Capítulo 05 · Eventos",

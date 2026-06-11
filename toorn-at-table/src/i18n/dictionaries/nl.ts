@@ -153,6 +153,35 @@ export const nl: Dictionary = {
     cursorOpen: "Open recept",
     share: "Delen",
     shareCopied: "Link gekopieerd",
+    appLink: "Zet het kookboek op je telefoon",
+  },
+  cookbookApp: {
+    metaTitle: "Kookboek",
+    metaDescription:
+      "Het kookboek van een Michelin-getrainde privéchef. Echte recepten op je telefoon, ook offline aan het fornuis.",
+    eyebrow: "Het kookboek · In je broekzak",
+    title: "Een kookboek dat op je telefoon woont.",
+    intro:
+      "Elk recept dat ik publiceer, op één plek. Zet het op je beginscherm, bewaar het offline, en het is er als je met natte handen aan het fornuis staat zonder bereik.",
+    installEyebrow: "De app",
+    installTitle: "Zet het op je telefoon",
+    installBody:
+      "Geen app store, niks te betalen. Het installeert direct vanuit de browser en opent als elke andere app.",
+    installButton: "Installeer het kookboek",
+    installedNote: "Je kookt vanuit de app. Mooi.",
+    iosSteps: [
+      "Open deze pagina in Safari",
+      "Tik op de deelknop",
+      "Tik op 'Zet op beginscherm'",
+    ],
+    offlineTitle: "Neem het mee zonder bereik",
+    offlineBody:
+      "Bewaar alle recepten op je telefoon. Markten zonder signaal, keukens met dikke muren, vliegtuigen. Het boek blijft werken.",
+    offlineButton: "Bewaar alle recepten offline",
+    offlineSaving: "Recepten bewaren…",
+    offlineDone: "Alle recepten bewaard. Kook waar je wil.",
+    offlineError: "Dat ging mis. Check je verbinding en probeer het nog eens.",
+    backToSite: "Terug naar de volledige site",
   },
   events: {
     eyebrow: "Hoofdstuk 05 · Events",
