@@ -1,44 +1,44 @@
 # DESIGN.md — Studio Toorn
 
 ## Color strategy
-Drenched dark with committed gold. The surface is warm near-black; gold is not a 10% accent, it carries headings, rules, numerals and interactive states. Named reference: candlelit Michelin dining room at midnight, brass and flame on black steel.
+Warm ivory luxury, committed gold. Named reference: a sunlit gallery-atelier on the Costa del Sol at noon; sun-bleached plaster, linen, brass details, espresso ink. All neutrals tinted toward the gold hue, never pure black/white.
 
-Tokens (all neutrals tinted toward the gold hue, never pure black/white):
-- `--ink` #0b0a08 (page base)
-- `--ink-2` #121008 surface lift
-- `--ink-3` #1a1610 raised surface
-- `--gold` #c9a155 (primary accent, brand fixed)
-- `--gold-2` #e8c87e (highlight, hover)
-- `--gold-dim` rgba(201,161,85,.14) (hairlines)
-- `--cream` #f2ecdd (primary text)
-- `--cream-dim` rgba(242,236,221,.55) (secondary text)
-- ::selection gold on ink.
+Tokens:
+- `--paper` #f5f0e4 (page base, warm ivory)
+- `--paper-2` #ede6d4 (alternate sections, marquee strip)
+- `--paper-3` #fbf8f0 (raised cards, browser frames)
+- `--ink` #211b10 (primary text, espresso)
+- `--ink-mid` rgba(33,27,16,.64), `--ink-faint` rgba(33,27,16,.40)
+- `--gold` #9a7627 (display accents, italic em words)
+- `--gold-deep` #7a5d1d (small labels, eyebrows; higher contrast)
+- `--gold-bright` #c9a155 (button fills, decorative strokes on dark media)
+- `--hairline` rgba(154,118,39,.24)
+- Shadows: soft and diffused only: 0 30px 70px -34px rgba(33,27,16,.28)
+- ::selection ink on paper.
 
 ## Typography
-- Display: **Boska** (Fontshare). High-contrast, razor serifs: knife steel. Weights 300/400/500, italic for emphasis words.
-- Body/UI: **General Sans** (Fontshare). Weights 300/400/500/600.
-- No monospace anywhere. Caps reserved for short tracked labels (≤3 words, .25em+ tracking, 10–12px).
-- Scale: fluid clamp(), ratio ≥1.3 between steps. H1 clamp(3rem, 8vw, 7.5rem). Body 15–17px, line-height 1.75+ on dark.
-- Headlines max 2–3 lines, ultra-wide containers. Body copy ≤70ch.
+- Display: **Boska** (Fontshare), weights 300/400/500 + italics. Body/UI: **General Sans** 300-600.
+- No monospace. Caps only for short tracked labels.
+- H1 clamp(2.8rem, 7.2vw, 6.8rem), max 2-3 lines. Body ≤70ch, line-height 1.85+.
+- Inline image pill inside the hero headline (rounded-full photo inside the H1).
 
 ## Layout
-- Full-bleed sections, huge vertical rhythm: clamp(7rem, 14vh, 12rem) between chapters.
-- Asymmetric by default: menu-style lists, sticky split (portrait left, chapters right), staggered portfolio widths. No identical card grids.
-- The portfolio keeps live-iframe browser frames (signature element, carried over).
+- Tasting-menu narrative: hero, marquee, Le Menu (services as menu rows), live-iframe portfolio, statements, chef, stacked process courses, guest book, FAQ, reservations, giant footer.
+- Section rhythm alternates paper / paper-2; chapter spacing clamp(7rem,14vh,12rem).
+- Course tracker fixed right edge (desktop) showing current chapter 01-08.
 
 ## Motion
-- Lenis smooth scroll + GSAP ScrollTrigger. Ease: power4.out / expo.out only. No bounce.
-- Hero: canvas ember field (gold sparks rising, cursor-reactive), masked line reveals.
-- Scroll: word-by-word opacity scrub on statement paragraphs, scale 0.92→1 image entries, pinned stacking cards for process, marquee strip.
-- Hover: floating image preview on menu items, magnetic CTAs, cursor morph (dot + ring, "VIEW" state on projects).
-- prefers-reduced-motion: all of the above collapses to simple fades; canvas renders a static gradient.
-- Mobile (<768px, pointer coarse): no custom cursor, no pinning, no hover-previews; everything stacks with simple reveals.
+- Lenis + GSAP ScrollTrigger; power4/expo ease only.
+- Hero: gold dust-mote canvas (cursor-reactive), masked line reveals, scroll-exit parallax.
+- Word-by-word opacity scrub statements; sticky stacking process cards; dual-direction marquee; magnetic buttons; cursor morph with VIEW state; footer giant text fills with ink on scrub.
+- FAQ accordion animates grid-template-rows (never height).
+- prefers-reduced-motion collapses everything to simple fades; canvas off.
 
-## Components
-- Buttons: pill, cream-on-gold solid for primary, hairline gold outline for secondary; arrow nested in its own circular chip.
-- Menu items (services): name + dotted leader + descriptor, hairline separators, floating preview image on hover.
-- Browser frames (portfolio): dark chrome bar, three dots, address pill, live iframe scaled inside.
-- Forms: underline inputs on dark, gold focus line, labels as small tracked caps.
+## Conversion
+- Primary CTA framing: free 30 minute "tasting" call. WhatsApp first.
+- Sticky WhatsApp chip appears after one viewport of scroll.
+- "Now booking projects for {next month}" availability chip in contact.
+- FAQ (6 items) with FAQPage JSON-LD.
 
 ## Bans
-- No #000/#fff, no gradient text, no side-stripe borders, no glassmorphism by default, no icon card grids, no em dashes in copy, no emojis, no Playfair/Inter/Outfit/Space Grotesk.
+- No pure #000/#fff, no gradient text, no side-stripe borders, no glassmorphism as decoration, no icon card grids, no em dashes in copy, no emojis, no Playfair/Inter/Outfit, no Tailwind.
