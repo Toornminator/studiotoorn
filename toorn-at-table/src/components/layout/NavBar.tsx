@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 import { useLocale, useT } from "@/i18n/client";
 import { localizedHref, stripLocalePrefix } from "@/i18n/config";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -15,6 +21,18 @@ export function NavBar() {
   const reduceMotion = useReducedMotion();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  // Reading-progress hairline under the bar: a tattoo-red line that fills
+  // left to right as the visitor moves through the page. A light spring
+  // takes the digital edge off; reduced-motion visitors get the raw
+  // scroll value (scrubbed, never autonomous, so it stays honest).
+  const { scrollYProgress } = useScroll();
+  const sprungProgress = useSpring(scrollYProgress, {
+    stiffness: 130,
+    damping: 28,
+    mass: 0.35,
+  });
+  const progressScaleX = reduceMotion ? scrollYProgress : sprungProgress;
 
   // Nav links use absolute "/#section" hrefs. An absolute (leading-slash)
   // href lets Next's <Link> replace the whole path + hash, so it behaves
@@ -66,7 +84,12 @@ export function NavBar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-md">
-      <div className="flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px]">
+      <div className="relative flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px]">
+        <motion.div
+          aria-hidden
+          className="absolute inset-x-0 bottom-[-1px] h-[2px] origin-left bg-tattoo-red"
+          style={{ scaleX: progressScaleX }}
+        />
         <Link
           href={localizedHref(isHome ? "/#hero" : "/", locale)}
           aria-label="TOORN at table · back to top"

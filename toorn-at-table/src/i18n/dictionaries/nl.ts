@@ -26,6 +26,7 @@ export const nl: Dictionary = {
     tagline:
       "Een fotografenoog. Jaren in dienst. Een sterrenkeuken voor de precisie. Eén tafel in de zon, meer niet.",
     handwrittenNote: "echt eten, met de hand, aan jouw tafel",
+    scrollCue: "scroll",
   },
   about: {
     eyebrow: "Hoofdstuk 01 · Over Nick",
@@ -373,6 +374,7 @@ export const nl: Dictionary = {
     menuHeading: "Een voorbeeldavond",
     menuNote:
       "Een voorbeeld, geen vaste kaart. Elk menu wordt gebouwd rond jouw tafel en de ochtendmarkt.",
+    lightsNote: "het licht gaat uit",
     cta: "Plan jouw avond",
     courses: {
       aperitivo: "Om te beginnen",

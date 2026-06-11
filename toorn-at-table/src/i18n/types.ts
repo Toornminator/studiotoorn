@@ -26,6 +26,8 @@ export type Dictionary = {
     establishedLine: string;
     tagline: string;
     handwrittenNote: string;
+    /** Tiny scroll invitation pinned to the bottom of the hero. */
+    scrollCue: string;
   };
   about: {
     eyebrow: string;
@@ -281,6 +283,8 @@ export type Dictionary = {
     menuHeading: string;
     /** Honesty note: the menu is a sample, not a fixed card. */
     menuNote: string;
+    /** Hand-scrawled stage direction shown as the section goes dark. */
+    lightsNote: string;
     cta: string;
     /** Course labels, keyed to the sample-menu course order. */
     courses: {

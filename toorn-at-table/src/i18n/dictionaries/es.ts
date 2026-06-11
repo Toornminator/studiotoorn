@@ -26,6 +26,7 @@ export const es: Dictionary = {
     tagline:
       "Ojo de fotógrafo. Años en uniforme. Una cocina de estrella para la precisión. Una mesa al sol, y nada más.",
     handwrittenNote: "comida de verdad, hecha a mano, a tu mesa",
+    scrollCue: "baja",
   },
   about: {
     eyebrow: "Capítulo 01 · Sobre Nick",
@@ -375,6 +376,7 @@ export const es: Dictionary = {
     menuHeading: "Una velada de ejemplo",
     menuNote:
       "Un ejemplo, no una carta fija. Cada menú se construye en torno a tu mesa y al mercado de la mañana.",
+    lightsNote: "se apagan las luces",
     cta: "Planifica tu noche",
     courses: {
       aperitivo: "Para empezar",

@@ -1,14 +1,19 @@
+import Image from "next/image";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { localizedHref } from "@/i18n/config";
 import type { Recipe } from "@/lib/types";
+import { EveningAct } from "./EveningAct";
 
 /**
- * "The Evening" — the IMMERSE beat of the funnel. Services tells a visitor
- * WHAT they can book; this section lets them FEEL what the night is. Two
- * halves: the flow of an evening (in Nick's voice) and an illustrative
- * tasting menu pulled live from the real cookbook, so the sample is always
- * in sync with what he actually cooks and localises for free.
+ * "The Evening" — the IMMERSE beat of the funnel, staged as the dark act
+ * of the page. Services tells a visitor WHAT they can book; this section
+ * lets them FEEL what the night is: the lights dim to the share-card
+ * near-black (see EveningAct), and the only lit object in the room is
+ * the paper menu card under a candle glow. Two halves: the flow of an
+ * evening (in Nick's voice) and an illustrative tasting menu pulled live
+ * from the real cookbook, so the sample is always in sync with what he
+ * actually cooks and localises for free.
  *
  * Honest by construction: the menu is labelled a sample, never a fixed
  * card, and every dish is a real recipe that exists on the site.
@@ -45,22 +50,18 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
   });
 
   return (
-    <section
-      id="the-evening"
-      aria-labelledby="evening-heading"
-      className="relative w-full"
-    >
-      <div className="mx-auto w-full max-w-6xl px-5 pb-32 md:px-12 md:pb-48">
-        <header className="border-t border-ink/15 pt-12 md:pt-20">
+    <EveningAct>
+      <div className="mx-auto w-full max-w-6xl px-5 pb-32 pt-4 md:px-12 md:pb-48 md:pt-8">
+        <header className="relative border-t border-cream/15 pt-12 md:pt-20">
           <Reveal
             as="p"
-            className="font-mono text-[10px] uppercase tracking-[0.32em] text-tattoo-red"
+            className="font-mono text-[10px] uppercase tracking-[0.32em] text-gold"
           >
             {copy.eyebrow}
           </Reveal>
           <h2
             id="evening-heading"
-            className="mt-4 max-w-3xl font-display leading-[0.95] text-ink"
+            className="mt-4 max-w-3xl font-display leading-[0.95] text-cream"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
             <RevealWords text={copy.title} />
@@ -68,10 +69,21 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
           <Reveal
             as="p"
             delay={0.2}
-            className="mt-6 max-w-2xl font-serif italic text-ink/75"
+            className="mt-6 max-w-2xl font-serif italic text-cream/70"
           >
             <span style={{ fontSize: "clamp(17px, 1.25vw, 19px)" }}>
               {copy.intro}
+            </span>
+          </Reveal>
+
+          {/* Hand-scrawled stage direction, golden in the dark */}
+          <Reveal
+            as="p"
+            delay={0.35}
+            className="pointer-events-none absolute right-0 top-16 hidden rotate-[-4deg] font-hand text-gold/90 md:block"
+          >
+            <span style={{ fontSize: "clamp(18px, 1.8vw, 24px)" }}>
+              {copy.lightsNote}
             </span>
           </Reveal>
         </header>
@@ -81,7 +93,7 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
           <div className="md:col-span-7">
             <Reveal
               as="p"
-              className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/45"
+              className="font-mono text-[10px] uppercase tracking-[0.32em] text-cream/45"
             >
               {copy.flowHeading}
             </Reveal>
@@ -91,20 +103,20 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
                   <div className="flex gap-5">
                     <span
                       aria-hidden
-                      className="shrink-0 font-mono text-[11px] tracking-[0.2em] text-tattoo-red"
+                      className="shrink-0 font-mono text-[11px] tracking-[0.2em] text-gold"
                       style={{ paddingTop: 4 }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
                       <h3
-                        className="font-display text-ink"
+                        className="font-display text-cream"
                         style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.1 }}
                       >
                         {beat.title}
                       </h3>
                       <p
-                        className="mt-2 max-w-md font-serif text-ink/75"
+                        className="mt-2 max-w-md font-serif text-cream/70"
                         style={{ fontSize: 16, lineHeight: 1.55 }}
                       >
                         {beat.body}
@@ -116,54 +128,78 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
             </ol>
           </div>
 
-          {/* Sample menu card — printed-card treatment */}
+          {/* Sample menu — the one lit object in the room: a paper card
+              under candlelight. Stays cream-on-ink exactly like the rest
+              of the brand's printed matter, so the red course labels and
+              hairlines read as the same physical menu, now after dark. */}
           <div className="md:col-span-5">
             <Reveal delay={0.15}>
-              <figure className="border border-ink/20 bg-cream-warm/30 p-7 md:p-9">
-                <figcaption className="flex items-baseline justify-between border-b border-ink/15 pb-4">
-                  <span className="font-display text-ink" style={{ fontSize: 22 }}>
-                    {copy.menuHeading}
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45">
-                    TOORN
-                  </span>
-                </figcaption>
+              <div className="relative">
+                <div
+                  aria-hidden
+                  className="candle-glow absolute -inset-8 md:-inset-14"
+                />
+                <figure
+                  className="relative rotate-[-1.5deg] border border-ink/20 bg-cream p-7 md:p-9"
+                  style={{
+                    boxShadow:
+                      "0 30px 80px -20px rgba(0,0,0,0.75), 0 6px 24px rgba(0,0,0,0.45)",
+                  }}
+                >
+                  <figcaption className="flex items-baseline justify-between border-b border-ink/15 pb-4">
+                    <span className="font-display text-ink" style={{ fontSize: 22 }}>
+                      {copy.menuHeading}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45">
+                      TOORN
+                    </span>
+                  </figcaption>
 
-                <ul className="divide-y divide-ink/10">
-                  {menu.map((dish) => (
-                    <li key={dish.title} className="py-5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-tattoo-red">
-                        {dish.course}
-                      </p>
-                      <p
-                        className="mt-2 font-display text-ink"
-                        style={{ fontSize: "clamp(18px, 1.6vw, 21px)", lineHeight: 1.15 }}
-                      >
-                        {dish.title}
-                      </p>
-                      {dish.intro && (
-                        <p
-                          className="mt-1.5 font-serif italic text-ink/60"
-                          style={{ fontSize: 14, lineHeight: 1.45 }}
-                        >
-                          {dish.intro}
+                  <ul className="divide-y divide-ink/10">
+                    {menu.map((dish) => (
+                      <li key={dish.title} className="py-5">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-tattoo-red">
+                          {dish.course}
                         </p>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                        <p
+                          className="mt-2 font-display text-ink"
+                          style={{ fontSize: "clamp(18px, 1.6vw, 21px)", lineHeight: 1.15 }}
+                        >
+                          {dish.title}
+                        </p>
+                        {dish.intro && (
+                          <p
+                            className="mt-1.5 font-serif italic text-ink/60"
+                            style={{ fontSize: 14, lineHeight: 1.45 }}
+                          >
+                            {dish.intro}
+                          </p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
 
-                <p className="mt-5 border-t border-ink/15 pt-5 font-serif text-ink/55" style={{ fontSize: 13.5, lineHeight: 1.5 }}>
-                  {copy.menuNote}
-                </p>
-              </figure>
+                  <p className="mt-5 border-t border-ink/15 pt-5 font-serif text-ink/55" style={{ fontSize: 13.5, lineHeight: 1.5 }}>
+                    {copy.menuNote}
+                  </p>
+
+                  {/* Printed house mark at the foot of the card */}
+                  <Image
+                    src="/images/chef_skull_knife_transparent.png"
+                    alt=""
+                    width={785}
+                    height={800}
+                    className="mx-auto mt-6 h-9 w-auto opacity-70"
+                  />
+                </figure>
+              </div>
             </Reveal>
 
             <Reveal delay={0.25} className="mt-7">
               <a
                 href={localizedHref("/#contact", locale)}
                 data-cursor={copy.cta}
-                className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70 transition-colors hover:text-tattoo-red"
+                className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-cream/70 transition-colors hover:text-gold"
               >
                 {copy.cta}
                 <svg
@@ -187,6 +223,6 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
           </div>
         </div>
       </div>
-    </section>
+    </EveningAct>
   );
 }

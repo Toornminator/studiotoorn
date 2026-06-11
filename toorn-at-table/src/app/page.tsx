@@ -54,7 +54,7 @@ export default async function Home() {
       <Stats />
       <Kookboek />
       <Gallery />
-      <Marquee items={t.marquee.secondary} duration={44} />
+      <Marquee items={t.marquee.secondary} duration={44} tilt={0.9} />
       <Events />
       <TheTableTeaser />
       <ClosingPanel />

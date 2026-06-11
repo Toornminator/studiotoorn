@@ -7,6 +7,11 @@
   --color-tattoo-mustard: #e5a823;
   --color-tattoo-jade: #2e7d5b;
 
+  /* The dark register — the OG-card world (BRAND.md §3), used on-page
+     only when the narrative dims the lights (The Evening act). */
+  --color-night: #0a0a0a;
+  --color-gold: #c9a86a;
+
   /* Rock & roll tattoo type stack — see src/lib/fonts.ts for the imports. */
   --font-display: var(--font-alfa-slab-one);
   --font-serif: var(--font-im-fell-english);

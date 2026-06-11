@@ -26,6 +26,7 @@ export const en: Dictionary = {
     tagline:
       "An eye for light. Years in uniform. A Michelin kitchen for the precision. One table in the sun, and that's it.",
     handwrittenNote: "real food, by hand, to your table",
+    scrollCue: "scroll",
   },
   about: {
     eyebrow: "Chapter 01 · About Nick",
@@ -369,6 +370,7 @@ export const en: Dictionary = {
     menuHeading: "A sample evening",
     menuNote:
       "An example, not a fixed card. Every menu is built around your table and the morning market.",
+    lightsNote: "the lights go down",
     cta: "Plan your evening",
     courses: {
       aperitivo: "To start",

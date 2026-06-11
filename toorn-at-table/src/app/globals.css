@@ -79,6 +79,52 @@ section[id] {
   opacity: 0;
 }
 
+/* Candlelight behind the sample-menu card in the dark act (The Evening).
+   A warm radial bloom with a slow, uneven flicker so the card reads as
+   lit by a real flame, not a spotlight. Pure CSS so the server component
+   stays server-rendered; paint-only properties so it never causes layout. */
+.candle-glow {
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    rgba(255, 190, 110, 0.32) 0%,
+    rgba(201, 168, 106, 0.12) 42%,
+    transparent 70%
+  );
+  filter: blur(28px);
+  animation: candle-flicker 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes candle-flicker {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  22% {
+    opacity: 0.92;
+    transform: scale(1.03);
+  }
+  41% {
+    opacity: 0.68;
+    transform: scale(0.985);
+  }
+  58% {
+    opacity: 0.88;
+    transform: scale(1.02);
+  }
+  79% {
+    opacity: 0.72;
+    transform: scale(0.99);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .candle-glow {
+    animation: none;
+  }
+}
+
 /* Custom-cursor mode. When the CustomCursor mounts on a fine-pointer
    device it adds `.custom-cursor-active` to <html>. We then force
    every descendant to `cursor: none` so the brand fork stays in

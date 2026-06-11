@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { RevealWords } from "@/components/ui/Reveal";
 import { Clip } from "@/components/video/Clip";
 import { useLocale, useT } from "@/i18n/client";
 import { localizedHref } from "@/i18n/config";
@@ -26,32 +27,58 @@ export function ClosingPanel() {
           {t.closing.eyebrow}
         </p>
 
-        <motion.blockquote
+        {/* The quote arrives word by word, line by line; the signature
+            then writes itself in underneath (a clip-path wipe across the
+            marker text, which reads as a hand moving left to right). */}
+        <blockquote
           id="closing-heading"
           className="mt-8 font-serif italic leading-[1.02] text-ink"
           style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
-          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: REVEAL_EASE }}
         >
           <span className="text-ink/40">“</span>
-          {t.closing.quoteLine1}
+          <RevealWords text={t.closing.quoteLine1} />
           <br className="hidden sm:inline" />
           {" "}
-          {t.closing.quoteLine2}
+          <RevealWords text={t.closing.quoteLine2} delayStart={0.35} />
           <span className="text-ink/40">”</span>
-        </motion.blockquote>
+        </blockquote>
 
+        {/* One viewport trigger on the parent; the wipe on the child runs
+            via variant propagation (a nested whileInView observer proved
+            unreliable). The clip box is padded so the wipe never shaves
+            marker ascenders or the slight rotation; negative margins
+            cancel the padding visually. */}
         <motion.p
           className="mt-8 font-hand text-tattoo-red"
           style={{ fontSize: "26px" }}
-          initial={reduceMotion ? false : { opacity: 0, rotate: -3 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, rotate: -1 }}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView={reduceMotion ? undefined : "visible"}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          variants={{
+            hidden: { opacity: 0, rotate: -3 },
+            visible: {
+              opacity: 1,
+              rotate: -1,
+              transition: { duration: 0.4, ease: "easeOut", delay: 0.55 },
+            },
+          }}
         >
-          {t.closing.signature}
+          <motion.span
+            className="-mx-[0.2em] -my-[0.35em] inline-block px-[0.2em] py-[0.35em]"
+            variants={{
+              hidden: { clipPath: "inset(0% 100% 0% 0%)" },
+              visible: {
+                clipPath: "inset(0% 0% 0% 0%)",
+                transition: {
+                  duration: 1.15,
+                  ease: [0.65, 0, 0.35, 1],
+                  delay: 0.75,
+                },
+              },
+            }}
+          >
+            {t.closing.signature}
+          </motion.span>
         </motion.p>
 
         {/* Ambient portrait reel — autoplay, muted, looping. Reads
