@@ -10,8 +10,8 @@ const SESSION_KEY = "toorn-preloader-shown";
 // curtain is on the LCP critical path for first-time visitors, so every
 // 100 ms here is first-paint time. Internal reveal delays below are timed
 // to all settle before this fires.
-const TOTAL_MS = 2200;
-const REDUCED_MS = 1000;
+const TOTAL_MS = 1400;
+const REDUCED_MS = 800;
 
 const COLORS = {
   bg: "#000000",
@@ -132,8 +132,8 @@ export function Preloader() {
                 opacity: 1,
               }}
               transition={{
-                duration: reduce ? 0.5 : 1.1,
-                delay: reduce ? 0.2 : 1.05,
+                duration: reduce ? 0.4 : 0.7,
+                delay: reduce ? 0.15 : 0.5,
                 ease: EASE,
               }}
             />
@@ -149,13 +149,13 @@ export function Preloader() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.8,
-                delay: reduce ? 0.3 : 1.3,
+                duration: 0.6,
+                delay: reduce ? 0.25 : 0.7,
                 ease: EASE,
               }}
             >
               {t.preloader.loadingMessage}
-              <Dots reduce={reduce} startDelay={reduce ? 0.6 : 1.6} />
+              <Dots reduce={reduce} startDelay={reduce ? 0.5 : 0.95} />
             </motion.p>
           </div>
 
@@ -169,7 +169,7 @@ export function Preloader() {
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: reduce ? 0.4 : 1.45 }}
+            transition={{ duration: 0.7, delay: reduce ? 0.35 : 0.78 }}
           >
             {t.preloader.locationCaption}
           </motion.p>
@@ -196,8 +196,8 @@ function Logo({ reduce }: { reduce: boolean }) {
       initial={{ opacity: 0, scale: 0.94 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
-        duration: reduce ? 0.55 : 1.4,
-        delay: reduce ? 0 : 0.25,
+        duration: reduce ? 0.45 : 0.85,
+        delay: reduce ? 0 : 0.1,
         ease: EASE,
       }}
     >
@@ -218,8 +218,8 @@ function Logo({ reduce }: { reduce: boolean }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.7, 1, 0.85, 1, 0.9] }}
           transition={{
-            duration: 1.7,
-            delay: 0.45,
+            duration: 1.0,
+            delay: 0.3,
             ease: "easeInOut",
             times: [0, 0.25, 0.5, 0.65, 0.85, 1],
           }}
@@ -265,7 +265,7 @@ function Logo({ reduce }: { reduce: boolean }) {
           }}
           transition={{
             duration: 2.6,
-            delay: 1.2,
+            delay: 0.7,
             ease: "easeInOut",
             repeat: Infinity,
             repeatType: "mirror",
@@ -327,7 +327,7 @@ function CornerMark({
       className={`absolute ${className ?? ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.7, delay: reduce ? 0.2 : 1.15, ease: EASE }}
+      transition={{ duration: 0.6, delay: reduce ? 0.2 : 0.45, ease: EASE }}
     >
       <path
         d="M1 1 H10 M1 1 V10"
