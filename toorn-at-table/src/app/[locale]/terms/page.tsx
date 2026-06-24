@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal/LegalPage";
 import { buildAlternates, localizedHref } from "@/i18n/config";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
+
+type Params = { params: Promise<{ locale: string }> };
 
 // Title is bare; the layout template appends "· TOORN at table".
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  setRequestLocale((await params).locale);
   const locale = await getCurrentLocale();
   return {
     title: "Terms",
@@ -15,7 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function TermsPage() {
+export default async function TermsPage({ params }: Params) {
+  setRequestLocale((await params).locale);
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   return (
     <LegalPage

@@ -11,11 +11,13 @@ import { PaperBackground } from "@/components/layout/PaperBackground";
 import { Preloader } from "@/components/layout/Preloader";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
+import { notFound } from "next/navigation";
 import { LocaleProvider } from "@/i18n/client";
-import { getCurrentLocale } from "@/i18n/server";
+import { setRequestLocale } from "@/i18n/server";
+import { isLocale, LOCALES } from "@/i18n/config";
 import { fontVariables } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import "./globals.css";
+import "../globals.css";
 
 const SITE_URL = "https://toornattable.com";
 
@@ -188,12 +190,24 @@ const businessJsonLd = {
   ],
 };
 
+// Enumerate the locales so Next can statically prerender each language tree.
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
-  const locale = await getCurrentLocale();
+  const { locale } = await params;
+  // Junk first segments (/xx, typos) get a 404 rather than English content.
+  if (!isLocale(locale)) notFound();
+  // Set the per-request locale BEFORE any child (nav, footer, page, the deep
+  // server components that call getDictionary()) renders.
+  setRequestLocale(locale);
 
   return (
     <html lang={locale} className={cn(fontVariables, "h-full antialiased")}>

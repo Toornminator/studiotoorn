@@ -1,5 +1,5 @@
 import "server-only";
-import { headers } from "next/headers";
+import { cache } from "react";
 import { en } from "./dictionaries/en";
 import { es } from "./dictionaries/es";
 import { nl } from "./dictionaries/nl";
@@ -9,19 +9,32 @@ import type { Dictionary } from "./types";
 const DICTIONARIES: Record<Locale, Dictionary> = { en, es, nl };
 
 /**
- * Read the current locale from the `x-locale` request header that the
- * middleware derives from the URL prefix (/es, /nl; root = English). Falls
- * back to the default (English) when the header is absent.
+ * Per-request locale holder.
+ *
+ * Routes live under `app/[locale]/`, so the locale comes from the route
+ * param, not from a request header. The `[locale]` layout (and each page)
+ * calls `setRequestLocale(params.locale)` before anything renders;
+ * `getCurrentLocale()` / `getDictionary()` then read it. `React.cache()`
+ * gives one store instance per request (and per static prerender), so this
+ * is safe for static generation and never leaks between requests.
+ *
+ * This deliberately avoids reading `headers()`: that forced every route to
+ * render dynamically AND, combined with the locale-stripping rewrite, made
+ * the CDN collapse all three languages onto one cache key. Param-derived
+ * locale keeps each locale a distinct, cacheable URL with no header magic.
  */
+const store = cache((): { locale: Locale } => ({ locale: DEFAULT_LOCALE }));
+
+export function setRequestLocale(locale: string): void {
+  store().locale = isLocale(locale) ? locale : DEFAULT_LOCALE;
+}
+
 export async function getCurrentLocale(): Promise<Locale> {
-  const h = await headers();
-  const value = h.get("x-locale");
-  return isLocale(value) ? value : DEFAULT_LOCALE;
+  return store().locale;
 }
 
 export async function getDictionary(): Promise<Dictionary> {
-  const locale = await getCurrentLocale();
-  return DICTIONARIES[locale];
+  return DICTIONARIES[store().locale];
 }
 
 export function getDictionaryFor(locale: Locale): Dictionary {

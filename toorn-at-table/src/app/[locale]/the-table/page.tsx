@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { OrderForm } from "@/components/the-table/OrderForm";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
 import { getCurrentWeeklyMenu } from "@/lib/content/weekly-menu";
 import { buildAlternates, type Locale } from "@/i18n/config";
+
+type Params = { params: Promise<{ locale: string }> };
 
 const LOCALE_TAG: Record<Locale, string> = {
   en: "en-GB",
@@ -22,7 +24,8 @@ function formatDay(iso: string, locale: Locale): string {
   }).format(d);
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  setRequestLocale((await params).locale);
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   return {
     title: t.theTable.serviceName,
@@ -38,7 +41,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function TheTablePage() {
+export default async function TheTablePage({ params }: Params) {
+  setRequestLocale((await params).locale);
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   const copy = t.theTable;
   const menu = getCurrentWeeklyMenu(locale);

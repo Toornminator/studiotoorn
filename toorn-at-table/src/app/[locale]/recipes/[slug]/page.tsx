@@ -3,19 +3,22 @@ import { notFound } from "next/navigation";
 import { RecipeArticle } from "@/components/kookboek/RecipeArticle";
 import { RecipeStructuredData } from "@/components/seo/StructuredData";
 import { getRecipe, getRecipeSlugs } from "@/lib/content/recipes";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
-import { buildAlternates } from "@/i18n/config";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
+import { buildAlternates, LOCALES } from "@/i18n/config";
 
 const SITE_URL = "https://toornattable.com";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
-  return getRecipeSlugs().map((slug) => ({ slug }));
+  return LOCALES.flatMap((locale) =>
+    getRecipeSlugs().map((slug) => ({ locale, slug })),
+  );
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale: localeParam, slug } = await params;
+  setRequestLocale(localeParam);
   const locale = await getCurrentLocale();
   const recipe = await getRecipe(slug, locale);
   if (!recipe) return {};
@@ -37,7 +40,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function RecipePage({ params }: Params) {
-  const { slug } = await params;
+  const { locale: localeParam, slug } = await params;
+  setRequestLocale(localeParam);
   const [locale, t] = await Promise.all([getCurrentLocale(), getDictionary()]);
   const recipe = await getRecipe(slug, locale);
   if (!recipe) notFound();

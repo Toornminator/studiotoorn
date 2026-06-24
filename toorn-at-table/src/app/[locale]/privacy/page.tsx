@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal/LegalPage";
 import { buildAlternates, localizedHref } from "@/i18n/config";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
+
+type Params = { params: Promise<{ locale: string }> };
 
 // Title is a bare string; the root layout's title.template prepends
 // "· TOORN at table" automatically, so the final SERP entry reads
 // "Privacy · TOORN at table" without double-branding.
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  setRequestLocale((await params).locale);
   const locale = await getCurrentLocale();
   return {
     title: "Privacy",
@@ -17,7 +20,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function PrivacyPage() {
+export default async function PrivacyPage({ params }: Params) {
+  setRequestLocale((await params).locale);
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   return (
     <LegalPage

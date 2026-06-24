@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { getArea, getAreas, getAreaSlugs } from "@/lib/content/areas";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
-import { buildAlternates, localizedHref } from "@/i18n/config";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
+import { buildAlternates, localizedHref, LOCALES } from "@/i18n/config";
 
 /**
  * Service-area landing page: the direct answer to "I need a private
@@ -20,14 +20,17 @@ import { buildAlternates, localizedHref } from "@/i18n/config";
 
 const SITE = "https://toornattable.com";
 
-type Params = { params: Promise<{ area: string }> };
+type Params = { params: Promise<{ locale: string; area: string }> };
 
 export function generateStaticParams() {
-  return getAreaSlugs().map((area) => ({ area }));
+  return LOCALES.flatMap((locale) =>
+    getAreaSlugs().map((area) => ({ locale, area })),
+  );
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { area: slug } = await params;
+  const { locale: localeParam, area: slug } = await params;
+  setRequestLocale(localeParam);
   const locale = await getCurrentLocale();
   const area = getArea(slug, locale);
   if (!area) return {};
@@ -47,7 +50,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function AreaPage({ params }: Params) {
-  const { area: slug } = await params;
+  const { locale: localeParam, area: slug } = await params;
+  setRequestLocale(localeParam);
   const [locale, t] = await Promise.all([getCurrentLocale(), getDictionary()]);
   const area = getArea(slug, locale);
   if (!area) notFound();

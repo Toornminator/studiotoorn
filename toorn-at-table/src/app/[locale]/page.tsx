@@ -18,17 +18,21 @@ import { Travel } from "@/components/travel/Travel";
 import { Marquee } from "@/components/ui/Marquee";
 import { HomeStructuredData } from "@/components/seo/StructuredData";
 import type { Metadata } from "next";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
 import { buildAlternates } from "@/i18n/config";
 import { getEvents } from "@/lib/content/events";
 import { getRecipes } from "@/lib/content/recipes";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getCurrentLocale();
-  return { alternates: buildAlternates("/", locale) };
+type Params = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  return { alternates: buildAlternates("/", await getCurrentLocale()) };
 }
 
-export default async function Home() {
+export default async function Home({ params }: Params) {
+  setRequestLocale((await params).locale);
   const locale = await getCurrentLocale();
   const [t, recipes, events] = await Promise.all([
     getDictionary(),

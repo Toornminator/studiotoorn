@@ -3,7 +3,7 @@ import Link from "next/link";
 import { RecipeIndex } from "@/components/kookboek/RecipeIndex";
 import { CookbookAppPanel } from "@/components/kookboek/CookbookAppPanel";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
-import { getCurrentLocale, getDictionary } from "@/i18n/server";
+import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
 import { buildAlternates, localizedHref } from "@/i18n/config";
 import { getRecipes } from "@/lib/content/recipes";
 
@@ -15,7 +15,10 @@ import { getRecipes } from "@/lib/content/recipes";
  * from search.
  */
 
-export async function generateMetadata(): Promise<Metadata> {
+type Params = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  setRequestLocale((await params).locale);
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   return {
     title: t.cookbookApp.metaTitle,
@@ -31,7 +34,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function CookbookPage() {
+export default async function CookbookPage({ params }: Params) {
+  setRequestLocale((await params).locale);
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   const recipes = await getRecipes(locale);
   const copy = t.cookbookApp;
