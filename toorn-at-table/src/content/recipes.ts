@@ -4793,4 +4793,321 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-10",
   },
+  {
+    slug: "mango-madame-jeanette-sambal",
+    title: {
+      en: "Mango Madame Jeanette sambal",
+      es: "Sambal de mango y Madame Jeanette",
+      nl: "Mango Madame Jeanette sambal",
+    },
+    intro: {
+      en: "Twenty Madame Jeanettes in a single jar. That is not a recipe, it is a dare. Bright, fruity, and honestly dangerous, with mango, apple, lime and honey talking the heat down just enough to keep you reaching back in. Everyone acts tough about the first spoonful. Everyone goes back for a second, sweating.",
+      es: "Veinte Madame Jeanette en un solo bote. Eso no es una receta, es un reto. Vivo, afrutado y de verdad peligroso, con mango, manzana, lima y miel calmando el picante lo justo para que vuelvas a meter la cuchara. Todos se hacen los valientes con la primera cucharada. Todos repiten, sudando.",
+      nl: "Twintig Madame Jeannettes in één potje. Dat is geen recept, dat is een weddenschap. Fel, fruitig en eerlijk gezegd gevaarlijk, met mango, appel, limoen en honing die de hitte net genoeg afremmen om je toch weer een lepel te laten pakken. Iedereen doet stoer over de eerste hap. Iedereen pakt een tweede, zwetend.",
+    },
+    category: "basis",
+    seasons: ["zomer", "altijd"],
+    difficulty: 2,
+    prepMinutes: 20,
+    cookMinutes: 40,
+    heroImage: "/images/recipes/mango-madame-jeanette-sambal.jpg",
+    pairing: {
+      en: "Roti, nasi, bami, chicken off the grill, grilled prawns, a fried egg at midnight, a toastie, a burger, tacos. Basically anything on the plate that is being a little boring and needs to be told otherwise. A teaspoon is a serving. Treat it with respect.",
+      es: "Roti, nasi, bami, pollo a la brasa, gambas a la plancha, un huevo frito a medianoche, un tostado, una hamburguesa, tacos. En el fondo, cualquier cosa del plato que esté un poco sosa y necesite que la pongan en su sitio. Una cucharadita es una ración. Trátalo con respeto.",
+      nl: "Roti, nasi, bami, kip van de barbecue, gegrilde garnalen, een gebakken ei om middernacht, een tosti, een burger, taco's. Eigenlijk alles op je bord dat een beetje braaf is en even op zijn plek gezet moet worden. Een theelepel is een portie. Behandel 'm met respect.",
+    },
+    body: {
+      en: [
+        "Let us be clear about what this is. This is not the timid red paste in a supermarket jar, the one that tastes of sugar and apology. This is a jar you put on the table and watch. Somebody scoffs. Somebody says they can handle it. Ten minutes later that same somebody is sweating quietly and reaching back in, because under the heat there is mango and lime and honey, and your mouth wants more even while it is begging you to stop.",
+        "Sambal is Indonesian, at its root. But it travelled, the way the best food always does, and through the Javanese-Surinamese kitchen it put down deep roots in Suriname too. This one lives right in that crossing: an Indonesian backbone, Surinamese-Caribbean energy, and a hard kick of Madame Jeanette, the pepper that brings bright tropical fire you feel behind your ears. Twenty of them. I am not joking, and neither is the pepper.",
+        "The making is simple and the patience is everything. You soften the aromatics slow, you let the peppers bloom in the oil, you simmer the fruit down until it is sweet and sour and thick, and then you reduce it until it is glossy and holds on a spoon. Taste it carefully, and I mean carefully. Salt to wake it up, vinegar to sharpen it, honey to round off the heat. Then into clean jars while it is hot. It makes two, maybe three jars, and it will not last as long as that sounds.",
+      ],
+      es: [
+        "Dejemos claro qué es esto. No es la pasta roja tímida del bote de supermercado, la que sabe a azúcar y a disculpa. Esto es un bote que pones en la mesa y te quedas mirando. Alguien se ríe. Alguien dice que puede con ello. Diez minutos después ese mismo alguien suda en silencio y vuelve a meter la cuchara, porque debajo del picante hay mango, lima y miel, y la boca pide más aunque te esté suplicando que pares.",
+        "El sambal es indonesio, en su origen. Pero viajó, como hace siempre la mejor comida, y a través de la cocina javanesa-surinamesa echó raíces hondas también en Surinam. Este vive justo en ese cruce: una base indonesia, energía surinamesa-caribeña y una buena patada de Madame Jeanette, el chile que trae ese fuego tropical y brillante que sientes detrás de las orejas. Veinte de ellos. No bromeo, y el chile tampoco.",
+        "Hacerlo es sencillo y la paciencia lo es todo. Pochas los aromáticos despacio, dejas que los chiles se abran en el aceite, cueces la fruta hasta que está dulce, ácida y espesa, y luego la reduces hasta que brilla y se sostiene en la cuchara. Pruébalo con cuidado, y digo con cuidado. Sal para despertarlo, vinagre para afilarlo, miel para redondear el picante. Y a los botes limpios mientras está caliente. Salen dos, quizá tres botes, y no durará tanto como suena.",
+      ],
+      nl: [
+        "Even helder over wat dit is. Dit is niet die schuchtere rode pasta uit het supermarktpotje, die naar suiker en excuses smaakt. Dit is een potje dat je op tafel zet en in de gaten houdt. Iemand lacht. Iemand zegt dat hij er wel tegen kan. Tien minuten later zit diezelfde iemand stilletjes te zweten en pakt toch weer een lepel, want onder de hitte zitten mango, limoen en honing, en je mond wil meer terwijl hij je smeekt om te stoppen.",
+        "Sambal is van oorsprong Indonesisch. Maar het reisde, zoals het beste eten altijd doet, en via de Javaans-Surinaamse keuken sloeg het ook in Suriname diepe wortels. Deze zit precies op dat kruispunt: een Indonesische ruggengraat, Surinaams-Caribische energie, en een flinke schop Madame Jeanette, de peper die dat felle tropische vuur brengt dat je achter je oren voelt. Twintig stuks. Ik maak geen grapje, en de peper ook niet.",
+        "Het maken is simpel en het geduld is alles. Je fruit de aromaten langzaam, je laat de pepers opengaan in de olie, je laat het fruit inkoken tot het zoet, zuur en dik is, en dan kook je het in tot het glanst en op een lepel blijft liggen. Proef voorzichtig, en ik bedoel voorzichtig. Zout om het wakker te maken, azijn om het scherper te zetten, honing om de hitte ronder te maken. Dan in schone potjes terwijl het heet is. Het levert twee, misschien drie potjes op, en het houdt niet zo lang als dat klinkt.",
+      ],
+    },
+    nowPlaying: {
+      track: "Sajang é",
+      artist: "Massada",
+    },
+    marginalia: [
+      {
+        id: "sm-1",
+        kind: "warning",
+        anchor: "ingredients",
+        body: {
+          en: "Twenty Madame Jeanettes. Wear gloves, and do not touch your eyes, your nose, or anyone you care about for the next hour. One careless rub and you will spend ten minutes at the sink reviewing every decision that led you here.",
+          es: "Veinte Madame Jeanette. Ponte guantes y no te toques los ojos, la nariz, ni a nadie que te importe en la próxima hora. Un roce descuidado y pasarás diez minutos en el fregadero repasando cada decisión que te trajo hasta aquí.",
+          nl: "Twintig Madame Jeannettes. Trek handschoenen aan en raak je ogen, je neus of iemand van wie je houdt het komende uur niet aan. Eén onnadenkende veeg en je staat tien minuten bij de gootsteen al je levenskeuzes door te nemen.",
+        },
+      },
+      {
+        id: "sm-2",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Want it fierce but not unhinged? Pull the seeds and the white ribs from half the peppers. That pale membrane is where the heat actually lives, not the flesh.",
+          es: "¿Lo quieres fiero pero no demente? Quita las semillas y las venas blancas a la mitad de los chiles. Esa membrana pálida es donde vive de verdad el picante, no en la pulpa.",
+          nl: "Wil je 'm fel maar niet knettergek? Haal de zaadjes en de witte zaadlijsten uit de helft van de pepers. In dat bleke vlies zit de hitte echt, niet in het vruchtvlees.",
+        },
+      },
+      {
+        id: "sm-3",
+        kind: "warning",
+        anchor: "step-3",
+        body: {
+          en: "The moment the peppers hit the hot oil, open a window and stand back. The cloud coming off that pan is essentially pepper spray. Your whole kitchen will start coughing with you.",
+          es: "En cuanto los chiles tocan el aceite caliente, abre una ventana y échate atrás. La nube que sube de esa sartén es básicamente gas pimienta. Toda tu cocina empezará a toser contigo.",
+          nl: "Op het moment dat de pepers de hete olie raken, zet een raam open en stap achteruit. De damp die van die pan af komt is eigenlijk pepperspray. Je hele keuken begint met je mee te hoesten.",
+        },
+      },
+      {
+        id: "sm-4",
+        kind: "scrawl",
+        anchor: "step-4",
+        body: {
+          en: "Mango not quite ripe? Even better, more acidity to play with. Just simmer it a little longer and chase the balance with an extra spoon of honey or brown sugar.",
+          es: "¿El mango no está del todo maduro? Mejor aún, más acidez con la que jugar. Solo cuécelo un poco más y persigue el equilibrio con una cucharada extra de miel o azúcar moreno.",
+          nl: "Mango nog niet helemaal rijp? Des te beter, meer zuur om mee te spelen. Laat 'm gewoon iets langer pruttelen en jaag de balans achterna met een extra lepel honing of bruine suiker.",
+        },
+      },
+      {
+        id: "sm-5",
+        kind: "tip",
+        anchor: "step-8",
+        body: {
+          en: "Hot sambal into clean, boiled jars, lid on straight away. Then a clean spoon every single time you go in. Do that and it keeps three, maybe four weeks. Get lazy with a wet, dirty spoon and you are no longer making sambal, you are growing a science project.",
+          es: "Sambal caliente en botes limpios y hervidos, tapa puesta enseguida. Y luego una cuchara limpia cada vez que entres. Hazlo así y aguanta tres, quizá cuatro semanas. Vuélvete vago con una cuchara mojada y sucia y ya no estás haciendo sambal, estás criando un experimento.",
+          nl: "Hete sambal in schone, uitgekookte potjes, deksel er meteen op. En daarna elke keer een schone lepel als je erin gaat. Doe dat en hij blijft drie, misschien vier weken goed. Word je lui met een natte, vieze lepel, dan maak je geen sambal meer, dan kweek je een proefje.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: {
+          en: "Peppers & aromatics",
+          es: "Chiles y aromáticos",
+          nl: "Pepers en aromaten",
+        },
+        quantity: { en: "20", es: "20", nl: "20" },
+        ingredient: {
+          en: "Madame Jeanette peppers",
+          es: "chiles Madame Jeanette",
+          nl: "Madame Jeannette-pepers",
+        },
+      },
+      {
+        group: {
+          en: "Peppers & aromatics",
+          es: "Chiles y aromáticos",
+          nl: "Pepers en aromaten",
+        },
+        quantity: { en: "1 large", es: "1 grande", nl: "1 grote" },
+        ingredient: { en: "red onion", es: "cebolla roja", nl: "rode ui" },
+      },
+      {
+        group: {
+          en: "Peppers & aromatics",
+          es: "Chiles y aromáticos",
+          nl: "Pepers en aromaten",
+        },
+        quantity: { en: "3", es: "3", nl: "3" },
+        ingredient: { en: "garlic cloves", es: "dientes de ajo", nl: "tenen knoflook" },
+      },
+      {
+        group: {
+          en: "Peppers & aromatics",
+          es: "Chiles y aromáticos",
+          nl: "Pepers en aromaten",
+        },
+        quantity: { en: "30 g", es: "30 g", nl: "30 g" },
+        ingredient: { en: "fresh ginger", es: "jengibre fresco", nl: "verse gember" },
+      },
+      {
+        group: {
+          en: "Peppers & aromatics",
+          es: "Chiles y aromáticos",
+          nl: "Pepers en aromaten",
+        },
+        quantity: { en: "2 tbsp", es: "2 cda", nl: "2 el" },
+        ingredient: { en: "neutral oil", es: "aceite neutro", nl: "neutrale olie" },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: {
+          en: "mango, ripe or slightly underripe",
+          es: "mango, maduro o algo verde",
+          nl: "mango, rijp of licht onrijp",
+        },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "1", es: "1", nl: "1" },
+        ingredient: { en: "apple", es: "manzana", nl: "appel" },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "120 to 150 ml", es: "120 a 150 ml", nl: "120 tot 150 ml" },
+        ingredient: {
+          en: "white wine vinegar",
+          es: "vinagre de vino blanco",
+          nl: "witte wijnazijn",
+        },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: {
+          en: "limes, juice and zest",
+          es: "limas, zumo y ralladura",
+          nl: "limoenen, sap en rasp",
+        },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "100 g", es: "100 g", nl: "100 g" },
+        ingredient: { en: "brown sugar", es: "azúcar moreno", nl: "bruine suiker" },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "60 g", es: "60 g", nl: "60 g" },
+        ingredient: { en: "honey", es: "miel", nl: "honing" },
+      },
+      {
+        group: {
+          en: "Fruit & balance",
+          es: "Fruta y equilibrio",
+          nl: "Fruit en balans",
+        },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "Optional", es: "Opcional", nl: "Optioneel" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "cumin", es: "comino", nl: "komijn" },
+      },
+      {
+        group: { en: "Optional", es: "Opcional", nl: "Optioneel" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "turmeric", es: "cúrcuma", nl: "kurkuma" },
+      },
+      {
+        group: { en: "Optional", es: "Opcional", nl: "Optioneel" },
+        quantity: { en: "a splash", es: "un chorrito", nl: "een scheutje" },
+        ingredient: {
+          en: "water, if it gets too thick",
+          es: "agua, si queda muy espeso",
+          nl: "water, als hij te dik wordt",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Gloves on before anything else. Stem the peppers, and if you want it a touch less savage, pull the seeds from half of them. Chop them rough. Peel the mango and apple and cut into chunks. Roughly chop the red onion, garlic and ginger.",
+          es: "Guantes puestos antes que nada. Quita los rabitos a los chiles y, si lo quieres algo menos salvaje, retira las semillas a la mitad. Pícalos grueso. Pela el mango y la manzana y córtalos en trozos. Pica grueso la cebolla roja, el ajo y el jengibre.",
+          nl: "Handschoenen aan voordat je iets anders doet. Verwijder de steeltjes van de pepers en haal, als je 'm iets minder woest wilt, bij de helft de zaadjes eruit. Snijd ze grof. Schil de mango en appel en snijd in stukken. Snijd de rode ui, knoflook en gember grof.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Heat the oil in a pan over low to medium heat. Soften the onion, garlic and ginger for about 4 minutes without letting them colour. If you are using cumin and turmeric, stir them in for the last minute so they wake up in the oil.",
+          es: "Calienta el aceite en una sartén a fuego bajo o medio. Pocha la cebolla, el ajo y el jengibre unos 4 minutos sin que cojan color. Si usas comino y cúrcuma, añádelos el último minuto para que se abran en el aceite.",
+          nl: "Verhit de olie in een pan op laag tot middelhoog vuur. Fruit de ui, knoflook en gember ongeveer 4 minuten zonder dat ze kleuren. Als je komijn en kurkuma gebruikt, roer die er de laatste minuut door zodat ze opengaan in de olie.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Add the Madame Jeanette peppers and fry for 2 minutes. Open a window now. The steam coming off the pan is sharp enough to clear the room, and that is not a figure of speech.",
+          es: "Añade los chiles Madame Jeanette y fríe 2 minutos. Abre una ventana ya. El vapor que sube de la sartén es lo bastante fuerte para vaciar la habitación, y no es una manera de hablar.",
+          nl: "Voeg de Madame Jeannette-pepers toe en bak ze 2 minuten mee. Zet nu een raam open. De damp die van de pan af komt is scherp genoeg om de kamer leeg te jagen, en dat is geen stijlfiguur.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Add the mango, apple, vinegar, lime juice and zest, brown sugar, honey and salt. Stir it well and let it simmer gently for 25 to 30 minutes. If your mango is on the green side, give it longer and nudge the balance with a little extra honey or sugar.",
+          es: "Añade el mango, la manzana, el vinagre, el zumo y la ralladura de lima, el azúcar moreno, la miel y la sal. Remueve bien y deja que cueza suave de 25 a 30 minutos. Si tu mango tira a verde, dale más tiempo y ajusta el equilibrio con un poco más de miel o azúcar.",
+          nl: "Voeg de mango, appel, azijn, limoensap en -rasp, bruine suiker, honing en zout toe. Roer goed door en laat 25 tot 30 minuten zachtjes pruttelen. Is je mango aan de groene kant, geef hem dan langer en stuur de balans bij met wat extra honing of suiker.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Blend the sambal smooth with a stick blender.",
+          es: "Tritura el sambal hasta dejarlo fino con una batidora de mano.",
+          nl: "Pureer de sambal glad met een staafmixer.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Reduce another 5 to 10 minutes until it is thick, glossy and spoonable. It firms up as it cools, so stop just before you think it is done. A splash of water loosens it if you have gone too far.",
+          es: "Reduce otros 5 a 10 minutos hasta que esté espeso, brillante y se pueda tomar a cucharadas. Se endurece al enfriar, así que para justo antes de creer que está listo. Un chorrito de agua lo afloja si te has pasado.",
+          nl: "Kook nog 5 tot 10 minuten in tot hij dik, glanzend en lepelbaar is. Hij wordt tijdens het afkoelen steviger, dus stop net voordat je denkt dat hij klaar is. Een scheutje water maakt hem losser als je te ver bent gegaan.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Taste it. Carefully, and with respect. More salt if it tastes flat, more vinegar if it needs lifting, more honey if you want the heat a little rounder.",
+          es: "Pruébalo. Con cuidado y con respeto. Más sal si sabe plano, más vinagre si le falta chispa, más miel si quieres el picante algo más redondo.",
+          nl: "Proef. Voorzichtig, en met respect. Meer zout als het vlak smaakt, meer azijn als het frisser mag, meer honing als je de hitte iets ronder wilt.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Spoon the hot sambal into clean, boiled jars and seal them straight away. Let them cool. It makes two to three jars.",
+          es: "Vierte el sambal caliente en botes limpios y hervidos y ciérralos enseguida. Déjalos enfriar. Salen dos o tres botes.",
+          nl: "Schep de hete sambal in schone, uitgekookte potjes en sluit ze meteen af. Laat ze afkoelen. Het levert twee tot drie potjes op.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Own a Monsieur Cuisine Smart? Here is the lazy-genius route. Chop the onion, garlic and ginger 5 seconds on speed 7, add the oil and sauté 4 minutes at 120°C on speed 1. Add the peppers, mango, apple, vinegar, lime juice and zest, brown sugar, honey and salt and chop 10 seconds on speed 6. Cook 25 minutes at 100°C on speed 2 with no measuring cup, the basket resting on the lid to catch the spatter. Blend 45 seconds, climbing slowly from speed 5 to 10, then cook another 5 to 10 minutes at 120°C on speed 2 until thick. Same sambal, less knife work.",
+          es: "¿Tienes una Monsieur Cuisine Smart? Esta es la ruta de genio perezoso. Pica la cebolla, el ajo y el jengibre 5 segundos a velocidad 7, añade el aceite y sofríe 4 minutos a 120°C a velocidad 1. Añade los chiles, el mango, la manzana, el vinagre, el zumo y la ralladura de lima, el azúcar moreno, la miel y la sal y pica 10 segundos a velocidad 6. Cocina 25 minutos a 100°C a velocidad 2 sin el vaso medidor, con el cestillo apoyado en la tapa para frenar las salpicaduras. Tritura 45 segundos subiendo despacio de velocidad 5 a 10, y cocina otros 5 a 10 minutos a 120°C a velocidad 2 hasta que espese. El mismo sambal, menos cuchillo.",
+          nl: "Heb je een Monsieur Cuisine Smart? Dit is de luie-genie-route. Hak de ui, knoflook en gember 5 seconden op snelheid 7, voeg de olie toe en fruit 4 minuten op 120°C op snelheid 1. Voeg de pepers, mango, appel, azijn, limoensap en -rasp, bruine suiker, honing en zout toe en hak 10 seconden op snelheid 6. Kook 25 minuten op 100°C op snelheid 2 zonder maatbeker, met het kookmandje los op het deksel tegen het spatten. Pureer 45 seconden, langzaam opbouwend van snelheid 5 naar 10, en kook daarna nog 5 tot 10 minuten op 120°C op snelheid 2 tot hij dik is. Dezelfde sambal, minder snijwerk.",
+        },
+      },
+    ],
+    publishedAt: "2026-06-24",
+  },
 ];
