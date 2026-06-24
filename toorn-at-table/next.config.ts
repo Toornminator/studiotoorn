@@ -20,32 +20,16 @@ import type { NextConfig } from "next";
  */
 
 /**
- * Edge-cache the rendered HTML on Netlify's CDN.
- *
- * Every page reads the locale via `headers()` (getCurrentLocale), which
- * forces Next to render each route dynamically on every request. On
- * Netlify that means a serverless function boots and re-renders the whole
- * React tree per visit — the cold-start latency of that function is the
- * multi-second white screen mobile visitors were seeing (TTFB ≈ time to
- * first paint, because nothing is render-blocking once HTML arrives).
- *
- * The HTML is fully deterministic per URL: `/` is always English, `/es`
- * always Spanish, `/nl` always Dutch (the proxy derives locale from the
- * path, never from a cookie), and pages carry no per-user data (forms post
- * client-side to Netlify). So the response is safe to cache by URL.
- *
- * `Netlify-CDN-Cache-Control` takes precedence over `Cache-Control` for
- * Netlify's CDN only: browsers keep revalidating (Next's own private
- * no-store stays on the wire), while the CDN serves cached HTML in tens of
- * milliseconds. `durable` opts into the cross-region Durable Cache, which
- * Netlify purges automatically on every deploy, so publishing a new weekly
- * menu or event (a code deploy) refreshes instantly. `stale-while-
- * revalidate` keeps responses instant while a fresh copy renders in the
- * background. `/api/*` is excluded so server actions and the newsletter
- * confirm handler are never cached.
+ * NOTE on edge caching: a previous attempt set `Netlify-CDN-Cache-Control`
+ * on page routes to serve HTML from Netlify's CDN and kill the cold-start
+ * TTFB. It had to be reverted: the proxy rewrites `/es/x` and `/nl/x` onto
+ * the locale-stripped origin path `/x`, and the locale lives only in the
+ * `x-locale` request header, NOT in the URL the CDN keys on. So all three
+ * languages of a page collapsed onto ONE cache entry and the first render
+ * to populate it won (the English home was served Dutch). Any future
+ * caching MUST make the locale part of the cache key, which the rewrite
+ * architecture does not currently allow. Left dynamic for correctness.
  */
-const CDN_CACHE = "public, durable, s-maxage=3600, stale-while-revalidate=86400";
-
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
@@ -53,21 +37,6 @@ const nextConfig: NextConfig = {
     removeConsole: {
       exclude: ["error", "warn"],
     },
-  },
-  async headers() {
-    return [
-      {
-        // Every page route except API handlers and Next internals (which
-        // carry their own immutable caching). The query string is ignored
-        // by source matching, so RSC navigation payloads (`?_rsc=`) are
-        // covered too — they are equally deterministic per URL.
-        source: "/((?!api/|_next/).*)",
-        headers: [
-          { key: "Netlify-CDN-Cache-Control", value: CDN_CACHE },
-          { key: "CDN-Cache-Control", value: CDN_CACHE },
-        ],
-      },
-    ];
   },
   // Wrap client-side navigations in the View Transitions API: every route
   // change cross-fades instead of hard-cutting, and elements that share a
