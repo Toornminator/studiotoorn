@@ -20,9 +20,9 @@ function resolveChapter(
 }
 
 /**
- * Resolve the static timeline chapters into the active locale. No Supabase
- * path: the chapters are part of the brand bible (Nick's life story) and
- * don't need a CMS.
+ * Resolve the static timeline chapters into the active locale. The
+ * chapters are part of the brand bible (Nick's life story) and ship with
+ * the build.
  */
 export function getTimelineChapters(locale: Locale): TimelineChapter[] {
   return staticChapters.map((c) => resolveChapter(c, locale));

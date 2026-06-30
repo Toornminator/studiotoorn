@@ -1,23 +1,8 @@
 import "server-only";
 import { travelLocations as staticTravel } from "@/content/travel";
-import { getSupabaseServer } from "@/lib/supabase/server";
 import { pick, pickOptional } from "@/lib/content/i18n";
 import type { Locale } from "@/i18n/config";
 import type { LocalisedTravelLocation, TravelLocation } from "@/lib/types";
-
-type TravelRow = {
-  slug: string;
-  name: string;
-  country: string | null;
-  year: number | null;
-  hero_image: string | null;
-  map_x: number;
-  map_y: number;
-  intro: string | null;
-  body: string | null;
-  pull_quote: string | null;
-  position: number;
-};
 
 function resolveTravel(
   l: LocalisedTravelLocation,
@@ -53,9 +38,7 @@ function resolveTravel(
 export async function getTravelLocations(
   locale: Locale,
 ): Promise<TravelLocation[]> {
-  // Static file is the source of truth — it carries the full EN/ES/NL
-  // content Nick wrote via the Reisverhalen vragenlijst. The Supabase
-  // `travel_locations` table is single-language and out of date; bypass
-  // it until the schema grows proper i18n columns and gets re-seeded.
+  // Authored in `src/content/travel.ts` (full EN/ES/NL) and shipped with
+  // the build. Pure in-memory map, no database round-trip.
   return staticTravel.map((l) => resolveTravel(l, locale));
 }

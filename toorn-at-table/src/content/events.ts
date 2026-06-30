@@ -2,8 +2,8 @@ import type { LocalisedEventItem } from "@/lib/types";
 
 /**
  * Concept events. Placeholder upcoming dinners written in Nick's voice.
- * Replace with real bookings (or wire to Supabase) once the calendar is
- * confirmed. Dates are kept in the near future so the grid always feels
+ * Edit this file to publish real events once the calendar is confirmed.
+ * Dates are kept in the near future so the grid always feels
  * "upcoming"; bump them when you replace the copy. City stays one string
  * (proper nouns rarely need localising); everything else is a trio.
  */

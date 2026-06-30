@@ -1,13 +1,8 @@
-// Route stub — kept around for git history.
+// Route stub — kept so old links don't 404.
 //
-// This used to handle the double-opt-in confirmation link from the
-// Resend email (token → mark subscriber confirmed in Supabase →
-// redirect to the home page with a status banner). The newsletter
-// moved to a Netlify Forms direct-submit flow with no confirmation
-// step, so this route is no longer used.
-//
-// Old confirmation links in the wild redirect home with a "thanks"
-// banner so visitors aren't dropped on a 404.
+// The newsletter once used a double-opt-in confirmation link; it now
+// submits directly to Netlify Forms with no confirmation step. Any old
+// confirmation link still in the wild just redirects home.
 
 import { NextResponse, type NextRequest } from "next/server";
 

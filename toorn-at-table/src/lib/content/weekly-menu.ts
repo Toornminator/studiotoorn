@@ -4,8 +4,8 @@ import type { Locale } from "@/i18n/config";
 import type { LocalisedWeeklyMenu, WeeklyMenu } from "@/lib/types";
 
 /**
- * "Toorn aan de deur" data-access. Pure static (no Supabase), like travel
- * and testimonials: a hand-curated, trust-critical, low-volume list Nick
+ * "Toorn aan de deur" data-access. Pure static, like travel and
+ * testimonials: a hand-curated, trust-critical, low-volume list Nick
  * edits by hand. No `server-only` guard so the page metadata + teaser +
  * page body can all share it.
  */

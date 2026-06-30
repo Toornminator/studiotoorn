@@ -14,22 +14,22 @@ draggable tattoo flash stickers that scroll with the page.
 - `framer-motion` for page reveals, the cursor and the overlay transitions
 - `lenis` for smooth scroll
 - `zustand` (+ persist middleware) for sticker positions in localStorage
-- `@supabase/supabase-js` for the recipe / event / travel / forms backend
-- `resend` for transactional newsletter + booking emails
+
+## Data & forms
+
+All content (recipes, events, travel, weekly menu, testimonials) is authored
+in `src/content/*` and shipped with the build — no database, no CMS. Pages
+are statically prerendered per locale. Forms (contact, booking, newsletter)
+submit straight to Netlify Forms; submissions appear in the Netlify dashboard.
+The site needs no environment variables.
 
 ## Run it
 
 ```bash
 npm install
-cp .env.example .env.local   # fill in real values when you have them
 npm run dev                  # http://localhost:3000
 npm run build
 ```
-
-The site works without any env vars — it falls back to the static content in
-`src/content/*` and the contact form returns a "mail me direct" message.
-As soon as Supabase + Resend are wired the site routes through them
-automatically.
 
 ## Page flow
 
@@ -42,8 +42,8 @@ automatically.
 | 04 | Het Kookboek           | `getRecipes()`                 |
 | 05 | Events                 | `getEvents()`                  |
 |    | Tussenrust + CTA       | static                         |
-| 06 | Aan tafel (booking)    | server action + Resend         |
-|    | Footer (nieuwsbrief)   | server action + Resend         |
+| 06 | Aan tafel (booking)    | Netlify Forms                  |
+|    | Footer (nieuwsbrief)   | Netlify Forms                  |
 
 Recipes, events and travel posts each open as a focused overlay modal —
 single-page, no extra routes.
@@ -57,8 +57,8 @@ src/
                                   → Footer → StickerProvider → CustomCursor
     page.tsx                      Hero / About / Timeline / Travel /
                                   Kookboek / Events / Closing / Contact
-    api/newsletter/confirm/       GET /api/newsletter/confirm?token=...
-    actions/                      server actions (contact, newsletter)
+    api/newsletter/confirm/       legacy redirect stub (old opt-in links)
+    actions/                      contact + locale helpers
   components/
     about/                        portrait, timeline, closing pull-quote
     contact/                      booking form
@@ -71,11 +71,9 @@ src/
     travel/                       atlas SVG + interactive markers + overlay
   content/                        static recipes / events / travel
   lib/
-    content/                      data access: tries Supabase, falls back
-    supabase/                     client + server clients
+    content/                      data access: resolves static content
     types.ts                      domain shapes
   styles/tokens.css               @theme colours / fonts / shadows
-supabase/migrations/              SQL — recipes, events, travel, forms, RLS
 public/
   images/                         portrait, logo-dark
   stickers/                       14 processed tattoo flash PNGs
@@ -95,10 +93,9 @@ public/
   grouped ingredients, numbered steps, pairing)
 - Events — typographic agenda with capacity + overlay → prefilled
   booking form
-- Booking form with server action: validates, stores in Supabase, mails
-  notification to Nick + confirmation to the visitor (Resend)
-- Newsletter signup with double opt-in via Resend; `/api/newsletter/confirm`
-  flips `confirmed_at` and shows a banner on the home page
+- Booking form posts to Netlify Forms; Nick gets the lead in the Netlify
+  Forms dashboard (notifications + spam filtering configured there)
+- Newsletter signup posts to Netlify Forms (no confirmation step)
 - Custom ink cursor (dot / link / grab)
 - Lenis smooth scroll, off when `prefers-reduced-motion: reduce`
 - Sticky brand-wide nav, anchor scroll-margin so jumps don't hide titles
@@ -123,35 +120,12 @@ public/
 
 ## Adding content
 
-- **Recipes** → edit `src/content/recipes.ts` or insert into the Supabase
-  `recipes` (+ `recipe_ingredients` + `recipe_steps`) tables and set
-  `published_at`. The shape matches `Recipe` in `src/lib/types.ts`.
-- **Events** → `src/content/events.ts` or Supabase `events` table.
-- **Travel** → `src/content/travel.ts` or Supabase `travel_locations`.
-  `mapX` / `mapY` are 0–100 percentages on the 800×500 atlas viewBox.
-
-## Wiring Supabase (when ready)
-
-1. Create a Supabase project, run the SQL in
-   `supabase/migrations/20260511120000_init.sql` against it (via the
-   dashboard editor or `supabase db push` if you use the CLI).
-2. Copy `.env.example` → `.env.local`, fill in:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY` (server-only)
-3. Restart dev. The content layer auto-switches from static fallback to
-   live data.
-
-## Wiring Resend (when ready)
-
-1. Create a Resend account, verify a sending domain.
-2. Add to `.env.local`:
-   - `RESEND_API_KEY`
-   - `RESEND_FROM_ADDRESS="TOORN at table <hello@your-domain>"`
-   - `NOTIFICATION_EMAIL=nick@your-domain`  (where contact-form leads land)
-   - `NEXT_PUBLIC_SITE_URL=https://your-domain.com`  (used to build the
-     newsletter confirmation links — without it the action falls back to
-     the incoming request host)
+- **Recipes** → edit `src/content/recipes.ts` and set `publishedAt`. The
+  shape matches `LocalisedRecipe` in `src/lib/types.ts` (EN/ES/NL trio per
+  field). A new slug is picked up by `generateStaticParams` on the next build.
+- **Events** → `src/content/events.ts`.
+- **Travel** → `src/content/travel.ts`. `mapX` / `mapY` are 0–100
+  percentages on the 800×500 atlas viewBox.
 
 ## Phase 3 ideas
 

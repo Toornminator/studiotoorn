@@ -10,11 +10,10 @@
       forms used on the site and provision submission endpoints +
       a dashboard view for them.
 
-      Do not link to it from anywhere; do not style it. The real form
-      lives in src/components/contact/BookingForm.tsx and submits via
-      a Next.js server action that fans out to Supabase, Resend, and
-      then POSTs a copy here (so submissions also land in the Netlify
-      Forms dashboard).
+      Do not link to it from anywhere; do not style it. The real forms
+      (contact/booking in src/components/contact/BookingForm.tsx, plus the
+      order and newsletter forms) submit straight to Netlify Forms; their
+      submissions land in the Netlify Forms dashboard.
 
       Keep the input names IDENTICAL to BookingForm.tsx field names —
       Netlify validates that the runtime submission matches the

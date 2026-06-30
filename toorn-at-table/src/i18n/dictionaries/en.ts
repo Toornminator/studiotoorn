@@ -580,9 +580,7 @@ export const en: Dictionary = {
       {
         heading: "Who else sees this",
         body: [
-          "Netlify hosts the site and processes form submissions. Their EU servers handle the data. Their privacy notice: netlify.com/privacy.",
-          "Supabase stores newsletter signups in EU-based Postgres. Their privacy notice: supabase.com/privacy.",
-          "Resend delivers transactional email (booking confirmations, newsletter). Their privacy notice: resend.com/legal/privacy-policy.",
+          "Netlify hosts the site and processes every form submission (contact, booking and newsletter). Their EU servers handle the data. Their privacy notice: netlify.com/privacy.",
           "Google Analytics receives anonymised visit data only after consent. Their privacy notice: policies.google.com/privacy.",
         ],
       },

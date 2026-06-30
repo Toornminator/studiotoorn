@@ -4,8 +4,8 @@ import type { Locale } from "@/i18n/config";
 import type { LocalisedTestimonial, Testimonial } from "@/lib/types";
 
 /**
- * Testimonials data-access. Pure static (no Supabase round-trip): like
- * travel content, this is a curated, low-volume, trust-critical list that
+ * Testimonials data-access. Pure static: like travel content, this is a
+ * curated, low-volume, trust-critical list that
  * Nick edits by hand. No "server-only" guard so the aggregate-rating
  * helpers can also feed the LocalBusiness JSON-LD in layout.tsx.
  */

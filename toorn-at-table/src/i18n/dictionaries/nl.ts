@@ -584,9 +584,7 @@ export const nl: Dictionary = {
       {
         heading: "Wie het verder ziet",
         body: [
-          "Netlify host de site en verwerkt formulier-inzendingen. Hun EU-servers behandelen de data. Privacyverklaring: netlify.com/privacy.",
-          "Supabase bewaart nieuwsbrief-aanmeldingen in EU-Postgres. Privacyverklaring: supabase.com/privacy.",
-          "Resend stuurt transactionele e-mail (boekingsbevestigingen, nieuwsbrief). Privacyverklaring: resend.com/legal/privacy-policy.",
+          "Netlify host de site en verwerkt alle formulier-inzendingen (contact, boeking en nieuwsbrief). Hun EU-servers behandelen de data. Privacyverklaring: netlify.com/privacy.",
           "Google Analytics ontvangt geanonimiseerde bezoekdata, alleen na toestemming. Privacyverklaring: policies.google.com/privacy.",
         ],
       },

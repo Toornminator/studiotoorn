@@ -1,6 +1,4 @@
-// Shared domain types. Mirrors the SQL schema in supabase/migrations.
-// When you run `supabase gen types typescript --linked > src/lib/database.types.ts`
-// keep these in sync, or remove these and import from generated types.
+// Shared domain types for the site's hand-authored content.
 //
 // Two shapes co-exist:
 //  - `Localised*` types (LocalisedRecipe, LocalisedEventItem, ...) live in
@@ -341,7 +339,7 @@ export type Testimonial = {
 /**
  * A weekly fine-dining menu for the local "Toorn aan de deur" service:
  * one menu a week, delivered to the door in Arroyo de la Miel, cash on
- * delivery. Hand-curated like the travel content (static, no Supabase).
+ * delivery. Hand-curated like the travel content, shipped with the build.
  * Capacity is tracked manually: Nick sets the cap and lowers
  * `spotsAvailable` as orders land, the same way he edits events.
  */

@@ -15,7 +15,7 @@ import type { Dictionary } from "@/i18n/types";
  * The matching schema is registered at build time via
  * `public/__forms.html` (Netlify scans /public during deploy).
  *
- * No server action, no Supabase, no Resend. Notifications + spam
+ * No server action, no database, no email service. Notifications + spam
  * filtering are configured in the Netlify Forms dashboard.
  */
 

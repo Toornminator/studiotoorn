@@ -586,9 +586,7 @@ export const es: Dictionary = {
       {
         heading: "Quién más lo ve",
         body: [
-          "Netlify aloja el sitio y procesa los envíos de formularios. Sus servidores europeos manejan los datos. Política de privacidad: netlify.com/privacy.",
-          "Supabase guarda las altas de newsletter en Postgres europeo. Política: supabase.com/privacy.",
-          "Resend entrega los correos transaccionales (confirmaciones, newsletter). Política: resend.com/legal/privacy-policy.",
+          "Netlify aloja el sitio y procesa todos los envíos de formularios (contacto, reserva y newsletter). Sus servidores europeos manejan los datos. Política de privacidad: netlify.com/privacy.",
           "Google Analytics recibe datos anonimizados solo tras consentimiento. Política: policies.google.com/privacy.",
         ],
       },
