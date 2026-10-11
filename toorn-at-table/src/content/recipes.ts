@@ -5110,4 +5110,359 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-06-24",
   },
+  {
+    slug: "paella-chicken-chorizo",
+    title: {
+      en: "Paella for twelve. Chicken and chorizo",
+      es: "Paella para doce. Pollo y chorizo",
+      nl: "Paella voor twaalf. Kip en chorizo",
+    },
+    intro: {
+      en: "A paella the size of a car wheel, cooked outside for twelve, in Manilva. Chicken browned hard, chorizo bleeding its red fat into the rice, saffron, a sofritto built the day before. This is not a weeknight pan of rice. This is the dish you make when people are coming and you want them to remember the afternoon.",
+      es: "Una paella del tamaño de la rueda de un coche, cocinada al aire libre para doce, en Manilva. Pollo bien dorado, chorizo soltando su grasa roja en el arroz, azafrán, un sofrito hecho el día antes. Esto no es una sartén de arroz entre semana. Es el plato que haces cuando viene gente y quieres que recuerden la tarde.",
+      nl: "Een paella zo groot als een autowiel, buiten gekookt voor twaalf, in Manilva. Kip hard aangebraden, chorizo die z'n rode vet in de rijst laat lopen, saffraan, een sofritto die een dag van tevoren is gemaakt. Dit is geen doordeweekse pan rijst. Dit is het gerecht dat je maakt als er mensen komen en je wilt dat ze de middag onthouden.",
+    },
+    category: "hoofd",
+    seasons: ["zomer", "herfst", "altijd"],
+    difficulty: 4,
+    prepMinutes: 45,
+    cookMinutes: 50,
+    servings: 12,
+    heroImage: "/images/recipes/paella-chicken-chorizo.jpg",
+    pairing: {
+      en: "The same dry white that went into the rice: a cold Sierra de Málaga blanco, organic if you can get it. Served outside, long table, afternoon light. Paella is not indoor food.",
+      es: "El mismo blanco seco que fue al arroz: un Sierra de Málaga blanco bien frío, ecológico si lo encuentras. Servido fuera, mesa larga, luz de tarde. La paella no es comida de interior.",
+      nl: "Dezelfde droge witte die in de rijst ging: een koude Sierra de Málaga blanco, ecologisch als je 'm kunt vinden. Buiten geserveerd, lange tafel, middaglicht. Paella is geen binnen-eten.",
+    },
+    body: {
+      en: [
+        "First, forget everything the frozen-aisle 'paella' taught you. Real paella is about one thing: the rice, and what the rice drinks. Every step before the rice goes in exists to load that liquid with flavour, the seared chicken, the chorizo fat, the sofritto, the saffron, the wine. Get the stock right and the rice does the rest. Get it wrong and no garnish on earth will save you.",
+        "The secret is the sofritto, and you make it the day before, no shortcuts. Plum tomatoes, one small onion, eight cloves of garlic, cooked down slow in good oil until it is dark, jammy and reduced to almost nothing. That little pot of concentrated sweetness is the backbone of the whole pan. The paella spice I mixed myself at the market, but a good shop-bought blend does the job, nobody at the table will cross-examine you.",
+        "And then the rule that separates paella from risotto: once the stock is in and the rice is spread flat, you do not stir. Not once. You are building a socarrat, the toasted, caramelised crust on the bottom of the pan that every Spaniard fights over. You cook it hard, then low, you listen for the crackle, you trust your nose. When it is done, off the heat, a towel over the top, ten minutes. Then lemon, edible flowers, and you carry the whole pan to the table and let them see it before you serve.",
+      ],
+      es: [
+        "Primero, olvida todo lo que te enseñó la 'paella' del congelador. La paella de verdad va de una cosa: el arroz, y lo que el arroz bebe. Cada paso antes de echar el arroz existe para cargar ese líquido de sabor: el pollo sellado, la grasa del chorizo, el sofrito, el azafrán, el vino. Acierta con el caldo y el arroz hace el resto. Fállalo y no hay guarnición en el mundo que te salve.",
+        "El secreto es el sofrito, y lo haces el día antes, sin atajos. Tomates pera, una cebolla pequeña, ocho dientes de ajo, cocidos despacio en buen aceite hasta que queda oscuro, meloso y reducido a casi nada. Ese botecito de dulzor concentrado es la columna vertebral de toda la paella. Las especias las mezclé yo en el mercado, pero una buena mezcla comprada hace el trabajo; nadie en la mesa te va a interrogar.",
+        "Y luego la regla que separa la paella del risotto: una vez dentro el caldo y el arroz extendido, no se remueve. Ni una vez. Estás construyendo el socarrat, esa costra tostada y caramelizada del fondo por la que se pelea todo español. Lo cocinas fuerte, luego suave, escuchas el crujido, te fías del olfato. Cuando está, fuera del fuego, un paño por encima, diez minutos. Luego limón, flores comestibles, y llevas la paella entera a la mesa para que la vean antes de servir.",
+      ],
+      nl: [
+        "Vergeet eerst alles wat de diepvries-'paella' je heeft geleerd. Echte paella gaat over één ding: de rijst, en wat de rijst drinkt. Elke stap vóór de rijst erin gaat, is er om dat vocht vol smaak te laden: de aangebraden kip, het chorizovet, de sofritto, de saffraan, de wijn. Krijg de bouillon goed en de rijst doet de rest. Krijg hem verkeerd en geen garnituur ter wereld redt je nog.",
+        "Het geheim is de sofritto, en die maak je een dag van tevoren, geen shortcuts. Pera-tomaten, één kleine ui, acht tenen knoflook, langzaam gegaard in goede olie tot hij donker, jammy en tot bijna niets ingekookt is. Dat kleine potje geconcentreerde zoetheid is de ruggengraat van de hele pan. De paellakruiden mengde ik zelf op de markt, maar een goede kant-en-klare mix doet het net zo goed; niemand aan tafel gaat je verhoren.",
+        "En dan de regel die paella van risotto scheidt: zodra de bouillon erin zit en de rijst vlak ligt, roer je niet. Geen enkele keer. Je bouwt een socarrat, die geroosterde, gekaramelliseerde korst op de bodem waar elke Spanjaard om vecht. Je kookt hem hard, dan laag, je luistert naar het knetteren, je vertrouwt je neus. Als hij klaar is, van het vuur, een doek erover, tien minuten. Dan citroen, eetbare bloemen, en je draagt de hele pan naar de tafel zodat ze hem zien voor je opschept.",
+      ],
+    },
+    nowPlaying: {
+      track: "Entre dos aguas",
+      artist: "Paco de Lucía",
+    },
+    marginalia: [
+      {
+        id: "pa-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Make the sofritto the day before. Tomatoes, a little onion, eight cloves of garlic, cooked down slow until it is dark and jammy. A rushed sofritto is a flat paella. This one step is where the depth lives.",
+          es: "Haz el sofrito el día antes. Tomates, un poco de cebolla, ocho dientes de ajo, cocidos despacio hasta que quede oscuro y meloso. Un sofrito con prisas es una paella plana. En este paso vive toda la profundidad.",
+          nl: "Maak de sofritto een dag van tevoren. Tomaten, een beetje ui, acht tenen knoflook, langzaam ingekookt tot hij donker en jammy is. Een gehaaste sofritto is een vlakke paella. In deze ene stap zit alle diepte.",
+        },
+      },
+      {
+        id: "pa-2",
+        kind: "tip",
+        anchor: "step-2",
+        body: {
+          en: "Bloom the saffron: warm a ladle of the stock with a splash of the wine and steep the threads in it while you cook. You want the colour and perfume in the liquid, not sitting dry on the rice.",
+          es: "Infusiona el azafrán: calienta un cazo de caldo con un chorrito de vino y deja las hebras en remojo mientras cocinas. Quieres el color y el perfume en el líquido, no secos sobre el arroz.",
+          nl: "Laat de saffraan trekken: verwarm een soeplepel bouillon met een scheut wijn en laat de draadjes erin wellen terwijl je kookt. Je wilt de kleur en de geur in het vocht, niet droog bovenop de rijst.",
+        },
+      },
+      {
+        id: "pa-3",
+        kind: "tip",
+        anchor: "step-4",
+        body: {
+          en: "Let the chorizo render properly before the rice goes in. That red, paprika-heavy fat it gives up is flavour you cannot buy in a jar. It stains the whole pan, and that is exactly the point.",
+          es: "Deja que el chorizo suelte bien su grasa antes de echar el arroz. Esa grasa roja, cargada de pimentón, es sabor que no se compra en un bote. Tiñe toda la paella, y de eso se trata.",
+          nl: "Laat de chorizo goed uitbakken voordat de rijst erin gaat. Dat rode, paprika-zware vet dat hij loslaat is smaak die je niet in een potje koopt. Het kleurt de hele pan, en dat is precies de bedoeling.",
+        },
+      },
+      {
+        id: "pa-4",
+        kind: "warning",
+        anchor: "step-7",
+        body: {
+          en: "Once the stock hits the rice, put the spoon down and walk away. Stir paella and you are making risotto. No stirring, no peeking under the rice, no fiddling. The pan knows what it is doing.",
+          es: "En cuanto el caldo toca el arroz, suelta la cuchara y aléjate. Si remueves la paella, estás haciendo risotto. Nada de remover, de levantar el arroz, de toquetear. La paella sabe lo que hace.",
+          nl: "Zodra de bouillon de rijst raakt, leg je de lepel neer en loop je weg. Roer je paella, dan maak je risotto. Niet roeren, niet onder de rijst gluren, niet friemelen. De pan weet wat hij doet.",
+        },
+      },
+      {
+        id: "pa-5",
+        kind: "scrawl",
+        anchor: "step-9",
+        body: {
+          en: "Everyone's scared of the socarrat and shouldn't be. That crackle near the end, that smell right on the edge of burnt, that IS the dish. Pull it too early and you miss the best part: the caramelised crust at the bottom of the pan.",
+          es: "Todos le tienen miedo al socarrat y no deberían. Ese crujido del final, ese olor justo al borde de quemado, ESO es el plato. Si lo sacas antes de tiempo te pierdes lo mejor: la costra caramelizada del fondo.",
+          nl: "Iedereen is bang voor de socarrat en dat hoeft niet. Dat geknetter tegen het einde, die geur net op de rand van aangebrand, DAT is het gerecht. Haal je 'm te vroeg weg, dan mis je het beste: de gekaramelliseerde korst op de bodem.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "The meat", es: "La carne", nl: "Het vlees" },
+        quantity: { en: "12 (≈2 kg)", es: "12 (≈2 kg)", nl: "12 (≈2 kg)" },
+        ingredient: {
+          en: "chicken drumsticks",
+          es: "muslos de pollo",
+          nl: "kippenpoten",
+        },
+      },
+      {
+        group: { en: "The meat", es: "La carne", nl: "Het vlees" },
+        quantity: { en: "1.5 kg", es: "1,5 kg", nl: "1,5 kg" },
+        ingredient: {
+          en: "organic chicken breast, in chunks",
+          es: "pechuga de pollo ecológica, en trozos",
+          nl: "biologische kipfilet, in stukken",
+        },
+      },
+      {
+        group: { en: "The meat", es: "La carne", nl: "Het vlees" },
+        quantity: { en: "1 kg", es: "1 kg", nl: "1 kg" },
+        ingredient: {
+          en: "chorizo sausage, sliced",
+          es: "chorizo, en rodajas",
+          nl: "chorizoworst, in plakjes",
+        },
+      },
+      {
+        group: {
+          en: "Sofritto (made the day before)",
+          es: "Sofrito (del día anterior)",
+          nl: "Sofritto (dag van tevoren)",
+        },
+        quantity: { en: "1 kg", es: "1 kg", nl: "1 kg" },
+        ingredient: {
+          en: "plum (pera) tomatoes",
+          es: "tomates pera",
+          nl: "pera-tomaten",
+        },
+      },
+      {
+        group: {
+          en: "Sofritto (made the day before)",
+          es: "Sofrito (del día anterior)",
+          nl: "Sofritto (dag van tevoren)",
+        },
+        quantity: { en: "1 small", es: "1 pequeña", nl: "1 kleine" },
+        ingredient: { en: "onion", es: "cebolla", nl: "ui" },
+      },
+      {
+        group: {
+          en: "Sofritto (made the day before)",
+          es: "Sofrito (del día anterior)",
+          nl: "Sofritto (dag van tevoren)",
+        },
+        quantity: { en: "8", es: "8", nl: "8" },
+        ingredient: { en: "garlic cloves", es: "dientes de ajo", nl: "tenen knoflook" },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "1 kg", es: "1 kg", nl: "1 kg" },
+        ingredient: { en: "bomba rice", es: "arroz bomba", nl: "bomba rijst" },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "3 L", es: "3 L", nl: "3 L" },
+        ingredient: {
+          en: "hot chicken stock (fresh)",
+          es: "caldo de pollo caliente (casero)",
+          nl: "hete kippenbouillon (vers)",
+        },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: { en: "saffron", es: "azafrán", nl: "saffraan" },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "600 g", es: "600 g", nl: "600 g" },
+        ingredient: {
+          en: "red pepper, in strips",
+          es: "pimiento rojo, en tiras",
+          nl: "rode paprika, in reepjes",
+        },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: {
+          en: "paella seasoning (market blend or shop-bought)",
+          es: "especias para paella (mezcla del mercado o comprada)",
+          nl: "paellakruiden (marktmix of kant-en-klaar)",
+        },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "a good glug", es: "un buen chorro", nl: "een flinke scheut" },
+        ingredient: {
+          en: "dry white wine (Sierra de Málaga, organic)",
+          es: "vino blanco seco (Sierra de Málaga, ecológico)",
+          nl: "droge witte wijn (Sierra de Málaga, ecologisch)",
+        },
+      },
+      {
+        group: {
+          en: "The base & rice",
+          es: "La base y el arroz",
+          nl: "De basis en de rijst",
+        },
+        quantity: { en: "to cook", es: "para cocinar", nl: "om te bakken" },
+        ingredient: { en: "olive oil", es: "aceite de oliva", nl: "olijfolie" },
+      },
+      {
+        group: {
+          en: "Green & finish",
+          es: "Verde y acabado",
+          nl: "Groen en afwerking",
+        },
+        quantity: { en: "1 kg", es: "1 kg", nl: "1 kg" },
+        ingredient: {
+          en: "mixed sugar snaps and lima beans",
+          es: "tirabeques y judías de lima",
+          nl: "mix van sugarsnaps en limabonen",
+        },
+      },
+      {
+        group: {
+          en: "Green & finish",
+          es: "Verde y acabado",
+          nl: "Groen en afwerking",
+        },
+        quantity: { en: "to finish", es: "para terminar", nl: "om af te maken" },
+        ingredient: { en: "lemon wedges", es: "gajos de limón", nl: "citroenparten" },
+      },
+      {
+        group: {
+          en: "Green & finish",
+          es: "Verde y acabado",
+          nl: "Groen en afwerking",
+        },
+        quantity: { en: "to finish", es: "para terminar", nl: "om af te maken" },
+        ingredient: {
+          en: "edible flowers (marigolds)",
+          es: "flores comestibles (tagetes)",
+          nl: "eetbare bloemen (afrikaantjes)",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "The day before: grate or finely chop the plum tomatoes. Soften the small onion and the 8 garlic cloves in olive oil, add the tomato and cook down slow for 40 to 45 minutes, until it is dark, jammy and reduced to almost nothing. Cool and keep overnight.",
+          es: "El día antes: ralla o pica fino los tomates pera. Pocha la cebolla pequeña y los 8 dientes de ajo en aceite, añade el tomate y cuece despacio de 40 a 45 minutos, hasta que quede oscuro, meloso y reducido a casi nada. Enfría y guarda hasta el día siguiente.",
+          nl: "De dag ervoor: rasp of snijd de pera-tomaten fijn. Fruit de kleine ui en de 8 tenen knoflook in olie, voeg de tomaat toe en kook langzaam in, 40 tot 45 minuten, tot het donker, jammy en tot bijna niets ingekookt is. Laat afkoelen en bewaar tot de volgende dag.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Heat the chicken stock until it is good and hot. Bloom the saffron in a ladle of that warm stock with a splash of the white wine, and leave it to steep.",
+          es: "Calienta bien el caldo de pollo. Infusiona el azafrán en un cazo de ese caldo caliente con un chorrito de vino blanco, y déjalo reposar.",
+          nl: "Verhit de kippenbouillon tot hij goed heet is. Laat de saffraan trekken in een soeplepel van die hete bouillon met een scheut witte wijn, en laat staan.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Set the big paella pan over the fire or a strong burner with a film of olive oil. Season and brown the 12 drumsticks and the chicken breast chunks hard on all sides. Lift the meat out and leave the fat behind.",
+          es: "Pon la paellera grande al fuego o a un fuego fuerte con una capa de aceite. Salpimienta y dora bien los 12 muslos y los trozos de pechuga por todos lados. Saca la carne y deja la grasa en la paella.",
+          nl: "Zet de grote paellapan op het vuur of een stevige pit met een laagje olijfolie. Kruid en braad de 12 kippenpoten en de stukken kipfilet hard rondom aan. Haal het vlees eruit en laat het vet achter.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "In the same pan, render the sliced chorizo until it gives up its deep red, paprika fat.",
+          es: "En la misma paella, sofríe el chorizo en rodajas hasta que suelte su grasa roja de pimentón.",
+          nl: "Bak in dezelfde pan de chorizoplakjes uit tot ze hun dieprode paprikavet loslaten.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Add the red pepper strips and fry a few minutes. Stir in the sofritto and the paella seasoning, and let it fry and darken for a minute.",
+          es: "Añade las tiras de pimiento rojo y sofríe unos minutos. Incorpora el sofrito y las especias para paella, y deja que se fría y oscurezca un minuto.",
+          nl: "Voeg de reepjes rode paprika toe en bak een paar minuten. Roer de sofritto en de paellakruiden erdoor en laat het een minuut meebakken en donkerder worden.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Add the bomba rice and toast it in the sofritto and fat for 2 minutes, stirring to coat every grain. This is the last time you stir.",
+          es: "Añade el arroz bomba y tuéstalo en el sofrito y la grasa 2 minutos, removiendo para que se impregne cada grano. Es la última vez que remueves.",
+          nl: "Voeg de bomba rijst toe en rooster hem 2 minuten in de sofritto en het vet, al roerend tot elke korrel bedekt is. Dit is de laatste keer dat je roert.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Pour in the hot saffron stock, three parts to one of rice, and a good glug of white wine. Spread the rice flat and even across the pan. From here on, do not stir.",
+          es: "Vierte el caldo caliente con azafrán, tres partes por una de arroz, y un buen chorro de vino blanco. Extiende el arroz plano y uniforme por toda la paella. A partir de aquí, no se remueve.",
+          nl: "Schenk de hete saffraanbouillon erbij, drie delen op één deel rijst, en een flinke scheut witte wijn. Strijk de rijst vlak en gelijkmatig uit over de pan. Vanaf hier niet meer roeren.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Tuck the browned chicken back into the rice and scatter the sugar snaps and lima beans over the top. Cook hard for 8 to 10 minutes, then drop the heat and cook gently another 10 to 12 minutes, until the stock is absorbed.",
+          es: "Devuelve el pollo dorado al arroz y reparte los tirabeques y las judías de lima por encima. Cuece fuerte de 8 a 10 minutos, luego baja el fuego y cuece suave otros 10 a 12 minutos, hasta que se absorba el caldo.",
+          nl: "Leg de aangebraden kip terug in de rijst en verdeel de sugarsnaps en limabonen erover. Kook hard 8 tot 10 minuten, zet dan het vuur laag en kook nog 10 tot 12 minuten zachtjes, tot de bouillon is opgenomen.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Listen for the socarrat, the crackle of the rice catching at the bottom of the pan. When you hear it and the rice is just tender, kill the heat, cover the pan with a towel, and rest 10 minutes.",
+          es: "Escucha el socarrat, el crujido del arroz agarrándose al fondo. Cuando lo oigas y el arroz esté en su punto, apaga el fuego, cubre la paella con un paño y deja reposar 10 minutos.",
+          nl: "Luister naar de socarrat, het knetteren van de rijst die aan de bodem pakt. Hoor je het en is de rijst net gaar, zet dan het vuur uit, leg een doek over de pan en laat 10 minuten rusten.",
+        },
+      },
+      {
+        position: 10,
+        body: {
+          en: "Finish with lemon wedges and edible flowers, marigolds if you have them. Carry the whole pan to the table and serve straight from it, scraping up the crust from the bottom.",
+          es: "Termina con gajos de limón y flores comestibles, tagetes si tienes. Lleva la paella entera a la mesa y sirve directamente de ella, rascando la costra del fondo.",
+          nl: "Werk af met citroenparten en eetbare bloemen, afrikaantjes als je ze hebt. Draag de hele pan naar de tafel en schep rechtstreeks op, de korst van de bodem meeschrapend.",
+        },
+      },
+    ],
+    publishedAt: "2026-10-08",
+  },
 ];

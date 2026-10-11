@@ -18,6 +18,11 @@ function formatDate(iso: string, locale: string) {
   };
 }
 
+/** A night that has already happened (anytime up to the end of its day). */
+function isPastEvent(iso: string) {
+  return new Date(iso + "T23:59:59") < new Date();
+}
+
 export function EventsList({ events }: { events: EventItem[] }) {
   const t = useT();
   const locale = useLocale();
@@ -39,16 +44,24 @@ export function EventsList({ events }: { events: EventItem[] }) {
       <ul className="mt-16 space-y-px border-t border-b border-ink/15 md:mt-24">
         {events.map((event) => {
           const d = formatDate(event.date, locale);
+          const past = isPastEvent(event.date);
           const isSoldOut =
-            event.bookable === false ||
-            (event.spotsAvailable !== undefined && event.spotsAvailable <= 0);
+            !past &&
+            (event.bookable === false ||
+              (event.spotsAvailable !== undefined && event.spotsAvailable <= 0));
           return (
             <li key={event.slug}>
               <motion.button
                 onClick={() => setOpenSlug(event.slug)}
                 whileHover={{ backgroundColor: "rgba(232, 220, 196, 0.55)" }}
                 transition={{ duration: 0.15 }}
-                data-cursor={isSoldOut ? t.events.cursorSoldOut : t.events.cursorBook}
+                data-cursor={
+                  past
+                    ? t.events.openLabel
+                    : isSoldOut
+                      ? t.events.cursorSoldOut
+                      : t.events.cursorBook
+                }
                 className="group grid w-full grid-cols-[88px_1fr_auto] items-center gap-6 border-b border-ink/15 px-1 py-7 text-left transition-colors hover:bg-cream-warm/55 last:border-b-0 md:grid-cols-[160px_1fr_auto_auto] md:gap-10 md:px-2 md:py-9"
               >
                 <div>
@@ -87,7 +100,16 @@ export function EventsList({ events }: { events: EventItem[] }) {
                 </div>
 
                 <div className="hidden flex-col items-end font-mono text-[10px] uppercase tracking-[0.22em] md:flex">
-                  {isSoldOut ? (
+                  {past ? (
+                    <>
+                      {event.capacity && (
+                        <span className="text-ink">
+                          {event.capacity} {t.events.guests}
+                        </span>
+                      )}
+                      <span className="text-ink/40">{t.events.pastLabel}</span>
+                    </>
+                  ) : isSoldOut ? (
                     <span className="text-ink/40">{t.events.soldOut}</span>
                   ) : event.spotsAvailable !== undefined && event.capacity ? (
                     <>

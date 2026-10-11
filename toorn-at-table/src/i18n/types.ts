@@ -194,6 +194,11 @@ export type Dictionary = {
     overlayFrom: string;
     cursorBook: string;
     cursorSoldOut: string;
+    /** Past-event rendering (a night that already happened). */
+    pastLabel: string;
+    guests: string;
+    pastNote: string;
+    pastCta: string;
   };
   closing: {
     eyebrow: string;

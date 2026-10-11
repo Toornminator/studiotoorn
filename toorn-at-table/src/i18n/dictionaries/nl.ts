@@ -191,11 +191,11 @@ export const nl: Dictionary = {
   },
   events: {
     eyebrow: "Hoofdstuk 05 · Events",
-    title: "Komende dinners. Open tafels, korte gastenlijsten.",
+    title: "Avonden aan tafel.",
     intro:
-      "Een paar keer per maand kook ik aan een lange tafel waar je een plek kunt boeken. Kleine gezelschappen, lokale producten, telkens een andere plek aan de Costa.",
+      "Een blik op de events die ik kook aan de Costa del Sol, van privétafels tot open dinners. Zie je er een waarvan de vorm je aanspreekt? Vertel me wat je voor ogen hebt, dan bouwen we je eigen avond.",
     emptyState:
-      "Geen geplande events op dit moment. Schrijf je in voor de nieuwsbrief om als eerste te horen wanneer de volgende erbij komt.",
+      "Nog geen events om te tonen. Schrijf je in voor de nieuwsbrief om als eerste te horen wanneer de volgende erbij komt.",
     soldOut: "Volgeboekt",
     onRequest: "Op aanvraag",
     spotsSuffix: "plekken",
@@ -214,6 +214,10 @@ export const nl: Dictionary = {
     overlayFrom: "vanaf",
     cursorBook: "Boek plek",
     cursorSoldOut: "Volgeboekt",
+    pastLabel: "Afgelopen",
+    guests: "gasten",
+    pastNote: "Een avond die al geweest is. Wil je er zo een?",
+    pastCta: "Plan zo'n avond",
   },
   closing: {
     eyebrow: "Tussenrust",

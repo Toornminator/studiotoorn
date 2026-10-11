@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { useT, useLocale } from "@/i18n/client";
@@ -40,9 +41,11 @@ export function EventOverlay({
     };
   }, [onClose]);
 
+  const isPast = new Date(event.date + "T23:59:59") < new Date();
   const isSoldOut =
-    event.bookable === false ||
-    (event.spotsAvailable !== undefined && event.spotsAvailable <= 0);
+    !isPast &&
+    (event.bookable === false ||
+      (event.spotsAvailable !== undefined && event.spotsAvailable <= 0));
 
   return (
     <motion.div
@@ -108,6 +111,18 @@ export function EventOverlay({
           )}
         </p>
 
+        {event.heroImage && (
+          <div className="relative mt-8 aspect-[3/2] w-full overflow-hidden rounded-sm bg-ink/5">
+            <Image
+              src={event.heroImage}
+              alt={event.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+          </div>
+        )}
+
         <dl className="mt-10 grid grid-cols-2 gap-y-5 border-y border-ink/15 py-6 font-mono text-[11px] uppercase tracking-[0.22em] sm:grid-cols-4">
           <div>
             <dt className="text-ink/45">{t.events.overlayLocation}</dt>
@@ -131,11 +146,13 @@ export function EventOverlay({
             <div>
               <dt className="text-ink/45">{t.events.overlaySpots}</dt>
               <dd className="mt-1 text-ink">
-                {isSoldOut
-                  ? t.events.soldOut
-                  : event.spotsAvailable !== undefined
-                    ? `${event.spotsAvailable} / ${event.capacity}`
-                    : `${event.capacity} ${t.events.overlayMax}`}
+                {isPast
+                  ? `${event.capacity} ${t.events.guests}`
+                  : isSoldOut
+                    ? t.events.soldOut
+                    : event.spotsAvailable !== undefined
+                      ? `${event.spotsAvailable} / ${event.capacity}`
+                      : `${event.capacity} ${t.events.overlayMax}`}
               </dd>
             </div>
           )}
@@ -160,7 +177,39 @@ export function EventOverlay({
         )}
 
         <div className="mt-12 flex flex-col items-start gap-4">
-          {isSoldOut ? (
+          {isPast ? (
+            <>
+              <p
+                className="font-serif italic text-ink/70"
+                style={{ fontSize: 17 }}
+              >
+                {t.events.pastNote}
+              </p>
+              <Magnetic strength={0.4}>
+                <a
+                  href={localizedHref("/#contact", locale)}
+                  onClick={onClose}
+                  data-cursor={t.contact.cursorReserve}
+                  className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 font-mono text-[11px] uppercase tracking-[0.28em] text-cream transition-colors hover:bg-tattoo-red"
+                >
+                  {t.events.pastCta}
+                  <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden>
+                    <path
+                      d="M1 5 H13 M10 1 L13 5 L10 9"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  </svg>
+                </a>
+              </Magnetic>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
+                {t.events.responseTime}
+              </p>
+            </>
+          ) : isSoldOut ? (
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-ink/55">
               {t.events.soldOutNote}
             </p>

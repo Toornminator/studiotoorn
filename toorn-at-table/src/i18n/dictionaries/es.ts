@@ -192,11 +192,11 @@ export const es: Dictionary = {
   },
   events: {
     eyebrow: "Capítulo 05 · Eventos",
-    title: "Próximas cenas. Mesas abiertas, listas cortas de invitados.",
+    title: "Noches en la mesa.",
     intro:
-      "Unas veces al mes cocino en una mesa larga donde puedes reservar plaza. Grupos pequeños, producto local, cada vez en un sitio distinto de la Costa.",
+      "Un vistazo a los eventos que cocino por la Costa del Sol, de mesas privadas a cenas abiertas. ¿Ves uno cuya forma te gusta? Cuéntame qué tienes en mente y montamos el tuyo.",
     emptyState:
-      "No hay eventos programados ahora mismo. Apúntate a la newsletter para enterarte del próximo.",
+      "Aún no hay eventos que mostrar. Apúntate a la newsletter para enterarte del próximo.",
     soldOut: "Agotado",
     onRequest: "Bajo petición",
     spotsSuffix: "plazas",
@@ -215,6 +215,10 @@ export const es: Dictionary = {
     overlayFrom: "desde",
     cursorBook: "Reservar",
     cursorSoldOut: "Agotado",
+    pastLabel: "Noche pasada",
+    guests: "comensales",
+    pastNote: "Una noche que ya pasó. ¿Quieres una así?",
+    pastCta: "Planifica una noche así",
   },
   closing: {
     eyebrow: "Pausa",

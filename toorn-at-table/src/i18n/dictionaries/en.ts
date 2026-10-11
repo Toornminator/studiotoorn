@@ -190,11 +190,11 @@ export const en: Dictionary = {
   },
   events: {
     eyebrow: "Chapter 05 · Events",
-    title: "Upcoming dinners. Open tables, short guest lists.",
+    title: "Nights at the table.",
     intro:
-      "A few times a month I cook at a long table where you can book a seat. Small groups, local produce, each time a different spot on the Costa.",
+      "A look at the events I cook across the Costa del Sol, from private tables to open dinners. See one you like the shape of? Tell me what you have in mind, and we build your own.",
     emptyState:
-      "No scheduled events at the moment. Sign up to the newsletter to hear about the next one first.",
+      "No events to show yet. Sign up to the newsletter to hear about the next one first.",
     soldOut: "Sold out",
     onRequest: "On request",
     spotsSuffix: "spots",
@@ -212,6 +212,10 @@ export const en: Dictionary = {
     overlayFrom: "from",
     cursorBook: "Book seat",
     cursorSoldOut: "Sold out",
+    pastLabel: "Past night",
+    guests: "guests",
+    pastNote: "A night that already happened. Want one like it?",
+    pastCta: "Plan a night like this",
   },
   closing: {
     eyebrow: "Interlude",
