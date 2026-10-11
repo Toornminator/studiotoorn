@@ -144,10 +144,12 @@ export function EventOverlay({
           )}
           {event.capacity && (
             <div>
-              <dt className="text-ink/45">{t.events.overlaySpots}</dt>
+              <dt className="text-ink/45">
+                {isPast ? t.events.guests : t.events.overlaySpots}
+              </dt>
               <dd className="mt-1 text-ink">
                 {isPast
-                  ? `${event.capacity} ${t.events.guests}`
+                  ? `${event.capacity}`
                   : isSoldOut
                     ? t.events.soldOut
                     : event.spotsAvailable !== undefined
