@@ -78,13 +78,14 @@ export function NavBar() {
     { href: "/#travels", label: t.nav.travels },
     { href: "/#cookbook", label: t.nav.cookbook },
     { href: "/#events", label: t.nav.events },
+    { href: "/reviews", label: t.nav.reviews },
     { href: "/the-table", label: t.nav.theTable, highlight: true },
     { href: "/#contact", label: t.nav.contact },
   ];
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-md">
-      <div className="relative flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px]">
+      <div className="relative flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px] lg:px-6 lg:tracking-[0.15em] min-[1400px]:px-10 min-[1400px]:tracking-[0.22em]">
         <motion.div
           aria-hidden
           className="absolute inset-x-0 bottom-[-1px] h-[2px] origin-left bg-tattoo-red"
@@ -94,7 +95,7 @@ export function NavBar() {
           href={localizedHref(isHome ? "/#hero" : "/", locale)}
           aria-label="TOORN at table · back to top"
           onClick={() => setOpen(false)}
-          className="group flex min-w-0 items-center gap-2.5 font-medium text-ink transition-colors hover:text-tattoo-red sm:gap-3"
+          className="group flex min-w-0 items-center gap-2.5 lg:shrink-0 font-medium text-ink transition-colors hover:text-tattoo-red sm:gap-3"
         >
           <Image
             src="/images/chef_skull_knife_transparent.png"
@@ -104,14 +105,17 @@ export function NavBar() {
             priority
             className="h-7 w-auto shrink-0 transition-transform duration-300 group-hover:rotate-[-4deg] sm:h-8"
           />
-          <span className="truncate">TOORN at table</span>
+          <span className="truncate lg:max-xl:hidden">TOORN at table</span>
         </Link>
-        <div className="flex items-center gap-3 sm:gap-6">
-          <ul className="hidden lg:flex items-center gap-3 sm:gap-5">
+        <div className="flex items-center gap-3 sm:gap-6 lg:gap-4 min-[1400px]:gap-6">
+          {/* Eight links: tight gaps and tracking from lg so the Spanish labels
+              fit a 1024px bar (the wordmark yields to the skull until xl);
+              the airier rhythm returns once there is room, from 1400px. */}
+          <ul className="hidden lg:flex items-center gap-3 min-[1400px]:gap-5">
             {links.map((link, i) => (
               <li
                 key={link.href}
-                className="flex items-center gap-3 sm:gap-5"
+                className="flex items-center gap-3 min-[1400px]:gap-5"
               >
                 {i > 0 && (
                   <span aria-hidden className="text-ink/30">

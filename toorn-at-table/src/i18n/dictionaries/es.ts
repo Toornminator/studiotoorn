@@ -14,6 +14,7 @@ export const es: Dictionary = {
     cookbook: "Recetario",
     events: "Eventos",
     theTable: "A domicilio",
+    reviews: "Reseñas",
     contact: "Contacto",
     menuOpen: "Abrir menú",
     menuClose: "Cerrar menú",

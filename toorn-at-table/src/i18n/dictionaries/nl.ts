@@ -14,6 +14,7 @@ export const nl: Dictionary = {
     cookbook: "Kookboek",
     events: "Events",
     theTable: "Aan de deur",
+    reviews: "Reviews",
     contact: "Contact",
     menuOpen: "Menu openen",
     menuClose: "Menu sluiten",

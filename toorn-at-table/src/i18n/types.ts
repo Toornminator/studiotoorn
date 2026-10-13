@@ -13,6 +13,8 @@ export type Dictionary = {
     events: string;
     /** Local weekly delivery page (a route, not a home-page anchor). */
     theTable: string;
+    /** Guest-book route where guests leave stars, words and polaroids. */
+    reviews: string;
     contact: string;
     /** Accessible label for the mobile menu trigger when closed. */
     menuOpen: string;
