@@ -5465,4 +5465,296 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-10-08",
   },
+  {
+    slug: "romesco",
+    title: {
+      en: "Romesco, the long way",
+      es: "Romesco, sin atajos",
+      nl: "Romesco, de lange weg",
+    },
+    intro: {
+      en: "Peppers and tomatoes roasted until they blister black, ñoras soaked and scraped, almonds and hazelnuts toasted, bread fried in olive oil, all of it pounded into a rough, brick-red sauce that tastes of smoke and Catalonia. Enough for twelve. Make it the day before and it will thank you.",
+      es: "Pimientos y tomates asados hasta que se ampollan negros, ñoras remojadas y raspadas, almendras y avellanas tostadas, pan frito en aceite de oliva, todo machacado en una salsa rústica color ladrillo que sabe a humo y a Cataluña. Para doce. Hazla el día antes y te lo agradecerá.",
+      nl: "Paprika's en tomaten geroosterd tot ze zwart blakeren, ñora's geweekt en uitgeschraapt, amandelen en hazelnoten geroosterd, brood gebakken in olijfolie, alles samen tot een grove, baksteenrode saus die naar rook en Catalonië smaakt. Genoeg voor twaalf. Maak hem een dag van tevoren en hij bedankt je.",
+    },
+    category: "basis",
+    seasons: ["altijd"],
+    difficulty: 2,
+    prepMinutes: 30,
+    cookMinutes: 40,
+    heroImage: "/images/recipes/romesco.jpg",
+    pairing: {
+      en: "Calçots off the fire if you can find them, which is the whole reason this sauce exists. Otherwise charred leeks or spring onions, grilled fish, lamb chops, chicken from the barbecue, or just good bread torn by hand. A glass of cold fino on the side.",
+      es: "Calçots a la brasa si los encuentras, que es la razón de ser de esta salsa. Si no, puerros o cebolletas a la brasa, pescado a la parrilla, chuletas de cordero, pollo de la barbacoa, o simplemente buen pan partido a mano. Una copa de fino bien frío al lado.",
+      nl: "Calçots van het vuur als je ze kunt vinden, want daar bestaat deze saus eigenlijk voor. Anders geblakerde prei of lente-ui, gegrilde vis, lamskoteletjes, kip van de barbecue, of gewoon goed brood met de hand gescheurd. Een glas koude fino ernaast.",
+    },
+    body: {
+      en: [
+        "Romesco is a fisherman's sauce from Tarragona, and it has the manners of one. It is rough, it is red, it does not apologise. In the three sauces on this site you will find my hazelnut shortcut, the weeknight version. This is the other one, the full Catalan build, ñoras and almonds and hazelnuts together, everything roasted or toasted or fried before it goes near the blender. It takes an afternoon. It is worth every minute.",
+        "The ñora is the soul of it. A small, round, sun-dried pepper from the Levante, sweet and earthy with almost no heat, the flavour you cannot fake with paprika alone. Soak it, split it, scrape out the dark flesh with a spoon and throw the skin away. If you cannot find them, a spoonful and a half of ñora paste will carry you. Then the fire does the rest: peppers and tomatoes in a hot oven until they blacken at the edges, nuts toasted until the kitchen smells of them, bread fried golden in oil to thicken the whole thing and give it body.",
+        "Here is the rule people break: do not blend it smooth. Pulse it. Romesco is supposed to have grit and texture, a sauce you can see the nuts in, not a red hummus. Stream the oil in slowly with the machine on low, fold in the last chopped nuts by hand, then leave it alone in the fridge for at least an hour, better a few. It deepens. It settles. It becomes itself. Pull it out twenty minutes before it hits the table so the oil wakes back up.",
+      ],
+      es: [
+        "El romesco es una salsa de pescadores de Tarragona, y tiene los modales de uno. Es rústica, es roja, no pide perdón. Entre las tres salsas de esta web encontrarás mi atajo con avellana, la versión de entre semana. Esta es la otra, la catalana completa, ñoras y almendras y avellanas juntas, todo asado o tostado o frito antes de acercarse a la batidora. Lleva una tarde. Vale cada minuto.",
+        "La ñora es el alma. Un pimiento pequeño, redondo, secado al sol en el Levante, dulce y terroso y casi sin picante, el sabor que no se imita solo con pimentón. Remójala, ábrela, raspa la carne oscura con una cuchara y tira la piel. Si no las encuentras, una cucharada y media de pasta de ñora te salva. Luego el fuego hace el resto: pimientos y tomates en el horno fuerte hasta que se ennegrecen por los bordes, frutos secos tostados hasta que la cocina huele a ellos, pan frito dorado en aceite para espesar y dar cuerpo.",
+        "Esta es la regla que la gente rompe: no la tritures fina. Dale golpes cortos. El romesco tiene que tener grano y textura, una salsa en la que se ven los frutos secos, no un hummus rojo. Añade el aceite en hilo con la batidora a baja velocidad, incorpora a mano los últimos frutos secos picados, y luego déjala tranquila en la nevera al menos una hora, mejor unas cuantas. Se hace más honda. Se asienta. Se convierte en sí misma. Sácala veinte minutos antes de servir para que el aceite despierte.",
+      ],
+      nl: [
+        "Romesco is een vissersaus uit Tarragona, en hij heeft de manieren van een visser. Grof, rood, geen excuses. Bij de drie sauzen op deze site vind je mijn hazelnoot-shortcut, de doordeweekse versie. Dit is de andere, de volledige Catalaanse, ñora's en amandelen en hazelnoten samen, alles geroosterd of gebakken voordat het ook maar in de buurt van de blender komt. Het kost een middag. Elke minuut waard.",
+        "De ñora is de ziel ervan. Een klein, rond, in de zon gedroogd pepertje uit de Levante, zoet en aards en bijna zonder pit, de smaak die je niet nadoet met alleen paprikapoeder. Weken, openscheuren, het donkere vruchtvlees eruit schrapen met een lepel en het vel weggooien. Kun je ze niet vinden, dan red je het met anderhalve eetlepel ñora-pasta. Daarna doet het vuur de rest: paprika's en tomaten in een hete oven tot ze aan de randen zwart worden, noten geroosterd tot de keuken ernaar ruikt, brood goudbruin gebakken in olie om alles te binden en body te geven.",
+        "Dit is de regel die mensen breken: blend hem niet glad. Pulseer. Romesco hoort korrel en structuur te hebben, een saus waarin je de noten ziet, geen rode hummus. Laat de olie er in een dun straaltje in lopen met de blender op laag, schep de laatste gehakte noten er met de hand door, en laat hem dan met rust in de koelkast, minstens een uur, liever een paar. Hij wordt dieper. Hij zakt. Hij wordt zichzelf. Haal hem twintig minuten voor het serveren eruit zodat de olie weer wakker wordt.",
+      ],
+    },
+    nowPlaying: {
+      track: "Mediterráneo",
+      artist: "Joan Manuel Serrat",
+    },
+    marginalia: [
+      {
+        id: "ro-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "No ñoras in your shop? Look for jars of ñora paste (carne de ñora) in any Spanish supermarket. A spoonful and a half does the job of two dried peppers, and you skip the soaking.",
+          es: "¿No hay ñoras en tu tienda? Busca botes de carne de ñora en cualquier supermercado español. Una cucharada y media hace el trabajo de dos ñoras secas, y te ahorras el remojo.",
+          nl: "Geen ñora's in de winkel? Zoek naar potjes ñora-pasta (carne de ñora) in elke Spaanse supermarkt. Anderhalve eetlepel doet het werk van twee gedroogde pepers, en je slaat het weken over.",
+        },
+      },
+      {
+        id: "ro-2",
+        kind: "tip",
+        anchor: "step-4",
+        body: {
+          en: "The fried bread is not filler, it is structure. It soaks up the oil and keeps the sauce from splitting. Use proper dense white bread, a day old, not soft sandwich bread.",
+          es: "El pan frito no es relleno, es estructura. Absorbe el aceite y evita que la salsa se corte. Usa pan blanco denso de verdad, de un día, no pan de molde blando.",
+          nl: "Het gebakken brood is geen vulling, het is structuur. Het neemt de olie op en voorkomt dat de saus schift. Gebruik echt stevig witbrood van een dag oud, geen zacht boterhambrood.",
+        },
+      },
+      {
+        id: "ro-3",
+        kind: "wrong",
+        anchor: "step-7",
+        body: {
+          en: "The classic mistake: blitzing it until it is silky. Then you have a red dip, not romesco. Short pulses, stop early. You want to see flecks of nut in it.",
+          es: "El error clásico: triturarla hasta que queda sedosa. Entonces tienes una crema roja, no un romesco. Golpes cortos, para pronto. Quieres ver trocitos de fruto seco.",
+          nl: "De klassieke fout: hem fijnblenden tot hij zijdezacht is. Dan heb je een rode dip, geen romesco. Korte pulsen, stop op tijd. Je wilt stukjes noot erin zien.",
+        },
+      },
+      {
+        id: "ro-4",
+        kind: "warning",
+        anchor: "step-8",
+        body: {
+          en: "Oil in slowly, machine on low. Dump it in all at once and on full speed and the sauce goes greasy and loose. Patience here is what makes it glossy.",
+          es: "El aceite despacio, la batidora a baja velocidad. Si lo echas de golpe y a tope, la salsa queda grasienta y suelta. La paciencia aquí es lo que le da brillo.",
+          nl: "Olie er langzaam in, blender op laag. Gooi je het er in één keer in op volle snelheid, dan wordt de saus vettig en slap. Geduld hier is wat hem glanzend maakt.",
+        },
+      },
+      {
+        id: "ro-5",
+        kind: "scrawl",
+        anchor: "step-11",
+        body: {
+          en: "Taste it straight from the blender, then taste it again tomorrow. Different sauce. Better sauce.",
+          es: "Pruébala recién hecha, y vuelve a probarla mañana. Otra salsa. Mejor salsa.",
+          nl: "Proef hem vers uit de blender, en proef hem morgen nog een keer. Andere saus. Betere saus.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Om te roosteren" },
+        quantity: { en: "4", es: "4", nl: "4" },
+        ingredient: {
+          en: "ripe tomatoes, halved",
+          es: "tomates maduros, partidos por la mitad",
+          nl: "rijpe tomaten, gehalveerd",
+        },
+      },
+      {
+        group: { en: "To roast", es: "Para asar", nl: "Om te roosteren" },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: {
+          en: "red peppers",
+          es: "pimientos rojos",
+          nl: "rode paprika's",
+        },
+      },
+      {
+        group: { en: "Nuts & bread", es: "Frutos secos y pan", nl: "Noten en brood" },
+        quantity: { en: "100 g", es: "100 g", nl: "100 g" },
+        ingredient: { en: "almonds", es: "almendras", nl: "amandelen" },
+      },
+      {
+        group: { en: "Nuts & bread", es: "Frutos secos y pan", nl: "Noten en brood" },
+        quantity: { en: "50 g", es: "50 g", nl: "50 g" },
+        ingredient: { en: "hazelnuts", es: "avellanas", nl: "hazelnoten" },
+      },
+      {
+        group: { en: "Nuts & bread", es: "Frutos secos y pan", nl: "Noten en brood" },
+        quantity: { en: "2 slices", es: "2 rebanadas", nl: "2 sneetjes" },
+        ingredient: {
+          en: "dense white bread",
+          es: "pan blanco denso",
+          nl: "stevig witbrood",
+        },
+      },
+      {
+        group: { en: "Flavour", es: "Sabor", nl: "Smaak" },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: {
+          en: "dried ñora peppers (or 1½ tbsp ñora paste)",
+          es: "ñoras secas (o 1½ cda de carne de ñora)",
+          nl: "gedroogde ñora-pepers (of 1½ el ñora-pasta)",
+        },
+      },
+      {
+        group: { en: "Flavour", es: "Sabor", nl: "Smaak" },
+        quantity: { en: "2", es: "2", nl: "2" },
+        ingredient: { en: "garlic cloves", es: "dientes de ajo", nl: "tenen knoflook" },
+      },
+      {
+        group: { en: "Flavour", es: "Sabor", nl: "Smaak" },
+        quantity: { en: "2 tbsp", es: "2 cda", nl: "2 el" },
+        ingredient: { en: "sherry vinegar", es: "vinagre de jerez", nl: "sherryazijn" },
+      },
+      {
+        group: { en: "Flavour", es: "Sabor", nl: "Smaak" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "sweet pimentón",
+          es: "pimentón dulce",
+          nl: "pimentón dulce (zoet)",
+        },
+      },
+      {
+        group: { en: "Flavour", es: "Sabor", nl: "Smaak" },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: {
+          en: "smoked pimentón",
+          es: "pimentón ahumado",
+          nl: "pimentón ahumado (gerookt)",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afmaken" },
+        quantity: { en: "120 to 150 ml", es: "120 a 150 ml", nl: "120 tot 150 ml" },
+        ingredient: {
+          en: "extra virgin olive oil, plus a little for the bread",
+          es: "aceite de oliva virgen extra, y un poco para el pan",
+          nl: "extra vierge olijfolie, plus een beetje voor het brood",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afmaken" },
+        quantity: { en: "½ tsp", es: "½ cdta", nl: "½ tl" },
+        ingredient: { en: "salt", es: "sal", nl: "zout" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afmaken" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: { en: "black pepper", es: "pimienta negra", nl: "zwarte peper" },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afmaken" },
+        quantity: { en: "½", es: "½", nl: "½" },
+        ingredient: {
+          en: "lemon (optional)",
+          es: "limón (opcional)",
+          nl: "citroen (optioneel)",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Roast the peppers and the halved tomatoes at 220 °C until they are soft and blistering black here and there, 25 to 35 minutes.",
+          es: "Asa los pimientos y los tomates partidos a 220 °C hasta que estén blandos y se ennegrezcan aquí y allá, de 25 a 35 minutos.",
+          nl: "Rooster de paprika's en de gehalveerde tomaten op 220 °C tot ze zacht zijn en hier en daar zwart blakeren, 25 tot 35 minuten.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Put the peppers in a bowl, cover and leave them 10 minutes to steam. Then pull off the skins and remove the seeds.",
+          es: "Pon los pimientos en un bol, tápalos y déjalos sudar 10 minutos. Luego quítales la piel y las semillas.",
+          nl: "Doe de paprika's in een kom, dek af en laat ze 10 minuten zweten. Trek daarna het vel eraf en verwijder de zaadlijsten.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Toast the almonds and hazelnuts briefly in a dry pan, until they smell like something.",
+          es: "Tuesta brevemente las almendras y las avellanas en una sartén seca, hasta que huelan.",
+          nl: "Rooster de amandelen en hazelnoten kort in een droge pan, tot ze gaan geuren.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Fry the bread golden in a little olive oil.",
+          es: "Fríe el pan hasta que esté dorado en un poco de aceite de oliva.",
+          nl: "Bak het brood goudbruin in een klein beetje olijfolie.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Using dried ñoras: soak them 15 to 20 minutes in hot water, split them open and scrape out only the flesh. Skin and seeds go in the bin.",
+          es: "Si usas ñoras secas: remójalas 15 a 20 minutos en agua caliente, ábrelas y raspa solo la carne. La piel y las semillas, a la basura.",
+          nl: "Gebruik je gedroogde ñora's: week ze 15 tot 20 minuten in heet water, scheur ze open en schraap alleen het vruchtvlees eruit. Vel en zaadjes gaan weg.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Into the blender: tomato, pepper, ñora, garlic, the fried bread, about two thirds of the nuts, the sherry vinegar and both pimentóns.",
+          es: "A la batidora: tomate, pimiento, ñora, ajo, el pan frito, unas dos terceras partes de los frutos secos, el vinagre de jerez y los dos pimentones.",
+          nl: "In de blender: tomaat, paprika, ñora, knoflook, het gebakken brood, ongeveer twee derde van de noten, de sherryazijn en beide pimentóns.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Pulse briefly. Do not make it smooth. Romesco should keep some texture.",
+          es: "Tritura con golpes cortos. No la dejes fina. El romesco tiene que conservar algo de textura.",
+          nl: "Pulseer kort. Niet glad maken. Romesco hoort wat structuur te houden.",
+        },
+      },
+      {
+        position: 8,
+        body: {
+          en: "Run the blender on low and add the olive oil gradually, in a thin stream.",
+          es: "Pon la batidora a baja velocidad y añade el aceite poco a poco, en hilo fino.",
+          nl: "Laat de blender op lage snelheid draaien en voeg de olijfolie geleidelijk toe, in een dun straaltje.",
+        },
+      },
+      {
+        position: 9,
+        body: {
+          en: "Season with salt, black pepper and, if it needs lifting, a small squeeze of lemon.",
+          es: "Sazona con sal, pimienta negra y, si le falta chispa, un poco de zumo de limón.",
+          nl: "Breng op smaak met zout, zwarte peper en, als hij wat frisheid kan gebruiken, een klein beetje citroensap.",
+        },
+      },
+      {
+        position: 10,
+        body: {
+          en: "Roughly chop the remaining nuts and fold them in by hand, last.",
+          es: "Pica gruesos los frutos secos que quedan e incorpóralos a mano, al final.",
+          nl: "Hak de overgebleven noten grof en schep ze er als laatste met de hand door.",
+        },
+      },
+      {
+        position: 11,
+        body: {
+          en: "Rest it in the fridge for at least an hour, better a few. Take it out about 20 minutes before serving. Spread it in a low dish, drizzle with olive oil, scatter roughly chopped toasted almonds and a small pinch of pimentón. Makes 650 to 750 g, about right for twelve.",
+          es: "Déjala reposar en la nevera al menos una hora, mejor unas cuantas. Sácala unos 20 minutos antes de servir. Extiéndela en una fuente baja, un chorrito de aceite, almendras tostadas picadas gruesas y una pizca de pimentón. Salen de 650 a 750 g, lo justo para doce.",
+          nl: "Laat hem minstens een uur, liever een paar uur, in de koelkast staan. Haal hem ongeveer 20 minuten voor het serveren eruit. In een lage schaal, beetje olijfolie erover, grofgehakte geroosterde amandel en een klein snufje pimentón. Dit geeft 650 tot 750 g, precies goed voor twaalf.",
+        },
+      },
+    ],
+    publishedAt: "2026-10-13",
+  },
 ];
