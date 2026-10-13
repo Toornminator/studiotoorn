@@ -20,6 +20,7 @@ function resolveTestimonial(t: LocalisedTestimonial, locale: Locale): Testimonia
     rating: clampRating(t.rating),
     date: t.date,
     source: t.source,
+    photos: t.photos?.slice(0, 3),
   };
 }
 

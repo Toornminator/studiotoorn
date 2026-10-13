@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLocale, useT } from "@/i18n/client";
-import { localizedHref } from "@/i18n/config";
+import { localizedHref, stripLocalePrefix } from "@/i18n/config";
 
 /**
  * Contact nudge: a hand-drawn speech balloon pinned to the bottom-right
@@ -48,6 +49,9 @@ export function ContactNudge() {
   const locale = useLocale();
   const reduceMotion = useReducedMotion();
   const [show, setShow] = useState(false);
+  // The review page is a form people are busy filling in; a balloon
+  // pinned over the star rating only gets in the way there.
+  const onReviews = stripLocalePrefix(usePathname()) === "/reviews";
 
   useEffect(() => {
     if (recentlyDismissed()) return;
@@ -108,7 +112,7 @@ export function ContactNudge() {
 
   return (
     <AnimatePresence>
-      {show && (
+      {show && !onReviews && (
         <motion.div
           className="pointer-events-none fixed bottom-4 right-4 z-[300] sm:bottom-6 sm:right-6"
           initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.8, y: 12 }}

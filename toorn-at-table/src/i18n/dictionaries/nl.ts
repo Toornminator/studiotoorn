@@ -338,6 +338,65 @@ export const nl: Dictionary = {
     cta: "Plan jouw avond",
     invitation: "En die van jou? De volgende tafel staat klaar.",
   },
+  reviews: {
+    metaTitle: "Laat een review achter",
+    metaDescription:
+      "Heeft Nick Toorn voor je gekookt? Laat een review achter, geef sterren en voeg je foto's van de avond toe. Elke review leg ik naast mijn boekingen voordat hij online gaat.",
+    eyebrow: "Gastenboek",
+    title: "Laat je sporen na aan tafel.",
+    intro:
+      "Je zat aan een van mijn tafels. Vertel me hoe het was, eerlijk. Sterren, een paar regels, en als je foto's hebt gemaakt, voeg er tot drie toe. Ze worden hier meteen polaroids, nog voordat ze verstuurd zijn.",
+    verification:
+      "Ik lees elke review zelf voordat hij online gaat en leg hem naast mijn boekingen. Alles wat je op deze site vindt, komt van iemand voor wie ik echt gekookt heb.",
+    nameLabel: "Je naam",
+    namePlaceholder: "Sanne de V.",
+    nameHint: "Staat bij je review. Voornaam en een initiaal is perfect.",
+    emailLabel: "E-mail",
+    emailHint: "Wordt nooit gepubliceerd. Alleen zodat ik je review aan je boeking kan koppelen.",
+    occasionLabel: "De gelegenheid",
+    occasionPlaceholder: "Verjaardagsdiner voor twaalf",
+    locationLabel: "Waar",
+    locationPlaceholder: "Marbella",
+    dateLabel: "Datum van het diner",
+    ratingLabel: "Je beoordeling",
+    ratingWords: ["Teleurstellend", "Net niet", "Goed", "Topavond", "Onvergetelijk"],
+    starLabel: "{n} van de 5 sterren",
+    reviewLabel: "Je review",
+    reviewPlaceholder:
+      "Wat is je bijgebleven? Het eten, de avond, het moment dat iemand stil werd boven een bord.",
+    photosLabel: "Foto's van de avond",
+    photosHint:
+      "Maximaal drie. Elke foto wordt ter plekke een polaroid. Schrijf er iets op als je wilt.",
+    addPhoto: "Foto toevoegen",
+    addPhotoSub: "Direct van je telefoon kan prima",
+    processing: "Ontwikkelen…",
+    removePhoto: "Foto verwijderen",
+    captionLabel: "Onderschrift",
+    captionPlaceholder: "Schrijf op de polaroid",
+    consentLabel:
+      "Ik vind het goed dat mijn naam, review en foto's op toornattable.com worden gepubliceerd, en wie herkenbaar op mijn foto's staat vindt dat ook goed.",
+    submit: "Verstuur mijn review",
+    submitting: "Versturen…",
+    successTitle: "Dank je. Echt.",
+    successBody:
+      "Je review is nu bij mij. Ik lees ze allemaal zelf, en zodra hij gecheckt is komt hij op de site.",
+    successPhotos: "Je polaroids zijn zo geworden:",
+    footerLink: "Laat een review achter",
+    eventLink: "Was jij aan deze tafel? Laat een review achter",
+    errors: {
+      name: "Vertel me je naam, al is het alleen je voornaam.",
+      email: "Ik heb een geldig e-mailadres nodig om je review aan een boeking te koppelen.",
+      rating: "Geef eerst wat sterren.",
+      review: "Nog een paar woorden, graag. Minstens een zin of twee.",
+      consent: "Vink het vakje aan, dan mag ik je review publiceren.",
+      photoType: "Dat bestand is geen foto die ik kan lezen. Probeer een JPG of PNG.",
+      photoSize: "Die foto is te groot. Kies er een onder de 30 MB.",
+      photoFailed: "Die foto is niet ontwikkeld. Probeer een andere.",
+      tooMany: "Maximaal drie foto's. Kies je beste.",
+      generic:
+        "Er ging iets mis bij het versturen. Probeer het opnieuw, of stuur je review naar info@studiotoorn.com.",
+    },
+  },
   faq: {
     eyebrow: "Voordat je schrijft · Vragen",
     title: "Wat mensen het eerst vragen.",
@@ -575,6 +634,7 @@ export const nl: Dictionary = {
         body: [
           "Contactformulier: naam, e-mail, optioneel telefoonnummer, de datum en vorm van wat je in gedachten hebt, en wat je in het bericht schrijft. Ik gebruik dat om je terug te schrijven en een eerste voorstel op te stellen.",
           "Nieuwsbrief: alleen je e-mailadres en de taal waarin je de site leest. Ik gebruik het om af en toe een dispatch te sturen, en verder niks.",
+          "Reviews: de naam die je wilt tonen, je e-mailadres, je beoordeling en review, en eventueel de gelegenheid, plaats, datum en maximaal drie foto's. Je foto's worden in je eigen browser omgezet naar polaroids voordat er iets verstuurd wordt. Je e-mailadres wordt nooit gepubliceerd; het is er alleen zodat ik je review aan een boeking kan koppelen. Naam, review en foto's worden pas gepubliceerd nadat ik ze heb gecheckt, en alleen met jouw toestemming.",
           "Ik vraag op deze site nooit betaalgegevens. Eventuele facturatie gebeurt via aparte kanalen zodra een boeking definitief is.",
         ],
       },
@@ -588,7 +648,7 @@ export const nl: Dictionary = {
       {
         heading: "Wie het verder ziet",
         body: [
-          "Netlify host de site en verwerkt alle formulier-inzendingen (contact, boeking en nieuwsbrief). Hun EU-servers behandelen de data. Privacyverklaring: netlify.com/privacy.",
+          "Netlify host de site en verwerkt alle formulier-inzendingen (contact, boeking, nieuwsbrief en reviews). Hun EU-servers behandelen de data. Privacyverklaring: netlify.com/privacy.",
           "Google Analytics ontvangt geanonimiseerde bezoekdata, alleen na toestemming. Privacyverklaring: policies.google.com/privacy.",
         ],
       },
@@ -597,6 +657,7 @@ export const nl: Dictionary = {
         body: [
           "Antwoorden op het contactformulier leven in m'n inbox zolang een gesprek loopt, plus een jaar erna voor het geval je opnieuw boekt. Daarna weg.",
           "Nieuwsbrief-aanmeldingen blijven tot je je uitschrijft.",
+          "Gepubliceerde reviews blijven op de site tot je me vraagt ze weg te halen; één mailtje is genoeg. Reviews die ik niet publiceer worden verwijderd.",
           "Analytics-data wordt 14 maanden bewaard in Google Analytics, de kortste instelling die ze bieden.",
         ],
       },

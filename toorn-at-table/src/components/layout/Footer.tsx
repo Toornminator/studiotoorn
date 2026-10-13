@@ -92,6 +92,7 @@ export async function Footer() {
               <li><Link href={localizedHref("/#events", locale)} className="hover:text-tattoo-mustard">{t.footer.sitemapEvents}</Link></li>
               <li><Link href={localizedHref("/#contact", locale)} className="hover:text-tattoo-mustard">{t.footer.sitemapContact}</Link></li>
               <li><Link href={localizedHref("/#about", locale)} className="hover:text-tattoo-mustard">{t.footer.sitemapAbout}</Link></li>
+              <li><Link href={localizedHref("/reviews", locale)} className="hover:text-tattoo-mustard">{t.reviews.footerLink}</Link></li>
             </ul>
 
             {/* Service-area links: crawl path + user shortcut to the

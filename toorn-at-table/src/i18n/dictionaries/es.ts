@@ -340,6 +340,65 @@ export const es: Dictionary = {
     cta: "Planifica tu noche",
     invitation: "¿Y la tuya? La próxima mesa está libre.",
   },
+  reviews: {
+    metaTitle: "Deja una reseña",
+    metaDescription:
+      "¿Nick Toorn cocinó para ti? Deja tu reseña, ponle estrellas y añade tus fotos de la noche. Cada reseña se comprueba con mis reservas antes de publicarse.",
+    eyebrow: "Libro de invitados",
+    title: "Deja tu huella en la mesa.",
+    intro:
+      "Te sentaste a una de mis mesas. Cuéntame cómo fue, con sinceridad. Estrellas, unas líneas y, si hiciste fotos, hasta tres. Se convierten en polaroids aquí mismo, antes incluso de enviarse.",
+    verification:
+      "Leo yo mismo cada reseña antes de publicarla y la compruebo con mis reservas. Todo lo que encontrarás en esta web viene de alguien para quien de verdad cociné.",
+    nameLabel: "Tu nombre",
+    namePlaceholder: "Carmen R.",
+    nameHint: "Aparece con tu reseña. Nombre e inicial es perfecto.",
+    emailLabel: "Email",
+    emailHint: "Nunca se publica. Solo para relacionar tu reseña con tu reserva.",
+    occasionLabel: "La ocasión",
+    occasionPlaceholder: "Cena de cumpleaños para doce",
+    locationLabel: "Dónde",
+    locationPlaceholder: "Marbella",
+    dateLabel: "Fecha de la cena",
+    ratingLabel: "Tu valoración",
+    ratingWords: ["Decepcionante", "No del todo", "Bien", "Gran noche", "Inolvidable"],
+    starLabel: "{n} de 5 estrellas",
+    reviewLabel: "Tu reseña",
+    reviewPlaceholder:
+      "¿Qué se te quedó? La comida, la noche, el momento en que alguien se quedó callado frente a un plato.",
+    photosLabel: "Fotos de la noche",
+    photosHint:
+      "Hasta tres. Cada una se convierte en una polaroid al instante. Escribe algo en ella si quieres.",
+    addPhoto: "Añadir foto",
+    addPhotoSub: "Directamente del móvil, sin problema",
+    processing: "Revelando…",
+    removePhoto: "Quitar foto",
+    captionLabel: "Pie de foto",
+    captionPlaceholder: "Escribe en la polaroid",
+    consentLabel:
+      "Acepto que mi nombre, mi reseña y mis fotos se publiquen en toornattable.com, y las personas reconocibles en mis fotos también están de acuerdo.",
+    submit: "Enviar mi reseña",
+    submitting: "Enviando…",
+    successTitle: "Gracias. De verdad.",
+    successBody:
+      "Tu reseña ya está conmigo. Las leo todas yo mismo y, una vez comprobada, sube a la web.",
+    successPhotos: "Tus polaroids han quedado así:",
+    footerLink: "Deja una reseña",
+    eventLink: "¿Estuviste en esta mesa? Deja una reseña",
+    errors: {
+      name: "Dime tu nombre, aunque sea solo el de pila.",
+      email: "Necesito un email válido para relacionar tu reseña con una reserva.",
+      rating: "Primero ponle estrellas.",
+      review: "Unas palabras más, por favor. Al menos una frase o dos.",
+      consent: "Marca la casilla para que pueda publicar tu reseña.",
+      photoType: "Ese archivo no es una foto que pueda leer. Prueba con un JPG o PNG.",
+      photoSize: "Esa foto es demasiado grande. Elige una de menos de 30 MB.",
+      photoFailed: "Esa foto no se ha revelado. Prueba con otra.",
+      tooMany: "Tres fotos como máximo. Elige las mejores.",
+      generic:
+        "Algo ha fallado al enviar tu reseña. Inténtalo de nuevo o envíala a info@studiotoorn.com.",
+    },
+  },
   faq: {
     eyebrow: "Antes de escribir · Preguntas",
     title: "Lo que preguntan primero.",
@@ -577,6 +636,7 @@ export const es: Dictionary = {
         body: [
           "Formulario de contacto: nombre, email, teléfono opcional, la fecha y el formato de lo que planeas, y lo que escribas en el mensaje. Lo uso para responderte y redactar una primera propuesta.",
           "Newsletter: solo tu email y el idioma en el que lees el sitio. Lo uso para mandar el ocasional despacho y nada más.",
+          "Reseñas: el nombre que quieres que aparezca, tu email, tu valoración y tu reseña, y si quieres la ocasión, el lugar, la fecha y hasta tres fotos. Tus fotos se convierten en polaroids en tu propio navegador antes de enviarse. Tu email nunca se publica; solo sirve para relacionar tu reseña con una reserva. El nombre, la reseña y las fotos solo se publican después de que yo los compruebe, y solo con tu consentimiento.",
           "Nunca pido datos de pago en este sitio. La facturación se hace por canales aparte cuando una reserva está firme.",
         ],
       },
@@ -590,7 +650,7 @@ export const es: Dictionary = {
       {
         heading: "Quién más lo ve",
         body: [
-          "Netlify aloja el sitio y procesa todos los envíos de formularios (contacto, reserva y newsletter). Sus servidores europeos manejan los datos. Política de privacidad: netlify.com/privacy.",
+          "Netlify aloja el sitio y procesa todos los envíos de formularios (contacto, reserva, newsletter y reseñas). Sus servidores europeos manejan los datos. Política de privacidad: netlify.com/privacy.",
           "Google Analytics recibe datos anonimizados solo tras consentimiento. Política: policies.google.com/privacy.",
         ],
       },
@@ -599,6 +659,7 @@ export const es: Dictionary = {
         body: [
           "Las respuestas del formulario viven en mi bandeja mientras una conversación esté activa, más un año extra por si vuelves a reservar. Después fuera.",
           "Las altas a newsletter se quedan hasta que te das de baja.",
+          "Las reseñas publicadas se quedan en la web hasta que me pidas retirarlas; basta con un email. Las reseñas que no publico se borran.",
           "Los datos de analítica se guardan 14 meses en Google Analytics, el periodo más corto que ofrecen.",
         ],
       },

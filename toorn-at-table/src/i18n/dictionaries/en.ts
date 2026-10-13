@@ -334,6 +334,65 @@ export const en: Dictionary = {
     cta: "Plan your evening",
     invitation: "And yours? The next table is open.",
   },
+  reviews: {
+    metaTitle: "Leave a review",
+    metaDescription:
+      "Cooked for by Nick Toorn? Leave a review, give it stars and add your photos from the night. Every review is checked against my bookings before it goes online.",
+    eyebrow: "Guest book",
+    title: "Leave your mark on the table.",
+    intro:
+      "You sat at one of my tables. Tell me how it was, honestly. Stars, a few lines, and if you took photos, add up to three. They turn into polaroids right here, before they're even sent.",
+    verification:
+      "I read every review myself before it goes online, and check it against my bookings. Everything you'll find on this site comes from someone I actually cooked for.",
+    nameLabel: "Your name",
+    namePlaceholder: "Charlotte M.",
+    nameHint: "Shown with your review. A first name and an initial is perfect.",
+    emailLabel: "Email",
+    emailHint: "Never published. Only so I can match your review to your booking.",
+    occasionLabel: "The occasion",
+    occasionPlaceholder: "Birthday dinner for twelve",
+    locationLabel: "Where",
+    locationPlaceholder: "Marbella",
+    dateLabel: "Date of the dinner",
+    ratingLabel: "Your rating",
+    ratingWords: ["Disappointing", "Not quite", "Good", "Great night", "Unforgettable"],
+    starLabel: "{n} out of 5 stars",
+    reviewLabel: "Your review",
+    reviewPlaceholder:
+      "What stayed with you? The food, the night, the moment someone went quiet over a plate.",
+    photosLabel: "Photos from the night",
+    photosHint:
+      "Up to three. Each one becomes a polaroid on the spot. Write something on it if you like.",
+    addPhoto: "Add a photo",
+    addPhotoSub: "Straight from your phone is fine",
+    processing: "Developing…",
+    removePhoto: "Remove photo",
+    captionLabel: "Caption",
+    captionPlaceholder: "Write on the polaroid",
+    consentLabel:
+      "I'm happy for my name, review and photos to be published on toornattable.com, and anyone recognisable in my photos is fine with that too.",
+    submit: "Send my review",
+    submitting: "Sending…",
+    successTitle: "Thank you. Really.",
+    successBody:
+      "Your review is with me now. I read every one myself, and once it's checked it goes up on the site.",
+    successPhotos: "Your polaroids came out like this:",
+    footerLink: "Leave a review",
+    eventLink: "Were you at this table? Leave a review",
+    errors: {
+      name: "Tell me your name, even just a first name.",
+      email: "I need a valid email to match your review to a booking.",
+      rating: "Give it some stars first.",
+      review: "A few more words, please. A sentence or two at least.",
+      consent: "Please tick the box so I'm allowed to publish your review.",
+      photoType: "That file isn't a photo I can read. Try a JPG or PNG.",
+      photoSize: "That photo is too big. Pick one under 30 MB.",
+      photoFailed: "That photo didn't develop. Try another one.",
+      tooMany: "Three photos at most. Pick your best ones.",
+      generic:
+        "Something went wrong sending your review. Try again, or send it to info@studiotoorn.com.",
+    },
+  },
   faq: {
     eyebrow: "Before you write · Questions",
     title: "The things people ask first.",
@@ -571,6 +630,7 @@ export const en: Dictionary = {
         body: [
           "Contact form: name, email, optional phone, the date and shape of what you're planning, and whatever you write in the message. I use this to reply to you and to draft a first proposal.",
           "Newsletter: just your email and the language you read the site in. I use it to send the very occasional dispatch and nothing else.",
+          "Reviews: the name you want shown, your email, your rating and review, and optionally the occasion, place, date and up to three photos. Your photos are turned into polaroids in your own browser before anything is sent. Your email is never published; it is only there so I can match your review to a booking. Name, review and photos are published only after I have checked them, and only with your consent.",
           "I never ask for payment details on this site. Any invoicing happens through separate channels once a booking is firm.",
         ],
       },
@@ -584,7 +644,7 @@ export const en: Dictionary = {
       {
         heading: "Who else sees this",
         body: [
-          "Netlify hosts the site and processes every form submission (contact, booking and newsletter). Their EU servers handle the data. Their privacy notice: netlify.com/privacy.",
+          "Netlify hosts the site and processes every form submission (contact, booking, newsletter and reviews). Their EU servers handle the data. Their privacy notice: netlify.com/privacy.",
           "Google Analytics receives anonymised visit data only after consent. Their privacy notice: policies.google.com/privacy.",
         ],
       },
@@ -593,6 +653,7 @@ export const en: Dictionary = {
         body: [
           "Contact form replies live in my inbox for as long as a conversation is active, plus a year afterwards in case you book again. Then they go.",
           "Newsletter signups stay until you unsubscribe.",
+          "Published reviews stay on the site until you ask me to take them down; one email is enough. Reviews I don't publish are deleted.",
           "Analytics data is kept for 14 months in Google Analytics, the shortest setting they offer.",
         ],
       },

@@ -45,6 +45,31 @@
       <input type="text" name="menu" />
     </form>
 
+    <!--
+      Reviews: one file per field is all Netlify Forms accepts, so the up
+      to three polaroid WebPs (made in the browser, see src/lib/polaroid.ts)
+      arrive as photo1..photo3, each with its own caption field.
+    -->
+    <form name="reviews" method="POST" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="reviews" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="occasion" />
+      <input type="text" name="location" />
+      <input type="date" name="eventDate" />
+      <input type="number" name="rating" />
+      <textarea name="review"></textarea>
+      <input type="text" name="locale" />
+      <input type="text" name="consent" />
+      <input type="file" name="photo1" />
+      <input type="text" name="caption1" />
+      <input type="file" name="photo2" />
+      <input type="text" name="caption2" />
+      <input type="file" name="photo3" />
+      <input type="text" name="caption3" />
+    </form>
+
     <form name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="newsletter" />
       <input type="text" name="bot-field" />

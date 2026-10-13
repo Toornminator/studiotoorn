@@ -55,6 +55,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: langs("/the-table") },
     },
     {
+      url: `${SITE}/reviews`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.4,
+      alternates: { languages: langs("/reviews") },
+    },
+    {
       url: `${SITE}/cookbook`,
       lastModified: now,
       changeFrequency: "weekly",

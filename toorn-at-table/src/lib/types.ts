@@ -322,6 +322,11 @@ export type LocalisedTestimonial = {
   date: string;
   /** Optional provenance marker shown as a tag (e.g. "Google", "Direct"). */
   source?: string;
+  /**
+   * Up to three polaroid WebPs the guest made on /reviews, saved under
+   * public/images/reviews/ (e.g. "/images/reviews/charlotte-m-1.webp").
+   */
+  photos?: string[];
 };
 
 /** Resolved testimonial consumed by components (single active locale). */
@@ -334,6 +339,7 @@ export type Testimonial = {
   rating: number;
   date: string;
   source?: string;
+  photos?: string[];
 };
 
 /**

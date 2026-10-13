@@ -210,6 +210,20 @@ export function EventOverlay({
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/45">
                 {t.events.responseTime}
               </p>
+              {/* Guests who were there can leave a review, occasion prefilled. */}
+              <a
+                href={localizedHref(
+                  `/reviews?occasion=${encodeURIComponent(event.title)}`,
+                  locale,
+                )}
+                onClick={onClose}
+                className="group mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/70 transition-colors hover:text-tattoo-red"
+              >
+                {t.reviews.eventLink}
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                  <path d="M1 5 H11 M8 1 L11 5 L8 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </>
           ) : isSoldOut ? (
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-ink/55">

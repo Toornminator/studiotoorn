@@ -308,6 +308,63 @@ export type Dictionary = {
     /** Soft prompt that fills the trailing grid cell on an odd count. */
     invitation: string;
   };
+  /** The /reviews guest-book page and its form. */
+  reviews: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    intro: string;
+    /** How reviews are checked before publishing (EU Omnibus disclosure). */
+    verification: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    nameHint: string;
+    emailLabel: string;
+    emailHint: string;
+    occasionLabel: string;
+    occasionPlaceholder: string;
+    locationLabel: string;
+    locationPlaceholder: string;
+    dateLabel: string;
+    ratingLabel: string;
+    /** One word per star count, index 0 = 1 star. */
+    ratingWords: string[];
+    /** Accessible label per star, "{n}" is replaced by the count. */
+    starLabel: string;
+    reviewLabel: string;
+    reviewPlaceholder: string;
+    photosLabel: string;
+    photosHint: string;
+    addPhoto: string;
+    addPhotoSub: string;
+    processing: string;
+    removePhoto: string;
+    captionLabel: string;
+    captionPlaceholder: string;
+    consentLabel: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successBody: string;
+    /** Appended when the guest added photos, before the polaroid row. */
+    successPhotos: string;
+    /** Footer + past-event links into this page. */
+    footerLink: string;
+    eventLink: string;
+    errors: {
+      name: string;
+      email: string;
+      rating: string;
+      review: string;
+      consent: string;
+      photoType: string;
+      photoSize: string;
+      photoFailed: string;
+      tooMany: string;
+      generic: string;
+    };
+  };
   faq: {
     eyebrow: string;
     title: string;
