@@ -10,11 +10,12 @@ import { buildAlternates } from "@/i18n/config";
  * give stars, write a few lines and add up to three photos, which become
  * polaroid WebPs in their own browser before anything is sent.
  *
- * Nothing auto-publishes. Submissions land in the Netlify Forms dashboard;
- * Nick checks each one against his bookings, and approved reviews (with
- * their polaroids) go into src/content/testimonials.ts, which lights up the
- * Guests section below and on the home page. The verification line on this
- * page is the EU Omnibus disclosure of how reviews are checked.
+ * Nothing auto-publishes. Each submission is parked as pending by the
+ * submission-created Netlify function; Nick checks it against his bookings
+ * on /beheer, and "Goedkeuren" commits it (polaroids included) to
+ * src/content/guest-reviews.json, which lights up the Guests section below
+ * and on the home page after the build. The verification line on this page
+ * is the EU Omnibus disclosure of how reviews are checked.
  */
 
 type Params = { params: Promise<{ locale: string }> };

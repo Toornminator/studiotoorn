@@ -340,6 +340,31 @@ export type Testimonial = {
   date: string;
   source?: string;
   photos?: string[];
+  /** Language the quote is written in, when it differs per review. */
+  lang?: Locale;
+};
+
+/**
+ * A guest review approved on /beheer. Written to
+ * src/content/guest-reviews.json by the approve action (a commit through the
+ * GitHub API), never by hand. Shown in the guest's own words in every
+ * locale: no machine translation of someone else's review.
+ */
+export type GuestReview = {
+  /** Netlify Forms submission id. */
+  id: string;
+  slug: string;
+  author: string;
+  quote: string;
+  lang: Locale;
+  rating: number;
+  /** ISO date of the dinner, or of the submission when no date was given. */
+  date: string;
+  occasion?: string;
+  location?: string;
+  /** "/images/reviews/<slug>-<n>.webp" paths. */
+  photos: string[];
+  approvedAt: string;
 };
 
 /**

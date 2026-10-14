@@ -50,8 +50,10 @@ export function ContactNudge() {
   const reduceMotion = useReducedMotion();
   const [show, setShow] = useState(false);
   // The review page is a form people are busy filling in; a balloon
-  // pinned over the star rating only gets in the way there.
-  const onReviews = stripLocalePrefix(usePathname()) === "/reviews";
+  // pinned over the star rating only gets in the way there. /beheer is
+  // Nick's own desk, so no sales pitch there either.
+  const route = stripLocalePrefix(usePathname());
+  const onReviews = route === "/reviews" || route.startsWith("/beheer");
 
   useEffect(() => {
     if (recentlyDismissed()) return;

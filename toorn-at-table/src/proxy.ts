@@ -25,7 +25,11 @@ import { PREFIXED_LOCALES } from "@/i18n/config";
  */
 const CDN_CACHE = "public, durable, s-maxage=3600, stale-while-revalidate=86400";
 
-function withCache(res: NextResponse): NextResponse {
+/** /beheer (any locale): per-visitor, behind a login, must never hit the CDN. */
+const PRIVATE_PATH = /^\/(?:(?:es|nl)\/)?beheer(?:\/|$)/;
+
+function withCache(res: NextResponse, pathname: string): NextResponse {
+  if (PRIVATE_PATH.test(pathname)) return res;
   res.headers.set("Netlify-CDN-Cache-Control", CDN_CACHE);
   res.headers.set("CDN-Cache-Control", CDN_CACHE);
   return res;
@@ -45,13 +49,13 @@ export function proxy(req: NextRequest) {
 
   // `/es/…` and `/nl/…` already match `app/[locale]/…`; pass through.
   if ((PREFIXED_LOCALES as readonly string[]).includes(seg)) {
-    return withCache(NextResponse.next());
+    return withCache(NextResponse.next(), pathname);
   }
 
   // English at the root: rewrite onto the internal `/en` segment.
   const url = req.nextUrl.clone();
   url.pathname = `/en${pathname === "/" ? "" : pathname}`;
-  return withCache(NextResponse.rewrite(url));
+  return withCache(NextResponse.rewrite(url), pathname);
 }
 
 export const config = {

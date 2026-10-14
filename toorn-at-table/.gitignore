@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local stand-in for Netlify Blobs (REVIEWS_DEV_STORE=1)
+/.beheer-dev/

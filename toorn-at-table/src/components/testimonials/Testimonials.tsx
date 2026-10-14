@@ -161,7 +161,8 @@ function TestimonialCard({ item, index }: { item: Testimonial; index: number }) 
           &ldquo;
         </span>
         <blockquote
-          className="font-serif text-ink/90"
+          lang={item.lang}
+          className="whitespace-pre-line font-serif text-ink/90"
           style={{ fontSize: "clamp(18px, 1.7vw, 22px)", lineHeight: 1.5 }}
         >
           {item.quote}
