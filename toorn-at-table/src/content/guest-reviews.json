@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "6ad1ebb4ecc503232212dd94",
+    "slug": "robert-f-12dd94",
+    "author": "Robert F.",
+    "quote": "Nick is a fantastic chef. He not only prepared one of the best meals we ever had, but also perfectly observed individual dietary restrictions even if this meant preparing a special dish for just one person. He left everything cleaned, I would almost say the kitchen was cleaner than before. Price-wise very reasonable as well.",
+    "lang": "en",
+    "rating": 5,
+    "date": "2026-10-16",
+    "occasion": "Birthday for 7",
+    "location": "Marbella",
+    "photos": [
+      "/images/reviews/robert-f-12dd94-1.webp"
+    ],
+    "approvedAt": "2026-10-16T09:19:00.301Z"
+  }
+]
