@@ -5760,9 +5760,9 @@ export const recipes: LocalisedRecipe[] = [
   {
     slug: "stoofvlees-rum-appelstroop",
     title: {
-      en: "Stoofvlees with rum, apple syrup and dark chocolate",
-      es: "Estofado de ternera con ron, sirope de manzana y chocolate negro",
-      nl: "Stoofvlees met rum, appelstroop en pure chocolade",
+      en: "Flemish beef stew with Barceló Imperial, apple syrup and 85% chocolate",
+      es: "Estofado de ternera con Barceló Imperial, sirope de manzana y chocolate al 85%",
+      nl: "Stoofvlees met Barceló Imperial, appelstroop en 85% pure chocolade",
     },
     intro: {
       en: "Beef browned dark, onions cooked down slow, a splash of Barceló Imperial, Limburg apple syrup, green peppercorns, bay, clove and a square of 85 percent chocolate. Three to four hours on the lowest flame you own. Spoon it over fries and do not answer the phone.",
