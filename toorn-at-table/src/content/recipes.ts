@@ -5757,4 +5757,277 @@ export const recipes: LocalisedRecipe[] = [
     ],
     publishedAt: "2026-10-13",
   },
+  {
+    slug: "stoofvlees-rum-appelstroop",
+    title: {
+      en: "Stoofvlees with rum, apple syrup and dark chocolate",
+      es: "Estofado de ternera con ron, sirope de manzana y chocolate negro",
+      nl: "Stoofvlees met rum, appelstroop en pure chocolade",
+    },
+    intro: {
+      en: "Beef browned dark, onions cooked down slow, a splash of Barceló Imperial, Limburg apple syrup, green peppercorns, bay, clove and a square of 85 percent chocolate. Three to four hours on the lowest flame you own. Spoon it over fries and do not answer the phone.",
+      es: "Ternera dorada bien oscura, cebolla pochada sin prisa, un chorro de Barceló Imperial, sirope de manzana de Limburgo, pimienta verde, laurel, clavo y una onza de chocolate al 85 por ciento. Tres o cuatro horas al fuego más bajo que tengas. Sírvelo sobre patatas fritas y no cojas el teléfono.",
+      nl: "Rundvlees donkerbruin aangebraden, uien rustig gekarameliseerd, een scheut Barceló Imperial, appelstroop, groene peper, laurier, kruidnagel en een blokje 85 procent pure chocolade. Drie tot vier uur op het laagste vuur dat je hebt. Schep het over de friet en neem de telefoon niet op.",
+    },
+    category: "hoofd",
+    seasons: ["herfst", "winter"],
+    difficulty: 2,
+    prepMinutes: 30,
+    cookMinutes: 210,
+    servings: 4,
+    heroImage: "/images/recipes/stoofvlees-rum-appelstroop.jpg",
+    pairing: {
+      en: "Fries, fried twice and salted hard, with a spoon of mayonnaise on the side, the way a Flemish frituur does it. Mash or good bread if you must. To drink: a Belgian dubbel, or a short pour of the same rum, neat.",
+      es: "Patatas fritas, fritas dos veces y bien saladas, con una cucharada de mayonesa al lado, como en una frituur flamenca. Puré o buen pan si no hay más remedio. Para beber: una dubbel belga, o un dedo del mismo ron, solo.",
+      nl: "Friet, twee keer gebakken en flink gezouten, met een lepel mayonaise ernaast, zoals een Vlaamse frituur het doet. Puree of goed brood als het echt moet. Om te drinken: een Belgische dubbel, of een klein glaasje van dezelfde rum, puur.",
+    },
+    body: {
+      en: [
+        "Stoofvlees is what the Low Countries eat when the weather turns. Every Flemish frituur keeps a pot of it going on the back burner, ladled over a paper cone of fries, and every Dutch kitchen has its own version, handed down with the bay leaves and the cloves. It is not clever food. It is beef, onions, time and a heavy pan. If you want the restaurant version, slow-braised cheek in red wine, it is elsewhere in this book. This is the other one. The one you eat with your fingers.",
+        "The twist is in the bottle. The Flemish pour beer, a brown abbey ale, sweetened with bread and mustard. I pour rum. Barceló Imperial, a few slugs of aged Dominican caramel that cooks off its burn and leaves the warmth behind. Appelstroop, the thick black apple syrup from Limburg, brings sweet and sour in one spoon. Green peppercorns bring a soft bite. And then the part people raise an eyebrow at: a square of 85 percent chocolate. You will not taste chocolate. You will taste depth, a little bitterness at the back of the tongue, a sauce so dark it is nearly black. Cooks in Mexico worked this out a long time ago. Mole is just a stew that took its chocolate seriously.",
+        "Then you wait. Three hours, four, lid on, the lowest flame you have, a lazy bubble every now and then. Do not rush it and do not let it boil. The meat goes from tough to tender to falling apart on the spoon, the onions melt into the sauce, and the whole house smells like a Sunday in December. Fish out the cloves, count them, taste, season. It is good tonight. It is better tomorrow. Good food takes time, and this is the proof.",
+      ],
+      es: [
+        "El stoofvlees es lo que se come en los Países Bajos y en Flandes cuando cambia el tiempo. Cada frituur flamenca tiene una olla al fondo del fogón, servida a cucharones sobre un cucurucho de patatas fritas, y cada cocina holandesa tiene su propia versión, heredada junto con el laurel y el clavo. No es comida lista. Es ternera, cebolla, tiempo y una olla pesada. Si quieres la versión de restaurante, carrillera estofada en vino tinto, está en otra página de este libro. Esta es la otra. La que se come con los dedos.",
+        "El giro está en la botella. Los flamencos echan cerveza, una de abadía oscura, endulzada con pan y mostaza. Yo echo ron. Barceló Imperial, unos buenos tragos de caramelo dominicano añejo que pierde el ardor en la olla y deja el calor. El appelstroop, ese sirope de manzana espeso y negro de Limburgo, trae dulce y ácido en una sola cucharada. La pimienta verde da un mordisco suave. Y luego lo que hace levantar las cejas: una onza de chocolate al 85 por ciento. No vas a notar chocolate. Vas a notar profundidad, un amargor ligero al final, una salsa tan oscura que casi es negra. En México lo descubrieron hace mucho tiempo. El mole no es más que un guiso que se tomó en serio su chocolate.",
+        "Y luego esperas. Tres horas, cuatro, con tapa, al fuego más bajo que tengas, una burbuja perezosa de vez en cuando. No le metas prisa y no dejes que hierva. La carne pasa de dura a tierna a deshacerse en la cuchara, la cebolla se funde en la salsa y toda la casa huele a domingo de diciembre. Saca los clavos, cuéntalos, prueba, rectifica. Está bueno esta noche. Mañana está mejor. La buena comida necesita tiempo, y aquí está la prueba.",
+      ],
+      nl: [
+        "Stoofvlees is wat de Lage Landen eten als het weer omslaat. Elke Vlaamse frituur heeft achter op het vuur een pan staan, met een pollepel over een puntzak friet, en elke Nederlandse keuken heeft z'n eigen versie, doorgegeven samen met de laurier en de kruidnagel. Het is geen slim eten. Het is rundvlees, uien, tijd en een zware pan. Wil je de restaurantversie, runderwang langzaam gestoofd in rode wijn, die staat elders in dit boek. Dit is de andere. Die je met je vingers eet.",
+        "De twist zit in de fles. De Vlamingen schenken bier, een donker abdijbier, gezoet met brood en mosterd. Ik schenk rum. Barceló Imperial, een paar flinke scheuten gerijpte Dominicaanse karamel die z'n scherpte in de pan verliest en de warmte achterlaat. Appelstroop brengt zoet en zuur in één lepel. Groene peperkorrels geven een zachte beet. En dan het stuk waar mensen een wenkbrauw bij optrekken: een blokje 85 procent pure chocolade. Je proeft geen chocolade. Je proeft diepte, een licht bittertje achter op de tong, een saus zo donker dat hij bijna zwart is. In Mexico wisten ze dit al heel lang. Mole is gewoon een stoofpot die z'n chocolade serieus nam.",
+        "En dan wacht je. Drie uur, vier, deksel erop, het laagste vuur dat je hebt, af en toe een luie bubbel. Niet opjagen en niet laten koken. Het vlees gaat van taai naar mals naar uit elkaar vallend op de lepel, de uien smelten weg in de saus, en het hele huis ruikt naar een zondag in december. Vis de kruidnagels eruit, tel ze, proef, breng op smaak. Vanavond is het goed. Morgen is het beter. Good food takes time, en dit is het bewijs.",
+      ],
+    },
+    nowPlaying: {
+      track: "Ne me quitte pas",
+      artist: "Jacques Brel",
+    },
+    marginalia: [
+      {
+        id: "sv-1",
+        kind: "tip",
+        anchor: "ingredients",
+        body: {
+          en: "Ask the butcher for sukadelappen or riblappen, chuck or shin. Meat with sinew and a bit of fat. Lean steak goes dry and tough in four hours; connective tissue is what turns into that silky sauce.",
+          es: "Pide al carnicero morcillo, aguja o espaldilla. Carne con tendón y algo de grasa. Un filete magro se queda seco y duro en cuatro horas; el colágeno es lo que se convierte en esa salsa sedosa.",
+          nl: "Vraag de slager om sukadelappen of riblappen. Vlees met zeentjes en een beetje vet. Mager vlees wordt in vier uur droog en taai; het bindweefsel is juist wat die zijdezachte saus maakt.",
+        },
+      },
+      {
+        id: "sv-2",
+        kind: "warning",
+        anchor: "step-1",
+        body: {
+          en: "Small batches. Crowd the pan and the meat steams grey in its own juice. Grey meat is boiled meat, and no amount of time fixes the missing crust.",
+          es: "En tandas pequeñas. Si llenas la olla, la carne se cuece gris en su jugo. Carne gris es carne hervida, y ninguna cantidad de tiempo arregla la costra que falta.",
+          nl: "Kleine porties. Leg je de pan te vol, dan kookt het vlees grijs in z'n eigen vocht. Grijs vlees is gekookt vlees, en geen uur extra repareert die ontbrekende korst.",
+        },
+      },
+      {
+        id: "sv-3",
+        kind: "tip",
+        anchor: "step-4",
+        body: {
+          en: "15 to 20 grams of chocolate, not more. The moment you can name it, you went too far. It should be the thing nobody can put their finger on.",
+          es: "De 15 a 20 gramos de chocolate, no más. Si se reconoce, te has pasado. Tiene que ser eso que nadie sabe decir qué es.",
+          nl: "15 tot 20 gram chocolade, niet meer. Zodra je hem kunt benoemen, ben je te ver gegaan. Het moet het ding zijn waar niemand de vinger op kan leggen.",
+        },
+      },
+      {
+        id: "sv-4",
+        kind: "wrong",
+        anchor: "step-5",
+        body: {
+          en: "The classic mistake: turning up the heat to save an hour. A rolling boil makes the meat stringy and dry while it sits in a wet sauce. Low and slow, a bubble now and then, nothing more.",
+          es: "El error clásico: subir el fuego para ganar una hora. Un hervor fuerte deja la carne fibrosa y seca, aunque esté nadando en salsa. Fuego bajo y paciencia, una burbuja de vez en cuando, nada más.",
+          nl: "De klassieke fout: het vuur hoger zetten om een uur te winnen. Hard koken maakt het vlees draderig en droog terwijl het in een natte saus ligt. Laag en langzaam, af en toe een bubbel, meer niet.",
+        },
+      },
+      {
+        id: "sv-5",
+        kind: "warning",
+        anchor: "step-6",
+        body: {
+          en: "Count the cloves going in, count them coming out. Biting down on a whole clove is a mouthful of dentist.",
+          es: "Cuenta los clavos al echarlos y al sacarlos. Morder un clavo entero es como tener la consulta del dentista en la boca.",
+          nl: "Tel de kruidnagels als ze erin gaan, tel ze als ze eruit komen. Op een hele kruidnagel bijten is een mond vol tandarts.",
+        },
+      },
+      {
+        id: "sv-6",
+        kind: "scrawl",
+        anchor: "step-7",
+        body: {
+          en: "Make it a day ahead if you can. Overnight in the fridge it gets deeper, and the fat sets on top so you can lift it off.",
+          es: "Hazlo el día antes si puedes. Una noche en la nevera lo hace más profundo, y la grasa cuaja arriba para quitarla fácil.",
+          nl: "Maak het een dag van tevoren als het kan. Een nacht in de koelkast maakt het dieper, en het vet stolt bovenop zodat je het er zo afschept.",
+        },
+      },
+    ],
+    ingredients: [
+      {
+        group: { en: "Meat", es: "Carne", nl: "Vlees" },
+        quantity: { en: "about 1 kg", es: "aprox. 1 kg", nl: "ca. 1 kg" },
+        ingredient: {
+          en: "stewing beef (chuck or shin), in large cubes",
+          es: "ternera para guisar (aguja o morcillo), en dados grandes",
+          nl: "stoofvlees (sukadelappen of riblappen), in grote blokken",
+        },
+      },
+      {
+        group: { en: "Meat", es: "Carne", nl: "Vlees" },
+        quantity: { en: "a good knob", es: "una buena nuez", nl: "een flinke klont" },
+        ingredient: { en: "butter", es: "mantequilla", nl: "boter" },
+      },
+      {
+        group: { en: "Meat", es: "Carne", nl: "Vlees" },
+        quantity: { en: "to taste", es: "al gusto", nl: "naar smaak" },
+        ingredient: { en: "salt and black pepper", es: "sal y pimienta negra", nl: "zout en zwarte peper" },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Basis" },
+        quantity: { en: "2 large", es: "2 grandes", nl: "2 grote" },
+        ingredient: { en: "onions, in half rings", es: "cebollas, en medias lunas", nl: "uien, in halve ringen" },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Basis" },
+        quantity: { en: "3", es: "3", nl: "3" },
+        ingredient: { en: "garlic cloves, chopped", es: "dientes de ajo, picados", nl: "tenen knoflook, gehakt" },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Basis" },
+        quantity: { en: "1 heaped tbsp", es: "1 cda colmada", nl: "1 flinke el" },
+        ingredient: { en: "mustard", es: "mostaza", nl: "mosterd" },
+      },
+      {
+        group: { en: "Base", es: "Base", nl: "Basis" },
+        quantity: { en: "1 tsp", es: "1 cdta", nl: "1 tl" },
+        ingredient: {
+          en: "Pimentón de la Vera (smoked paprika)",
+          es: "Pimentón de la Vera",
+          nl: "Pimentón de la Vera (gerookt paprikapoeder)",
+        },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "40 to 50 ml", es: "40 a 50 ml", nl: "40 tot 50 ml" },
+        ingredient: {
+          en: "Barceló Imperial (or another aged dark rum)",
+          es: "Barceló Imperial (u otro ron añejo oscuro)",
+          nl: "Barceló Imperial (of een andere gerijpte donkere rum)",
+        },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "500 to 650 ml", es: "500 a 650 ml", nl: "500 tot 650 ml" },
+        ingredient: { en: "beef stock", es: "caldo de carne", nl: "runderbouillon" },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "1 tbsp", es: "1 cda", nl: "1 el" },
+        ingredient: {
+          en: "appelstroop (Dutch apple syrup)",
+          es: "appelstroop (sirope de manzana holandés)",
+          nl: "appelstroop",
+        },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "1 tbsp", es: "1 cda", nl: "1 el" },
+        ingredient: { en: "Worcestershire sauce", es: "salsa Worcestershire", nl: "Worcestershiresaus" },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "1 to 2 tsp", es: "1 a 2 cdta", nl: "1 tot 2 tl" },
+        ingredient: { en: "green peppercorns", es: "pimienta verde en grano", nl: "groene peperkorrels" },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "2 to 3", es: "2 a 3", nl: "2 tot 3" },
+        ingredient: { en: "bay leaves", es: "hojas de laurel", nl: "laurierblaadjes" },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "5 to 6", es: "5 a 6", nl: "5 tot 6" },
+        ingredient: { en: "whole cloves", es: "clavos enteros", nl: "hele kruidnagels" },
+      },
+      {
+        group: { en: "The braise", es: "El guiso", nl: "De stoof" },
+        quantity: { en: "15 to 20 g", es: "15 a 20 g", nl: "15 tot 20 g" },
+        ingredient: {
+          en: "dark chocolate (85%)",
+          es: "chocolate negro (85%)",
+          nl: "pure chocolade (85%)",
+        },
+      },
+      {
+        group: { en: "To finish", es: "Para terminar", nl: "Afmaken" },
+        quantity: { en: "a handful", es: "un puñado", nl: "een handje" },
+        ingredient: {
+          en: "fresh flat-leaf parsley, chopped",
+          es: "perejil fresco, picado",
+          nl: "verse peterselie, gehakt",
+        },
+      },
+    ],
+    steps: [
+      {
+        position: 1,
+        body: {
+          en: "Pat the beef dry and season it with salt and pepper. Melt butter in a heavy casserole and brown the meat in small batches until it is dark brown on every side. Lift it out and set it aside, juices and all.",
+          es: "Seca bien la ternera y salpimiéntala. Derrite mantequilla en una olla pesada y dora la carne en tandas pequeñas hasta que esté bien oscura por todos lados. Sácala y resérvala, con su jugo.",
+          nl: "Dep het vlees droog en breng op smaak met zout en peper. Smelt boter in een zware braadpan en bak het vlees in kleine porties rondom donkerbruin. Haal het eruit en zet apart, met het vocht erbij.",
+        },
+      },
+      {
+        position: 2,
+        body: {
+          en: "Turn the heat down, add a little more butter if the pan is dry, and let the onions caramelise slowly, 15 to 20 minutes, scraping up the brown bits as they soften. Add the garlic for the last minute or two.",
+          es: "Baja el fuego, añade un poco más de mantequilla si la olla está seca y deja que la cebolla se caramelice despacio, de 15 a 20 minutos, rascando el fondo tostado mientras se ablanda. Añade el ajo en el último minuto o dos.",
+          nl: "Zet het vuur lager, doe er nog wat boter bij als de pan droog is en laat de uien rustig karamelliseren, 15 tot 20 minuten, terwijl je de aanbaksels losschraapt. Voeg de knoflook de laatste minuut of twee toe.",
+        },
+      },
+      {
+        position: 3,
+        body: {
+          en: "Stir in the mustard and the pimentón for half a minute, then deglaze with the Barceló Imperial. Scrape the bottom clean and let it bubble down briefly.",
+          es: "Incorpora la mostaza y el pimentón medio minuto y desglasa con el Barceló Imperial. Rasca bien el fondo y deja que reduzca un momento.",
+          nl: "Roer de mosterd en de pimentón er een halve minuut door en blus af met de Barceló Imperial. Schraap de bodem schoon en laat kort inkoken.",
+        },
+      },
+      {
+        position: 4,
+        body: {
+          en: "Return the meat to the pan with its juices. Add the stock, the Worcestershire sauce, the appelstroop, the green peppercorns, the bay leaves, the cloves and the chocolate. Stir well until the chocolate has melted in.",
+          es: "Devuelve la carne a la olla con su jugo. Añade el caldo, la salsa Worcestershire, el appelstroop, la pimienta verde, el laurel, los clavos y el chocolate. Remueve bien hasta que el chocolate se haya fundido.",
+          nl: "Doe het vlees met het vocht terug in de pan. Voeg de bouillon, Worcestershiresaus, appelstroop, groene peperkorrels, laurier, kruidnagels en de chocolade toe. Roer goed door tot de chocolade gesmolten is.",
+        },
+      },
+      {
+        position: 5,
+        body: {
+          en: "Lid on, lowest heat, and let it stew gently for 3 to 4 hours, stirring now and then and adding a splash of stock if it gets too thick, until the meat is butter-soft.",
+          es: "Tapa, fuego mínimo, y deja que se guise suavemente de 3 a 4 horas, removiendo de vez en cuando y añadiendo un chorro de caldo si espesa demasiado, hasta que la carne esté tierna como la mantequilla.",
+          nl: "Deksel erop, laagste vuur, en laat 3 tot 4 uur zachtjes stoven, af en toe roeren en een scheutje bouillon erbij als het te dik wordt, tot het vlees boterzacht is.",
+        },
+      },
+      {
+        position: 6,
+        body: {
+          en: "Fish out the bay leaves and every clove. If the sauce is too thin, reduce it uncovered for a while. Season with salt and pepper.",
+          es: "Saca el laurel y todos los clavos. Si la salsa está muy líquida, redúcela un rato sin tapa. Rectifica de sal y pimienta.",
+          nl: "Vis de laurier en alle kruidnagels eruit. Is de saus te dun, laat hem dan zonder deksel nog wat inkoken. Breng op smaak met zout en peper.",
+        },
+      },
+      {
+        position: 7,
+        body: {
+          en: "Finish with plenty of fresh parsley and serve over fries, with mash or with good bread.",
+          es: "Termina con mucho perejil fresco y sírvelo sobre patatas fritas, con puré o con buen pan.",
+          nl: "Werk af met flink wat verse peterselie en serveer over friet, met puree of met goed brood.",
+        },
+      },
+    ],
+    publishedAt: "2026-10-25",
+  },
 ];
