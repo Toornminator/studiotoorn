@@ -1,36 +1,25 @@
 # PRODUCT.md — Studio Toorn
 
-## What this is
-The flagship marketing site for Studio Toorn, a full-service digital agency on the Costa del Sol, Spain. One static page. This site IS the portfolio piece: a visitor must conclude within seconds that the person who built this can build theirs.
-
 ## Register
 brand
 
+## What this is
+studiotoorn.com, the sales site of Studio Toorn: a one-person digital atelier on the Costa del Sol run by Nick Toorn (former Michelin-brigade chef, portrait photographer, now builder). The site itself must prove the craft.
+
+## What we sell (2026)
+1. Websites that get booked (horeca, hospitality, real estate, beauty, travel)
+2. Platforms & apps: memberships, Stripe subscriptions, dashboards, iOS/Android via one codebase (proof: Malaga Insiders)
+3. AI that does the work: agents and n8n automations for leads, quotes, inbox, bookings, social (proof: Studio Toorn's own JARVIS back office)
+4. Brand & content: identity, photography, copy, social
+
 ## Users
-- Restaurant and hospitality owners on the Costa del Sol (Marbella, Málaga, Benalmádena) who want their place to look online the way it feels in person.
-- Real estate and luxury service businesses in southern Spain needing premium listing pages and brand sites.
-- Dutch and international SMEs wanting AI automation and digital experiences from a builder they can talk to in Dutch, English or Spanish.
-- They browse at night, often on a phone, after seeing a referral or a WhatsApp link. They judge on feel, not feature lists.
+Owners on the Costa del Sol and Dutch SMEs, often arriving from a WhatsApp link or a JARVIS outreach mail (audit/mockup at /audit and /voorproef). Mobile first, judge on feel. Dutch, English and Spanish.
 
-## Brand
-- Founder: Nick Toorn, 36. Former chef in a Michelin-starred Amsterdam kitchen, then portrait photographer, now agency owner. The brand story is craft transposed: kitchen precision, photographer's eye, AI leverage.
-- Voice: confident, warm, precise. A chef explaining a dish, not a consultant pitching a deck. Short sentences. No buzzwords, no "synergy", no exclamation marks.
-- Brand-voice words (physical): charred oak, knife steel, candlelight.
-- Narrative conceit for this site: the page is structured as a tasting menu. The hero is the amuse-bouche, services are the menu, the portfolio is the signature dishes, Nick is the chef, contact is the reservation.
+## Conversion path
+WhatsApp first (+31 6 14 41 21 02), then the brief form (Formspree xpwzgrqj), then email. Offer: free 30-minute call. "Now booking for {month}" chip.
 
-## Visual identity (fixed by client)
-- Dark luxury tech. Near-black warm base, gold/amber accents, cream text. No blue, no purple.
-- Logo: ST monogram in a triangle, `images/monogram preloader.png` (works on dark).
-- Level to beat: Resn, Active Theory, Locomotive.
+## Voice
+Confident, warm, precise. A chef explaining a dish. Short sentences, no buzzwords, no exclamation marks, no em dashes.
 
 ## Anti-references
-- Generic SaaS landing pages: hero metric blocks, icon card grids, gradient text.
-- Template agency sites: stock hero video, three-column "our services" cards.
-- The 2024-era AI portfolio look: Playfair Display + purple gradients.
-
-## Strategic principles
-- One page, deliberate pacing, every fold has a single dominant idea.
-- Real work shown live (the portfolio embeds the actual client sites in browser frames). Never replace with screenshots.
-- Multilingual: English default, Spanish and Dutch switchable. All copy translated, not just headings.
-- Conversion path: WhatsApp first (+31 6 14 41 21 02), form second (Formspree xpwzgrqj), email third (info@studiotoorn.com).
-- Performance is part of luxury: fast first paint, lazy iframes, reduced-motion respected.
+Template agency sites, SaaS hero-metric blocks, icon card grids, fake testimonials, live iframes of other sites.

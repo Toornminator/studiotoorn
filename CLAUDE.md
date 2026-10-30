@@ -1,26 +1,28 @@
-# Studio Toorn - Premium Digital Agency Website
+# Studio Toorn - Agency Website (studiotoorn.com)
 
 ## Doel
-Portfolio en agency website voor Studio Toorn, een full-service digital agency gevestigd aan de Costa del Sol, Spanje. Dit is de hoofdsite waarop we klanten binnenhalen.
+De hoofdsite van Studio Toorn, digitaal atelier aan de Costa del Sol. Verkoopt vier disciplines: websites, platforms & apps (Stripe-abonnementen, iOS/Android), AI-automatisering (agents, n8n) en merk & content.
 
-## Tech Stack
-- Puur HTML + custom CSS (geen Tailwind; bewust verwijderd voor performance)
-- GSAP + ScrollTrigger + Lenis smooth scroll via CDN
-- Fonts: Boska (display serif) + General Sans (body) via Fontshare
-- Statisch, één pagina
-- Meertalig: Engels als default, met Spaans en Nederlands als opties (JS dictionary, data-i18n attributen, localStorage)
+## Bestanden
+- `index.html` — opbouw, Engelse standaardtekst met `data-i18n`-sleutels
+- `assets/site.css` — alle stijl (licht ivoor + donkere hoofdstukken via `body.is-dark` en geregistreerde `@property`-kleuren)
+- `assets/i18n.js` — alle teksten EN/ES/NL (`window.ST_I18N`)
+- `assets/site.js` — taal, Lenis, nav, cursor, hero, loader
+- `assets/sections.js` — marquee, reveals, SplitText-koppen, gepind horizontaal portfolio, dienst-demo's, AI-log, proces, FAQ, formulier, footer
+- `images/work/` — portfolio-captures (WebP, desktop 900/1600 + mobiel 560), gemaakt met Playwright
+- `audit/`, `offerte/`, `factuur/` + `/voorproef` (redirect) horen bij JARVIS; niet aanraken
 
-## Design Richting
-Warm ivoor luxury, "galerie aan de Costa del Sol". Lichte basis (ivoor #f5f0e4), espresso-donkere tekst (#211b10), goud-accenten (#9a7627 / #c9a155). GEEN blauw/paars, geen pure zwart/wit. Concept: de site is opgebouwd als een chef's tasting menu (hero = amuse-bouche, services = Le Menu, portfolio = signature dishes met live iframes, contact = reservations). Zie PRODUCT.md en DESIGN.md voor details.
+## Stack
+Puur HTML/CSS/JS, geen build. GSAP 3.13 (ScrollTrigger + SplitText, gratis sinds 2025) + Lenis 1.3 via jsDelivr. Fonts Boska + General Sans via Fontshare. Formspree `xpwzgrqj`.
 
-## Branding
-- Naam: Studio Toorn
-- Logo: monogram ST in driehoek; geoptimaliseerde versie images/monogram-small.png (gebruikt als CSS-mask, kleurbaar)
-- Portret: images/nick-toorn.jpg (geoptimaliseerd)
-- Contact: +31614412102 (WhatsApp), info@studiotoorn.com
+## Design
+"Atelier bij daglicht, keuken bij nacht": ivoor basis (#f4efe4), espresso tekst (#1d170f), goud (#9a7426 / #c9a155). Portfolio, AI-hoofdstuk en contact+footer zijn donker (#110d09); de pagina kleurt mee tijdens het scrollen. Chef-concept blijft de rode draad. Zie DESIGN.md.
 
-## Founder
-Nick Toorn, 36, gevestigd in Zuid-Spanje. Achtergrond als professioneel chef (Michelin-ster Amsterdam) en portretfotograaf, nu full-service digital agency eigenaar. Combineert creatief vakmanschap met AI-technologie.
+## Portfolio (stand 2026-10-30)
+GoSpain, Malaga Insiders, TOORN at table, En Boca, Juridisch AI Adviseur, SilkFlorae (netlify-rebuild) + 86'd als lab-kaart. Bewust weggelaten: Cosmic Ceramics, MR Consulting (generiek), SwingUnity (merkrisico), Shots by Nick (18+-poort). Geen live iframes meer: Malaga Insiders/Prints/Mandje blokkeren framing en vreemde sites botsten met onze UI.
+
+## Contact & juridisch
++31614412102 (WhatsApp), info@studiotoorn.com. Footer toont Content Angels Agency SL, NIF B75910182, Benalmádena (LSSI).
 
 ## Deploy
-Live site deployt via Netlify CLI vanuit de working dir (`netlify deploy --prod --dir .`), niet via GitHub push.
+Netlify CLI vanuit een SCHONE stage-map, nooit `--dir .` (zie geheugen studiotoorn_deploy_flow). Stage moet `assets/` bevatten.

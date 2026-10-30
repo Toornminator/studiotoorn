@@ -1,0 +1,15 @@
+{
+  "name": "Studio Toorn",
+  "short_name": "Studio Toorn",
+  "description": "A digital atelier on the Costa del Sol. Websites, apps and AI with Michelin precision.",
+  "lang": "en",
+  "theme_color": "#f4efe4",
+  "background_color": "#f4efe4",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    { "src": "/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

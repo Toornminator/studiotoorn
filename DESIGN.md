@@ -1,44 +1,19 @@
-# DESIGN.md — Studio Toorn
+# DESIGN.md — Studio Toorn (2026-10-30)
 
-## Color strategy
-Warm ivory luxury, committed gold. Named reference: a sunlit gallery-atelier on the Costa del Sol at noon; sun-bleached plaster, linen, brass details, espresso ink. All neutrals tinted toward the gold hue, never pure black/white.
+## Concept
+Atelier in daylight, kitchen at night. A warm ivory editorial base for clarity, with three dark "lights down" chapters (Work, AI, Contact + footer) where screens and gold glow. Theme switches live while scrolling: `body.is-dark` swaps registered `@property` colour tokens that transition over .9s.
 
-Tokens:
-- `--paper` #f5f0e4 (page base, warm ivory)
-- `--paper-2` #ede6d4 (alternate sections, marquee strip)
-- `--paper-3` #fbf8f0 (raised cards, browser frames)
-- `--ink` #211b10 (primary text, espresso)
-- `--ink-mid` rgba(33,27,16,.64), `--ink-faint` rgba(33,27,16,.40)
-- `--gold` #9a7627 (display accents, italic em words)
-- `--gold-deep` #7a5d1d (small labels, eyebrows; higher contrast)
-- `--gold-bright` #c9a155 (button fills, decorative strokes on dark media)
-- `--hairline` rgba(154,118,39,.24)
-- Shadows: soft and diffused only: 0 30px 70px -34px rgba(33,27,16,.28)
-- ::selection ink on paper.
+## Tokens
+Light: `--bg #f4efe4`, `--bg2 #ebe4d4`, `--card #fbf8f1`, `--ink #1d170f`, `--accent #9a7426`, `--label #7a5a19`
+Dark: `--bg #110d09`, `--bg2 #19130c`, `--card #1f170e`, `--ink #f3ecdd`, `--accent/--label #e8b866`
+Constants: `--gold #c9a155` (button fill), `--wa #188a4c`, ease `cubic-bezier(.16,1,.3,1)`.
 
-## Typography
-- Display: **Boska** (Fontshare), weights 300/400/500 + italics. Body/UI: **General Sans** 300-600.
-- No monospace. Caps only for short tracked labels.
-- H1 clamp(2.8rem, 7.2vw, 6.8rem), max 2-3 lines. Body ≤70ch, line-height 1.85+.
-- Inline image pill inside the hero headline (rounded-full photo inside the H1).
+## Type
+Boska 300/400 + italics (display), General Sans 400–600 (body/UI). Monospace only in the AI ops log (literally a system log). Caps only for short tracked labels.
 
-## Layout
-- Tasting-menu narrative: hero, marquee, Le Menu (services as menu rows), live-iframe portfolio, statements, chef, stacked process courses, guest book, FAQ, reservations, giant footer.
-- Section rhythm alternates paper / paper-2; chapter spacing clamp(7rem,14vh,12rem).
-- Course tracker fixed right edge (desktop) showing current chapter 01-08.
+## Motion inventory
+Preloader (first visit per session) · hero line masks + underline draw + 3D screen stack with mouse tilt and scroll parallax + dust motes canvas · scroll-velocity marquee · word-by-word manifesto scrub · SplitText line reveals on every h2 · pinned horizontal portfolio (desktop ≥1024) with image parallax, phones rising, HUD counter · sticky services stage with four looping product demos (booking site, membership app with Stripe, AI agent flow, brand kit) · AI ops log typing live with the matching pipeline step lit · portrait clip reveal + parallax · counters · process line drawing with steps lighting up · grid-rows FAQ accordion · magnetic buttons · cursor with VIEW state · footer wordmark rising letter by letter with hover lift.
+All of it collapses to static content under `prefers-reduced-motion`, and `html.no-fx` shows everything if the CDN fails.
 
-## Motion
-- Lenis + GSAP ScrollTrigger; power4/expo ease only.
-- Hero: gold dust-mote canvas (cursor-reactive), masked line reveals, scroll-exit parallax.
-- Word-by-word opacity scrub statements; sticky stacking process cards; dual-direction marquee; magnetic buttons; cursor morph with VIEW state; footer giant text fills with ink on scrub.
-- FAQ accordion animates grid-template-rows (never height).
-- prefers-reduced-motion collapses everything to simple fades; canvas off.
-
-## Conversion
-- Primary CTA framing: free 30 minute "tasting" call. WhatsApp first.
-- Sticky WhatsApp chip appears after one viewport of scroll.
-- "Now booking projects for {next month}" availability chip in contact.
-- FAQ (6 items) with FAQPage JSON-LD.
-
-## Bans
-- No pure #000/#fff, no gradient text, no side-stripe borders, no glassmorphism as decoration, no icon card grids, no em dashes in copy, no emojis, no Playfair/Inter/Outfit, no Tailwind.
+## Rules
+No pure #000/#fff, no gradient text, no side-stripe borders, no em dashes in copy, no emojis, no fabricated testimonials or metrics. Portfolio uses real captures, never live iframes.
