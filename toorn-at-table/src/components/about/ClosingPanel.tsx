@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/ui/Magnetic";
-import { RevealWords } from "@/components/ui/Reveal";
+import { InkWords } from "@/components/ui/InkWords";
 import { Clip } from "@/components/video/Clip";
 import { useLocale, useT } from "@/i18n/client";
 import { localizedHref } from "@/i18n/config";
@@ -27,19 +27,17 @@ export function ClosingPanel() {
           {t.closing.eyebrow}
         </p>
 
-        {/* The quote arrives word by word, line by line; the signature
-            then writes itself in underneath (a clip-path wipe across the
-            marker text, which reads as a hand moving left to right). */}
+        {/* The quote inks in word by word at the reader's scroll pace; the
+            signature then writes itself in underneath (a clip-path wipe
+            across the marker text, which reads as a hand moving left to
+            right). */}
         <blockquote
           id="closing-heading"
           className="mt-8 font-serif italic leading-[1.02] text-ink"
           style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
         >
           <span className="text-ink/40">“</span>
-          <RevealWords text={t.closing.quoteLine1} />
-          <br className="hidden sm:inline" />
-          {" "}
-          <RevealWords text={t.closing.quoteLine2} delayStart={0.35} />
+          <InkWords lines={[t.closing.quoteLine1, t.closing.quoteLine2]} />
           <span className="text-ink/40">”</span>
         </blockquote>
 

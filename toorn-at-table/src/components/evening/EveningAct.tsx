@@ -5,8 +5,8 @@ import {
   motion,
   useReducedMotion,
   useScroll,
-  useTransform,
 } from "framer-motion";
+import { useScrollMap } from "@/components/ui/useScrollMap";
 
 /**
  * The dark act. As "The Evening" scrolls into view the page dims from
@@ -33,7 +33,7 @@ export function EveningAct({ children }: { children: React.ReactNode }) {
   });
   // Lights down over the first ~12% of the traverse (roughly the first
   // screenful), hold, lights back up over the last 10%.
-  const dimmer = useTransform(
+  const dimmer = useScrollMap(
     scrollYProgress,
     [0, 0.12, 0.9, 1],
     reduceMotion ? [1, 1, 1, 1] : [0, 1, 1, 0],

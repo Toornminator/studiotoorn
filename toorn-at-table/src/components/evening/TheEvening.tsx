@@ -4,6 +4,7 @@ import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { localizedHref } from "@/i18n/config";
 import type { Recipe } from "@/lib/types";
 import { EveningAct } from "./EveningAct";
+import { MenuEnvelope } from "./MenuEnvelope";
 
 /**
  * "The Evening" — the IMMERSE beat of the funnel, staged as the dark act
@@ -133,14 +134,14 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
               of the brand's printed matter, so the red course labels and
               hairlines read as the same physical menu, now after dark. */}
           <div className="md:col-span-5">
-            <Reveal delay={0.15}>
-              <div className="relative">
+            <div className="relative">
                 <div
                   aria-hidden
                   className="candle-glow absolute -inset-8 md:-inset-14"
                 />
+                <MenuEnvelope>
                 <figure
-                  className="relative rotate-[-1.5deg] border border-ink/20 bg-cream p-7 md:p-9"
+                  className="relative border border-ink/20 bg-cream p-7 md:p-9"
                   style={{
                     boxShadow:
                       "0 30px 80px -20px rgba(0,0,0,0.75), 0 6px 24px rgba(0,0,0,0.45)",
@@ -192,8 +193,8 @@ export async function TheEvening({ recipes }: { recipes: Recipe[] }) {
                     className="mx-auto mt-6 h-9 w-auto opacity-70"
                   />
                 </figure>
+                </MenuEnvelope>
               </div>
-            </Reveal>
 
             <Reveal delay={0.25} className="mt-7">
               <a

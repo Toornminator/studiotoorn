@@ -8,6 +8,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
+import { useScrollMap } from "@/components/ui/useScrollMap";
 import { Polaroid } from "@/components/polaroid/Polaroid";
 import { useT } from "@/i18n/client";
 
@@ -78,7 +79,7 @@ function ScrollCue({
   progress: MotionValue<number>;
   reduce: boolean;
 }) {
-  const opacity = useTransform(progress, [0, 0.25], reduce ? [1, 1] : [1, 0]);
+  const opacity = useScrollMap(progress, [0, 0.25], reduce ? [1, 1] : [1, 0]);
 
   return (
     <motion.div
@@ -160,11 +161,14 @@ export function Hero() {
     [0, 1],
     reduceMotion ? [0, 0] : [0, -64],
   );
-  const contentOpacity = useTransform(
+  const contentOpacity = useScrollMap(
     scrollYProgress,
     [0, 1],
     reduceMotion ? [1, 1] : [1, 0.35],
   );
+  // ...and tips back like a page being turned, hinged at its foot.
+  const pageTilt = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, 14]);
+  const pageScale = useTransform(scrollYProgress, [0, 1], reduceMotion ? [1, 1] : [1, 0.93]);
 
   return (
     <section
@@ -175,7 +179,14 @@ export function Hero() {
       style={{ minHeight: "max(100svh, 640px)" }}
     >
       <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
+        style={{
+          y: contentY,
+          opacity: contentOpacity,
+          rotateX: pageTilt,
+          scale: pageScale,
+          transformPerspective: 1400,
+          transformOrigin: "50% 100%",
+        }}
         className="relative flex flex-1 flex-col items-center justify-center px-5 pb-24 pt-6 text-center will-change-transform sm:px-12"
       >
         <h1 id="hero-heading" className="font-display italic text-ink">
@@ -183,18 +194,39 @@ export function Hero() {
             className="block leading-[0.9] tracking-[-0.02em]"
             style={{ fontSize: "clamp(72px, 14vw, 220px)" }}
           >
-            <span className="inline-flex overflow-hidden align-baseline">
+            <span className="relative inline-flex align-baseline">
+              {/* Second ink pass in red, landing a hair off register like
+                  a two-colour letterpress run. */}
+              <motion.span
+                aria-hidden
+                initial={reduceMotion ? false : { opacity: 0, x: -18, y: 10 }}
+                animate={{ opacity: 0.2, x: 4, y: 3 }}
+                transition={{ delay: headlineEnd + 0.05, duration: reduceMotion ? 0.001 : 0.5, ease: REVEAL_EASE }}
+                className="pointer-events-none absolute inset-0 inline-flex select-none text-tattoo-red mix-blend-multiply"
+              >
+                {TOORN}
+              </motion.span>
               {TOORN.split("").map((letter, i) => (
                 <motion.span
                   key={`${letter}-${i}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  // Each letter is pressed into the paper: it comes down
+                  // large and soft, lands with a little give, then sits.
+                  initial={
+                    reduceMotion
+                      ? false
+                      : { opacity: 0, scale: 1.4, y: -18, filter: "blur(8px)" }
+                  }
+                  animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
                   transition={{
                     delay: i * stagger,
-                    duration: dur,
-                    ease: REVEAL_EASE,
+                    opacity: { delay: i * stagger, duration: 0.18 },
+                    filter: { delay: i * stagger, duration: 0.3 },
+                    type: "spring",
+                    stiffness: 480,
+                    damping: 20,
+                    mass: 0.9,
                   }}
-                  className="inline-block"
+                  className="relative inline-block"
                 >
                   {letter}
                 </motion.span>
