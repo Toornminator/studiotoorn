@@ -4,6 +4,7 @@ import { Testimonials } from "@/components/testimonials/Testimonials";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
 import { buildAlternates } from "@/i18n/config";
+import { seoDescription } from "@/lib/seo";
 
 /**
  * /reviews — the guest book. Nick sends this link after a dinner. Guests
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const [t, locale] = await Promise.all([getDictionary(), getCurrentLocale()]);
   return {
     title: t.reviews.metaTitle,
-    description: t.reviews.metaDescription,
+    description: seoDescription(t.reviews.metaDescription),
     alternates: buildAlternates("/reviews", locale),
     robots: { index: true, follow: true },
   };
