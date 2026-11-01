@@ -12,6 +12,14 @@ De hoofdsite van Studio Toorn, digitaal atelier aan de Costa del Sol. Verkoopt v
 - `images/work/` — portfolio-captures (WebP, desktop 900/1600 + mobiel 560), gemaakt met Playwright
 - `audit/`, `offerte/`, `factuur/` + `/voorproef` (redirect) horen bij JARVIS; niet aanraken
 
+## Meertalig + SEO (sinds 2026-11-01)
+- `index.html` is het Engelse TEMPLATE; `node _build/build.mjs` genereert daaruit `/es/`, `/nl/`, 12 dienstpagina's (`/services/*`, `/es/servicios/*`, `/nl/diensten/*`), `sitemap.xml` en `404.html`, en ververst de head/JSON-LD van `index.html` zelf (idempotent).
+- Teksten homepage: `assets/i18n.js`. Teksten dienstpagina's: `_build/content-{en,es,nl}.mjs`. Na elke tekstwijziging: build draaien.
+- Taalwissel = echte links met hreflang; JS toont alleen een suggestie-chip, nooit een redirect.
+- Hero-intro is CSS-gedreven (LCP); `sections.js` start pas na de eerste paint. Niet terugdraaien.
+- Google Ads-bestanden: `node _build/ads.mjs` → `deliverables/seo-sea/`. Plan: `deliverables/seo-sea/PLAN.md`.
+- Search Console: domein-property `sc-domain:studiotoorn.com` (Nicks Google-account).
+
 ## Stack
 Puur HTML/CSS/JS, geen build. GSAP 3.13 (ScrollTrigger + SplitText, gratis sinds 2025) + Lenis 1.3 via jsDelivr. Fonts Boska + General Sans via Fontshare. Formspree `xpwzgrqj`.
 

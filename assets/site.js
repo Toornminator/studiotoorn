@@ -19,14 +19,10 @@
   var mm = gsap.matchMedia();
   var ST = window.ST = {};
 
-  /* ---------------- language ---------------- */
-  var lang = 'en';
-  try { lang = localStorage.getItem('st-lang') || ''; } catch (e) {}
-  if (!DICT[lang]) {
-    var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
-    lang = DICT[nav] ? nav : 'en';
-  }
+  /* ---------------- language (one static URL per language) ---------------- */
+  var lang = DICT[html.lang] ? html.lang : 'en';
   var T = function (k) { return DICT[lang][k] !== undefined ? DICT[lang][k] : DICT.en[k]; };
+  window.dataLayer = window.dataLayer || [];
 
   function bookingText() {
     var now = new Date(), d = new Date(now.getFullYear(), now.getMonth() + (now.getDate() > 20 ? 2 : 1), 1);
@@ -36,35 +32,40 @@
     return T('booking').replace('{m}', m);
   }
 
-  function applyLang(code, initial) {
-    lang = code;
-    try { localStorage.setItem('st-lang', code); } catch (e) {}
-    html.lang = code;
-    if (!initial) ST.splitsRevertPending();
-    $$('[data-i18n]').forEach(function (el) {
-      if (el.id === 'scrub') return;
-      var v = T(el.getAttribute('data-i18n'));
-      if (typeof v === 'string') el.innerHTML = v;
+  $$('.js-booking').forEach(function (el) { el.textContent = bookingText(); });
+  $$('.lang a').forEach(function (a) {
+    a.addEventListener('click', function () { try { localStorage.setItem('st-lang', a.getAttribute('data-lang')); } catch (e) {} });
+  });
+
+  /* suggest the visitor's own language once, never redirect */
+  (function () {
+    var stored = null, seen = null;
+    try { stored = localStorage.getItem('st-lang'); seen = sessionStorage.getItem('st-sug'); } catch (e) {}
+    var pref = stored || ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    if (seen || pref === lang || !DICT[pref]) return;
+    var target = $('.lang a[data-lang="' + pref + '"]');
+    if (!target) return;
+    var chip = document.createElement('div');
+    chip.className = 'lang-sug';
+    chip.setAttribute('lang', pref);
+    chip.innerHTML = '<a href="' + target.getAttribute('href') + '" hreflang="' + pref + '">' + DICT[pref].suggest + '<svg aria-hidden="true"><use href="#i-r"/></svg></a><button type="button" aria-label="' + DICT[pref].close + '">&times;</button>';
+    document.body.appendChild(chip);
+    chip.querySelector('a').addEventListener('click', function () { try { localStorage.setItem('st-lang', pref); } catch (e) {} });
+    chip.querySelector('button').addEventListener('click', function () {
+      try { sessionStorage.setItem('st-sug', '1'); } catch (e) {}
+      chip.classList.remove('show');
+      setTimeout(function () { chip.remove(); }, 600);
     });
-    $$('[data-i18n-ph]').forEach(function (el) { el.setAttribute('placeholder', T(el.getAttribute('data-i18n-ph'))); });
-    document.title = T('meta.title');
-    var md = $('meta[name="description"]'); if (md) md.setAttribute('content', T('meta.desc'));
-    $$('.js-booking').forEach(function (el) { el.textContent = bookingText(); });
-    $$('.lang button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang') === code); });
-    if (!initial) {
-      ST.splitsReinitPending();
-      ST.buildScrub();
-      ST.resetLog();
-      ST.ulineReset();
-      setTimeout(function () { ScrollTrigger.refresh(); }, 60);
-    }
-  }
-  applyLang(lang, true);
-  $$('.lang button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var c = b.getAttribute('data-lang');
-      if (c !== lang) applyLang(c, false);
-    });
+    setTimeout(function () { chip.classList.add('show'); }, 2600);
+  })();
+
+  /* conversion events for analytics / ads (picked up once a tag is installed) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    var ev = /wa\.me/.test(h) ? 'whatsapp_click' : /^mailto:/.test(h) ? 'email_click' : /^tel:/.test(h) ? 'phone_click' : null;
+    if (ev) window.dataLayer.push({ event: ev, page_language: lang, link_location: (a.closest('section, header, footer') || {}).id || '' });
   });
 
   /* ---------------- smooth scroll ---------------- */
@@ -172,36 +173,34 @@
 
   /* ---------------- hero ---------------- */
   var hlIn = $$('.hl-in'), hIn = $$('.h-in'), shots = $$('.shot'), badge = $('.hero-badge');
-  if (!reduced) {
+  /* the text intro is CSS-driven; JS only takes over behind the first-visit loader */
+  var loaderRun = !reduced && html.classList.contains('first-visit') && !!$('#loader');
+  if (loaderRun) {
     gsap.set(hlIn, { y: 0, yPercent: 115 });
     gsap.set(hIn, { autoAlpha: 0, y: 26 });
   }
-  gsap.set('.s1', { z: -160 }); gsap.set('.s2', { z: -60 }); gsap.set('.s3', { z: 60 }); gsap.set(badge, { z: 140 });
+  if (shots.length) { gsap.set('.s1', { z: -160 }); gsap.set('.s2', { z: -60 }); gsap.set('.s3', { z: 60 }); }
+  if (badge) gsap.set(badge, { z: 140 });
 
-  ST.ulineReset = function () {
-    $$('.uline path').forEach(function (p) { p.style.strokeDasharray = ''; p.style.strokeDashoffset = ''; });
-  };
+  function floatShots() {
+    shots.forEach(function (s, i) {
+      gsap.to(s, { y: i % 2 ? 12 : -12, duration: 3.4 + i * 0.7, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+    });
+  }
   function heroIntro() {
     body.classList.remove('locked');
     if (lenis) lenis.start();
-    if (reduced) { gsap.set(hIn, { autoAlpha: 1 }); return; }
-    var path = $('.uline path'), len = path ? path.getTotalLength() : 0;
-    if (path) { path.style.strokeDasharray = len; path.style.strokeDashoffset = len; }
+    if (reduced) return;
+    if (!loaderRun) { floatShots(); return; }
     var tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-    tl.fromTo('.nav-in', { y: -30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, clearProps: 'transform,opacity,visibility' }, 0.1)
-      .to(hlIn, { yPercent: 0, duration: 1.4, stagger: 0.13 }, 0)
-      .to(hIn, { autoAlpha: 1, y: 0, duration: 1.1, stagger: 0.08 }, 0.3)
-      .from(shots, { y: 160, autoAlpha: 0, rotationX: -22, duration: 1.6, stagger: 0.12 }, 0.35)
-      .from(badge, { scale: 0.6, autoAlpha: 0, duration: 1.1 }, 1)
-      .add(function () {
-        shots.forEach(function (s, i) {
-          gsap.to(s, { y: i % 2 ? 12 : -12, duration: 3.4 + i * 0.7, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-        });
-      }, 1.4);
-    if (path) tl.to(path, { strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut' }, 1.0);
+    tl.fromTo('.nav-in', { y: -30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, clearProps: 'transform,opacity,visibility' }, 0.1);
+    if (hlIn.length) tl.to(hlIn, { yPercent: 0, duration: 1.4, stagger: 0.13 }, 0);
+    if (hIn.length) tl.to(hIn, { autoAlpha: 1, y: 0, duration: 1.1, stagger: 0.08 }, 0.3);
+    if (shots.length) tl.from(shots, { y: 160, autoAlpha: 0, rotationX: -22, duration: 1.6, stagger: 0.12 }, 0.35).add(floatShots, 1.4);
+    if (badge) tl.from(badge, { scale: 0.6, autoAlpha: 0, duration: 1.1 }, 1);
   }
 
-  if (!reduced) {
+  if (!reduced && $('#stack') && $('#hero')) {
     var stack = $('#stack'), heroEl = $('#hero');
     var rx = gsap.quickTo(stack, 'rotationX', { duration: 1.2, ease: 'power3' });
     var ry = gsap.quickTo(stack, 'rotationY', { duration: 1.2, ease: 'power3' });
@@ -268,8 +267,7 @@
 
   /* ---------------- loader ---------------- */
   ST.boot = function (after) {
-    var first = html.classList.contains('first-visit');
-    if (!first || reduced) { after(); return; }
+    if (!loaderRun) { after(); return; }
     body.classList.add('locked');
     if (lenis) lenis.stop();
     var words = T('loader'), wi = 0, wEl = $('#ld-word'), cEl = $('#ld-count');
@@ -277,9 +275,9 @@
     var wt = setInterval(function () { wi = (wi + 1) % words.length; wEl.textContent = words[wi]; }, 320);
     var o = { v: 0 };
     gsap.timeline()
-      .fromTo('.ld-mono', { autoAlpha: 0, scale: 0.6, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 1.4, ease: 'expo.out' }, 0)
-      .to(o, { v: 100, duration: 1.6, ease: 'power2.inOut', onUpdate: function () { cEl.textContent = String(Math.round(o.v)).padStart(2, '0'); } }, 0)
-      .to('#ld-bar', { scaleX: 1, duration: 1.6, ease: 'power2.inOut' }, 0)
+      .fromTo('.ld-mono', { autoAlpha: 0, scale: 0.6, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'expo.out' }, 0)
+      .to(o, { v: 100, duration: 1.2, ease: 'power2.inOut', onUpdate: function () { cEl.textContent = String(Math.round(o.v)).padStart(2, '0'); } }, 0)
+      .to('#ld-bar', { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }, 0)
       .add(function () { clearInterval(wt); try { sessionStorage.setItem('st-seen', '1'); } catch (e) {} })
       .to('.ld-core, .ld-count, .ld-bar', { autoAlpha: 0, duration: 0.3 })
       .to('.ld-top', { yPercent: -100, duration: 1.05, ease: 'expo.inOut' }, '<0.1')

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://studiotoorn.com/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/es/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/nl/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/services/web-design/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/web-design/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/diseno-web/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/website-laten-maken/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/web-design/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/es/servicios/diseno-web/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/web-design/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/diseno-web/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/website-laten-maken/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/web-design/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/nl/diensten/website-laten-maken/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/web-design/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/diseno-web/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/website-laten-maken/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/web-design/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/services/apps/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/apps/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/apps/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/app-laten-maken/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/apps/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/es/servicios/apps/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/apps/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/apps/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/app-laten-maken/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/apps/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/nl/diensten/app-laten-maken/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/apps/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/apps/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/app-laten-maken/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/apps/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/services/ai-automation/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/ai-automation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/automatizacion-ia/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/ai-automatisering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/ai-automation/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/es/servicios/automatizacion-ia/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/ai-automation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/automatizacion-ia/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/ai-automatisering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/ai-automation/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/nl/diensten/ai-automatisering/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/ai-automation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/automatizacion-ia/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/ai-automatisering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/ai-automation/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/services/branding/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/branding/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/branding/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/branding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/branding/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/es/servicios/branding/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/branding/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/branding/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/branding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/branding/"/>
+  </url>
+  <url>
+    <loc>https://studiotoorn.com/nl/diensten/branding/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studiotoorn.com/services/branding/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://studiotoorn.com/es/servicios/branding/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://studiotoorn.com/nl/diensten/branding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studiotoorn.com/services/branding/"/>
+  </url>
+</urlset>

@@ -3,6 +3,8 @@
   'use strict';
   var ST = window.ST;
   if (!ST) return;
+  /* set up after the first paint so the hero renders (and LCP fires) before heavy scroll setup */
+  function init() {
   var $ = ST.$, $$ = ST.$$, mm = ST.mm, reduced = ST.reduced, T = ST.T;
   var body = document.body;
 
@@ -83,8 +85,11 @@
       return w.charAt(0) === '\u0001' ? '<span class="w"><em>' + w.slice(1) + '</em></span>' : '<span class="w">' + w + '</span>';
     }).join(' ');
     if (reduced) return;
-    scrubTw = gsap.to($$('.w', el), {
-      opacity: 1, ease: 'none', stagger: 0.12,
+    var words = $$('.w', el);
+    gsap.set(words, { opacity: 1 });
+    ScrollTrigger.create({ trigger: '#manifesto', start: 'top bottom', once: true, onEnter: function () { gsap.set(words, { opacity: 0.14 }); } });
+    scrubTw = gsap.fromTo(words, { opacity: 0.14 }, {
+      opacity: 1, ease: 'none', stagger: 0.12, immediateRender: false,
       scrollTrigger: { trigger: '#manifesto', start: 'top 68%', end: 'center 42%', scrub: 0.6 }
     });
   };
@@ -92,7 +97,7 @@
 
   /* ---------------- work: horizontal pinned gallery ---------------- */
   var hudI = $('#work-i'), hudBar = $('#work-bar'), cases = $$('#work-track > *');
-  mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', function () {
+  if ($('#work')) mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', function () {
     var sec = $('#work'), track = $('#work-track');
     sec.classList.add('is-pinned');
     var dist = function () { return Math.max(0, track.scrollWidth - innerWidth); };
@@ -138,9 +143,9 @@
      Measured from live element rects so pinned sections report correctly. */
   (function () {
     var meta = $('meta[name="theme-color"]');
-    var darkZones = [$('#work'), $('#ai'), $('#contact'), $('footer')];
+    var darkZones = $$('[data-theme="dark"]');
     var links = ['work', 'services', 'ai', 'studio', 'faq'].map(function (id) { return [$('#' + id), $('.nav-links a[href="#' + id + '"]')]; });
-    var contact = $('#contact'), footer = $('footer');
+    var contact = $('#contact') || $('footer'), footer = $('footer');
     var wasDark = null, wasIn = null;
     function update() {
       var vh = innerHeight, mid = vh * 0.5;
@@ -244,7 +249,9 @@
   ];
   function tlFor(i) { if (!tls[i]) tls[i] = builders[i](vizEls[i]); return tls[i]; }
 
-  if (!reduced) {
+  if (!svcBlocks.length || !vizEls.length) {
+    /* page without the services stage */
+  } else if (!reduced) {
     var activeSvc = -1, stageOn = false;
     var activate = function (i) {
       if (i === activeSvc) return;
@@ -298,7 +305,8 @@
   }
 
   /* ---------------- AI chapter: live ops log ---------------- */
-  (function () {
+  ST.resetLog = function () {};
+  if ($('#ai-log')) (function () {
     var log = $('#ai-log'), nodes = $$('#flow .node'), idx = 0, timer = null, typer = null, on = false;
     function line(force) {
       var lines = T('ai.log'), L = lines[idx % lines.length];
@@ -330,7 +338,7 @@
   })();
 
   /* ---------------- studio ---------------- */
-  if (!reduced) {
+  if (!reduced && $('#portrait')) {
     gsap.to('#portrait', { clipPath: 'inset(0% 0 0 0 round 18px)', duration: 1.6, ease: 'expo.inOut', scrollTrigger: { trigger: '#portrait', start: 'top 82%', once: true } });
     gsap.fromTo('#portrait img', { yPercent: -10 }, { yPercent: 2, ease: 'none', scrollTrigger: { trigger: '#portrait', start: 'top bottom', end: 'bottom top', scrub: true } });
   }
@@ -347,6 +355,7 @@
   /* ---------------- process ---------------- */
   (function () {
     var steps = $$('#proc li'), fill = $('#proc-fill');
+    if (!steps.length || !fill) return;
     if (reduced) { steps.forEach(function (s) { s.classList.add('lit'); }); gsap.set(fill, { scaleX: 1, scaleY: 1 }); return; }
     function lit(p) { steps.forEach(function (s, i) { s.classList.toggle('lit', p >= (i + 0.15) / steps.length); }); }
     mm.add('(min-width: 901px)', function () {
@@ -390,6 +399,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error('send');
           ok.classList.add('show');
+          (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead', form_name: 'brief', project_type: (form.elements.project && form.elements.project.value) || '', page_language: document.documentElement.lang });
           if (!reduced) gsap.from(ok.children, { y: 24, autoAlpha: 0, stagger: 0.1, duration: 0.9, ease: 'expo.out', delay: 0.15 });
         })
         .catch(function () { err.textContent = T('f.fail'); err.classList.add('show'); btn.disabled = false; btn.style.opacity = ''; });
@@ -420,4 +430,6 @@
     ST.boot(ST.heroIntro);
   });
   window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+  }
+  requestAnimationFrame(function () { setTimeout(init, 0); });
 })();
