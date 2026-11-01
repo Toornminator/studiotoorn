@@ -125,6 +125,110 @@ section[id] {
   }
 }
 
+/* Preloader curtain + hero intro, in CSS so neither waits for hydration
+   (on a slow phone that alone can take seconds, which used to keep the
+   curtain down and the hero invisible). `--intro` is when the hero starts
+   pressing in: just as the curtain lifts on a first visit, at once for a
+   visitor who already saw the curtain this session (`preloader-skip` is
+   set by an inline script in <head> before first paint). */
+:root {
+  --intro: 1.2s;
+}
+
+.preloader-skip {
+  --intro: 0s;
+}
+
+.preloader-skip [data-preloader] {
+  display: none !important;
+}
+
+[data-preloader] {
+  animation: preloader-lift 0.95s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+}
+
+@keyframes preloader-lift {
+  to {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.03);
+    visibility: hidden;
+  }
+}
+
+/* TOORN, letter by letter: pressed into the paper, a little give, set. */
+.hero-press {
+  animation: hero-press 0.75s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+@keyframes hero-press {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scale(1.4);
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(2px) scale(0.96);
+    filter: blur(0);
+  }
+  78% {
+    transform: translateY(0) scale(1.015);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* The red second ink pass, landing a hair off register. */
+.hero-misreg {
+  animation: hero-misreg 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-misreg {
+  from {
+    opacity: 0;
+    transform: translate(-18px, 10px);
+  }
+  to {
+    opacity: 0.2;
+    transform: translate(4px, 3px);
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-preloader] {
+    animation-duration: 0.5s;
+    animation-delay: 0.8s;
+  }
+  .hero-press,
+  .hero-rise {
+    animation: none;
+  }
+  .hero-misreg {
+    animation: none;
+    opacity: 0.2;
+    transform: translate(4px, 3px);
+  }
+}
+
 /* Review form: a freshly made polaroid "develops" in place, rising out of
    a dark, sepia murk the way instant film does. Filter-only, so it never
    triggers layout. */
@@ -174,14 +278,40 @@ html.custom-cursor-active *::after {
   }
 }
 
-/* View Transitions (next.config experimental.viewTransition). A calm
-   cross-fade on every client-side route change; elements that share a
-   view-transition-name (a cookbook teaser photo and the recipe page hero)
-   morph from one into the other. */
-::view-transition-old(root),
+/* View Transitions. Client-side route changes (next.config
+   experimental.viewTransition) AND ordinary link clicks (the cross-document
+   opt-in below; browsers without it just load the page) turn the page like
+   paper: the new sheet slides up over the old one, which sinks back a
+   little. Elements that share a view-transition-name (a cookbook teaser
+   photo and the recipe page hero) still morph from one into the other. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: vt-sheet-out 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
 ::view-transition-new(root) {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation: vt-sheet-in 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes vt-sheet-out {
+  to {
+    transform: translateY(-3%) scale(0.97);
+    opacity: 0.55;
+  }
+}
+
+@keyframes vt-sheet-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(5%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
 }
 
 /* Honour motion preferences: no cross-fade, no morph, instant swap. */

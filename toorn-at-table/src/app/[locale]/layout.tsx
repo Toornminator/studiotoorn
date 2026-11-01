@@ -227,6 +227,14 @@ export default async function RootLayout({
           href="https://www.google-analytics.com"
           crossOrigin="anonymous"
         />
+        {/* Before first paint: a visitor who already saw the preloader this
+            session skips it at once (no black curtain while JS boots), and
+            the hero intro plays without waiting for it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{if(sessionStorage.getItem(\"toorn-preloader-shown\"))document.documentElement.classList.add(\"preloader-skip\")}catch(e){}",
+          }}
+        />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>

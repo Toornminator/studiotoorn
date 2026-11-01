@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
+import { TossedPhoto } from "./TossedPhoto";
 import { getDictionary, getCurrentLocale } from "@/i18n/server";
 import { localizedHref } from "@/i18n/config";
 import { getTestimonials, getTestimonialStats } from "@/lib/content/testimonials";
@@ -171,16 +171,7 @@ function TestimonialCard({ item, index }: { item: Testimonial; index: number }) 
         {item.photos && item.photos.length > 0 && (
           <div className="mt-7 flex flex-wrap gap-4">
             {item.photos.map((src, i) => (
-              <Image
-                key={src}
-                src={src}
-                alt=""
-                width={1080}
-                height={1313}
-                sizes="120px"
-                className="h-auto w-[104px] shadow-[0_8px_20px_-10px_rgba(20,16,12,0.55)] md:w-[120px]"
-                style={{ transform: `rotate(${[-3, 2.5, -1.5][i] ?? 0}deg)` }}
-              />
+              <TossedPhoto key={src} src={src} index={i} rotation={[-3, 2.5, -1.5][i] ?? 0} />
             ))}
           </div>
         )}

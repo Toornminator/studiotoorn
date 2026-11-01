@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   motion,
   useReducedMotion,
@@ -12,9 +12,9 @@ import { useScrollMap } from "@/components/ui/useScrollMap";
 import { Polaroid } from "@/components/polaroid/Polaroid";
 import { useT } from "@/i18n/client";
 
-const REVEAL_EASE = [0.65, 0, 0.35, 1] as const;
 const LETTER_STAGGER = 0.08;
-const REVEAL_DURATION = 0.6;
+/** Must match --intro in globals.css. */
+const INTRO_S = 1.2;
 const TOORN = "TOORN";
 
 /**
@@ -144,9 +144,18 @@ function HandwrittenNote({ delay, text }: { delay: number; text: string }) {
 export function Hero() {
   const t = useT();
   const reduceMotion = useReducedMotion();
-  const stagger = reduceMotion ? 0 : LETTER_STAGGER;
-  const dur = reduceMotion ? 0.001 : REVEAL_DURATION;
-  const headlineEnd = dur + (TOORN.length - 1) * stagger;
+  // The wordmark, "at table" and the two lines under it animate in CSS
+  // (globals.css: hero-press / hero-misreg / hero-rise), timed from first
+  // paint by --intro, so the hero shows without waiting for hydration. The
+  // JS-driven bits that follow (marker stroke, scrawl, scroll cue) start
+  // relative to mount, so they are offset by whatever is left of --intro
+  // at that moment to stay in step with the CSS.
+  const [introLeft] = useState(() => {
+    if (typeof window === "undefined") return INTRO_S;
+    if (document.documentElement.classList.contains("preloader-skip")) return 0;
+    return Math.max(0, INTRO_S - performance.now() / 1000);
+  });
+  const headlineEnd = reduceMotion ? 0 : introLeft + (TOORN.length - 1) * LETTER_STAGGER + 0.3;
 
   // Scroll-linked "settle": as the hero leaves, its content drifts up a touch
   // and fades, so it recedes like a title card instead of hard-cutting into
@@ -197,59 +206,37 @@ export function Hero() {
             <span className="relative inline-flex align-baseline">
               {/* Second ink pass in red, landing a hair off register like
                   a two-colour letterpress run. */}
-              <motion.span
+              <span
                 aria-hidden
-                initial={reduceMotion ? false : { opacity: 0, x: -18, y: 10 }}
-                animate={{ opacity: 0.2, x: 4, y: 3 }}
-                transition={{ delay: headlineEnd + 0.05, duration: reduceMotion ? 0.001 : 0.5, ease: REVEAL_EASE }}
-                className="pointer-events-none absolute inset-0 inline-flex select-none text-tattoo-red mix-blend-multiply"
+                className="hero-misreg pointer-events-none absolute inset-0 inline-flex select-none text-tattoo-red mix-blend-multiply"
+                style={{ animationDelay: "calc(var(--intro) + 0.45s)" }}
               >
                 {TOORN}
-              </motion.span>
+              </span>
               {TOORN.split("").map((letter, i) => (
-                <motion.span
+                // Each letter is pressed into the paper: it comes down large
+                // and soft, lands with a little give, then sits.
+                <span
                   key={`${letter}-${i}`}
-                  // Each letter is pressed into the paper: it comes down
-                  // large and soft, lands with a little give, then sits.
-                  initial={
-                    reduceMotion
-                      ? false
-                      : { opacity: 0, scale: 1.4, y: -18, filter: "blur(8px)" }
-                  }
-                  animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    delay: i * stagger,
-                    opacity: { delay: i * stagger, duration: 0.18 },
-                    filter: { delay: i * stagger, duration: 0.3 },
-                    type: "spring",
-                    stiffness: 480,
-                    damping: 20,
-                    mass: 0.9,
-                  }}
-                  className="relative inline-block"
+                  className="hero-press relative inline-block"
+                  style={{ animationDelay: `calc(var(--intro) + ${i * LETTER_STAGGER}s)` }}
                 >
                   {letter}
-                </motion.span>
+                </span>
               ))}
             </span>
           </span>
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: headlineEnd,
-              duration: dur,
-              ease: REVEAL_EASE,
-            }}
-            className="block leading-[0.9] text-ink/85"
+          <span
+            className="hero-rise block leading-[0.9] text-ink/85"
             style={{
               fontSize: "clamp(40px, 8vw, 120px)",
               marginLeft: "1.4em",
               marginTop: "-0.05em",
+              animationDelay: "calc(var(--intro) + 0.42s)",
             }}
           >
             at table
-          </motion.span>
+          </span>
           {/* Visually-hidden, localized descriptor so the page h1 carries the
               core keyword ("private chef · Costa del Sol") for crawlers and
               screen readers, while the visible mark stays the clean wordmark. */}
@@ -261,32 +248,23 @@ export function Hero() {
           reduce={Boolean(reduceMotion)}
         />
 
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: headlineEnd + 0.35,
-            duration: reduceMotion ? 0.001 : 0.55,
-            ease: "easeOut",
-          }}
-          className="mt-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ink/65 sm:mt-10 sm:text-xs sm:tracking-[0.32em]"
+        <p
+          style={{ animationDelay: "calc(var(--intro) + 0.8s)" }}
+          className="hero-rise mt-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ink/65 sm:mt-10 sm:text-xs sm:tracking-[0.32em]"
         >
           {t.hero.establishedLine}
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: headlineEnd + 0.55,
-            duration: reduceMotion ? 0.001 : 0.6,
-            ease: "easeOut",
+        <p
+          className="hero-rise mt-5 max-w-xl px-2 font-serif italic text-ink/80 sm:max-w-2xl"
+          style={{
+            fontSize: "clamp(18px, 2.2vw, 22px)",
+            lineHeight: 1.45,
+            animationDelay: "calc(var(--intro) + 1s)",
           }}
-          className="mt-5 max-w-xl px-2 font-serif italic text-ink/80 sm:max-w-2xl"
-          style={{ fontSize: "clamp(18px, 2.2vw, 22px)", lineHeight: 1.45 }}
         >
           {t.hero.tagline}
-        </motion.p>
+        </p>
 
         <HandwrittenNote delay={headlineEnd + 0.8} text={t.hero.handwrittenNote} />
 

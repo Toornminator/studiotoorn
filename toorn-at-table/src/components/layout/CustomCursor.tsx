@@ -39,6 +39,10 @@ export function CustomCursor() {
   const disabled = isCoarsePointer || prefersReducedMotion;
   const [mode, setMode] = useState<CursorMode>("dot");
   const [label, setLabel] = useState<string | null>(null);
+  // Over the dark sections (evening act, footer) the ink ring would vanish,
+  // so it turns cream there.
+  const [onDark, setOnDark] = useState(false);
+  const darkRef = useRef(false);
   const modeRef = useRef<CursorMode>("dot");
   const labelRef = useRef<string | null>(null);
   // Bound directly to the pointer (no spring): the cursor must track 1:1
@@ -73,6 +77,11 @@ export function CustomCursor() {
       y.set(event.clientY);
 
       const target = event.target as Element | null;
+      const dark = Boolean(target?.closest("[data-nav-dark]"));
+      if (dark !== darkRef.current) {
+        darkRef.current = dark;
+        setOnDark(dark);
+      }
       if (!target) {
         setModeIfChanged("dot");
         setLabelIfChanged(null);
@@ -175,7 +184,7 @@ export function CustomCursor() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.4, opacity: 0 }}
             transition={MODE_TRANSITION}
-            className="rounded-full border-2 border-ink"
+            className={`rounded-full border-2 transition-colors ${onDark ? "border-cream" : "border-ink"}`}
             style={{ width: 34, height: 34 }}
           />
         )}

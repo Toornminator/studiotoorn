@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { localizedHref } from "@/i18n/config";
 import { getAreas } from "@/lib/content/areas";
+import { FooterWordmark } from "./FooterWordmark";
 import { NewsletterForm } from "./NewsletterForm";
 import { SocialLinks } from "./SocialLinks";
 
@@ -155,6 +156,10 @@ export async function Footer() {
             </li>
           </ul>
         </div>
+      </div>
+      {/* The name, full bleed, rising out of the bottom edge. */}
+      <div className="px-3 md:px-6">
+        <FooterWordmark />
       </div>
     </footer>
   );

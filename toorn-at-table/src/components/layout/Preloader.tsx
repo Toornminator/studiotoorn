@@ -42,11 +42,16 @@ export function Preloader() {
     document.documentElement.classList.add("preloader-active");
     document.body.style.overflow = "hidden";
 
+    // Counted from navigation start, not from hydration: on a slow phone
+    // hydration alone can take seconds, and the curtain must not wait for
+    // it on top of that. (The CSS fallback in globals.css lifts it on the
+    // same schedule even before any JS has run.)
     const duration = reduceMotion ? REDUCED_MS : TOTAL_MS;
+    const remaining = Math.max(0, duration - performance.now());
     const t = window.setTimeout(() => {
       sessionStorage.setItem(SESSION_KEY, "1");
       setShow(false);
-    }, duration);
+    }, remaining);
 
     return () => window.clearTimeout(t);
   }, [reduceMotion]);
@@ -64,6 +69,7 @@ export function Preloader() {
       {show && (
         <motion.div
           key="preloader"
+          data-preloader
           role="status"
           aria-live="polite"
           aria-label={t.preloader.ariaLabel}
