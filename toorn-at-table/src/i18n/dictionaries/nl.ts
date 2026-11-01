@@ -341,6 +341,14 @@ export const nl: Dictionary = {
     cta: "Plan jouw avond",
     invitation: "En die van jou? De volgende tafel staat klaar.",
   },
+  seo: {
+    homeTitle: "Privéchef Marbella & Costa del Sol · TOORN at table",
+    homeDescription: "Privéchef in Marbella en aan de Costa del Sol. Nick Toorn, opgeleid in de sterrenkeuken, kookt privédiners, villaweken en workshops aan jouw tafel.",
+    ogTitle: "TOORN at table · Kunst op een bord",
+    ogDescription: "Precisie uit de sterrenkeuken, Andalusische zon. Echt eten, met de hand, aan jouw tafel.",
+    privacyDescription: "Welke gegevens TOORN at table verzamelt, waarvoor, wie ze nog meer ziet en hoe je ze terugkrijgt. De volledige privacyverklaring (AVG).",
+    termsDescription: "Hoe boeken werkt bij TOORN at table, voor een privédiner, villaweek, workshop of event: betaling, annulering, allergieën en toepasselijk recht.",
+  },
   reviews: {
     metaTitle: "Laat een review achter",
     metaDescription:

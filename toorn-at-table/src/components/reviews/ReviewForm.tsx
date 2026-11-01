@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { useLocale, useT } from "@/i18n/client";
 import { makePolaroid, PolaroidError } from "@/lib/polaroid";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Guest-book form: stars, a review, and up to three photos that are turned
@@ -133,8 +134,12 @@ export function ReviewForm() {
 
   const botRef = useRef<HTMLInputElement>(null);
   const timers = useRef(new Map<string, ReturnType<typeof setTimeout>>());
+  // Latest photos for the unmount cleanup (revoking blob URLs), kept in
+  // sync after each render rather than during it.
   const photosRef = useRef<Photo[]>([]);
-  photosRef.current = photos;
+  useEffect(() => {
+    photosRef.current = photos;
+  }, [photos]);
 
   // A past-event overlay links here with ?occasion=… so the guest doesn't
   // have to retype which night it was. Read once on mount (useSearchParams
@@ -305,6 +310,7 @@ export function ReviewForm() {
         return;
       }
       setSubmit({ status: "success" });
+      trackEvent("review_submitted", { rating, photos: photos.length });
     } catch {
       setSubmit({ status: "error", message: copy.errors.generic });
     }

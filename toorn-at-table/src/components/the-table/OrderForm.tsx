@@ -4,6 +4,7 @@ import { useRef, useState, useTransition } from "react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { useT } from "@/i18n/client";
 import type { Dictionary } from "@/i18n/types";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Weekly-menu order form for "Toorn aan de deur". Pure client-side submit
@@ -87,6 +88,9 @@ async function submitToNetlify(fields: OrderFields): Promise<boolean> {
   });
   if (!res.ok) {
     console.error(`[order] Netlify Forms POST failed: ${res.status} ${res.statusText}`);
+  } else {
+    // Conversion for GA4 / Google Ads. No personal data, only the shape.
+    trackEvent("generate_lead", { form: "order", portions: Number(fields.portions) || undefined });
   }
   return res.ok;
 }

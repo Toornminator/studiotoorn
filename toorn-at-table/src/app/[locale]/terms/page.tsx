@@ -8,11 +8,10 @@ type Params = { params: Promise<{ locale: string }> };
 // Title is bare; the layout template appends "· TOORN at table".
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   setRequestLocale((await params).locale);
-  const locale = await getCurrentLocale();
+  const [locale, t] = await Promise.all([getCurrentLocale(), getDictionary()]);
   return {
-    title: "Terms",
-    description:
-      "How a private dinner, villa week, workshop or event booking with TOORN at table actually works. Booking flow, payment, cancellation tiers, allergy policy, applicable law.",
+    title: t.legal.termsLabel,
+    description: t.seo.termsDescription,
     alternates: buildAlternates("/terms", locale),
     robots: { index: true, follow: true },
   };

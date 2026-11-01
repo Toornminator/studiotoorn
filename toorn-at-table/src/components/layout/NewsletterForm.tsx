@@ -3,6 +3,7 @@
 import { useRef, useState, useTransition } from "react";
 import { useLocale, useT } from "@/i18n/client";
 import type { Dictionary } from "@/i18n/types";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Newsletter signup. Client-side submit straight to Netlify Forms —
@@ -48,6 +49,8 @@ async function submitToNetlify(
     console.error(
       `[newsletter] Netlify Forms POST failed: ${res.status} ${res.statusText}`,
     );
+  } else {
+    trackEvent("sign_up", { method: "newsletter" });
   }
   return res.ok;
 }

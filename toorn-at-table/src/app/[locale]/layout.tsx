@@ -13,7 +13,8 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { StickerProvider } from "@/components/stickers/StickerProvider";
 import { notFound } from "next/navigation";
 import { LocaleProvider } from "@/i18n/client";
-import { setRequestLocale } from "@/i18n/server";
+import { getDictionary, setRequestLocale } from "@/i18n/server";
+import { AnalyticsEvents } from "@/components/layout/AnalyticsEvents";
 import { isLocale, LOCALES } from "@/i18n/config";
 import { fontVariables } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
@@ -21,18 +22,19 @@ import "../globals.css";
 
 const SITE_URL = "https://toornattable.com";
 
-export const metadata: Metadata = {
+const OG_LOCALE = { en: "en_GB", es: "es_ES", nl: "nl_NL" } as const;
+
+// Language-neutral metadata shared by every locale. The localized title,
+// description and social cards are added per locale in generateMetadata.
+// No site-wide canonical here on purpose: a layout-level canonical of "/"
+// would quietly point any page that forgot its own alternates at the home
+// page. Every indexable page sets its own via buildAlternates().
+const baseMetadata: Metadata = {
   // metadataBase lets every relative URL in this object (OG image,
   // Twitter image, alternates) resolve against the production host
   // instead of localhost. Without it Next.js logs a warning on every
   // build and social previews break.
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: "TOORN at table · Private chef Marbella & Costa del Sol",
-    template: "%s · TOORN at table",
-  },
-  description:
-    "Private chef in Marbella and across the Costa del Sol: Estepona, Sotogrande, Benahavís, Málaga. Michelin-trained precision, Andalusian calm, one table. Private dinners, villa weeks, workshops and events by Nick Toorn since 2023.",
   applicationName: "TOORN at table",
   authors: [{ name: "Nick Toorn" }],
   creator: "Nick Toorn",
@@ -49,9 +51,6 @@ export const metadata: Metadata = {
     "private dinner Spain",
   ],
   category: "food",
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
@@ -63,27 +62,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    siteName: "TOORN at table",
-    title: "TOORN at table · Art on a plate",
-    description:
-      "Michelin-trained precision, Andalusian sun. Real food, by hand, to your table.",
-    url: SITE_URL,
-    // The OG image itself is the 1200x630 card composed in
-    // scripts/build-og-image.py and dropped at src/app/opengraph-image.png.
-    // Next.js App Router auto-discovers that file and emits the right
-    // <meta property="og:image"> tags. No need to repeat it here.
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TOORN at table · Art on a plate",
-    description:
-      "Michelin-trained precision, Andalusian sun. Real food, by hand, to your table.",
-    // Same story for Twitter — src/app/twitter-image.png is picked up
-    // automatically and overrides the openGraph image for Twitter cards.
-  },
   // Installed-app behaviour on iOS: full-screen from the home screen
   // icon (Safari chrome gone), branded title under the icon. Android
   // reads the same intent from the manifest.
@@ -93,6 +71,44 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
   },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return baseMetadata;
+  setRequestLocale(locale);
+  const t = await getDictionary();
+  return {
+    ...baseMetadata,
+    title: { default: t.seo.homeTitle, template: "%s · TOORN at table" },
+    description: t.seo.homeDescription,
+    openGraph: {
+      type: "website",
+      locale: OG_LOCALE[locale],
+      alternateLocale: LOCALES.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
+      siteName: "TOORN at table",
+      title: t.seo.ogTitle,
+      description: t.seo.ogDescription,
+      // No og:url here: every page would inherit it (Privacy claiming to be
+      // the home page). Pages that need one set it; without it, networks
+      // use the URL that was shared, which is right.
+      // The OG image itself is the 1200x630 card composed in
+      // scripts/build-og-image.py and dropped at src/app/opengraph-image.png.
+      // Next.js App Router auto-discovers that file and emits the right
+      // <meta property="og:image"> tags. No need to repeat it here.
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.seo.ogTitle,
+      description: t.seo.ogDescription,
+      // Same story for Twitter — src/app/twitter-image.png is picked up
+      // automatically and overrides the openGraph image for Twitter cards.
+    },
+  };
+}
 
 // Paper-cream browser/status-bar chrome, matching the manifest theme so
 // the installed cookbook app doesn't open under a default-black bar.
@@ -312,6 +328,7 @@ export default async function RootLayout({
           <CookieConsent />
           <ContactNudge />
           <ServiceWorkerRegistrar />
+          <AnalyticsEvents />
         </LocaleProvider>
       </body>
     </html>

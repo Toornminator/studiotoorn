@@ -343,6 +343,14 @@ export const es: Dictionary = {
     cta: "Planifica tu noche",
     invitation: "¿Y la tuya? La próxima mesa está libre.",
   },
+  seo: {
+    homeTitle: "Chef privado en Marbella y Costa del Sol · TOORN at table",
+    homeDescription: "Chef privado en Marbella y la Costa del Sol. Nick Toorn, formado en cocina Michelin, cocina cenas privadas, semanas en villa y talleres en tu mesa.",
+    ogTitle: "TOORN at table · Arte en el plato",
+    ogDescription: "Precisión de cocina Michelin, sol andaluz. Comida de verdad, hecha a mano, en tu mesa.",
+    privacyDescription: "Qué datos recoge TOORN at table, para qué, quién más los ve y cómo recuperarlos. La política de privacidad completa (RGPD).",
+    termsDescription: "Cómo funciona reservar una cena privada, una semana en villa, un taller o un evento con TOORN at table: pago, cancelación, alergias y ley aplicable.",
+  },
   reviews: {
     metaTitle: "Deja una reseña",
     metaDescription:

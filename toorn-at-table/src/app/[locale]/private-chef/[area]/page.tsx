@@ -6,6 +6,7 @@ import { Magnetic } from "@/components/ui/Magnetic";
 import { getArea, getAreas, getAreaSlugs } from "@/lib/content/areas";
 import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
 import { buildAlternates, localizedHref, LOCALES } from "@/i18n/config";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 /**
  * Service-area landing page: the direct answer to "I need a private
@@ -35,15 +36,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const area = getArea(slug, locale);
   if (!area) return {};
 
+  // The area phrase leads and the brand suffix is dropped when it would
+  // push the title past what Google shows.
+  const description = seoDescription(area.metaDescription);
   return {
-    title: area.metaTitle,
-    description: area.metaDescription,
+    title: seoTitle(area.metaTitle),
+    description,
     alternates: buildAlternates(`/private-chef/${slug}`, locale),
     robots: { index: true, follow: true },
     openGraph: {
       title: area.metaTitle,
-      description: area.metaDescription,
-      url: `${SITE}/private-chef/${slug}`,
+      description,
+      url: `${SITE}${localizedHref(`/private-chef/${slug}`, locale)}`,
       images: ["/opengraph-image.png"],
     },
   };

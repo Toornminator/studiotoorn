@@ -1,5 +1,6 @@
 import type { Recipe } from "@/lib/types";
 import type { EventItem } from "@/lib/types";
+import { localizedHref, type Locale } from "@/i18n/config";
 import {
   getTestimonialReviews,
   getTestimonialStats,
@@ -77,6 +78,7 @@ function recipeToSchema(r: Recipe) {
     cookTime: isoDuration(r.cookMinutes),
     totalTime: isoDuration(totalMin > 0 ? totalMin : undefined),
     recipeYield: r.servings ? `${r.servings} servings` : undefined,
+    datePublished: r.publishedAt,
     recipeIngredient: ingredients,
     recipeInstructions: instructions,
     keywords: [r.title, "private chef", "Costa del Sol"].join(", "),
@@ -214,30 +216,42 @@ function personSchema() {
   };
 }
 
+const BREADCRUMB_LABELS: Record<Locale, { home: string; cookbook: string }> = {
+  en: { home: "Home", cookbook: "Cookbook" },
+  es: { home: "Inicio", cookbook: "Recetario" },
+  nl: { home: "Home", cookbook: "Kookboek" },
+};
+
 /**
  * Structured data for a standalone /recipes/[slug] page. Re-keys the Recipe
  * entity to its own canonical URL (instead of the home-page anchor) so Google
  * treats this page as the recipe's home for rich results + Image search, and
  * adds a BreadcrumbList (Home › Cookbook › Recipe) for the breadcrumb snippet.
  */
-export function RecipeStructuredData({ recipe }: { recipe: Recipe }) {
-  const url = `${SITE}/recipes/${recipe.slug}`;
+export function RecipeStructuredData({ recipe, locale }: { recipe: Recipe; locale: Locale }) {
+  // The page's own URL and language: the Spanish page describes the
+  // Spanish recipe at /es/recipes/..., not the English one.
+  const url = `${SITE}${localizedHref(`/recipes/${recipe.slug}`, locale)}`;
+  const home = `${SITE}${localizedHref("/", locale)}`;
+  const cookbook = `${SITE}${localizedHref("/cookbook", locale)}`;
+  const crumbs = BREADCRUMB_LABELS[locale];
   const recipeNode = {
     ...recipeToSchema(recipe),
     "@id": url,
     url,
     mainEntityOfPage: url,
+    inLanguage: locale,
   };
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+      { "@type": "ListItem", position: 1, name: crumbs.home, item: home },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Cookbook",
-        item: `${SITE}/#cookbook`,
+        name: crumbs.cookbook,
+        item: cookbook,
       },
       { "@type": "ListItem", position: 3, name: recipe.title, item: url },
     ],

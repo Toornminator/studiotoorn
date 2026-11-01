@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { useT } from "@/i18n/client";
 import type { Dictionary } from "@/i18n/types";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Booking enquiry form. Pure client-side submit to Netlify Forms — the
@@ -116,6 +117,13 @@ async function submitToNetlify(fields: ContactFormFields): Promise<boolean> {
     console.error(
       `[contact] Netlify Forms POST failed: ${res.status} ${res.statusText}`,
     );
+  } else {
+    // Conversion for GA4 / Google Ads. No personal data, only the shape.
+    trackEvent("generate_lead", {
+      form: "contact",
+      event_type: fields.eventType || undefined,
+      guests: Number(fields.guests) || undefined,
+    });
   }
   return res.ok;
 }

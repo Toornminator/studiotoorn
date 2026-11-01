@@ -10,11 +10,10 @@ type Params = { params: Promise<{ locale: string }> };
 // "Privacy · TOORN at table" without double-branding.
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   setRequestLocale((await params).locale);
-  const locale = await getCurrentLocale();
+  const [locale, t] = await Promise.all([getCurrentLocale(), getDictionary()]);
   return {
-    title: "Privacy",
-    description:
-      "What data TOORN at table collects, how it is used, who else sees it, and how to ask for it back. The full GDPR privacy notice for the Costa del Sol private chef service.",
+    title: t.legal.privacyLabel,
+    description: t.seo.privacyDescription,
     alternates: buildAlternates("/privacy", locale),
     robots: { index: true, follow: true },
   };

@@ -9,8 +9,11 @@ import type { MetadataRoute } from "next";
  *    /apple-icon.png all stay crawlable.
  *  - Disallow `/api/*` — server actions and the newsletter confirm
  *    handler are not crawler bait.
- *  - Disallow `/_next/*` — the Next.js asset bundle is not useful
- *    SERP content and serving 200s on those URLs can confuse bots.
+ *  - `/_next/` stays OPEN. It holds the CSS and JS Google needs to
+ *    render the pages and `/_next/image`, the optimiser every <Image>
+ *    on the site is served through; blocking it (as this file once did)
+ *    left Google rendering unstyled pages and unable to index the photos.
+ *  - Disallow `/beheer`, the private review desk.
  *  - Sitemap line at the bottom points crawlers at the structured
  *    URL list so they don't have to discover the routes themselves.
  *
@@ -45,7 +48,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/beheer"],
+        disallow: ["/api/", "/beheer"],
       },
     ],
     sitemap: `${SITE}/sitemap.xml`,

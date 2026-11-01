@@ -4,7 +4,8 @@ import { RecipeArticle } from "@/components/kookboek/RecipeArticle";
 import { RecipeStructuredData } from "@/components/seo/StructuredData";
 import { getRecipe, getRecipeSlugs } from "@/lib/content/recipes";
 import { getCurrentLocale, getDictionary, setRequestLocale } from "@/i18n/server";
-import { buildAlternates, LOCALES } from "@/i18n/config";
+import { buildAlternates, localizedHref, LOCALES } from "@/i18n/config";
+import { seoDescription, seoTitle } from "@/lib/seo";
 
 const SITE_URL = "https://toornattable.com";
 
@@ -23,17 +24,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const recipe = await getRecipe(slug, locale);
   if (!recipe) return {};
 
-  const description = recipe.intro ?? recipe.body?.[0];
+  const description = seoDescription(recipe.intro ?? recipe.body?.[0]);
 
   return {
-    title: recipe.title,
+    title: seoTitle(recipe.title),
     description,
     alternates: buildAlternates(`/recipes/${slug}`, locale),
     openGraph: {
       type: "article",
       title: `${recipe.title} · TOORN at table`,
       description,
-      url: `${SITE_URL}/recipes/${slug}`,
+      url: `${SITE_URL}${localizedHref(`/recipes/${slug}`, locale)}`,
       images: recipe.heroImage ? [recipe.heroImage] : undefined,
     },
   };
@@ -48,7 +49,7 @@ export default async function RecipePage({ params }: Params) {
 
   return (
     <>
-      <RecipeStructuredData recipe={recipe} />
+      <RecipeStructuredData recipe={recipe} locale={locale} />
       <RecipeArticle recipe={recipe} t={t} locale={locale} />
     </>
   );

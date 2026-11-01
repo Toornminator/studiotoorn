@@ -314,6 +314,17 @@ export type Dictionary = {
     /** Soft prompt that fills the trailing grid cell on an odd count. */
     invitation: string;
   };
+  /** Search + social metadata that isn't tied to one section. */
+  seo: {
+    /** Home <title>: the search phrase first, the brand after. */
+    homeTitle: string;
+    /** Home meta description, at most ~155 characters. */
+    homeDescription: string;
+    ogTitle: string;
+    ogDescription: string;
+    privacyDescription: string;
+    termsDescription: string;
+  };
   /** The /reviews guest-book page and its form. */
   reviews: {
     metaTitle: string;
