@@ -17,26 +17,27 @@ export async function About() {
       aria-labelledby="about-heading"
       className="relative w-full"
     >
-      {/* Floating "this is me" polaroid — desktop-only, sits opposite
-          the portrait column as a second visual anchor */}
-      <Polaroid
-        src="/images/polaroids/holyburgersdeurportret.jpeg"
-        alt={{
-          en: "Portrait of Nick in front of the Holyburgers door",
-          es: "Retrato de Nick frente a la puerta de Holyburgers",
-          nl: "Portret van Nick voor de Holyburgers-deur",
-        }}
-        caption={{
-          en: "Out front",
-          es: "A la puerta",
-          nl: "Voor de deur",
-        }}
-        size="md"
-        rotation={-5}
-        className="absolute right-[max(6vw,120px)] top-[6vh] z-10 hidden lg:block"
-      />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-12 md:py-40">
-        <div className="md:col-span-5">
+        <div className="relative md:col-span-5">
+          {/* "This is me" polaroid, tucked over the portrait's top-left
+              corner like a print slipped into the frame. It used to float
+              at the right edge, where it covered the headline. */}
+          <Polaroid
+            src="/images/polaroids/holyburgersdeurportret.jpeg"
+            alt={{
+              en: "Portrait of Nick in front of the Holyburgers door",
+              es: "Retrato de Nick frente a la puerta de Holyburgers",
+              nl: "Portret van Nick voor de Holyburgers-deur",
+            }}
+            caption={{
+              en: "Out front",
+              es: "A la puerta",
+              nl: "Voor de deur",
+            }}
+            size="sm"
+            rotation={-7}
+            className="absolute -left-20 -top-14 z-20 hidden xl:block"
+          />
           <Parallax intensity={60} className="relative mx-auto w-full max-w-[320px] md:max-w-none">
             <Portrait />
             <span className="absolute -bottom-3 -right-3 rotate-[-4deg] bg-ink px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream">

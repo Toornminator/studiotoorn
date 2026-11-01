@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocale, useT } from "@/i18n/client";
@@ -8,6 +8,7 @@ import { localizedHref } from "@/i18n/config";
 import { NowPlayingBadge } from "@/components/now-playing/NowPlaying";
 import type { Recipe, RecipeCategory, Season } from "@/lib/types";
 import { RecipeOverlay } from "./RecipeOverlay";
+import { useRecipeOverlay } from "./useRecipeOverlay";
 
 function formatMinutes(prep?: number, cook?: number) {
   const total = (prep ?? 0) + (cook ?? 0);
@@ -42,30 +43,8 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
   const [activeCategory, setActiveCategory] =
     useState<RecipeCategory | "all">("all");
   const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
-  const [openSlug, setOpenSlug] = useState<string | null>(null);
-
-  // Deep-linking, so a shared recipe link actually opens that recipe.
-  // On first load, open whatever ?recipe=<slug> points at.
-  useEffect(() => {
-    const slug = new URLSearchParams(window.location.search).get("recipe");
-    if (slug && recipes.some((r) => r.slug === slug)) setOpenSlug(slug);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Reflect the open recipe in the URL (without a history entry or scroll),
-  // so the visitor can copy it straight from the address bar too. Skips the
-  // very first run so it never wipes the param the loader just read.
-  const firstSync = useRef(true);
-  useEffect(() => {
-    if (firstSync.current) {
-      firstSync.current = false;
-      return;
-    }
-    const url = new URL(window.location.href);
-    if (openSlug) url.searchParams.set("recipe", openSlug);
-    else url.searchParams.delete("recipe");
-    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
-  }, [openSlug]);
+  // Quick-view overlay + ?recipe= deep link.
+  const { openRecipe, open, close } = useRecipeOverlay(recipes);
 
   const CATEGORIES: { id: RecipeCategory | "all"; label: string }[] = [
     { id: "all", label: t.cookbook.categoryAll },
@@ -107,10 +86,6 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
     });
   }, [recipes, activeCategory, activeSeason]);
 
-  const openRecipe = openSlug
-    ? recipes.find((r) => r.slug === openSlug) ?? null
-    : null;
-
   return (
     <>
       <div className="mt-14 space-y-5 md:mt-20">
@@ -150,7 +125,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
                 // so "open in new tab" works and the href stays crawlable.
                 if (e.metaKey || e.ctrlKey || e.shiftKey) return;
                 e.preventDefault();
-                setOpenSlug(recipe.slug);
+                open(recipe.slug);
               }}
               data-cursor={t.cookbook.cursorOpen}
               className="group relative flex flex-col items-start overflow-hidden border border-ink/12 bg-cream-warm/60 text-left transition-colors hover:bg-cream-warm/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
@@ -227,7 +202,7 @@ export function RecipeIndex({ recipes }: { recipes: Recipe[] }) {
 
       <AnimatePresence>
         {openRecipe && (
-          <RecipeOverlay recipe={openRecipe} onClose={() => setOpenSlug(null)} />
+          <RecipeOverlay recipe={openRecipe} onClose={close} />
         )}
       </AnimatePresence>
     </>

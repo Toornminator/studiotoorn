@@ -49,6 +49,8 @@ export type Dictionary = {
     title: string;
     /** Prefix shown before every chapter number (e.g. "Chap." / "Hfdstk"). */
     chapterPrefix: string;
+    /** Mobile timeline: hint that the chapters swipe sideways. */
+    swipeHint: string;
   };
   marginalia: {
     /** Struck-through preamble on a `warning` margin note. */
@@ -136,6 +138,8 @@ export type Dictionary = {
     shareCopied: string;
     /** Homepage link to the installable cookbook app page. */
     appLink: string;
+    /** Home menu card: link to the full, filterable /cookbook. */
+    menuBrowse: string;
   };
   /** Shared strings for the /private-chef/[area] landing pages. */
   areas: {

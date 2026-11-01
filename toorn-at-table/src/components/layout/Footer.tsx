@@ -11,7 +11,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="footer" className="relative w-full bg-ink text-cream">
+    <footer id="footer" data-nav-dark className="relative w-full bg-ink text-cream">
       <div className="mx-auto w-full max-w-6xl px-5 pb-14 pt-20 md:px-12 md:pb-16 md:pt-28">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-7" id="newsletter">

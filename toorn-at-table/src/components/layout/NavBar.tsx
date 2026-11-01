@@ -43,6 +43,32 @@ export function NavBar() {
   // /#contact#contact that scrolls nowhere.
   const isHome = stripLocalePrefix(pathname) === "/";
 
+  // Dark mode for the bar itself: whenever a section marked
+  // `data-nav-dark` (the evening act, the footer) slides under the bar,
+  // the bar turns night-black with cream type instead of hanging there as
+  // a pale smear over the dark room. The observer's root is shrunk to the
+  // top 8% of the viewport, roughly the bar's own band.
+  // Stored per path, so a dark flag can never leak onto the next page.
+  const [darkOn, setDarkOn] = useState<string | null>(null);
+  const dark = darkOn === pathname;
+  useEffect(() => {
+    const targets = document.querySelectorAll("[data-nav-dark]");
+    if (targets.length === 0) return;
+    const under = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) under.add(e.target);
+          else under.delete(e.target);
+        }
+        setDarkOn(under.size > 0 ? pathname : null);
+      },
+      { rootMargin: "0px 0px -92% 0px" },
+    );
+    targets.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [pathname]);
+
   // The mobile sheet must close when a section is picked, and also when
   // the visitor rotates to landscape / resizes up past md where the
   // inline links are visible instead. Close on Escape too — small
@@ -84,8 +110,11 @@ export function NavBar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full backdrop-blur-md">
-      <div className="relative flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px] lg:px-6 lg:tracking-[0.15em] min-[1400px]:px-10 min-[1400px]:tracking-[0.22em]">
+    <nav
+      data-dark={dark && !open ? "" : undefined}
+      className="group/nav sticky top-0 z-50 w-full backdrop-blur-md"
+    >
+      <div className="relative flex items-center justify-between gap-2 border-b border-ink/10 bg-cream/75 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70 transition-colors duration-500 group-data-[dark]/nav:border-cream/10 group-data-[dark]/nav:bg-night/75 group-data-[dark]/nav:text-cream/70 sm:gap-3 sm:px-10 sm:py-5 sm:tracking-[0.22em] sm:text-[11px] lg:px-6 lg:tracking-[0.15em] min-[1400px]:px-10 min-[1400px]:tracking-[0.22em]">
         <motion.div
           aria-hidden
           className="absolute inset-x-0 bottom-[-1px] h-[2px] origin-left bg-tattoo-red"
@@ -95,7 +124,7 @@ export function NavBar() {
           href={localizedHref(isHome ? "/#hero" : "/", locale)}
           aria-label="TOORN at table · back to top"
           onClick={() => setOpen(false)}
-          className="group flex min-w-0 items-center gap-2.5 lg:shrink-0 font-medium text-ink transition-colors hover:text-tattoo-red sm:gap-3"
+          className="group flex min-w-0 items-center gap-2.5 lg:shrink-0 font-medium text-ink transition-colors hover:text-tattoo-red group-data-[dark]/nav:text-cream sm:gap-3"
         >
           <Image
             src="/images/chef_skull_knife_transparent.png"
@@ -118,7 +147,7 @@ export function NavBar() {
                 className="flex items-center gap-3 min-[1400px]:gap-5"
               >
                 {i > 0 && (
-                  <span aria-hidden className="text-ink/30">
+                  <span aria-hidden className="text-ink/30 group-data-[dark]/nav:text-cream/25">
                     ·
                   </span>
                 )}
@@ -126,7 +155,7 @@ export function NavBar() {
                   href={localizedHref(link.href, locale)}
                   className={`whitespace-nowrap transition-colors ${
                     link.highlight
-                      ? "font-medium text-tattoo-red hover:text-ink"
+                      ? "font-medium text-tattoo-red hover:text-ink group-data-[dark]/nav:hover:text-cream"
                       : "hover:text-tattoo-red"
                   }`}
                 >
@@ -142,7 +171,7 @@ export function NavBar() {
             aria-expanded={open}
             aria-controls="mobile-nav-sheet"
             onClick={() => setOpen((v) => !v)}
-            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:hidden"
+            className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-cream-warm/40 text-ink transition-colors hover:border-ink/30 hover:bg-cream-warm group-data-[dark]/nav:border-cream/20 group-data-[dark]/nav:bg-cream/5 group-data-[dark]/nav:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tattoo-red focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:hidden"
           >
             {/* Two crossing strokes that morph between bars and an X.
                 Pure SVG so it never animates the DOM, only paint. */}

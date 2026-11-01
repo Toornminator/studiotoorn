@@ -48,7 +48,7 @@ export function LanguageSwitcher() {
     <div
       role="group"
       aria-label={dict.languageSwitcher.label}
-      className="inline-flex items-center gap-px overflow-hidden rounded-full border border-ink/20 bg-cream-warm/40 font-mono text-[10px] uppercase tracking-[0.2em]"
+      className="inline-flex items-center gap-px overflow-hidden rounded-full border border-ink/20 bg-cream-warm/40 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-500 group-data-[dark]/nav:border-cream/20 group-data-[dark]/nav:bg-cream/5"
     >
       {LOCALES.map((locale) => {
         const active = locale === current;
@@ -64,8 +64,8 @@ export function LanguageSwitcher() {
             aria-label={`${LOCALE_LONG_LABELS[locale]} (${LOCALE_LABELS[locale]})`}
             className={`px-2.5 py-1 transition-colors duration-150 focus:outline-none focus-visible:shadow-[inset_0_0_0_2px_#c8202a] ${
               active
-                ? "bg-ink text-cream"
-                : "text-ink/65 hover:text-ink"
+                ? "bg-ink text-cream group-data-[dark]/nav:bg-cream group-data-[dark]/nav:text-ink"
+                : "text-ink/65 hover:text-ink group-data-[dark]/nav:text-cream/60 group-data-[dark]/nav:hover:text-cream"
             }`}
           >
             {LOCALE_LABELS[locale]}

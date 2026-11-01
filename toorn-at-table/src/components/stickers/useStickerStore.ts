@@ -84,7 +84,7 @@ export const useStickerStore = create<StickerStore>()(
     {
       // Bump this key after editing sticker-config.ts so stale positions
       // for removed / renamed stickers don't haunt repeat visitors.
-      name: "toorn-stickers-v2",
+      name: "toorn-stickers-v3",
       partialize: (state) => ({
         positions: state.positions,
         topZ: state.topZ,

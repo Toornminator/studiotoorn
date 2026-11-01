@@ -37,12 +37,30 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       frame = requestAnimationFrame(loop);
     };
     frame = requestAnimationFrame(loop);
+    window.__lenis = lenis;
 
     return () => {
       cancelAnimationFrame(frame);
       lenis.destroy();
+      if (window.__lenis === lenis) window.__lenis = undefined;
     };
   }, []);
 
   return <>{children}</>;
+}
+
+declare global {
+  interface Window {
+    /** The live Lenis instance, when smooth scroll is on (desktop). */
+    __lenis?: Lenis;
+  }
+}
+
+/**
+ * Scrolls the page to an absolute Y, through Lenis when it is running so
+ * the move eases like a wheel scroll, natively otherwise.
+ */
+export function scrollPageTo(y: number) {
+  if (window.__lenis) window.__lenis.scrollTo(y, { duration: 1.2 });
+  else window.scrollTo({ top: y, behavior: "smooth" });
 }

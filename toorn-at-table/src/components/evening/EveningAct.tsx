@@ -43,6 +43,7 @@ export function EveningAct({ children }: { children: React.ReactNode }) {
     <section
       ref={ref}
       id="the-evening"
+      data-nav-dark
       aria-labelledby="evening-heading"
       className="relative w-full"
     >

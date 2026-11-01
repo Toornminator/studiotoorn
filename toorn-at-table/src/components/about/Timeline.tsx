@@ -20,6 +20,7 @@ export async function Timeline() {
       eyebrow={t.timeline.eyebrow}
       title={t.timeline.title}
       chapterPrefix={t.timeline.chapterPrefix}
+      swipeHint={t.timeline.swipeHint}
     />
   );
 }

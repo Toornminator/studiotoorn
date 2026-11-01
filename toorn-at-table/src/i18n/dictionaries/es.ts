@@ -50,6 +50,7 @@ export const es: Dictionary = {
     title:
       "Cómo un cocinero holandés acabó en una mesa en Andalucía.",
     chapterPrefix: "Cap.",
+    swipeHint: "Desliza entre los capítulos",
   },
   marginalia: {
     warningPrefix: "ojo ",
@@ -156,6 +157,7 @@ export const es: Dictionary = {
     share: "Compartir",
     shareCopied: "Enlace copiado",
     appLink: "Pon el recetario en tu móvil",
+    menuBrowse: "Explorar con filtros",
   },
   areas: {
     eyebrow: "Chef privado · Costa del Sol",

@@ -50,6 +50,7 @@ export const nl: Dictionary = {
     title:
       "Hoe een Hollandse keukenjongen aan een tafel in Andalusië belandde.",
     chapterPrefix: "Hfdstk",
+    swipeHint: "Veeg door de hoofdstukken",
   },
   marginalia: {
     warningPrefix: "let op ",
@@ -155,6 +156,7 @@ export const nl: Dictionary = {
     share: "Delen",
     shareCopied: "Link gekopieerd",
     appLink: "Zet het kookboek op je telefoon",
+    menuBrowse: "Bladeren met filters",
   },
   areas: {
     eyebrow: "Privéchef · Costa del Sol",

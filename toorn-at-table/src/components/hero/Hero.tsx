@@ -117,17 +117,22 @@ function ScrollCue({
   );
 }
 
+/**
+ * Nick's scrawl under the tagline. In the flow (not absolutely placed) so
+ * it can never land on top of the established line, nudged right and
+ * tilted so it still reads as written on afterwards.
+ */
 function HandwrittenNote({ delay, text }: { delay: number; text: string }) {
   return (
     <motion.div
-      initial={{ opacity: 0, rotate: -4 }}
-      animate={{ opacity: 1, rotate: -6 }}
+      initial={{ opacity: 0, rotate: -2, y: 6 }}
+      animate={{ opacity: 1, rotate: -4, y: 0 }}
       transition={{ delay, duration: 0.6 }}
-      className="pointer-events-none absolute left-1/2 top-[78%] hidden -translate-x-1/2 md:flex md:left-auto md:right-[max(6vw,80px)] md:top-[58%] md:translate-x-0"
+      className="pointer-events-none mt-6 flex md:mt-5 md:translate-x-[12vw]"
     >
       <span
-        className="font-hand text-tattoo-red whitespace-nowrap"
-        style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.1 }}
+        className="font-hand text-tattoo-red md:whitespace-nowrap"
+        style={{ fontSize: "clamp(18px, 2vw, 26px)", lineHeight: 1.1 }}
       >
         {text}
       </span>

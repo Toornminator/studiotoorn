@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Sticker } from "./Sticker";
 import { stickerLayout } from "./sticker-config";
 
@@ -13,63 +14,99 @@ import { stickerLayout } from "./sticker-config";
 // scrolls cleanly under any thumb.
 const MIN_WIDTH = 768;
 
+/** Width of the content column (Tailwind max-w-6xl). */
+const CONTENT = 1152;
+
+type Placed = { id: string; x: number; y: number; width: number; height: number };
+
+/**
+ * Places every sticker beside its section: centred in the chosen gutter,
+ * `top` px below the section's top edge. Re-measured whenever the page
+ * layout changes (fonts, images, the timeline pinning itself), since the
+ * document coordinates of the sections move with it.
+ */
+function measure(): Placed[] {
+  const vw = document.documentElement.clientWidth;
+  const gutter = Math.max(0, (vw - Math.min(vw, CONTENT)) / 2);
+  const placed: Placed[] = [];
+  for (const s of stickerLayout) {
+    if (s.hideBelowVw && vw < s.hideBelowVw) continue;
+    const section = document.getElementById(s.anchor);
+    if (!section) continue;
+    const height = s.height ?? 140;
+    const width = Math.round(height * (s.aspect ?? 1));
+    const centre = Math.max(width / 2 + 8, gutter / 2);
+    const cx = s.side === "left" ? centre : vw - centre;
+    const top = section.getBoundingClientRect().top + window.scrollY;
+    placed.push({
+      id: s.id,
+      x: Math.round(cx - width / 2),
+      y: Math.round(top + s.top - height / 2),
+      width,
+      height,
+    });
+  }
+  return placed;
+}
+
 export function StickerProvider() {
-  const [viewport, setViewport] = useState<{ vw: number; vh: number } | null>(
-    null,
-  );
+  const pathname = usePathname();
+  const [placed, setPlaced] = useState<Placed[] | null>(null);
   const [isTouch, setIsTouch] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const update = () =>
-      setViewport({ vw: window.innerWidth, vh: window.innerHeight });
-    update();
-    window.addEventListener("resize", update);
-
     const coarse = window.matchMedia("(pointer: coarse)");
     const noHover = window.matchMedia("(hover: none)");
     const sync = () => setIsTouch(coarse.matches || noHover.matches);
     sync();
     coarse.addEventListener("change", sync);
     noHover.addEventListener("change", sync);
-
     return () => {
-      window.removeEventListener("resize", update);
       coarse.removeEventListener("change", sync);
       noHover.removeEventListener("change", sync);
     };
   }, []);
 
-  if (!viewport || isTouch === null) return null;
-  if (isTouch) return null;
-  if (viewport.vw < MIN_WIDTH) return null;
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => setPlaced(measure()));
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(document.body);
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, [pathname]);
+
+  if (!placed || isTouch !== false) return null;
+  if (document.documentElement.clientWidth < MIN_WIDTH) return null;
+
+  const meta = new Map(stickerLayout.map((s) => [s.id, s]));
 
   return (
     <div
       aria-hidden
       className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full overflow-hidden"
     >
-      {stickerLayout.map((s) => {
-        if (s.hideBelowVw && viewport.vw < s.hideBelowVw) return null;
-        const height = s.height ?? 140;
-        const width = Math.round(height * (s.aspect ?? 1));
-        const rawX = (viewport.vw * s.posVw) / 100 - width / 2;
-        const rawY = (viewport.vh * s.posVh) / 100 - height / 2;
-        const initialX = Math.max(
-          8,
-          Math.min(viewport.vw - width - 8, rawX),
-        );
-        const initialY = Math.max(8, rawY);
+      {placed.map((p) => {
+        const s = meta.get(p.id)!;
         return (
           <Sticker
-            key={s.id}
-            id={s.id}
+            key={p.id}
+            id={p.id}
             imagePath={s.imagePath}
             alt={s.alt}
-            width={width}
-            height={height}
+            width={p.width}
+            height={p.height}
             initialRotation={s.initialRotation}
-            initialX={initialX}
-            initialY={initialY}
+            initialX={p.x}
+            initialY={p.y}
           />
         );
       })}

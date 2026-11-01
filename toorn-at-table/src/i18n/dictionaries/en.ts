@@ -50,6 +50,7 @@ export const en: Dictionary = {
     title:
       "How a Dutch kitchen kid ended up at a table in Andalucía.",
     chapterPrefix: "Chap.",
+    swipeHint: "Swipe through the chapters",
   },
   marginalia: {
     warningPrefix: "heads up ",
@@ -154,6 +155,7 @@ export const en: Dictionary = {
     share: "Share",
     shareCopied: "Link copied",
     appLink: "Put the cookbook on your phone",
+    menuBrowse: "Browse with filters",
   },
   areas: {
     eyebrow: "Private chef · Costa del Sol",

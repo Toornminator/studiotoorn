@@ -3,7 +3,7 @@ import { Polaroid } from "@/components/polaroid/Polaroid";
 import { Reveal, RevealWords } from "@/components/ui/Reveal";
 import { getCurrentLocale, getDictionary } from "@/i18n/server";
 import { localizedHref } from "@/i18n/config";
-import { RecipeIndex } from "./RecipeIndex";
+import { RecipeMenu } from "./RecipeMenu";
 
 export async function Kookboek() {
   const locale = await getCurrentLocale();
@@ -77,7 +77,7 @@ export async function Kookboek() {
           </Reveal>
         </header>
 
-        <RecipeIndex recipes={recipes} />
+        <RecipeMenu recipes={recipes} />
       </div>
     </section>
   );
